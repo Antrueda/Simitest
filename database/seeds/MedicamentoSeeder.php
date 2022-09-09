@@ -15,128 +15,127 @@ class MedicamentoSeeder extends Seeder
      */
     public function run()
     {
-        // ADMINISTRACION DEL COMPUESTO 
-
-        Compuesto::create(['nombre' => 'ABACAVIR', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ABACAVIR + ZIDOVUDINA + LAMIVUDINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACETAMINOFEN', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACETATO DE ALUMINIO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACETATO DE MEDROXIPROGESTERONA AMPOLLA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACICLOVIR', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACIDO ASCORBICO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACIDO FOLICO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACIDO FUSIDICO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ACIDO VALPROICO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ALBENDAZOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ALPRAZOLAM', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ALUMINIO HIDROXIDO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ALUMINIO HIDROXIDO + MAGNESIO HIDROXIDO CON O SIN SIMETICONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'AMITRIPTILINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'AMOXICILINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'AZITROMICINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'BECLOMETASONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'BENZOATO DE BENCILO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'BETAMETASONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'BISACODILO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'BLOQUEADOR SOLAR', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'BROMURO DE IPRATROPIO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CALAMINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CARBAMAZEPINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CARBONATO DE CALCIO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CARBONATO DE LITIO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CEFALEXINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CETIRIZINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CIPROFLOXACINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CLINDAMICINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CLOBEZAN', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CLONAZEPAM', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CLORFENIRAMINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CLORHIDRATO DE SERTRALINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CLOTRIMAZOL  ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CLOZAPINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'COLISTINA + CORTICOIDE + NEOMICINA OTICO ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'CROTAMITON ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'DICLOFENACO ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'DICLOXACILINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'DIMENHIDRINATO   ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'DOXICICLINA  ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'EMULSION DE SCOTT   ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ERGOTAMINA + CAFEINA  ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ERITROMICINA (ETILSUCCINATO O ESTEARATO)   ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'EMULSION DE SCOTT   ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ERGOTAMINA + CAFEINA  ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ERITROMICINA (ETILSUCCINATO O ESTEARATO)   ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ESCITALOPRAM ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ESOMEPRAZOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'ESPIRONOLACTONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'FENITOINA SODICA    ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'FLUCONAZOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'FLUOXETINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'GAMABENCENO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'GEMFIBROZILO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'GENTAMICINA 0.3% COLIRIO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'GLICERINA CARBONATADA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'GUAYACOLATO DE GLICERILO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'HALOPERIDOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'HIDROCORTISONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'HIDROXICINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'HIDROXIDO DE ALUMINIO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'HIDROXIDO ALUMINIO+MAGNESIO+SIMETICONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'HIERRO (FERROSO) SULFATO ANHIDRO ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'HIOSCINA BUTIL BROMURO ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'IBUPROFENO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'INSULINA ZINC CRISTALINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'INSULINA ZINC N.P.H.', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'IVERMECTINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'KETOCONAZOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'KETOCONAZOL SHAMPOO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'KETOTIFENO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LAMIVUDINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LAMIVUDINA + ZIDOVUDINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LEVETIRACETAM', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LEVONORGESTREL + ETINILESTRADIOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LEVOTIROXINA SODICA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LITIO CARBONATO ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LOPERAMIDA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LORATADINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'LORAZEPAM', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'MANTECA CACAO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'MEBENDAZOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'METFORMINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'METOCARBAMOL ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'METOCLOPRAMIDA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'METOPROLOL ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'METRONIDAZOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'METRONIDAZOL NISTATINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'MULTIVITAMINAS', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'NAPROXENO SODICO ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'NITROFURANTOINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'NITROFURAZONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'NORFLOXACINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'OLANZAPINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'OMEPRAZOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'OXIMETAZOLINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'PAROXETINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'PENICILINA G BENZATINICA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'POLIMIXINA+NEOMICINA+CORTICOIDE COLIRIO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'PREDNISOLONA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'QUETIAPINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'RANITIDINA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'RIFAMPICINA + ISONIAZIDA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'RISPERIDONA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'RITONAVIR', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'SALBUTAMOL ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'SALES DE REHIDRATACION ORAL FORMULA OMS', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'SERTRALINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'SULFADIAZINA DE PLATA', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'SUPLEMENTO NUTRICIONAL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'SUPLEMENTO PROTEICO', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'TIAMINA ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'TINIDAZOL ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'TRAMADOL', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'TRAZODONA CLORHIDRATO ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'TRIMETOPRIM + SULFAMETOXAZOL ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        Compuesto::create(['nombre' => 'VITAMINA A ', 'descripcion' => 'CREACION COMPUESTO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+      
+        Compuesto::create(['nombre' => 'ABACAVIR','estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ABACAVIR + ZIDOVUDINA + LAMIVUDINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACETAMINOFEN', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACETATO DE ALUMINIO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACETATO DE MEDROXIPROGESTERONA AMPOLLA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACICLOVIR', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACIDO ASCORBICO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACIDO FOLICO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACIDO FUSIDICO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ACIDO VALPROICO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ALBENDAZOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ALPRAZOLAM', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ALUMINIO HIDROXIDO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ALUMINIO HIDROXIDO + MAGNESIO HIDROXIDO CON O SIN SIMETICONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'AMITRIPTILINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'AMOXICILINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'AZITROMICINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'BECLOMETASONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'BENZOATO DE BENCILO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'BETAMETASONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'BISACODILO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'BLOQUEADOR SOLAR', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'BROMURO DE IPRATROPIO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CALAMINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CARBAMAZEPINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CARBONATO DE CALCIO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CARBONATO DE LITIO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CEFALEXINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CETIRIZINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CIPROFLOXACINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CLINDAMICINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CLOBEZAN', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CLONAZEPAM', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CLORFENIRAMINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CLORHIDRATO DE SERTRALINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CLOTRIMAZOL  ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CLOZAPINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'COLISTINA + CORTICOIDE + NEOMICINA OTICO ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'CROTAMITON ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'DICLOFENACO ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'DICLOXACILINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'DIMENHIDRINATO   ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'DOXICICLINA  ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'EMULSION DE SCOTT   ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ERGOTAMINA + CAFEINA  ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ERITROMICINA (ETILSUCCINATO O ESTEARATO)   ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'EMULSION DE SCOTT   ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ERGOTAMINA + CAFEINA  ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ERITROMICINA (ETILSUCCINATO O ESTEARATO)   ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ESCITALOPRAM ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ESOMEPRAZOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'ESPIRONOLACTONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'FENITOINA SODICA    ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'FLUCONAZOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'FLUOXETINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'GAMABENCENO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'GEMFIBROZILO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'GENTAMICINA 0.3% COLIRIO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'GLICERINA CARBONATADA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'GUAYACOLATO DE GLICERILO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'HALOPERIDOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'HIDROCORTISONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'HIDROXICINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'HIDROXIDO DE ALUMINIO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'HIDROXIDO ALUMINIO+MAGNESIO+SIMETICONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'HIERRO (FERROSO) SULFATO ANHIDRO ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'HIOSCINA BUTIL BROMURO ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'IBUPROFENO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'INSULINA ZINC CRISTALINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'INSULINA ZINC N.P.H.', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'IVERMECTINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'KETOCONAZOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'KETOCONAZOL SHAMPOO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'KETOTIFENO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LAMIVUDINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LAMIVUDINA + ZIDOVUDINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LEVETIRACETAM', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LEVONORGESTREL + ETINILESTRADIOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LEVOTIROXINA SODICA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LITIO CARBONATO ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LOPERAMIDA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LORATADINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'LORAZEPAM', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'MANTECA CACAO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'MEBENDAZOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'METFORMINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'METOCARBAMOL ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'METOCLOPRAMIDA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'METOPROLOL ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'METRONIDAZOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'METRONIDAZOL NISTATINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'MULTIVITAMINAS', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'NAPROXENO SODICO ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'NITROFURANTOINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'NITROFURAZONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'NORFLOXACINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'OLANZAPINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'OMEPRAZOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'OXIMETAZOLINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'PAROXETINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'PENICILINA G BENZATINICA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'POLIMIXINA+NEOMICINA+CORTICOIDE COLIRIO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'PREDNISOLONA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'QUETIAPINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'RANITIDINA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'RIFAMPICINA + ISONIAZIDA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'RISPERIDONA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'RITONAVIR', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'SALBUTAMOL ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'SALES DE REHIDRATACION ORAL FORMULA OMS', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'SERTRALINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'SULFADIAZINA DE PLATA', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'SUPLEMENTO NUTRICIONAL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'SUPLEMENTO PROTEICO', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'TIAMINA ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'TINIDAZOL ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'TRAMADOL', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'TRAZODONA CLORHIDRATO ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'TRIMETOPRIM + SULFAMETOXAZOL ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+        Compuesto::create(['nombre' => 'VITAMINA A ', 'estusuario_id' => 71, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
 
 
 
@@ -347,7 +346,7 @@ class MedicamentoSeeder extends Seeder
         AsignaMedicamentos::create(['compuesto_id' => 63,'presentacion_id' => 22,'concentracion_id' => 57,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 63,'presentacion_id' => 23,'concentracion_id' => 58,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 64,'presentacion_id' => 24,'concentracion_id' => 47,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
-        AsignaMedicamentos::create(['compuesto_id' => ,'presentacion_id' => 12,'concentracion_id' => 18,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
+        AsignaMedicamentos::create(['compuesto_id' => 64,'presentacion_id' => 12,'concentracion_id' => 18,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 65,'presentacion_id' => 1,'concentracion_id' => 41,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 66,'presentacion_id' => 1,'concentracion_id' => 31,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 66,'presentacion_id' => 4,'concentracion_id' => 59,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
@@ -368,7 +367,7 @@ class MedicamentoSeeder extends Seeder
         AsignaMedicamentos::create(['compuesto_id' => 81,'presentacion_id' => 5,'concentracion_id' => 1,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 82,'presentacion_id' => 5,'concentracion_id' => 35,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 83,'presentacion_id' => 5,'concentracion_id' => 31,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
-        AsignaMedicamentos::create(['compuesto_id' => ,'presentacion_id' => 2,'concentracion_id' => 69,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
+        AsignaMedicamentos::create(['compuesto_id' => 83,'presentacion_id' => 2,'concentracion_id' => 69,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 84,'presentacion_id' => 5,'concentracion_id' => 65,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 85,'presentacion_id' => 27,'concentracion_id' => 70,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 86,'presentacion_id' => 5,'concentracion_id' => 41,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
@@ -411,8 +410,6 @@ class MedicamentoSeeder extends Seeder
         AsignaMedicamentos::create(['compuesto_id' => 119,'presentacion_id' => 5,'concentracion_id' => 66,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 120,'presentacion_id' => 1,'concentracion_id' => 80,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
         AsignaMedicamentos::create(['compuesto_id' => 121,'presentacion_id' => 7,'concentracion_id' => 81,'estusuario_id' => 71,'sis_esta_id' => 1,'user_crea_id' => 1, 'user_edita_id' => 1]);//
-
-
 
     }
 }

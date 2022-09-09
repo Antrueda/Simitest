@@ -20,7 +20,7 @@ class FiSustanciaConsumida extends Model
         'sis_esta_id'
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1];
+    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1];
 
     public function user_crea()
     {
@@ -31,7 +31,23 @@ class FiSustanciaConsumida extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
-    
+
+    public static function transaccion($dataxxxx,  $objetoxx)
+    {
+        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if ($objetoxx != '') {
+                $objetoxx->update($dataxxxx);
+            } else {
+                $dataxxxx['fi_consumo_spa_id'] = FiConsumoSpa::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->first()->id;
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = FiSustanciaConsumida::create($dataxxxx);
+            }
+            return $objetoxx;
+        }, 5);
+        return $usuariox;
+    }
+
     public function fi_consumo_spa()
     {
         return $this->belongsTo(FiConsumoSpa::class);
@@ -40,5 +56,10 @@ class FiSustanciaConsumida extends Model
     public function i_prm_sustancia()
     {
         return $this->belongsTo(Parametro::class, 'i_prm_sustancia_id');
+    }
+
+    public function i_prm_consume()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_consume_id');
     }
 }

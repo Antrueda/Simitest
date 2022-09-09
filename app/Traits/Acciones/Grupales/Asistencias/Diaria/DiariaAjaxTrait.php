@@ -46,13 +46,13 @@ trait DiariaAjaxTrait
     public function setDependen($dataxxxx)
     {
         $respuest = [
-            'emptyxxx' => '#sis_departam_id,#sis_municipio_id,#sis_localidad_id,#sis_upz_id,#sis_barrio_id',
+            'emptyxxx' => '#sis_departam_id,#sis_municipio_id,#sis_localidad_id,#sis_localupz_id,#sis_upzbarri_id',
             'combosxx' => [
                 ['comboxxx' => [], 'selectid' => 'sis_departam_id'],
                 ['comboxxx' => [], 'selectid' => 'sis_municipio_id'],
                 ['comboxxx' => [], 'selectid' => 'sis_localidad_id'],
-                ['comboxxx' => [], 'selectid' => 'sis_upz_id'],
-                ['comboxxx' => [], 'selectid' => 'sis_barrio_id']
+                ['comboxxx' => [], 'selectid' => 'sis_localupz_id'],
+                ['comboxxx' => [], 'selectid' => 'sis_upzbarri_id']
             ]
         ];
         $dependen = SisDepen::find($dataxxxx['dependen']);
@@ -130,11 +130,11 @@ trait DiariaAjaxTrait
     public function getUpz(Request $request)
     {
         $respuest = [
-            'emptyxxx' => '#sis_upz_id',
+            'emptyxxx' => '#sis_localupz_id',
             'combosxx' => [
                 [
                     'comboxxx' => $this->getSisLocalupzCT(['ajaxxxxx' => true, 'padrexxx' => $request->padrexxx])['comboxxx'],
-                    'selectid' => 'sis_upz_id'
+                    'selectid' => 'sis_localupz_id'
                 ],
             ]
         ];
@@ -144,11 +144,11 @@ trait DiariaAjaxTrait
     public function getBarrio(Request $request)
     {
         $respuest = [
-            'emptyxxx' => '#sis_barrio_id',
+            'emptyxxx' => '#sis_upzbarri_id',
             'combosxx' => [
                 [
                     'comboxxx' => $this->getSisUpzBarriCT(['ajaxxxxx' => true, 'padrexxx' => $request->padrexxx])['comboxxx'],
-                    'selectid' => 'sis_barrio_id'
+                    'selectid' => 'sis_upzbarri_id'
                 ],
             ]
         ];

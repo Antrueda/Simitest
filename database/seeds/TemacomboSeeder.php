@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 class TemacomboSeeder extends Seeder
 {
   public function run()
-  { 
+  {
     Temacombo::create(['nombre' => 'ORDEN SUCESORAL', 'tema_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 1
     Temacombo::create(['nombre' => 'DOCUMENTO SOPORTE POLIZA', 'tema_id' => '2', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 2
     Temacombo::create(['nombre' => 'TIPO DE DOCUMENTO', 'tema_id' => '3', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:53.000000Z', 'updated_at' => '2021-04-27T16:59:53.000000Z',]); // 3
@@ -461,7 +461,14 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'JUZGADO ACJ', 'tema_id' => '406', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 451
     Temacombo::create(['nombre' => 'ESTADO ACJ', 'tema_id' => '406', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 452
 
-    
+    Temacombo::create(['nombre' => 'DAST PATRON DE CONSUMO', 'tema_id' => '409', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 453
+    Temacombo::create(['nombre' => 'DAST TIPO DE SEGUIMIENTO', 'tema_id' => '409', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 454
+    Temacombo::create(['nombre' => 'DAST DILIGENCIAMIENTO DEL CUESTIONARIO', 'tema_id' => '409', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 455
+
+    Temacombo::create(['nombre' => 'MOTIVO DE ATENCION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 456
+    Temacombo::create(['nombre' => 'TIPO DE ATENCION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 457
+    Temacombo::create(['nombre' => 'ESPECIALIZACION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 458
+    Temacombo::create(['nombre' => 'TAMIZAJE', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 459
+
   }
 }
-
