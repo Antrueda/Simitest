@@ -11,7 +11,7 @@
 |
 */
 
-
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Artisan;
@@ -22,7 +22,19 @@ Artisan::call('view:cache');
 Artisan::call('route:cache');
 return 'exito';
 });
+route::get('/pruebasjose',function(){
+$asddiari=AsdDiaria::join('sis_depens','asd_diarias.sis_depen_id','=','sis_depens.id')
 
+->join('sis_upzbarris','sis_depens.sis_upzbarri_id','=','sis_upzbarris.id')
+->where('prm_lugactiv_id','2762')
+->groupBy('asd_diarias.sis_depen_id','sis_upzbarris.sis_localupz_id','sis_depens.sis_upzbarri_id')
+->get(['asd_diarias.sis_depen_id','sis_depens.sis_upzbarri_id','sis_upzbarris.sis_localupz_id'])
+;
+foreach ($asddiari as $key => $value) {
+     AsdDiaria::where('sis_depen_id',$value->sis_depen_id)->update(['sis_localupz_id'=>$value->sis_localupz_id,'sis_upzbarri_id'=>$value->sis_upzbarri_id]);
+    // echo $value->sis_depen_id.' '.$value->sis_localupz_id.' '.$value->sis_upzbarri_id.'<br>';
+}
+});
 
 route::get('/clear-cache',function(){
     Artisan::call('config:clear');
