@@ -59,6 +59,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
         
@@ -76,6 +78,11 @@ class VEntrevistaController extends Controller
                     return redirect()
                     ->route('ventrevista', [$padrexxx->id])
                     ->with('info', 'No se puede realizar el formulario porque no se han diligenciado los formularios de perfil vocacional Cuestionario de Gustos e Intereses');
+        }
+        if($padrexxx->fi_datos_basico->nnaj_nacimi->Edad <18){
+            return redirect()
+            ->route('ventrevista', [$padrexxx->id])
+            ->with('info', 'No se puede realizar el formulario porque es menor de edad');
         }
         $hoyxxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
         
@@ -103,6 +110,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$padrexxx->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
         return $this->view(
@@ -132,6 +140,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->contarHabilidades($modeloxx->nnaj);
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA ENTREVISTA SEMIESTRUCTURADA', 'btn btn-sm btn-primary']);
@@ -149,6 +158,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
@@ -190,6 +200,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
@@ -208,6 +219,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -221,6 +233,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;

@@ -33,9 +33,7 @@ class CsdCompfamiEditarRequest extends FormRequest
             'prm_vin_pasado_id.required' => 'Seleccione pasado',
             'prm_regimen_id.required' => 'Seleccione régimen',
             'prm_cualeps_id.required' => 'Seleccione la eps',
-            'sisben.required' => 'Ingree puntaje sisben',
-            'sisben.in' => 'Ingrese el formato correspondiente del sisben',
-            'prm_sisben_id.required' => 'Seleccione sisben',
+
             'prm_discapacidad_id.required' => 'Seleccione la discapacidad',
             'prm_cual_id.required' => 'Seleccione cual',
             'prm_peso_id.required' => 'Seleccione el peso',
@@ -87,11 +85,7 @@ class CsdCompfamiEditarRequest extends FormRequest
             'prm_vin_pasado_id' => 'required|exists:parametros,id',
             'prm_regimen_id'    => 'required|exists:parametros,id',
             'prm_cualeps_id'    => 'required_if:prm_regimen_id,227',
-            'sisben'            => 'required_if:prm_sisben_id,null|in:A1,A2,A3,A4,A5,B1,B2,B3,B4,B5,B6,B7,
-            C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,
-            D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,D21',
-        
-            'prm_sisben_id'     => 'required|exists:parametros,id',
+
             'prm_discapacidad_id' => 'required|exists:parametros,id',
             'prm_cual_id'       => 'required_if:prm_discapacidad_id,227',
             'prm_peso_id'       => 'required|exists:parametros,id',
@@ -136,7 +130,30 @@ class CsdCompfamiEditarRequest extends FormRequest
      */
     public function rules()
     {
-        $this->_reglasx['s_documento'][4] = new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getActualiza', 'registro' => $this->segments()[3]]);
+        $this->validar();
+        $this->_reglasx['s_documento'][4]=new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getNuevo',]);
         return $this->_reglasx;
+
+        
+    }
+    public function validar()
+    {
+        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        $sisben=['A1','A2','A3','A4','A5','B1','B2','B3','B4','B5','B6','B7',
+        'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12','C13','C14','C15','C16','C17','C18',
+        'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13','D14','D15','D16','D17','D18','D19','D20','D21'];
+
+    
+
+        if ($dataxxxx['sisben'] == '') {
+            $this->_mensaje['prm_sisben_id.required'] = 'Seleccione porqué no tiene Sisben';
+            $this->_reglasx['prm_sisben_id'] = 'required';
+        }else{
+            $this->_mensaje['sisben.in'] = 'No cumple con el formato del sisben';
+            $this->_reglasx['sisben'] = 'required|in:A1,A2,A3,A4,A5,B1,B2,B3,B4,B5,B6,B7,
+            C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,
+            D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,D21';
+        }
+
     }
 }
