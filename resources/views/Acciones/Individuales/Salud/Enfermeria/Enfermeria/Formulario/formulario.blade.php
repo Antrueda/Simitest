@@ -83,7 +83,15 @@ table, th, td {
             @endif
         </div>
 
-      
+        <div class="form-group col-md-6">
+            {!! Form::label('prm_tipoaten_id', 'Especialización:', ['class' => 'control-label']) !!}
+            {!! Form::select('prm_tipoaten_id', $todoxxxx['especial'], null, ['class' => 'form-control form-control-sm select2']) !!}
+            @if ($errors->has('prm_tipoaten_id'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_tipoaten_id') }}
+                </div>
+            @endif
+        </div>
     
     </div>
     </div>

@@ -30,6 +30,7 @@ class Enfermeria extends Model
         'sintoma',
         'prm_motivoat_id',
         'prm_tipoaten_id',
+        'prm_especial_id',
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
