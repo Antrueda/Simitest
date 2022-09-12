@@ -12,6 +12,40 @@ use Illuminate\Http\Request;
 trait EnfermeriaAjaxTrait
 {
 
+
+    public function setAsignarEnfermeria(Asissema $modeloxx,Request $request){
+
+
+
+
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function getDeparMunicipio($respuest, $dependen, $ajaxxxxx)
     {
         
