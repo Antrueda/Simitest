@@ -58,20 +58,9 @@ class PermisosVodontologiaSeeder extends Seeder
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
-        /** Módulo administraccion perfil vocacional */
-        $permisox = 'casomodulo';
-        $compleme = 'Módulo administraccion Caso Juridico';
-        Permission::create([
-            'name' => $permisox . '-modulo',
-            'sis_pestania_id' => 1,
-            'descripcion' => $moduloxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-       
-        //permisos administraccion Tema caso Juridico
-        $permisox = 'temacaso';
-        $compleme = 'Tema Caso Juridico';
+           //permisos administraccion Tema caso Juridico
+        $permisox = 'vodonanteces';
+        $compleme = 'odontologia antecedentes';
         Permission::create([
             'name' => $permisox . '-leer',
             'sis_pestania_id' => 1,
@@ -108,8 +97,8 @@ class PermisosVodontologiaSeeder extends Seeder
         ]);
 
         //permisos administraccion Seguimiento caso Juridico
-        $permisox = 'seguicaso';
-        $compleme = 'Seguimiento Caso Juridico';
+        $permisox = 'vodonexamens';
+        $compleme = 'examenes odontologia';
         Permission::create([
             'name' => $permisox . '-leer',
             'sis_pestania_id' => 1,
@@ -146,8 +135,8 @@ class PermisosVodontologiaSeeder extends Seeder
         ]);
         
         //permisos administraccion asignacion caso Juridico
-        $permisox = 'asignacaso';
-        $compleme = 'asignacion Caso Juridico';
+        $permisox = 'vodonremites';
+        $compleme = 'Remite odontologia';
         Permission::create([
             'name' => $permisox . '-leer',
             'sis_pestania_id' => 1,
@@ -183,81 +172,6 @@ class PermisosVodontologiaSeeder extends Seeder
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
-        //permisos administraccion actividades perfil vocacional
-        $permisox = 'acasojur';
-        $compleme = 'Formulario Atencion Caso Juridico';
-        Permission::create([
-            'name' => $permisox . '-leer',
-            'sis_pestania_id' => 1,
-            'descripcion' => $leerxxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-crear',
-            'sis_pestania_id' => 1,
-            'descripcion' => $crearxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-editar',
-            'sis_pestania_id' => 1,
-            'descripcion' => $editarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-borrar',
-            'sis_pestania_id' => 1,
-            'descripcion' => $borrarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-activarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $activarx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-           //permisos administraccion actividades perfil vocacional
-        $permisox = 'seguimjur';
-        $compleme = 'Formulario Seguimietno Caso Juridico';
-        Permission::create([
-            'name' => $permisox . '-leer',
-            'sis_pestania_id' => 1,
-            'descripcion' => $leerxxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-crear',
-            'sis_pestania_id' => 1,
-            'descripcion' => $crearxxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-editar',
-            'sis_pestania_id' => 1,
-            'descripcion' => $editarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-borrar',
-            'sis_pestania_id' => 1,
-            'descripcion' => $borrarxx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-
-        Permission::create([
-            'name' => $permisox . '-activarx',
-            'sis_pestania_id' => 1,
-            'descripcion' => $activarx . $compleme,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-        ]);
-       
+     
     }
 }

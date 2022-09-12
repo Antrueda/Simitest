@@ -276,8 +276,15 @@ function soloNumeros(e) {
         document.getElementById("bogota_id").hidden=true;
          }
       
-        
-        } 
+        }  
+    function doc2(valor){
+        if(valor == 805){
+        document.getElementById("prm_parensoli_id").hidden=false;
+        }else{
+        document.getElementById("prm_parensoli_id").hidden=true;
+         }
+    } 
+       
   
         
 
@@ -285,6 +292,7 @@ function soloNumeros(e) {
     function carga() {
         doc(document.getElementById('i_prm_ha_estado_pard_id').value);
         doc1(document.getElementById('centro_id').value);
+        doc2(document.getElementById('prm_solicita_id').value);
         
     }
     window.onload=carga;

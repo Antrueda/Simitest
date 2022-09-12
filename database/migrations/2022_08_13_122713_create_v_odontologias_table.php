@@ -23,8 +23,8 @@ class CreateVOdontologiasTable extends Migration
             $table->foreign('consulta_id')->references('id')->on('parametros');
             $table->integer('valora_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('valora_id')->references('id')->on('parametros');
-            $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
+            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table = CamposMagicos::magicos($table);
         });
     }
