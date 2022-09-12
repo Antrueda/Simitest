@@ -17,6 +17,7 @@ require_once('Individuales\Educacion\ValoIdentHabOcupacional\web_vihocupacional.
 require_once('Individuales/Educacion/PerfilOcupacional/Administracion/web_modulo.php');
 require_once('Individuales\Educacion\VEntrevista\web_ventrevista.php');
 require_once('Individuales\SocioLegal\web_acasojuridico.php');
+require_once('Individuales\VOdontologia\web_vodontologia.php');
 
 Route::group(['prefix' => 'ai'], function () {
   
