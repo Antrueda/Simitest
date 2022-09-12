@@ -23,11 +23,11 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class PerfilOcupacionalController extends Controller
 {
-    use ListadosTrait;
+    use ListadosTrait; 
     use perfilOcupacionalDataTablesTrait;
     use perfilOcupacionalPestaniasTrait;
     use  ManageTimeTrait;
-    use CombosTrait; //
+   // use CombosTrait; //
     // use perfilOcupacionalParametrizarTrait;
 
     public function __construct()
@@ -192,7 +192,6 @@ class PerfilOcupacionalController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
-
     public function activar(SisNnaj $padrexxx, FpoPerfilOcupacional $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
@@ -264,41 +263,32 @@ class PerfilOcupacionalController extends Controller
          $this->opciones['fechedit'] = '';
          $this->opciones['usercrea'] = '';
          $this->opciones['useredit'] = '';
-
-
-
-
-        $this->opciones['usuarios'] = User::getUsuario(false, false);
+         $this->opciones['usuarios'] = User::getUsuario(false, false);
 
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '-leer', $dataxxxx['padrexxx']->sis_nnaj_id],
             'formhref' => 2, 'tituloxx' => 'VOLVER A LISTA DE PERFIL OCUPACIONAL', 'clasexxx' => 'btn btn-sm btn-primary'
         ];
 
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
+         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
         ];
 
-        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
 
-       
-        //dd( $dependid =$dataxxxx['padrexxx']->sis_depen_id);
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['sis_depens'] = [$upinnajx->id => $upinnajx->nombre];
-        $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::comboCargo(true, false);
-        $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-
-        $this->opciones['vercrear'] = false;
+         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+         $this->opciones['usuarioz'] = User::comboCargo(true, false);
+         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
+         $this->opciones['vercrear'] = false;
         $parametr = 0;
 
         if ($dataxxxx['modeloxx'] != '') {
-            $dependid =$dataxxxx['modeloxx']->sis_depen_id;
 
+            $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+            $dependid =$dataxxxx['modeloxx']->sis_depen_id;
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
@@ -337,18 +327,7 @@ class PerfilOcupacionalController extends Controller
             }
 
         }
-
-    
-      
-        //$this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $upinnajx['padrexxx']->sis_depen_id, 'dependid' => $dependid]);
-
-
         $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
-
-
-
-
-
         if ($dataxxxx['accionxx'][1] == 'destroy') {
             $this->opciones['ruarchjs'] = [
                 ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.verjs'],
@@ -380,9 +359,6 @@ class PerfilOcupacionalController extends Controller
 
 
         $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
-        $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
 
         $this->opciones['vercrear'] = true;
@@ -392,8 +368,6 @@ class PerfilOcupacionalController extends Controller
         // dd($this->opciones['componentes']['respuestacomponentes']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
-
 
     public function getUpisNnajUsuarioCT($dataxxxx)
     {
@@ -411,7 +385,7 @@ class PerfilOcupacionalController extends Controller
         // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where(function ($queryxxx) use ($upisnnaj) {
-              //  $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
+                $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
                 $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
                 $queryxxx->where('sis_depen_user.sis_esta_id', 1);
             })
@@ -441,6 +415,37 @@ class PerfilOcupacionalController extends Controller
         return $comboxxx;
     }
 
+    public function getDefaultCT($dataxxxx)
+    {
+        if (!isset($dataxxxx['orderxxx'])) {
+            $dataxxxx['orderxxx'] = 'ASC';
+        }
+        if (!isset($dataxxxx['cabecera'])) {
+            $dataxxxx['cabecera'] = true;
+        }
+        if (!isset($dataxxxx['ajaxxxxx'])) {
+            $dataxxxx['ajaxxxxx'] = false;
+        }
+        if (!isset($dataxxxx['selected'])) {
+            $dataxxxx['selected'] = [];
+        }
+        return $dataxxxx;
+    }
+
+
+    public function getCabecera($dataxxxx)
+    {
+
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        return $comboxxx;
+    }
 
 
   
