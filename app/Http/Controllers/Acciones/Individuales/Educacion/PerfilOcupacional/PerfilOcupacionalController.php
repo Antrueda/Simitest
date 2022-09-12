@@ -23,11 +23,11 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class PerfilOcupacionalController extends Controller
 {
-    use ListadosTrait;
+    use ListadosTrait; 
     use perfilOcupacionalDataTablesTrait;
     use perfilOcupacionalPestaniasTrait;
     use  ManageTimeTrait;
-    use CombosTrait; //
+   // use CombosTrait; //
     // use perfilOcupacionalParametrizarTrait;
 
     public function __construct()
@@ -287,9 +287,9 @@ class PerfilOcupacionalController extends Controller
        
         //dd( $dependid =$dataxxxx['padrexxx']->sis_depen_id);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['sis_depens'] = [$upinnajx->id => $upinnajx->nombre];
-        $this->opciones['dependez'] = SisDepen::combo(true, false);
+      //  $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
+       // $this->opciones['sis_depens'] = [$upinnajx->id => $upinnajx->nombre];
+       // $this->opciones['dependez'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
 
@@ -337,18 +337,7 @@ class PerfilOcupacionalController extends Controller
             }
 
         }
-
-    
-      
-        //$this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $upinnajx['padrexxx']->sis_depen_id, 'dependid' => $dependid]);
-
-
         $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
-
-
-
-
-
         if ($dataxxxx['accionxx'][1] == 'destroy') {
             $this->opciones['ruarchjs'] = [
                 ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.verjs'],
@@ -380,9 +369,9 @@ class PerfilOcupacionalController extends Controller
 
 
         $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
-        $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::comboCargo(true, false);
+     //   $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
+       // $this->opciones['dependez'] = SisDepen::combo(true, false);
+       // $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
 
         $this->opciones['vercrear'] = true;
@@ -411,7 +400,7 @@ class PerfilOcupacionalController extends Controller
         // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where(function ($queryxxx) use ($upisnnaj) {
-              //  $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
+               // $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
                 $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
                 $queryxxx->where('sis_depen_user.sis_esta_id', 1);
             })
@@ -441,6 +430,37 @@ class PerfilOcupacionalController extends Controller
         return $comboxxx;
     }
 
+    public function getDefaultCT($dataxxxx)
+    {
+        if (!isset($dataxxxx['orderxxx'])) {
+            $dataxxxx['orderxxx'] = 'ASC';
+        }
+        if (!isset($dataxxxx['cabecera'])) {
+            $dataxxxx['cabecera'] = true;
+        }
+        if (!isset($dataxxxx['ajaxxxxx'])) {
+            $dataxxxx['ajaxxxxx'] = false;
+        }
+        if (!isset($dataxxxx['selected'])) {
+            $dataxxxx['selected'] = [];
+        }
+        return $dataxxxx;
+    }
+
+
+    public function getCabecera($dataxxxx)
+    {
+
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        return $comboxxx;
+    }
 
 
   
