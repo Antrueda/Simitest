@@ -17,7 +17,7 @@ class CreateDasts extends Migration
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('prm_requiere_vespa')->unsigned()->comment('PARAMETRO REQUIERE APLICACION DEL VESPA');
-            $table->date('fecha_vespa')->comment('FECHA APLICACION VESPA');
+            $table->date('fecha_vespa')->nullable()->comment('FECHA APLICACION VESPA');
             $table->text('accion_desarrolla')->comment('TIPO DE ACCION A DESARROLLAR');
             $table->integer('prm_patron_con')->unsigned()->comment('PARAMETRO PATRON DE CONSUMO');
             $table->text('obs_patron_con')->comment('OBSERVACION PATRON DE CONSUMO');

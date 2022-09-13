@@ -7,12 +7,26 @@
     }
 </style>
 <div class="card p-1">
+    <div>
+        <center><strong><p class="col-form-label-lg">CONSUMO SPA</p></strong></center>
+    </div>
+    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+
     <div class="card-header">
         <h3 class="card-title">
             <strong>TAMIZAJE INICIAL</strong>
         </h3>
     </div><br>
     <div class="form-row col-md-12">
+        <div class="form-group col-md-6">
+            {!! Form::label('sis_depen_id', 'UPI/AREA/CONTEXTO:', ['class' => 'control-label text-uppercase']) !!}
+            {!! Form::select('sis_depen_id',$todoxxxx['sis_depens'], null, ['name' => 'sis_depen_id', 'class' => 'form-control form-control-sm select2','required']) !!}
+            @if($errors->has('sis_depen_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('sis_depen_id') }}
+            </div>
+            @endif
+        </div>
         <div class="form-group col-md-6">
             {!! Form::label('fecha', 'Fecha de diligenciamiento:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">
@@ -27,22 +41,13 @@
             </div>
             @endif
         </div>
-        <div class="form-group col-md-6">
-            {!! Form::label('sis_depen_id', 'UPI/AREA/CONTEXTO:', ['class' => 'control-label text-uppercase']) !!}
-            {!! Form::select('sis_depen_id',$todoxxxx['sis_depens'], null, ['name' => 'sis_depen_id', 'class' => 'form-control form-control-sm select2','required']) !!}
-            @if($errors->has('sis_depen_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('sis_depen_id') }}
-            </div>
-            @endif
-        </div>
     </div>
     <div class="p-2">
         <div>
-            <center><strong><p class="col-form-label-sm">CUESTIONARIO</p></strong></center>
+            <center><strong><p class="col-form-label-lg">CUESTIONARIO</p></strong></center>
         </div>
         <div>
-            <strong><p class="col-form-label-sm">ESTAS PREGUNTAS ESTÁN REFERIDAS A LOS ÚLTIMOS DOCE MESES</p></strong>
+            <strong><p class="col-form-label">ESTAS PREGUNTAS ESTÁN REFERIDAS A LOS ÚLTIMOS DOCE MESES</p></strong>
         </div>
         <div>
             @foreach ($todoxxxx['preguntas'] as $pregunta)
@@ -87,7 +92,7 @@
             </div>
             @endif
         </div>
-        <div class="form-group col-md-6">
+        <div class="d-none form-group col-md-6" id="fecha_vespa_field">
             {!! Form::label('fecha_vespa', 'Fecha de aplicación del VESPA:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">
                 {!! Form::text('fecha_vespa', null, ['class' => 'form-control form-control-sm ','placeholder'=>'Seleccionar fecha']) !!}

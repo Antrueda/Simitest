@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,11 @@ class DastSeguimiento extends Model
         'user_edita_id',
         'sis_esta_id',
     ];
+
+    public function getFechaAttribute($value)
+    {
+        return Carbon::parse($value)->format('d-m-Y');
+    }
 
     public function dast()
     {

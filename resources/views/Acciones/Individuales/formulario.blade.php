@@ -69,7 +69,7 @@
                         @endif
                         @if($nnaj->nnaj_nacimi->Edad<18) <a class="dropdown-item{{ ($accion == 'RetornoSalida') ?' active' : '' }}" href="{{ route('airetornosalida', $nnaj->sis_nnaj_id) }}">Retorno de salidas y permisos con acudiente y/o representante legal</a>
                             @endif
-                    <a class="dropdown-item{{ ($accion == 'cuesdast') ?' active' : '' }}" href="{{ route('cuesdast', $nnaj->sis_nnaj_id) }}">Cuestionario dast</a>
+                    <a class="dropdown-item{{ ($accion == 'cuesdast') ?' active' : '' }}" href="{{ route('cuesdast', $nnaj->sis_nnaj_id) }}">Cuestionario DAST (TEST DAST-10)</a>
 
                 </div>
             </li>

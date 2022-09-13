@@ -4,9 +4,10 @@ namespace App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\Cuestiona
 
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
+use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
-use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastPregunta;
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastPuntaje;
+use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastPregunta;
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastSeguimiento;
 
 /**
@@ -14,6 +15,57 @@ use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastSeguimiento
  */
 trait DastListadosTrait
 {
+    public  function getDtDast($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'interpretacion',
+                function ($queryxxx) {
+                    return $queryxxx->resultado . ' - ' . $queryxxx->grado_problema;
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado', 'interpretacion'])
+            ->toJson();
+    }
+
     public  function getDt($queryxxx, $requestx)
     {
         return datatables()
@@ -41,7 +93,15 @@ trait DastListadosTrait
                 }
 
             )
+
             ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+    public  function getDtConsumo($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
             ->toJson();
     }
 
@@ -61,13 +121,39 @@ trait DastListadosTrait
                 'dasts.sis_esta_id',
                 'sis_depens.nombre',
                 'users.name',
-                'sis_estas.s_estado'
+                'sis_estas.s_estado',
+                'dast_resultados.resultado',
+                'dast_resultados.grado_problema',
             ])
                 ->join('sis_depens', 'dasts.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'dasts.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'dasts.sis_esta_id', '=', 'sis_estas.id')
+                ->join('dast_resultados', 'dasts.id', '=', 'dast_resultados.dast_id')
                 ->where('dasts.sis_nnaj_id', $padrexxx->id);
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtDast($dataxxxx, $request);
+        }
+    }
+
+    //lista spa
+    public function getListaspa(Request $request, SisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $dataxxxx =  FiConsumoSpa::select(
+                'fi_sustancia_consumidas.id',
+                'fi_sustancia_consumidas.sis_esta_id',
+                'sustancia.nombre as sustancia',
+                'fi_sustancia_consumidas.i_edad_uso',
+                'consume.nombre as consume',
+                'fi_sustancia_consumidas.created_at',
+                'sis_estas.s_estado'
+            )
+                ->join('fi_sustancia_consumidas', 'fi_consumo_spas.id', '=', 'fi_sustancia_consumidas.fi_consumo_spa_id')
+                ->join('sis_estas', 'fi_sustancia_consumidas.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as sustancia', 'fi_sustancia_consumidas.i_prm_sustancia_id', '=', 'sustancia.id')
+                ->join('parametros as consume', 'fi_sustancia_consumidas.i_prm_consume_id', '=', 'consume.id')
+                ->where('fi_consumo_spas.sis_nnaj_id', $padrexxx->id);
+            return $this->getDtConsumo($dataxxxx, $request);
         }
     }
 

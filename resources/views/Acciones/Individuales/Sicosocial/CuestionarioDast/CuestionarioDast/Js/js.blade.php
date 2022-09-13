@@ -51,6 +51,26 @@
         if (resultado_id != '') {
             verresultados(puntajes);
         }
+
+        f_vespa();
+        $('#prm_requiere_vespa').change(() => {
+            f_vespa();
+        });
+        function ocultarFields() {
+            $('#fecha_vespa_field')
+                    .addClass('d-none');
+            $('#fecha_vespa').attr('disabled', true);
+        }
+        
+        function f_vespa() {
+            require = $("#prm_requiere_vespa");
+            if (require.val()== '227') {
+                $('#fecha_vespa_field').removeClass('d-none');
+                $('#fecha_vespa').attr('disabled', false);
+            }else{
+                ocultarFields();
+            }
+        }
     });
 
 
@@ -138,4 +158,10 @@
     init_contadorTa("obs_patron_con", "contador_obs_patron_con", 4000);
     init_contadorTa("accion_curso", "contador_accion_curso", 4000);
     init_contadorTa("observacion", "contador_observacion", 4000);
+
+    //evitar enviar formulario duplicado
+    $('#formulario, input[type="submit"]').on('submit',function(){
+        $('#formulario, input[type="submit"]').attr('disabled','true');
+    })
+
 </script>

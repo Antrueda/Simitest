@@ -10,6 +10,10 @@ Route::group(['prefix' => '{padrexxx}/dast'], function () use ($controll, $routx
 		'uses' => $controll . 'Controller@getListaxxx',
 		'middleware' => ['permission:' . $routxxxx . '-leerxxxx']
 	])->name($routxxxx . '.listaxxx');
+	Route::get('listaspa', [
+		'uses' => $controll . 'Controller@getListaspa',
+		'middleware' => ['permission:' . $routxxxx . '-leerxxxx']
+	])->name($routxxxx . '.listaspa');
 	Route::get('nuevo', [
 		'uses' => $controll . 'Controller@create',
 		'middleware' => ['permission:' . $routxxxx . '-crearxxx']
