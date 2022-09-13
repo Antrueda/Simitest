@@ -206,10 +206,13 @@ trait DBVistaAuxTrait
             if ($dataxxxx['modeloxx']->sis_nnaj->prm_escomfam_id != 2686) {
                 $dataxxxx = $this->getNnajFiCsd($dataxxxx);
                 /**focalizacion */
-                $dataxxxx = $this->getNnajFocali($dataxxxx);
-                $localida =   $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri->sis_localupz;
-                $upzxxxxx = $dataxxxx['modeloxx']->sis_upz_id = $localida->id;
-                $localida = $dataxxxx['modeloxx']->sis_localidad_id = $localida->sis_localidad_id;
+                if( $dataxxxx['modeloxx']->nnaj_focali!=null){
+                    $dataxxxx = $this->getNnajFocali($dataxxxx);
+                    $localida =   $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri->sis_localupz;
+                    $upzxxxxx = $dataxxxx['modeloxx']->sis_upz_id = $localida->id;
+                    $localida = $dataxxxx['modeloxx']->sis_localidad_id = $localida->sis_localidad_id;
+                }
+
                 $this->opciones['poblindi'] = Tema::combo(61, true, false);
                 if ($this->opciones['modeloxx']->nnaj_fi_csd->prm_etnia_id != 157) {
                     $this->opciones['poblindi'] =  Parametro::find(235)->Combo;

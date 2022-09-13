@@ -269,6 +269,7 @@ class CgiCuestionarioController extends Controller
                 $queryxxx->where('nnaj_upis.sis_esta_id', 1);
             })
             ->get()->toArray();
+            ddd($upisnnaj);
         // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
         $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where(function ($queryxxx) use ($upisnnaj) {

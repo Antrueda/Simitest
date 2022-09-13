@@ -92,7 +92,7 @@ trait VistasTrait
         $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $opciones['dinamica'] = Tema::comboAsc(249,true, false);
         $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
-        $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
+        //$opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         

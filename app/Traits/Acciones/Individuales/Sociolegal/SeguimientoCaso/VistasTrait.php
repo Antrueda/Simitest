@@ -51,7 +51,7 @@ trait VistasTrait
         $opciones['seguimie'] = SeguimientoCaso::combo(true, false);
         
         $opciones['condicio'] = Tema::combo(23, true, false);
-        $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $opciones['padrexxx']->nnaj->id, 'dependid' => $dependid]);
+        $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['sujetoxx'] = Tema::comboAsc(450,true, false);
