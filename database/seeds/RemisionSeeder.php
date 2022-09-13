@@ -21,7 +21,7 @@ class RemisionSeeder extends Seeder
      
      
 
-        //Remiespecial::create(['id'=>1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'GIARDIASIS [LAMBLIASIS]', 'estusuario_id'=>49]); // 6
+        Remiespecial::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'N/A', 'estusuario_id'=>49]); // 6
         
         
 

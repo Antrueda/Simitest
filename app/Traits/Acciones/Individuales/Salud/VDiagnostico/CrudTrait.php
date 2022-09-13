@@ -3,11 +3,9 @@
 namespace App\Traits\Acciones\Individuales\Salud\VDiagnostico;
 
 
-use App\Models\Acciones\Grupales\Traslado\Traslado;
-use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
-use App\Models\fichaIngreso\FiResidencia;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

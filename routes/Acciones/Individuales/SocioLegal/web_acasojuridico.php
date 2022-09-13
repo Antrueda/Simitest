@@ -7,9 +7,13 @@ Route::group(['prefix' => '{padrexxx}/AcasoJuridico'], function () use ($control
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaMedicinaGeneral',
+        'uses' => $controll . 'Controller@listaAtencionCaso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
+    Route::get('listaxxv', [
+        'uses' => $controll . 'Controller@listaCasosSimianti',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxv');
     
 
 	Route::get('nuevo', [
@@ -48,20 +52,18 @@ Route::group(['prefix' => '{padrexxx}/AcasoJuridico'], function () use ($control
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.upiservicio');
 
-
-    
 });
 
 Route::group(['prefix' => 'AcasoJuridicos'], function () use ($controll, $routxxxx) {
 
-    Route::get('getServicios', [
-        'uses' => $controll . 'Controller@getServiciosUpi',
+    Route::get('getCentro', [
+        'uses' => $controll . 'Controller@getCentro',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.servicio');
-	Route::get('curso', [
-        'uses' => $controll . 'Controller@getCurso',
+    ])->name($routxxxx . '.centro');
+	Route::get('tema', [
+        'uses' => $controll . 'Controller@getTema',
         'middleware' => ['permission:' . $routxxxx . '-crear']
-	])->name($routxxxx . '.curso');
+	])->name($routxxxx . '.tema');
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
 	    'middleware' => ['permission:'.$routxxxx.'-editar']
@@ -89,10 +91,7 @@ Route::group(['prefix' => 'AcasoJuridicos'], function () use ($controll, $routxx
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
 
-    Route::get('certifica/{modeloxx}', [
-        'uses' => $controll . 'Controller@showCert',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.certifica');
+
     Route::get('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activate',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
@@ -102,6 +101,14 @@ Route::group(['prefix' => 'AcasoJuridicos'], function () use ($controll, $routxx
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+    Route::post('upzs', [
+        'uses' => $controll . 'Controller@upzs',
+        ])->name($routxxxx . '.upz');
+	
+	Route::post('barrios', [
+        'uses' => $controll . 'Controller@barrios',
+        ])->name($routxxxx . '.barrio');
+	
 });
 
 require_once('Administracion/web_modulo.php');

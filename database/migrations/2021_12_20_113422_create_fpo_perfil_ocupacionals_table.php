@@ -17,7 +17,7 @@ class CreateFpoPerfilOcupacionalsTable extends Migration
         Schema::create('fpo_perfil_ocupacionals', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha_registro')->nullable()->comment('PARAMETRO fecha registro');
-            $table->integer('resultado_text', 3)->default(0);
+            $table->string('resultado_text', 3)->nullable();
             $table->string('concepto_perfil',4000)->nullable()->comment('CONCEPTO DEL TEXT');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');

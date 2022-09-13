@@ -4,17 +4,20 @@ namespace App\Http\Controllers\Acciones\Individuales\Juridica\CasoJuridico;
 
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaCrearRequest;
+
 use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaEditarRequest;
+use App\Http\Requests\Acciones\Individuales\Sociolegal\CasoJurCrearRequest;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+;
+use App\Models\Acciones\Individuales\SocialLegal\CasoJur;
+use App\Models\Acciones\Individuales\SocialLegal\SeguiJuridico;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\CrudTrait;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\VistasTrait;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\ListadosTrait;
-use App\Traits\Acciones\Individuales\Salud\VsMedicinaGeneral\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso\CrudTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso\VistasTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso\ListadosTrait;
+use App\Traits\Acciones\Individuales\Sociolegal\AtencionCaso\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,8 +37,8 @@ class CasoJuridicoController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'vsmedicina';
-        $this->opciones['routxxxx'] = 'vsmedicina';
+        $this->opciones['permisox'] = 'acasojur';
+        $this->opciones['routxxxx'] = 'acasojur';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -61,25 +64,27 @@ class CasoJuridicoController extends Controller
     public function create(SisNnaj $padrexxx)
     {
 
-   
-        $salud =$padrexxx->fi_saluds;
-        
-        if($salud==null){
-                        return redirect()
-                    ->route('vsmedicina', [$padrexxx->id])
-                    ->with('info', 'No se puede realizar el formulario porque los datos de Ficha de Ingreso - Salud se encuentran incompletos');
-
+        if($padrexxx->FiResidencia==null){
+            return redirect()
+            ->route('acasojur', [$padrexxx->id])
+            ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
+        }else{
+            if($padrexxx->fi_datos_basico->prm_tipoblaci_id != 650){
+            if($padrexxx->fi_justrests==null){
+                return redirect()
+                ->route('acasojur', [$padrexxx->id])
+                ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de justicia restuarativa del NNAJ en el formulario ficha de ingreso para continuar');
+                 }
+            }
         }
         
-        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $this->padrexxx = $padrexxx;
+        $this->opciones['residenc'] = $padrexxx->FiResidencia;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
-       
         $this->opciones['diagnost'] = '.listaxxy';
         $this->opciones['valoraci'] = $padrexxx;
-        //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
+        
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
@@ -92,23 +97,23 @@ class CasoJuridicoController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(VsmedicinaCrearRequest $request,SisNnaj $padrexxx)
+    public function store(CasoJurCrearRequest $request,SisNnaj $padrexxx)
     {//
-
+        
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
         //ddd($request->request->all());
-        return $this->setMedicinaGeneral([
+        return $this->setCasoJuridico([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' => 'Valoracion medica general creado con éxito',
+            'infoxxxx' => 'Caso Jurídico creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(Vsmedicina $modeloxx)
+    public function show(CasoJur $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -120,30 +125,13 @@ class CasoJuridicoController extends Controller
         $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA ATENCIÓN CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function showCert(Vsmedicina $modeloxx)
-    {
-        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-        $this->opciones['padrexxx'] = $modeloxx->nnaj;
-        $this->opciones['valoraci'] = $modeloxx->nnaj;
-        $this->opciones['diagnost'] = '.listaxxz';
-        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
-        $this->opciones['vercrear'] = false;
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
-        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'certificado'],'padrexxx'=>$modeloxx->id])->render();
-    }
-
-
-    public function edit(Vsmedicina $modeloxx)
+    public function edit(CasoJur $modeloxx)
     {    
         $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
         $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
@@ -151,36 +139,39 @@ class CasoJuridicoController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
-        $this->opciones['valoraci'] = $modeloxx;
-        $this->opciones['diagnost'] = '.listaxxz';
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['vercrear'] = true;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A ATENCIÓN CASO JURÍDICO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA ATENCIÓN CASO JURÍDICO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj]
         );
     }
 
 
-    public function update(VsmedicinaEditarRequest $request,  Vsmedicina $modeloxx)
+    public function update(CasoJurCrearRequest $request,  CasoJur $modeloxx)
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
-        return $this->setMedicinaGeneral([
+        return $this->setCasoJuridico([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
-            'infoxxxx' => 'Valoracion medica general editado con éxito',
+            'infoxxxx' => 'Caso Jurídico editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(Vsmedicina $modeloxx)
+    public function inactivate(CasoJur $modeloxx)
     {
-        
+        $seguimientos=SeguiJuridico::where('estadocaso',2856)->where('casojur_id',$modeloxx->id)->first();
+        if($seguimientos==null){
+            return redirect()
+            ->route('acasojur', [$modeloxx->sis_nnaj_id])
+            ->with('info', 'No se puede inactivar el caso, el estado debe estar cerrado');
+        }
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
@@ -190,15 +181,15 @@ class CasoJuridicoController extends Controller
         $this->opciones['diagnost'] = '.listaxxz';
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A ATENCIÓN CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->nnaj]
         );
     }
 
 
-    public function destroy(Request $request, Vsmedicina $modeloxx)
+    public function destroy(Request $request, CasoJur $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -207,10 +198,10 @@ class CasoJuridicoController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Valoracion medica general inactivado correctamente');
+            ->with('info', 'Caso Jurídico inactivado correctamente');
     }
 
-    public function activate(Vsmedicina $modeloxx)
+    public function activate(CasoJur $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -218,7 +209,7 @@ class CasoJuridicoController extends Controller
         $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A ATENCIÓN CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->sis_nnaj]
@@ -226,11 +217,11 @@ class CasoJuridicoController extends Controller
 
     }
 
-    public function activar(Request $request, Vsmedicina $modeloxx)
+    public function activar(Request $request, CasoJur $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Valoracion medica general activado correctamente');
+            ->with('info', 'Caso Jurídico activado correctamente');
     }
 }

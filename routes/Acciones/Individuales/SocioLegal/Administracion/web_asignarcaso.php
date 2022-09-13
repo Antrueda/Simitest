@@ -1,5 +1,5 @@
 <?php
-$controll='Acciones\Individuales\Salud\ValoracionMedicina\Administracion\EnfermedadAsignar';
+$controll='Acciones\Individuales\Juridica\CasoJuridico\Administracion\AsignarCaso';
 $routxxxx='asignacaso';
 Route::group(['prefix' => 'AsignaCaso'], function () use($controll,$routxxxx){
 	Route::get('', [

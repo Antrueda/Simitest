@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Acciones\Individuales\Salud\Odontologia;
 
 use Illuminate\Database\Eloquent\Model;
 

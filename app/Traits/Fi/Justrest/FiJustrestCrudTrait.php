@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Traits\FI\Justrest;
+namespace app\Traits\Fi\Justrest;
 
 use App\Models\fichaIngreso\FiJrCausasmo;
 use App\Models\fichaIngreso\FiJrCausassi;
@@ -137,8 +137,9 @@ trait FiJustrestCrudTrait
             $this->setFiProcesoSrpa($dataxxxx, FiProcesoSrpa::where('fi_justrest_id', $objetoxx->id)->first(), $objetoxx);
             return $objetoxx;
         }, 5);
+        //ddd($objetoxx);
         return redirect()
-        ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->fi_justrest_id, $objetoxx->id])
+        ->route($this->opciones['routxxxx'] . '.editar', [$objetoxx->sis_nnaj->fi_datos_basico, $objetoxx->id])
         ->with('info', $infoxxxx);
     }
 }
