@@ -278,7 +278,7 @@ function soloNumeros(e) {
       
         }  
     function doc2(valor){
-        if(valor == 805){
+        if(valor != 805){
         document.getElementById("prm_parensoli_id").hidden=false;
         }else{
         document.getElementById("prm_parensoli_id").hidden=true;

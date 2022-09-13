@@ -270,7 +270,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_solicita_id', 'Persona que solicita la asesoría', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_solicita_id', $todoxxxx['solicita'], null, ['class' => $errors->first('prm_solicita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_solicita_id', $todoxxxx['solicita'], null, ['class' => $errors->first('prm_solicita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc2(this.value)']) }}
     @if($errors->has('prm_solicita_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_solicita_id') }}
@@ -279,7 +279,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parensoli_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parensoli_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parensoli_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+    {{ Form::select('prm_parensoli_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parensoli_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm' ]) }}
     @if($errors->has('prm_parensoli_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_parensoli_id') }}
