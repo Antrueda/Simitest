@@ -23,11 +23,11 @@ use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class PerfilOcupacionalController extends Controller
 {
-    use ListadosTrait;
+    use ListadosTrait; 
     use perfilOcupacionalDataTablesTrait;
     use perfilOcupacionalPestaniasTrait;
     use  ManageTimeTrait;
-    use CombosTrait; //
+    use CombosTrait;
     // use perfilOcupacionalParametrizarTrait;
 
     public function __construct()
@@ -110,7 +110,6 @@ class PerfilOcupacionalController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),
@@ -130,9 +129,6 @@ class PerfilOcupacionalController extends Controller
 
     public function store(AplicacionFpoRequest $request, SisNnaj $padrexxx)
     { //AISalidaMenorRequest $request
-
-      //  $request->request->add(['sis_depen_id' => 1]);
-        //$request->request->add(['sis_depen_id' => $padrexxx->id]);
 
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
@@ -195,7 +191,6 @@ class PerfilOcupacionalController extends Controller
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
-
     public function activar(SisNnaj $padrexxx, FpoPerfilOcupacional $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
@@ -209,7 +204,7 @@ class PerfilOcupacionalController extends Controller
     {
         $date = new DateTime();
         $data = [];
-        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 5 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 80) {
+        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 18 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 80) {
             $data['puedo'] = true;
 
             $ultimoperfil = FpoPerfilOcupacional::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
@@ -232,7 +227,7 @@ class PerfilOcupacionalController extends Controller
             }
         } else {
             $data['puedo'] = false;
-            $data['meserror'] = 'Nnaj no tiene permiso de edad para crear el cuestionario de Gustos iuintereses';
+            $data['meserror'] = 'Nnaj no tiene permiso de edad para crear Formato de Perfil Ocupacional';
         }
         return $data;
     }
@@ -267,46 +262,37 @@ class PerfilOcupacionalController extends Controller
          $this->opciones['fechedit'] = '';
          $this->opciones['usercrea'] = '';
          $this->opciones['useredit'] = '';
-
-
-
-
-        $this->opciones['usuarios'] = User::getUsuario(false, false);
-      //  $this->opciones['sis_depens'] = User::getUsuario(false, false);
-
-        //$matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
-        $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
-
+         $this->opciones['usuarios'] = User::getUsuario(false, false);
 
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '-leer', $dataxxxx['padrexxx']->sis_nnaj_id],
             'formhref' => 2, 'tituloxx' => 'VOLVER A LISTA DE PERFIL OCUPACIONAL', 'clasexxx' => 'btn btn-sm btn-primary'
         ];
 
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
+         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
         ];
 
-        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
 
-        $dependid =$dataxxxx['padrexxx']->sis_depen_id;
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
-        $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::comboCargo(true, false);
-        $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-
-        $this->opciones['vercrear'] = false;
+         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+         $this->opciones['usuarioz'] = User::comboCargo(true, false);
+         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
+         $this->opciones['vercrear'] = false;
         $parametr = 0;
+
         if ($dataxxxx['modeloxx'] != '') {
+
+            $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+            $dependid =$dataxxxx['modeloxx']->sis_depen_id;
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
+           
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -338,12 +324,9 @@ class PerfilOcupacionalController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
+
         }
-
-
-      // $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id]);
-
-
+        $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->sis_nnaj_id, 'dependid' => $dependid]);
         if ($dataxxxx['accionxx'][1] == 'destroy') {
             $this->opciones['ruarchjs'] = [
                 ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.verjs'],
@@ -375,9 +358,6 @@ class PerfilOcupacionalController extends Controller
 
 
         $upinnajx = $dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id => $upinnajx->nombre];
-        $this->opciones['dependez'] = SisDepen::combo(true, false);
-        $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
 
         $this->opciones['vercrear'] = true;
@@ -388,50 +368,4 @@ class PerfilOcupacionalController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
-    public function getUpisNnajUsuarioCT($dataxxxx)
-    {
-
-        $dataxxxx = $this->getDefaultCT($dataxxxx);
-        // // * encontrar las dependencia del nnaj
-        $upisnnaj = SisDepen::select(['sis_depens.id'])
-            ->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
-            // * encontrar las upis activas del nnaj
-            ->where(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
-                $queryxxx->where('nnaj_upis.sis_esta_id', 1);
-            })
-            ->get()->toArray();
-        // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
-        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
-            ->where(function ($queryxxx) use ($upisnnaj) {
-                $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
-                $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
-                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
-            })
-            // * encontrar la upi que se le asignó
-            ->orWhere(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('sis_depens.id',  $dataxxxx['dependid']);
-            })
-            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return $respuest;
-    }
-
-    public function getCuerpoComboSinValueCT($dataxxxx)
-    {
-        $comboxxx = $this->getCabecera($dataxxxx);
-        foreach ($dataxxxx['dataxxxx'] as $registro) {
-            if ($dataxxxx['ajaxxxxx']) {
-                $selected = '';
-                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
-                    $selected = 'selected';
-                }
-                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => strtoupper($registro->optionxx), 'selected' => $selected];
-            } else {
-                $comboxxx[$registro->valuexxx] = strtoupper($registro->optionxx);
-            }
-        }
-        return $comboxxx;
-    }
 }

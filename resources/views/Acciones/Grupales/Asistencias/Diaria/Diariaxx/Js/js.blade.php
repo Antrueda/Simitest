@@ -140,7 +140,7 @@
 
         });
 
-        $('#sis_upz_id').change(function() {
+        $('#sis_localupz_id').change(function() {
             f_barrio({
                 padrexxx: $(this).val(),
                 selected: [0]
