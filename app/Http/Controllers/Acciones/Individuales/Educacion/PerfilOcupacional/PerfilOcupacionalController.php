@@ -27,7 +27,7 @@ class PerfilOcupacionalController extends Controller
     use perfilOcupacionalDataTablesTrait;
     use perfilOcupacionalPestaniasTrait;
     use  ManageTimeTrait;
-   // use CombosTrait; //
+    use CombosTrait;
     // use perfilOcupacionalParametrizarTrait;
 
     public function __construct()
@@ -110,7 +110,6 @@ class PerfilOcupacionalController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),
@@ -327,7 +326,7 @@ class PerfilOcupacionalController extends Controller
             }
 
         }
-        $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+        $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->sis_nnaj_id, 'dependid' => $dependid]);
         if ($dataxxxx['accionxx'][1] == 'destroy') {
             $this->opciones['ruarchjs'] = [
                 ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.verjs'],
@@ -369,84 +368,4 @@ class PerfilOcupacionalController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function getUpisNnajUsuarioCT($dataxxxx)
-    {
-
-        $dataxxxx = $this->getDefaultCT($dataxxxx);
-        // // * encontrar las dependencia del nnaj
-        $upisnnaj = SisDepen::select(['sis_depens.id'])
-            ->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
-            // * encontrar las upis activas del nnaj
-            ->where(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
-                $queryxxx->where('nnaj_upis.sis_esta_id', 1);
-            })
-            ->get()->toArray();
-        // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
-        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
-            ->where(function ($queryxxx) use ($upisnnaj) {
-                $queryxxx->where('sis_depen_user.user_id', Auth::user()->id);
-                $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
-                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
-            })
-            // * encontrar la upi que se le asignó
-            ->orWhere(function ($queryxxx) use ($dataxxxx) {
-                $queryxxx->where('sis_depens.id',  $dataxxxx['dependid']);
-            })
-            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return $respuest;
-    }
-
-    public function getCuerpoComboSinValueCT($dataxxxx)
-    {
-        $comboxxx = $this->getCabecera($dataxxxx);
-        foreach ($dataxxxx['dataxxxx'] as $registro) {
-            if ($dataxxxx['ajaxxxxx']) {
-                $selected = '';
-                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
-                    $selected = 'selected';
-                }
-                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => strtoupper($registro->optionxx), 'selected' => $selected];
-            } else {
-                $comboxxx[$registro->valuexxx] = strtoupper($registro->optionxx);
-            }
-        }
-        return $comboxxx;
-    }
-
-    public function getDefaultCT($dataxxxx)
-    {
-        if (!isset($dataxxxx['orderxxx'])) {
-            $dataxxxx['orderxxx'] = 'ASC';
-        }
-        if (!isset($dataxxxx['cabecera'])) {
-            $dataxxxx['cabecera'] = true;
-        }
-        if (!isset($dataxxxx['ajaxxxxx'])) {
-            $dataxxxx['ajaxxxxx'] = false;
-        }
-        if (!isset($dataxxxx['selected'])) {
-            $dataxxxx['selected'] = [];
-        }
-        return $dataxxxx;
-    }
-
-
-    public function getCabecera($dataxxxx)
-    {
-
-        $comboxxx = [];
-        if ($dataxxxx['cabecera']) {
-            if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
-            } else {
-                $comboxxx = ['' => 'Seleccione'];
-            }
-        }
-        return $comboxxx;
-    }
-
-
-  
 }
