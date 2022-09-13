@@ -7,17 +7,16 @@ use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesEditarRequest;
 
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\CrudTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\VistasTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\ListadosTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes\CrudTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes\VistasTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes\ListadosTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
-use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
 
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonexamen;
 
-
-class VOdonAntecedentesController extends Controller
+class VOdonExamenesController extends Controller
 {
     use ListadosTrait; // trait que arma las consultas para las datatables
     use CrudTrait; // trait donde se hace el crud de localidades
@@ -31,8 +30,8 @@ class VOdonAntecedentesController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'vodonanteces';
-        $this->opciones['routxxxx'] = 'vodonanteces';
+        $this->opciones['permisox'] = 'vodonexamens';
+        $this->opciones['routxxxx'] = 'vodonexamens';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -44,10 +43,10 @@ class VOdonAntecedentesController extends Controller
 
     public function create(VOdontologia $padrexxx)
     {
-        
-        if($padrexxx->antecedentes){
+
+        if($padrexxx->examenes){
             return redirect()
-            ->route('vodonanteces.editar', [$padrexxx->antecedentes->id]);
+            ->route('vodonexamens.editar', [$padrexxx->examenes->id]);
         }
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
@@ -62,6 +61,7 @@ class VOdonAntecedentesController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -77,38 +77,39 @@ class VOdonAntecedentesController extends Controller
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' => 'Antecedentes creados con éxito',
+            'infoxxxx' => 'Examenes creados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(VOdonantece $modeloxx)
+    public function show(VOdonexamen $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
+        
+        
+        
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
         $this->opciones['valoraci'] = $modeloxx;
         $this->padrexxx = $modeloxx->odontologia->nnaj;
+        
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        
-        $do=$this->getBotones(['leer', ['vodontologia.editar', [$modeloxx->odontologia]], 2, 'VOLVER A VALORACIÓN ODONTOLOGÍA', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
         return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
-    public function edit(VOdonantece $modeloxx)
+    public function edit(VOdonexamen $modeloxx)
     {    
         $this->pestanix[2]['routexxx'] = '.editar';
         //ddd( $this->pestanix[2]['routexxx']);
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
         $this->opciones['valoraci'] = $modeloxx;
@@ -122,7 +123,7 @@ class VOdonAntecedentesController extends Controller
     }
 
 
-    public function update(VOdontoantecentesEditarRequest $request,  VOdonantece $modeloxx)
+    public function update(VOdontoantecentesEditarRequest $request,  VOdonexamen $modeloxx)
     {
         $request->request->add(['odonto_id'=> $modeloxx->odontologia->id]);
         
@@ -130,7 +131,7 @@ class VOdonAntecedentesController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
-            'infoxxxx' => 'Antecedentes editados con éxito',
+            'infoxxxx' => 'Examenes editados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

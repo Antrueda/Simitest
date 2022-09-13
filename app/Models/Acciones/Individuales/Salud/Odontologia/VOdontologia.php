@@ -20,9 +20,20 @@ class VOdontologia extends Model
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 
-    public function remision(){
-        return $this->belongsTo(Remision::class, 'remiint_id');
+    public function antecedentes(){
+        return $this->hasOne(VOdonantece::class, 'odonto_id');
     }
+
+    
+    public function examenes(){
+        return $this->hasOne(VOdonexamen::class, 'odonto_id');
+    }
+
+    public function remision(){
+        return $this->hasOne(VOdonremite::class, 'odonto_id');
+    }
+
+
 
 
     public function consulta(){

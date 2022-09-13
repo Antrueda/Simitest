@@ -1,7 +1,7 @@
 <?php
-$routxxxx = 'vodonanteces';
-$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdonAntecedentes';
-Route::group(['prefix' => '{padrexxx}/Odonantece'], function () use ($controll, $routxxxx) {
+$routxxxx = 'vodonexamens';
+$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdonExamenes';
+Route::group(['prefix' => '{padrexxx}/Odonexamen'], function () use ($controll, $routxxxx) {
 
     Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
@@ -14,7 +14,7 @@ Route::group(['prefix' => '{padrexxx}/Odonantece'], function () use ($controll, 
 
 });
 
-Route::group(['prefix' => 'Odonanteces'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Odonexamens'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
@@ -49,5 +49,5 @@ Route::group(['prefix' => 'Odonanteces'], function () use ($controll, $routxxxx)
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 });
-//VOdonAntecedentesController
+
 

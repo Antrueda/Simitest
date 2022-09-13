@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Acciones\Individuales\Salud\VOdontologia;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaCrearRequest;
-use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaEditarRequest;
+use App\Http\Requests\Acciones\Individuales\Salud\VOdontologiaCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Salud\VOdontologiaEditarRequest;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\sistema\SisNnaj;
@@ -78,7 +78,7 @@ class VOdontologiaController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(VsmedicinaCrearRequest $request,SisNnaj $padrexxx)
+    public function store(VOdontologiaCrearRequest $request,SisNnaj $padrexxx)
     {//
 
         $request->request->add(['sis_esta_id'=> 1]);
@@ -87,7 +87,7 @@ class VOdontologiaController extends Controller
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' => 'Valoracion medica general creado con éxito',
+            'infoxxxx' => 'Valoracion odontologica creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -95,8 +95,18 @@ class VOdontologiaController extends Controller
 
     public function show(VOdontologia $modeloxx)
     {
+   
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        if($modeloxx->antecedentes){
+            $this->pestanix[2]['routexxx'] = '.ver';
+            $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->antecedentes->id];
+        }else{
+            $this->pestanix[2]['routexxx'] = '.nuevo';
+            $this->pestanix[2]['dataxxxx'] = [true, $modeloxx];
+        }
+        
+        
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
@@ -118,6 +128,7 @@ class VOdontologiaController extends Controller
     {    
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
@@ -134,7 +145,7 @@ class VOdontologiaController extends Controller
     }
 
 
-    public function update(VsmedicinaEditarRequest $request,  VOdontologia $modeloxx)
+    public function update(VOdontologiaEditarRequest $request,  VOdontologia $modeloxx)
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
@@ -142,7 +153,7 @@ class VOdontologiaController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
-            'infoxxxx' => 'Valoracion medica general editado con éxito',
+            'infoxxxx' => 'Valoracion odontologica editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -176,7 +187,7 @@ class VOdontologiaController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Valoracion medica general inactivado correctamente');
+            ->with('info', 'Valoracion odontologica inactivado correctamente');
     }
 
     public function activate(VOdontologia $modeloxx)
@@ -200,6 +211,6 @@ class VOdontologiaController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Valoracion medica general activado correctamente');
+            ->with('info', 'Valoracion odontologica activado correctamente');
     }
 }

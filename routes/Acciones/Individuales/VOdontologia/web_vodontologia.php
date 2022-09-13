@@ -58,4 +58,6 @@ Route::group(['prefix' => 'Odontologias'], function () use ($controll, $routxxxx
     ])->name($routxxxx . '.activarx');
 });
 require_once('web_vodonantece.php');
+require_once('web_vodonexamen.php');
+//require_once('web_vodonantece.php');
 

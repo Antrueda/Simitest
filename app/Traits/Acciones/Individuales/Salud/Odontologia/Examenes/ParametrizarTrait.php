@@ -1,5 +1,5 @@
 <?php
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes;
 
 
 
@@ -40,7 +40,7 @@ trait ParametrizarTrait
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Salud.Odontologia.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Antecedentes';
+        $this->opciones['carpetax'] = 'Examenes';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Acciones\Individuales\Salud\Odontologia;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,7 +21,7 @@ class VOdonantece extends Model
     ];
 
     public function odontologia(){
-        return $this->belongsTo(VOdontologio::class, 'odonto_id');
+        return $this->belongsTo(VOdontologia::class, 'odonto_id');
     }
     public function medicamento(){
         return $this->belongsTo(Compuesto::class, 'medic_id');
