@@ -28,5 +28,8 @@
             <a class="btn btn-sm btn-primary" href="{{route($requestx->routexxx[0].'.verxxxxx', [$queryxxx->id])}}" >VER</a>
         </div>
 
+        <div class="dropdown-item">
+            <a class="btn btn-sm btn-warning " href="{{ route('dastsegu', $queryxxx->id) }}">SEGUIMIENTOS</a>
+        </div>
     </div>
 </div>

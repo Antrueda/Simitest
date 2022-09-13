@@ -54,6 +54,7 @@ class CuestionarioDastController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
+
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),

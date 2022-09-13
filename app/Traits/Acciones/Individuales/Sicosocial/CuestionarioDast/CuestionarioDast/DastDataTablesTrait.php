@@ -30,7 +30,7 @@ trait DastDataTablesTrait
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO CUESTIONARIO DAST',
+                'titunuev' => 'CREAR CUESTIONARIO DAST',
                 'titulist' => 'LISTA DE CUESTIONARIO DAST',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
@@ -48,6 +48,7 @@ trait DastDataTablesTrait
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'RESULTADO(INTERPRETACION)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Funcionario/Contratista', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
@@ -57,6 +58,7 @@ trait DastDataTablesTrait
                     ['data' => 'id', 'name' => 'dasts.id'],
                     ['data' => 'fecha', 'name' => 'dasts.fecha'],
                     ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
+                    ['data' => 'interpretacion', 'name' => 'interpretacion'],
                     ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
@@ -76,7 +78,7 @@ trait DastDataTablesTrait
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO SEGUIMIENTO CUESTIONARIO DAST',
+                'titunuev' => 'CREAR SEGUIMIENTO CUESTIONARIO DAST',
                 'titulist' => 'LISTA DE SEGUIMIENTOS CUESTIONARIO DAST',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
@@ -117,5 +119,45 @@ trait DastDataTablesTrait
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
+    }
+
+    public function getTablaConsumoSpa($padrexxx)
+    {
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => '',
+                'titulist' => 'SUSTANCIAS CONSUMIDAS',
+                'vercrear' => false,
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaspa', [$padrexxx]),
+                'permtabl' => [
+                    $this->opciones['permisox'] . '-leerxxxx',
+                    $this->opciones['permisox'] . '-crearxxx',
+                    $this->opciones['permisox'] . '-editarxx',
+                    $this->opciones['permisox'] . '-borrarxx',
+                    $this->opciones['permisox'] . '-activarx',
+                ],
+                'cabecera' => [
+                    [
+                        ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1,],
+                        ['td' => 'SUSTANCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'EDAD USO PRIMERA VEZ', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'HA CONSUMIDO ÚLTIMO MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+                    ['data' => 'id', 'name' => 'fi_sustancia_consumidas.id'],
+                    ['data' => 'sustancia', 'name' => 'parametros.nombre as sustancia'],
+                    ['data' => 'i_edad_uso', 'name' => 'fi_sustancia_consumidas.i_edad_uso'],
+                    ['data' => 'consume', 'name' => 'parametros.nombre as consume'],
+                ],
+                'tablaxxx' => 'datatablespa',
+                'permisox' => $this->opciones['permisox'],
+                'permnuev' => 'crearxxx',
+                'parametr' => [$padrexxx],
+            ],
+        ];
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
     }
 }

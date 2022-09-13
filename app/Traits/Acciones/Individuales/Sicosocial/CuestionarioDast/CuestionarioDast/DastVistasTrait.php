@@ -4,7 +4,6 @@ namespace App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\Cuestiona
 
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
 use App\Models\User;
-use App\Models\fichaIngreso\FiConsumoSpa;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -29,12 +28,7 @@ trait DastVistasTrait
     {
         //accion
         $this->opciones['accionxx'] = $dataxxxx['accionxx'][0];
-        $data = FiConsumoSpa::select(['id', 'i_prm_consume_spa_id', 'sis_nnaj_id'])
-            ->with(['fi_sustancia_consumidas' => function ($query) {
-                $query->where('sis_esta_id', 1);
-            }, 'fi_sustancia_consumidas.i_prm_sustancia:id,nombre', 'fi_sustancia_consumidas.i_prm_consume:id,nombre'])
-            ->where('sis_nnaj_id', $dataxxxx['padrexxx']->id)->first();
-        // dd($data);
+
         $dependid = 0;
         $this->opciones['si_no'] = $this->getTemacomboCT([
             'temaxxxx' => 23,
@@ -65,6 +59,8 @@ trait DastVistasTrait
 
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
+        $this->getTablaConsumoSpa($dataxxxx['padrexxx']->id);
+
         $this->opciones['preguntas'] = $this->getPreguntasDast();
         $this->opciones['puntajes'] = $this->getPuntajesDast();
 
