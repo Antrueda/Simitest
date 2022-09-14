@@ -444,5 +444,6 @@
 <br>
 <hr>
 <div class="form-group row">
+  @include('layouts.registrousuario')
   @include('layouts.registrofecha')
 </div>

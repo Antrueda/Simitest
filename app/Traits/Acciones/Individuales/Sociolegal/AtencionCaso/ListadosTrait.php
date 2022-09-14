@@ -207,7 +207,7 @@ trait ListadosTrait
                     ->where('segui_juridicos.sis_esta_id', 1);
                     
 
-                return $this->getDt($dataxxxx, $request);
+                return $this->getDtGeneral($dataxxxx, $request);
             }
             
     }

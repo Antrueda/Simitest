@@ -4,6 +4,7 @@ namespace App\Models\Acciones\Individuales\SocialLegal;
 
 use App\Models\Sistema\SisNnaj;
 use App\Models\sistema\SisUpzbarri;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class CasoJur extends Model
@@ -38,6 +39,13 @@ class CasoJur extends Model
 
     public function sis_upzbarri(){
         return $this->belongsTo(SisUpzbarri::class, 'sis_upzbarrio_id');
+    }
+
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
+    }
+    public function modifico(){
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
 
 

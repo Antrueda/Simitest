@@ -62,6 +62,8 @@ trait VistasTrait
         $dependid = 0;
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
+        $opciones['usuarioc'] = '';
+        $opciones['usuarioe'] = '';
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
@@ -122,6 +124,8 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $opciones['usuarioc'] = $dataxxxx['modeloxx']->creador->name;
+            $opciones['usuarioe'] = $dataxxxx['modeloxx']->modifico->name;
             $usuarioz=$dataxxxx['modeloxx']->user_id;
         }
         $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
