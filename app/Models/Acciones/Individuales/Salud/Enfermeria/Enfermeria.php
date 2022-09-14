@@ -38,6 +38,21 @@ class Enfermeria extends Model
     ];
 
 
+    public function prm_motivos()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_motivoat_id');
+    }
+
+    public function prm_tipoaten()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_tipoaten_id');
+    }
+
+    public function prm_especial()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_especial_id');
+    }
+
 
     public function nnaj(){
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');

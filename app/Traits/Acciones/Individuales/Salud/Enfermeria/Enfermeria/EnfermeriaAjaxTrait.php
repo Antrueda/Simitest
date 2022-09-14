@@ -2,6 +2,8 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
 
+use App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria\Enfermeria;
+use App\Models\Parametro;
 use App\Models\sistema\SisDepen;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,8 +15,89 @@ trait EnfermeriaAjaxTrait
 {
 
 
-    public function setAsignarEnfermeria(Asissema $modeloxx,Request $request){
+    public function setAsignarEnfermeria(Enfermeria $modeloxx,Request $request){
+        $diasGrupo = []; 
+        $diasGrupo=Parametro::select(['parametros.nombre'])->
+        join('asissema_grupodias', 'parametros.id', '=', 'asissema_grupodias.prm_dia_id')->
+        where('asissema_grupodias.asissema_id',$modeloxx->id)->get()->toArray();
 
+        if (count($diasGrupo) > 0) {
+            $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
+                $dataxxxx['modeloxx']=[];
+                   //asistencia academica
+                if($modeloxx->prm_actividad_id == 2721){
+                    $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                        'asissema_id'=>$modeloxx->id,
+                        'matric_acade_id'=>$request->valuexxx,
+                        'sis_esta_id'=>1,
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
+                    ]);
+                    foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                        AsissemaAsisten::create([
+                            'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                            'fecha'=>$date,
+                            'valor_asis'=>0
+                        ]);
+                    }
+                    
+                }
+                //asistencia convenio 
+                if($modeloxx->prm_actividad_id == 2724){
+                    $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                        'asissema_id'=>$modeloxx->id,
+                        'matric_convenio_id'=>$request->valuexxx,
+                        'sis_esta_id'=>1,
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
+                    ]);
+                    foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                        AsissemaAsisten::create([
+                            'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                            'fecha'=>$date,
+                            'valor_asis'=>0
+                        ]);
+                    }
+                }
+                //formacion tecnica-convenios
+                if($modeloxx->prm_actividad_id == 2723){
+                
+                }
+                //formscion tecnica talleres
+                if($modeloxx->prm_actividad_id == 2722){
+                    $dataxxxx['modeloxx'] = AsissemaMatricula::create([
+                        'asissema_id'=>$modeloxx->id,
+                        'matricula_curso_id'=>$request->valuexxx,
+                        'sis_esta_id'=>1,
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
+                    ]);
+                    foreach ($this->buscarDiasGrupo($modeloxx,$diasGrupo) as $date) {
+                        AsissemaAsisten::create([
+                            'asissema_matri_id'=>$dataxxxx['modeloxx']->id,
+                            'fecha'=>$date,
+                            'valor_asis'=>0
+                        ]);
+                    }
+                }
+                return $dataxxxx['modeloxx'];
+            }, 5);
+
+            $respuest = response()->json('exito');
+        }else{
+            $respuest = response()->json('falta_dias');
+        }
+
+        return $respuest;
+    }
+
+    public function setEstadoAsistencia(Request $request){
+            $valor =0;
+        if ($request->valorxxx == "true") {
+            $valor = 1;
+        }else{
+            $valor = 0;
+        }
 
 
 
