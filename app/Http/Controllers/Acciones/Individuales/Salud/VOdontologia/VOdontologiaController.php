@@ -101,11 +101,22 @@ class VOdontologiaController extends Controller
         if($modeloxx->antecedentes){
             $this->pestanix[2]['routexxx'] = '.ver';
             $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->antecedentes->id];
+            $this->pestanix[2]['checkxxx'] = 1;
         }else{
             $this->pestanix[2]['routexxx'] = '.nuevo';
             $this->pestanix[2]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[2]['checkxxx'] = 0;
         }
-        
+        if($modeloxx->examenes){
+            $this->pestanix[3]['routexxx'] = '.ver';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
+            $this->pestanix[3]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[3]['routexxx'] = '.nuevo';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[3]['checkxxx'] = 0;
+        }
+
         
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
@@ -128,7 +139,25 @@ class VOdontologiaController extends Controller
     {    
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx];
+        if($modeloxx->antecedentes){
+            $this->pestanix[2]['routexxx'] = '.editar';
+            $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->antecedentes->id];
+            $this->pestanix[2]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[2]['routexxx'] = '.nuevo';
+            $this->pestanix[2]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[2]['checkxxx'] = 0;
+        }
+        if($modeloxx->examenes){
+            $this->pestanix[3]['routexxx'] = '.editar';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
+            $this->pestanix[3]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[3]['routexxx'] = '.nuevo';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[3]['checkxxx'] = 0;
+        }
+        
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;

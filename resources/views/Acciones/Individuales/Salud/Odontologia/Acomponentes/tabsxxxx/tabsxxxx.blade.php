@@ -2,13 +2,20 @@
     <div class="card-header">
         {{$todoxxxx['tituhead']}}
     </div>
+    
     <div class="card-header p-2">
         <ul class="nav nav-tabs">
             @foreach($todoxxxx['pestania'] as $pestania)
                 @canany($pestania['cananyxx'])
-                <li class="nav-item">
+                    <li class="nav-item">
                     <a class="nav-link {{ $pestania['activexx'] }} text-sm" href="{{ $pestania['routexxx'] }}">
-                        {{ $pestania['tituloxx'] }}
+                        {{ $pestania['tituloxx'] }}   
+                        @if( $pestania['checkxxx']==0)
+                        <span class="fas fa-times text-danger" aria-hidden="true"></span>
+                        @endif
+                        @if( $pestania['checkxxx']==1)
+                        <span class="fas fa-check text-success" aria-hidden="true"></span>
+                        @endif
                     </a>
                 </li>
                 @endcanany
