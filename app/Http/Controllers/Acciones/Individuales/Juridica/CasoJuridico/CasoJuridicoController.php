@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Acciones\Individuales\Salud\VsmedicinaEditarRequest;
 use App\Http\Requests\Acciones\Individuales\Sociolegal\CasoJurCrearRequest;
+use App\Http\Requests\Acciones\Individuales\Sociolegal\CasoJurEditarRequest;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 ;
 use App\Models\Acciones\Individuales\SocialLegal\CasoJur;
@@ -120,6 +121,7 @@ class CasoJuridicoController extends Controller
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx->nnaj;
+        $this->padrexxx =  $this->opciones['padrexxx'];
         $this->opciones['diagnost'] = '.listaxxz';
         $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
         $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
@@ -151,7 +153,7 @@ class CasoJuridicoController extends Controller
     }
 
 
-    public function update(CasoJurCrearRequest $request,  CasoJur $modeloxx)
+    public function update(CasoJurEditarRequest $request,  CasoJur $modeloxx)
     {
         
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
