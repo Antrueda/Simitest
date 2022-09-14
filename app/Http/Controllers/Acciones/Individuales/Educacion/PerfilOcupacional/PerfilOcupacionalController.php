@@ -326,6 +326,13 @@ class PerfilOcupacionalController extends Controller
             }
 
         }
+
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+           }else{
+            $this->opciones['funccont']  = User::getUsuario(false, false);
+        }
+
         $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->sis_nnaj_id, 'dependid' => $dependid]);
         if ($dataxxxx['accionxx'][1] == 'destroy') {
             $this->opciones['ruarchjs'] = [
