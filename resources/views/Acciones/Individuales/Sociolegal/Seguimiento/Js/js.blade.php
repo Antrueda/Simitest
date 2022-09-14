@@ -248,13 +248,8 @@
 
 
 
-init_contadorTa("consultaca", "contadorconsultaca", 4000);
-init_contadorTa("asesoriaca", "contadorasesoriaca", 4000);
-init_contadorTa("anteotiempo", "contadoranteotiempo", 4000);
-init_contadorTa("prospeccion", "contadorprospeccion", 4000);
-init_contadorTa("obsefamilia", "contadorobsefamilia", 4000);
-init_contadorTa("osexualidad", "contadorosexualidad", 4000);
-init_contadorTa("conceptoocu", "contadorconceptoocu", 4000);
+init_contadorTa("descripcion", "descripcioncont", 4000);
+
 
 
 function init_contadorTa(idtextarea, idcontador, max) {
