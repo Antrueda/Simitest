@@ -114,7 +114,7 @@ class SeguimientoCasoJuridicoController extends Controller
         $this->opciones['padrexxx'] = $modeloxx->casojur;
         $this->opciones['juridica'] = $modeloxx->casojur->nnaj->fi_justrests->fi_proceso_srpas;
         $this->opciones['tablinde']=false;
-
+        $this->padrexxx = $modeloxx->casojur;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]

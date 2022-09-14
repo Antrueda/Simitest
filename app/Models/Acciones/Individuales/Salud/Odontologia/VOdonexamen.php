@@ -17,7 +17,5 @@ class VOdonexamen extends Model
         return $this->belongsTo(VOdontologia::class, 'odonto_id');
     }
 
-    public function remision(){
-        return $this->belongsTo(Remision::class, 'remiint_id');
-    }
+
 }

@@ -7,6 +7,7 @@ use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use Illuminate\Database\Eloquent\Model;
 
@@ -356,6 +357,11 @@ class SisNnaj extends Model
     public function VMedicinaG()
     {
         return $this->hasMany(Vsmedicina::class);
+    }
+
+    public function Odontologia()
+    {
+        return $this->hasMany(VOdontologia::class);
     }
 
     public function getVMedicinaPrimeraAttribute()

@@ -48,8 +48,8 @@
     @endif
 </div>
   <div class="col-md-3" id='pard_id'>
-    {{ Form::label('num_sim', 'Numero SIM', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('num_sim',  null, ['class' => $errors->first('num_sim') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::label('num_sim', 'Número SIM', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('num_sim',  null, ['class' => $errors->first('num_sim') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('num_sim'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('num_sim') }}
@@ -326,7 +326,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('telfapo', 'Número Telefónico 1', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('telfapo', null, ['class' => $errors->first('telfapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+    {{ Form::text('telfapo', null, ['class' => $errors->first('telfapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('telfapo'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('telfapo') }}
@@ -335,7 +335,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('telfapo2', 'Número Telefónico 2', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('telfapo2', null, ['class' => $errors->first('telfapo2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+    {{ Form::text('telfapo2', null, ['class' => $errors->first('telfapo2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('telfapo2'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('telfapo2') }}
@@ -444,5 +444,6 @@
 <br>
 <hr>
 <div class="form-group row">
+  @include('layouts.registrousuario')
   @include('layouts.registrofecha')
 </div>

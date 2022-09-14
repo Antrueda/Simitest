@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes;
 
 
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;

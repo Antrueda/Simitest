@@ -43,14 +43,9 @@ trait VistasTrait
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        
+        $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
    
-         if(count($opciones['padrexxx']->VMedicinaG)<1){
-            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
-     
-         }else{
-            $opciones['consulta'] = Tema::comboNotIn(439,true, false,[1155,2809,2804]);
-         }
+       
       
         $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
         
@@ -60,7 +55,7 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
-            $opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->afili_id, true, false);
+            
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             if($dataxxxx['modeloxx']->consul_id==1155){
                 $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);

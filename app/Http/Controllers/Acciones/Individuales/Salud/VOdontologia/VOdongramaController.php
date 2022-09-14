@@ -17,7 +17,7 @@ use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
 
 
 
-class VOdonAntecedentesController extends Controller
+class VOdongramaController extends Controller
 {
     use ListadosTrait; // trait que arma las consultas para las datatables
     use CrudTrait; // trait donde se hace el crud de localidades

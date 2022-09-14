@@ -321,4 +321,5 @@ function soloNumeros(e) {
         
     }
     window.onload=carga;
+    
 </script>

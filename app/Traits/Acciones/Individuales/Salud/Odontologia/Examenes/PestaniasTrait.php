@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes;
 
 
 trait PestaniasTrait
@@ -15,10 +15,10 @@ trait PestaniasTrait
         [
             'permisox' => 'vodonanteces', 'routexxx' => '.nuevo', 'dataxxxx' => [true, []],
         ],
-
         [
             'permisox' => 'vodonexamens', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
         ],
+     
      
     ];
 

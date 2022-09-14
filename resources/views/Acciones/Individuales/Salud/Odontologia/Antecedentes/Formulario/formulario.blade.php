@@ -1,226 +1,584 @@
 <hr style="border:3px;">
 <div class="row">
-  
-  <div class="col-md-4">
-    {{ Form::label('fecha', 'Fecha de Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
-    @if($errors->has('fecha'))
+  <div class="col-md-3">
+    {{ Form::label('trata_id', '¿Esta usted bajo tratamiento médico?', ['class' => 'control-label col-form-label-sm']) }}
+    <div class="form-check">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input"
+            name="trata_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->trata_id == 227) ? 'checked' : ''; ?> value="227" {{ old("trata_id") == '227' ? 'checked' : '' }}>SI
+        </label>
+    </div>
+    <div class="form-check disabled">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input {{$errors->first('trata_id') ? ' is-invalid' : ''}}"
+            name="trata_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->trata_id == 228) ? 'checked' : ''; ?> value="228" {{ old("trata_id") == '228' ? 'checked' : '' }}>NO
+        </label>
+    </div>
+    @if($errors->has('trata_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('fecha') }}
+        {{ $errors->first('trata_id') }}
     </div>
     @endif
-  </div>
-  <div class="col-md-4">
-    {{ Form::label('upi_id', 'UPI De atención', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('upi_id', $todoxxxx['dependen'],null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('upi_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('upi_id') }}
-          </div>
-       @endif
-  </div>
-  <div class="col-md-4">
-    {{ Form::label('upiorigen_id', 'UPI de origen', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('upiorigen_id', $todoxxxx['depenori'],null, ['class' => $errors->first('upiorigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('upiorigen_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('upiorigen_id') }}
-          </div>
-       @endif
-  </div>
-   <div class="col-md-4">
-    {{ Form::label('consul_id', 'Tipo de Consulta', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('consul_id', $todoxxxx['consulta'],null, ['class' => $errors->first('consul_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('consul_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('consul_id') }}
-          </div>
-       @endif
-  </div>
-  <div class="col-md-4">
-    {{ Form::label('modal_id', 'Modalidad de Consulta', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('modal_id', $todoxxxx['modalxxx'],null, ['class' => $errors->first('modal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('modal_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('modal_id') }}
-          </div>
-       @endif
-  </div>
 </div>
-  <hr style="border:3px;">
-<div class="row mt-3">
-  <div class="col-md-12">
-    <h5>DATOS DE AFILIACIÓN</h5>
+<div class="col-md-3">
+  {{ Form::label('alergia_id', '¿Alérgico a algún medicamento?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" onchange = "doc(this.value);"
+          name="alergia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->alergia_id == 227) ? 'checked' : ''; ?> value="227" {{ old("alergia_id") == '227' ? 'checked' : '' }}>SI
+      </label>
   </div>
-</div>
-<div class="row">
-<hr style="border:3px;">
-  <div class="col-md-4">
-    {{ Form::label('afili_id', 'Estado de Afiliación en Salud', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('afili_id', $todoxxxx['estafili'],$todoxxxx['usuariox']->sis_nnaj->fi_saluds->prm_regisalu_id, ['class' => $errors->first('afili_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('afili_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('afili_id') }}
-          </div>
-       @endif
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('alergia_id') ? ' is-invalid' : ''}}" onchange = "doc(this.value);"
+          name="alergia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->alergia_id == 228) ? 'checked' : ''; ?> value="228" {{ old("alergia_id") == '228' ? 'checked' : '' }}>NO
+      </label>
   </div>
-  <div class="col-md-4">
-    {{ Form::label('entidad_id', 'Entidad/Regimen', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('entidad_id', $todoxxxx['entid_id'],$todoxxxx['usuariox']->sis_nnaj->fi_saluds->sis_entidad_salud_id, ['class' => $errors->first('entidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('entidad_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('entidad_id') }}
-          </div>
-       @endif
+  @if($errors->has('alergia_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('alergia_id') }}
   </div>
-  <div class="col-md-4">
-    {{ Form::label('poblaci_id', 'Población Especial', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('poblaci_id', $todoxxxx['poblacio'],null, ['class' => $errors->first('poblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('poblaci_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('poblaci_id') }}
-          </div>
-       @endif
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-12">
-    {{ Form::label('motivoval', 'Motivo de la Valoración', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('motivoval', null, ['class' => $errors->first('motivoval') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        <p id="contadormotivoval">0/4000</p>
-        @if($errors->has('motivoval'))
-      <div class="invalid-feedback d-block">
-            {{ $errors->first('motivoval') }}
-          </div>
-      @endif
+  @endif
+  <div id="cual_div">
+    {{ Form::label('cualtxt', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('cualtxt', null, ['class' => $errors->first('cualtxt') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('cualtxt'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('cualtxt') }}
     </div>
+ @endif
+  </div>
+</div>
+<div class="col-md-3">
+  {{ Form::label('sangra_id', '¿Sangra excesivamente al cortarse?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="sangra_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->sangra_id == 227) ? 'checked' : ''; ?> value="227" {{ old("sangra_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('sangra_id') ? ' is-invalid' : ''}}"
+          name="sangra_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->sangra_id == 228) ? 'checked' : ''; ?> value="228" {{ old("sangra_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('sangra_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('sangra_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('anemia_id', 'Padece de anemia, leucemia. Hemofilia', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="anemia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->anemia_id == 227) ? 'checked' : ''; ?> value="227" {{ old("anemia_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('anemia_id') ? ' is-invalid' : ''}}"
+          name="anemia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->anemia_id == 228) ? 'checked' : ''; ?> value="228" {{ old("anemia_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('anemia_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('anemia_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('gestia_id', '¿Se encuentra en estado de gestación?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="gestia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->gestia_id == 227) ? 'checked' : ''; ?> value="227" {{ old("gestia_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('gestia_id') ? ' is-invalid' : ''}}"
+          name="gestia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->gestia_id == 228) ? 'checked' : ''; ?> value="228" {{ old("gestia_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('gestia_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('gestia_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('fuma_id', '¿Fuma?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="fuma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->fuma_id == 227) ? 'checked' : ''; ?> value="227" {{ old("fuma_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('fuma_id') ? ' is-invalid' : ''}}"
+          name="fuma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->fuma_id == 228) ? 'checked' : ''; ?> value="228" {{ old("fuma_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('fuma_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('fuma_id') }}
+  </div>
+  @endif
+</div>
+
+
+<div class="col-md-3">
+  {{ Form::label('cardio_id', '¿Tiene problemas Cardiacos?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="cardio_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->cardio_id == 227) ? 'checked' : ''; ?> value="227" {{ old("cardio_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('cardio_id') ? ' is-invalid' : ''}}"
+          name="cardio_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->cardio_id == 228) ? 'checked' : ''; ?> value="228" {{ old("cardio_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('cardio_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('cardio_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('herpes_id', '¿Sufre de herpes o aftas recurrentes?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="herpes_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->herpes_id == 227) ? 'checked' : ''; ?> value="227" {{ old("herpes_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('herpes_id') ? ' is-invalid' : ''}}"
+          name="herpes_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->herpes_id == 228) ? 'checked' : ''; ?> value="228" {{ old("herpes_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('herpes_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('herpes_id') }}
+  </div>
+  @endif
+</div>
+
+
+<div class="col-md-3">
+  {{ Form::label('encia_id', 'Sangrado de encías', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="encia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->encia_id == 227) ? 'checked' : ''; ?> value="227" {{ old("encia_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('encia_id') ? ' is-invalid' : ''}}"
+          name="encia_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->encia_id == 228) ? 'checked' : ''; ?> value="228" {{ old("encia_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('encia_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('encia_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('muerde_id', '¿Se muerde uñas o labios?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="muerde_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->muerde_id == 227) ? 'checked' : ''; ?> value="227" {{ old("muerde_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('muerde_id') ? ' is-invalid' : ''}}"
+          name="muerde_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->muerde_id == 228) ? 'checked' : ''; ?> value="228" {{ old("muerde_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('muerde_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('muerde_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('enfactu_id', 'Enfermerdad actual: cual?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="enfactu_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->enfactu_id == 227) ? 'checked' : ''; ?> value="227" {{ old("enfactu_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('enfactu_id') ? ' is-invalid' : ''}}"
+          name="enfactu_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->enfactu_id == 228) ? 'checked' : ''; ?> value="228" {{ old("enfactu_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('enfactu_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('enfactu_id') }}
+  </div>
+  @endif
+</div>
+
+
+
+
+<div class="col-md-3">
+  {{ Form::label('hepati_id', 'Hepatitis', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="hepati_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->hepati_id == 227) ? 'checked' : ''; ?> value="227" {{ old("hepati_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('hepati_id') ? ' is-invalid' : ''}}"
+          name="hepati_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->hepati_id == 228) ? 'checked' : ''; ?> value="228" {{ old("hepati_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('hepati_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('hepati_id') }}
+  </div>
+  @endif
+</div>
+<div class="col-md-3">
+  {{ Form::label('tens_id', 'Tensión arterial alta', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="tens_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->tens_id == 227) ? 'checked' : ''; ?> value="227" {{ old("tens_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('tens_id') ? ' is-invalid' : ''}}"
+          name="tens_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->tens_id == 228) ? 'checked' : ''; ?> value="228" {{ old("tens_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('tens_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('tens_id') }}
+  </div>
+  @endif
+</div>
+<div class="col-md-3">
+  {{ Form::label('vih_id', 'VIH', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="vih_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->vih_id == 227) ? 'checked' : ''; ?> value="227" {{ old("vih_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('vih_id') ? ' is-invalid' : ''}}"
+          name="vih_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->vih_id == 228) ? 'checked' : ''; ?> value="228" {{ old("vih_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('vih_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('vih_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('fieb_id', 'Fiebre reumatica', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="fieb_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->fieb_id == 227) ? 'checked' : ''; ?> value="227" {{ old("fieb_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('fieb_id') ? ' is-invalid' : ''}}"
+          name="fieb_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->fieb_id == 228) ? 'checked' : ''; ?> value="228" {{ old("fieb_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('fieb_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('fieb_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('asma_id', 'Asma', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="asma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->asma_id == 227) ? 'checked' : ''; ?> value="227" {{ old("asma_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('asma_id') ? ' is-invalid' : ''}}"
+          name="asma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->asma_id == 228) ? 'checked' : ''; ?> value="228" {{ old("asma_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('asma_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('asma_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('diabe_id', 'Diabetes', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="diabe_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->diabe_id == 227) ? 'checked' : ''; ?> value="227" {{ old("diabe_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('diabe_id') ? ' is-invalid' : ''}}"
+          name="diabe_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->diabe_id == 228) ? 'checked' : ''; ?> value="228" {{ old("diabe_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('diabe_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('diabe_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('ulcer_id', 'Ulcera gástrica', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="ulcer_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->ulcer_id == 227) ? 'checked' : ''; ?> value="227" {{ old("ulcer_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('ulcer_id') ? ' is-invalid' : ''}}"
+          name="ulcer_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->ulcer_id == 228) ? 'checked' : ''; ?> value="228" {{ old("ulcer_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('ulcer_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('ulcer_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('toma_id', '¿Toma algun Medicamento?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="toma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->toma_id == 227) ? 'checked' : ''; ?> value="227" {{ old("toma_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('toma_id') ? ' is-invalid' : ''}}"
+          name="toma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->toma_id == 228) ? 'checked' : ''; ?> value="228" {{ old("toma_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('toma_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('toma_id') }}
+  </div>
+  @endif
+</div>
+
+
+<div class="col-md-3">
+  {{ Form::label('toma_id', '¿Toma algun Medicamento?', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" onchange = "doc1(this.value);"
+          name="toma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->toma_id == 227) ? 'checked' : ''; ?> value="227" {{ old("toma_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('toma_id') ? ' is-invalid' : ''}}" onchange = "doc1(this.value);"
+          name="toma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->toma_id == 228) ? 'checked' : ''; ?> value="228" {{ old("toma_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('toma_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('toma_id') }}
+  </div>
+  @endif
+  <div id="medic_div">
+    {{ Form::label('medic_id', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('medic_id', $todoxxxx['condicio'],null, ['class' => $errors->first('medic_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+    @if($errors->has('medic_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('medic_id') }}
+    </div>
+ @endif
+  </div>
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('limit_id', 'Limitación al abrir o ruidos articulares', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="limit_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->limit_id == 227) ? 'checked' : ''; ?> value="227" {{ old("limit_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('limit_id') ? ' is-invalid' : ''}}"
+          name="limit_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->limit_id == 228) ? 'checked' : ''; ?> value="228" {{ old("limit_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('limit_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('limit_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('apret_id', 'Apretamiento dentario', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="apret_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->apret_id == 227) ? 'checked' : ''; ?> value="227" {{ old("apret_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('apret_id') ? ' is-invalid' : ''}}"
+          name="apret_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->apret_id == 228) ? 'checked' : ''; ?> value="228" {{ old("apret_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('apret_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('apret_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('resta_id', 'Restauración protesica', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="resta_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->resta_id == 227) ? 'checked' : ''; ?> value="227" {{ old("resta_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('resta_id') ? ' is-invalid' : ''}}"
+          name="resta_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->resta_id == 228) ? 'checked' : ''; ?> value="228" {{ old("resta_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('resta_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('resta_id') }}
+  </div>
+  @endif
+</div>
+
+<div class="col-md-3">
+  {{ Form::label('respir_id', 'Respiración bucal', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="respir_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->respir_id == 227) ? 'checked' : ''; ?> value="227" {{ old("respir_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('respir_id') ? ' is-invalid' : ''}}"
+          name="respir_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->respir_id == 228) ? 'checked' : ''; ?> value="228" {{ old("respir_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('respir_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('respir_id') }}
+  </div>
+  @endif
+</div>
+
+
+<div class="col-md-3">
+  {{ Form::label('pato_id', 'Patología de Tiroides', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="pato_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->pato_id == 227) ? 'checked' : ''; ?> value="227" {{ old("pato_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('pato_id') ? ' is-invalid' : ''}}"
+          name="pato_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->pato_id == 228) ? 'checked' : ''; ?> value="228" {{ old("pato_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('pato_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('pato_id') }}
+  </div>
+  @endif
+</div>
+
+
+<div class="col-md-3">
+  {{ Form::label('tuber_id', 'Tuberculosis', ['class' => 'control-label col-form-label-sm']) }}
+  <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input"
+          name="tuber_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->tuber_id == 227) ? 'checked' : ''; ?> value="227" {{ old("tuber_id") == '227' ? 'checked' : '' }}>SI
+      </label>
+  </div>
+  <div class="form-check disabled">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input {{$errors->first('tuber_id') ? ' is-invalid' : ''}}"
+          name="tuber_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->tuber_id == 228) ? 'checked' : ''; ?> value="228" {{ old("tuber_id") == '228' ? 'checked' : '' }}>NO
+      </label>
+  </div>
+  @if($errors->has('tuber_id'))
+  <div class="invalid-feedback d-block">
+      {{ $errors->first('tuber_id') }}
+  </div>
+  @endif
+</div>
+
+
+
+
+
+
+
+
+
 </div>
 
 <hr>
-<hr style="border:3px;">
-<hr style="border:3px;">
-<div class="row mt-3">
-  <div class="col-md-12">
-    <h5>Diagnósticos</h5>
-    <hr>
-  </div>
-</div>
-
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-
-<hr style="border:3px;">
-<div class="row mt-3">
-  <div class="col-md-12">
-    <h5>Remisión Interinstitucionales</h5>
-  </div>
-</div>
-<hr style="border:3px;">
-<div class="row">
-  <div class="col-md-4">
-    {{ Form::label('remico_id', 'Remisión Interinstitucional', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remico_id', $todoxxxx['remiinte'],null, ['class' => $errors->first('remico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)','id'=>'remico_id']) }}
-        @if($errors->has('remico_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('remico_id') }}
-          </div>
-       @endif
-  </div>  
-</div>
-<div class="row">
-  <div class="col-md-4">
-    {{ Form::label('remigen_id', 'Remisión Enfermedad General', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remigen_id', $todoxxxx['tiporemi'],null, ['class' => $errors->first('remigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('remigen_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('remigen_id') }}
-          </div>
-       @endif
-  </div>
-  <div class="col-md-4">
-    {{ Form::label('remisal_id', 'Remisión Salud Mental', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remisal_id', $todoxxxx['tiporemi'],null, ['class' => $errors->first('remisal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('remisal_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('remisal_id') }}
-          </div>
-       @endif
-  </div>
-  <br>
-</div>
-<hr style="border:3px;">
-<div class="row mt-3">
-  <div class="col-md-12">
-    <h5>Remisión Intrainstitucional</h5>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-4">
-    {{ Form::label('remiint_id', 'Remisión Intrainstitucional', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remiint_id', $todoxxxx['remision'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc3(this.value)']) }}
-        @if($errors->has('remiint_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('remiint_id') }}
-          </div>
-       @endif
-  </div>
-  <div class="col-md-4">
-    {{ Form::label('remiesp_id', 'Remisión Especial', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('remiesp_id', $todoxxxx['remiespe'],null, ['class' => $errors->first('remiesp_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('remiesp_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('remiesp_id') }}
-          </div>
-       @endif
-  </div>
-</div>
-  <div class="row mt-3">
-    <div class="col-md-12">
-      <h5>Certificado</h5>
-      <hr>
-    </div>
-  </div>
-  <div class="row"> 
-  <div class="col-md-4">
-    {{ Form::label('certifi_id', 'Certificado', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('certifi_id', $todoxxxx['condicio'],null, ['class' => $errors->first('certifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc2(this.value)']) }}
-        @if($errors->has('certifi_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('certifi_id') }}
-          </div>
-       @endif
-  </div>
-  <div class="col-md-12">
-    {{ Form::label('recomenda', 'Recomendación', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('recomenda', null, ['class' => $errors->first('recomenda') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'recomenda', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        <p id="contadorrecomenda">0/4000</p>
-        @if($errors->has('recomenda'))
-      <div class="invalid-feedback d-block">
-            {{ $errors->first('recomenda') }}
-          </div>
-      @endif
-    </div>
-</div>
-
-
-
-<hr>
-
-
-<div class="row">
-  <div class="col-md">
-    {{ Form::label('user_id', 'Funcionario y/o Contratista quien diligencia', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('user_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
-    @if($errors->has('user_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('user_id') }}
-      </div>
-    @endif
-  </div>
-</div>
 <br>
 <hr>
 <div class="form-group row">

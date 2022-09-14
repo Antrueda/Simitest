@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\SocialLegal;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class SeguiJuridico extends Model
@@ -28,5 +29,11 @@ class SeguiJuridico extends Model
     }
     public function seguimiento(){
         return $this->belongsTo(SeguimientoCaso::class, 'segui_id');
+    }
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_crea_id');
+    }
+    public function modifico(){
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
 }
