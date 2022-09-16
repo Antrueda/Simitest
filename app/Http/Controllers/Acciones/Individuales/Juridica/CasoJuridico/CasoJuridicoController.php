@@ -100,7 +100,7 @@ class CasoJuridicoController extends Controller
     }
     public function store(CasoJurCrearRequest $request,SisNnaj $padrexxx)
     {//
-        
+ 
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
         //ddd($request->request->all());
@@ -155,7 +155,7 @@ class CasoJuridicoController extends Controller
 
     public function update(CasoJurEditarRequest $request,  CasoJur $modeloxx)
     {
-        
+       // ddd($request->request);
         $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
         return $this->setCasoJuridico([
             'requestx' => $request,

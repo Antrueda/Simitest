@@ -67,7 +67,7 @@ trait VistasTrait
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
-        $opciones['readchcx'] = 'readonly';
+        
         $opciones['municipi'] = SisMunicipio::comboIn([16,6], false);
         $opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $opciones['barrioxx'] = $opciones['upzxxxxx'];
@@ -75,14 +75,25 @@ trait VistasTrait
         $opciones['tipocaso'] = TipoCaso::combo(true, false);
         $opciones['temacaso'] = TemaCaso::combo(true, false);
         $opciones['centrose'] = CentroZosec::combo(true, false);
-        $opciones['tiporesi'] = Tema::combo(145, true, false);
+ 
         $opciones['tipodocu'] = Tema::comboAsc(361,true, false);
         $opciones['parentes'] = Tema::comboAsc(358,true, false);
+        $opciones['parentez'] = Tema::comboNotIn(358,true, false,[805]);
         $opciones['solicita'] = Tema::comboAsc(449,true, false);
         $opciones['juzgadox'] = Tema::comboAsc(451,true, false);
         $opciones['sujetoxx'] = Tema::comboAsc(450,true, false);
         $opciones['estadcas'] = Tema::comboAsc(452,true, false);
-
+        if ($opciones['usuariox']->prm_tipoblaci_id == 650) {
+            $opciones['readchcx'] = 'readonly';
+            $opciones['residees'] = [235 => 'N/A'];
+            $opciones['localida'] = [22 => 'N/A'];
+            $opciones['upzxxxxx'] = [119 => 'N/A'];
+            $opciones['barrioxx'] = [1653 => 'N/A'];
+            
+            $opciones['tiporesi'] = Tema::combo(145, true, false);
+        } else {
+            $opciones['tiporesi'] = Tema::combo(34, true, false);
+        }
         $opciones['condicio'] = Tema::combo(23, true, false);
         $opciones['tipodire'] = Tema::comboAsc(36, true, false);
         $opciones['zonadire'] = Tema::comboAsc(37, true, false);
