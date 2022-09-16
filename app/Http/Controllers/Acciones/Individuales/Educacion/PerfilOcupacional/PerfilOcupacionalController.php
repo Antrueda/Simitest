@@ -262,7 +262,7 @@ class PerfilOcupacionalController extends Controller
          $this->opciones['fechedit'] = '';
          $this->opciones['usercrea'] = '';
          $this->opciones['useredit'] = '';
-         $this->opciones['usuarios'] = User::getUsuario(false, false);
+     //    $this->opciones['usuarios'] = User::getUsuario(false, false);
 
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '-leer', $dataxxxx['padrexxx']->sis_nnaj_id],
@@ -281,6 +281,13 @@ class PerfilOcupacionalController extends Controller
          $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
          $this->opciones['usuarioz'] = User::comboCargo(true, false);
          $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
+
+
+
+       
+
+
+
          $this->opciones['vercrear'] = false;
         $parametr = 0;
 
@@ -327,11 +334,15 @@ class PerfilOcupacionalController extends Controller
 
         }
 
+
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+            $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_crea_id);
+            
            }else{
             $this->opciones['funccont']  = User::getUsuario(false, false);
         }
+
+       
 
         $this->opciones['sis_depens'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->sis_nnaj_id, 'dependid' => $dependid]);
         if ($dataxxxx['accionxx'][1] == 'destroy') {
