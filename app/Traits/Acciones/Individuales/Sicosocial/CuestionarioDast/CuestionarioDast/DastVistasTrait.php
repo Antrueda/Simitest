@@ -86,7 +86,6 @@ trait DastVistasTrait
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
             $this->getBotones(['crearxxx', ['dastsegu', [$dataxxxx['modeloxx']->id]], 2, 'SEGUIMIENTOS', 'btn btn-sm btn-primary']);
-            $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }
 
         if ($dataxxxx['modeloxx'] != '') {
