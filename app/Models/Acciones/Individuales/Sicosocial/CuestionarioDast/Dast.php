@@ -60,4 +60,14 @@ class Dast extends Model
     {
         return $this->hasOne(DastResultado::class, 'dast_id');
     }
+
+    public function getFechaAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
+
+    public function getFechaVespaAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
 }

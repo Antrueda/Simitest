@@ -58,7 +58,7 @@ trait DastListadosTrait
             ->addColumn(
                 'interpretacion',
                 function ($queryxxx) {
-                    return $queryxxx->resultado . ' - ' . $queryxxx->grado_problema;
+                    return strtoupper($queryxxx->resultado . ' - ' . $queryxxx->grado_problema);
                 }
 
             )
