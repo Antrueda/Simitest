@@ -32,7 +32,7 @@ class PerfilVocacionalController extends Controller
     use PvVistasTrait; // trait que arma la logica para lo metodos: crud
     use  ManageTimeTrait;
     use CombosTrait;
-    
+
     public function __construct()
     {
         $this->opciones['permisox'] = 'pvocacif';
@@ -40,20 +40,18 @@ class PerfilVocacionalController extends Controller
         $this->getOpciones();
         $this->middleware($this->getMware());
 
-        $this->pestania2[0][4]=true;
+        $this->pestania2[0][4] = true;
         $this->pestania2[0][5] = 'active';
     }
 
     public function index(SisNnaj $padrexxx)
     {
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        //activar pestanias 
-        $this->pestania[0][2]=$padrexxx->id;
-        $this->pestania2[0][2]=$padrexxx->id;
-        $this->pestania2[1][4]=true;
-        $this->pestania2[1][2]=$padrexxx->id;
-        $this->pestania3[0][4]=true;
-        $this->pestania3[0][2]=$padrexxx->id;
+        //activar pestania formulario actual
+        $this->pestania[0][2] = $padrexxx->id;
+        $this->pestania2[0][2] = $padrexxx->id;
+        //activar el resto de formularios
+        $this->activarPestanias($padrexxx->id);
 
         $this->getPestanias([]);
         $this->getTablas($padrexxx->id);
@@ -69,21 +67,21 @@ class PerfilVocacionalController extends Controller
         ]);
         $this->opciones['puedetiempo'] = $puedexxx;
 
-        $puedoCrear=$this->verificarPuedoCrear($padrexxx);
+        $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         if ($puedoCrear['puedo']) {
             $this->opciones['parametr'] = [$padrexxx->id];
             $this->getBotones(['crearxxx', [], 1, 'GUARDAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary submit-pvf']);
-            return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],'padrexxx'=>$padrexxx]);
-        }else{
+            return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
+        } else {
             return redirect()
-            ->route('pvocacif', [$padrexxx->id])
-            ->with('info', $puedoCrear['meserror']);
+                ->route('pvocacif', [$padrexxx->id])
+                ->with('info', $puedoCrear['meserror']);
         }
     }
-    public function store(PerfilVocacionalCrearRequest $request,SisNnaj $padrexxx)
+    public function store(PerfilVocacionalCrearRequest $request, SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
         return $this->setPerfilVocacional([
             'requestx' => $request,
             'modeloxx' => '',
@@ -95,7 +93,7 @@ class PerfilVocacionalController extends Controller
 
     public function show(PvfPerfilVoca $modeloxx)
     {
-        return $this->viewVer(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'],'padrexxx'=>$modeloxx->nnaj]);
+        return $this->viewVer(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
 
@@ -110,17 +108,16 @@ class PerfilVocacionalController extends Controller
                 $this->opciones['puedetiempo'] = $puedexxx;
                 $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
                 $this->getBotones(['editarxx', [], 1, 'EDITAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
-                return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx'=>$modeloxx->nnaj]);
-            }else{
+                return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->nnaj]);
+            } else {
                 return redirect()
-                ->route('pvocacif', [$modeloxx->sis_nnaj_id])
-                ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
+                    ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                    ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
             }
-            
-        }else{
+        } else {
             return redirect()
-            ->route('pvocacif', [$modeloxx->sis_nnaj_id])
-            ->with('info', $puedexxx['msnxxxxx']);
+                ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                ->with('info', $puedexxx['msnxxxxx']);
         }
     }
 
@@ -137,7 +134,7 @@ class PerfilVocacionalController extends Controller
     public function inactivate(PvfPerfilVoca $modeloxx)
     {
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
-        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'],'padrexxx'=>$modeloxx->nnaj]);
+        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
     public function destroy(Request $request, PvfPerfilVoca $modeloxx)
@@ -152,7 +149,7 @@ class PerfilVocacionalController extends Controller
     public function activate(PvfPerfilVoca $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR PERFIL VOCACIONAL', 'btn btn-sm btn-primary']);
-        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->nnaj]);
+        return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
     public function activar(Request $request, PvfPerfilVoca $modeloxx)
@@ -163,57 +160,46 @@ class PerfilVocacionalController extends Controller
             ->with('info', 'Formato perfil vocacional activado correctamente');
     }
 
-    private function verificarPuedoCrear($padrexxx){
+    private function verificarPuedoCrear($padrexxx)
+    {
         $date = new DateTime();
 
-        $data=[];
-        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 10 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 29) {
+        $data = [];
+        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 14 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 29) {
             $data['puedo'] = true;
 
-            $ultimoperfil = PvfPerfilVoca::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
-                if ($ultimoperfil != null) {
-                    $fecha1= new DateTime($ultimoperfil->fecha);
-                    $diff = $date->diff($fecha1);
-                    $days=$diff->days;
-                }else{
-                    $days=366;
-                }
-                
-                if ($days > 365) {
-                    $data['puedo'] = true;
+            $ultimoperfil = PvfPerfilVoca::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
+            if ($ultimoperfil != null) {
+                $fecha1 = new DateTime($ultimoperfil->fecha);
+                $diff = $date->diff($fecha1);
+                $days = $diff->days;
+            } else {
+                $days = 366;
+            }
 
-                    $matricul =$padrexxx->Matricula;
-                    $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
-            
-                    if ($matricul != "" && $matricul >= 9 || $matriculaCurso != null) {
-                        $data['puedo'] = true;
-                    }else{
-                        $data['puedo'] = false;
-                        $data['meserror']='Nnaj no tiene matricula activa,academia superior a octavo o matricula talleres.';
-                    }
-                }else{
-                    $hoy = $date;
-                    $data['puedo'] = false;
-                    $cuandoPuedo = 365 - $days;
-                    $cuandoPuedo = $hoy->modify('+ '.$cuandoPuedo.' day');
-                
-                    $data['meserror']='Solo podrá diligenciar el formato de perfil vocacional anualmente, PRÓXIMA FECHA QUE SE PUEDE DILIGENCIAR UNO NUEVO '.$cuandoPuedo->format('Y-m-d');
-                }
-           
-        }else{
+            if ($days > 365) {
+                $data['puedo'] = true;
+            } else {
+                $hoy = $date;
+                $data['puedo'] = false;
+                $cuandoPuedo = 365 - $days;
+                $cuandoPuedo = $hoy->modify('+ ' . $cuandoPuedo . ' day');
+
+                $data['meserror'] = 'Solo podrá diligenciar el formato de perfil vocacional anualmente, PRÓXIMA FECHA QUE SE PUEDE DILIGENCIAR UNO NUEVO ' . $cuandoPuedo->format('Y-m-d');
+            }
+        } else {
             $data['puedo'] = false;
-            $data['meserror']='Nnaj no tiene permiso de edad para crear perfil vocacional';
+            $data['meserror'] = 'Nnaj no tiene permiso de edad para crear perfil vocacional';
         }
         return $data;
     }
 
-    private function verificarPuedoEditar($modeloxx){
-        if ( $modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
+    private function verificarPuedoEditar($modeloxx)
+    {
+        if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 }
-
-
