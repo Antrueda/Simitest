@@ -28,7 +28,7 @@ trait CrudTrait
             $FiResidencia=$dataxxxx['padrexxx']->FiResidencia;
             if($dataxxxx['requestx']->checki==1){
                 $FiResidencia->update($dataxxxx['requestx']->all());
-                ddd($FiResidencia);
+                //ddd($FiResidencia);
             }
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());

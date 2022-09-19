@@ -91,11 +91,11 @@ class CasoJurEditarRequest extends FormRequest
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $nnajxxxx = FiDatosBasico::where('sis_nnaj_id',$this->modeloxx->sis_nnaj_id)->first();
    
+            ddd($this->checki);
             
-            //ddd($this->toArray());
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
-            //ddd($edad);
+
                 
             if ($edad < 18) { //Mayor de edad
                 $this->_mensaje['prm_doc_id.required'] = 'Seleccione el tipo de documento del acompañante';
@@ -110,6 +110,17 @@ class CasoJurEditarRequest extends FormRequest
                 $this->_reglasx['doc_autorizado'] = 'Required';
 
                 }
+
+
+            if($this->checki==1){
+                $this->_reglasx['i_prm_tipo_direccion_id'] = 'Required';
+                $this->_mensaje['i_prm_tipo_direccion_id.required'] = 'Seleccione Tipo de residencia';
+                $this->_reglasx['sis_upzbarri_id'] = 'Required';
+                $this->_mensaje['sis_upzbarri_id.required'] = 'Seleccione el barrio';
+                $this->_reglasx['sis_upz_id'] = 'Required';
+                $this->_mensaje['sis_upz_id.required'] = 'Seleccione UPZ';
+
+            }
          
         }
     }

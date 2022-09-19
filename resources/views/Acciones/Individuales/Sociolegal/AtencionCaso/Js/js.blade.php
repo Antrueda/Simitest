@@ -203,11 +203,41 @@
        }
 
        $('#tipoc_id').change(() => {
+            $("#temac_id").empty();
             let upixxxxx = $('#tipoc_id').val();
             let cabecera = true
             f_tema(0,upixxxxx);
             
         });
+
+        (function($) {
+            $.fn.extend( {
+                limiter: function(limit, elem) {
+                    $(this).on("keyup focus", function() {
+                        setCount(this, elem);
+                    });
+                    function setCount(src, elem) {
+                        var chars = src.value.length;
+                        if (chars > limit) {
+                            src.value = src.value.substr(0, limit);
+                            chars = limit;
+                        }
+                        elem.html( chars+"/4000" );
+                    }
+                    setCount($(this)[0], elem);
+                }
+            });
+        })(jQuery);
+
+        var elem = $("#chars");
+        $("#consultaca").limiter(4000, elem);
+
+        var elem = $("#asesor");
+        $("#asesoriaca").limiter(4000, elem);
+
+        var elem = $("#apoder");
+        $("#apoderado").limiter(500, elem);
+        
 
 
   });
@@ -215,35 +245,10 @@
 
 
 
-init_contadorTa("consultaca", "contadorconsultaca", 4000);
-init_contadorTa("asesoriaca", "contadorasesoriaca", 4000);
-init_contadorTa("anteotiempo", "contadoranteotiempo", 4000);
-init_contadorTa("prospeccion", "contadorprospeccion", 4000);
-init_contadorTa("obsefamilia", "contadorobsefamilia", 4000);
-init_contadorTa("osexualidad", "contadorosexualidad", 4000);
-init_contadorTa("conceptoocu", "contadorconceptoocu", 4000);
 
 
-function init_contadorTa(idtextarea, idcontador, max) {
-    $("#" + idtextarea).keyup(function() {
-        updateContadorTa(idtextarea, idcontador, max);
-    });
-    $("#" + idtextarea).change(function() {
-        updateContadorTa(idtextarea, idcontador, max);
-    });
-}
 
-function updateContadorTa(idtextarea, idcontador, max) {
-    var contador = $("#" + idcontador);
-    var ta = $("#" + idtextarea);
-    contador.html("0/" + max);
-    contador.html(ta.val().length + "/" + max);
-    if (parseInt(ta.val().length) > max) {
-        ta.val(ta.val().substring(0, max - 1));
-        contador.html(max + "/" + max);
-    }
 
-}
 
 function soloNumeros(e) {
         var keynum = window.event ? window.event.keyCode : e.which;
@@ -296,4 +301,11 @@ function soloNumeros(e) {
         
     }
     window.onload=carga;
+
+    $( window ).on( "load", function() {
+        document.getElementById('consultaca').onkeyup = function () {
+        document.getElementById('count').innerHTML = (0 + this.value.length)+"/4000" ;
+        };
+    });
+
 </script>

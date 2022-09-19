@@ -339,7 +339,7 @@ trait ListadosTrait
             ->join('asociar_casos', 'tema_casos.id', '=', 'asociar_casos.tema_id')
             ->where('asociar_casos.tipo_id', $dataxxxx['tipocurs'])
             ->where('tema_casos.sis_esta_id', 1)
-            ->orderBy('tema_casos.id', 'asc')
+            ->orderBy('tema_casos.nombre', 'asc')
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;

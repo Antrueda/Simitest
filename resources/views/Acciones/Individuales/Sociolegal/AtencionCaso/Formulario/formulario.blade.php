@@ -252,7 +252,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('tipoc_id', 'Tipo de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('tipoc_id', $todoxxxx['tipocaso'], null, ['class' => $errors->first('tipoc_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('tipoc_id', $todoxxxx['tipocaso'], null, ['class' => $errors->first('tipoc_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2form-control-sm']) }}
     @if($errors->has('tipoc_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('tipoc_id') }}
@@ -261,7 +261,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('temac_id', 'Tema de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('temac_id', $todoxxxx['temacaso'], null, ['class' => $errors->first('temac_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('temac_id', $todoxxxx['temacaso'], null, ['class' => $errors->first('temac_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
     @if($errors->has('temac_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('temac_id') }}
@@ -279,7 +279,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_parensoli_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parensoli_id', $todoxxxx['parentes'], null, ['class' => $errors->first('prm_parensoli_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm' ]) }}
+    {{ Form::select('prm_parensoli_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parensoli_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'onchange' => 'doc2(this.value)']) }}
     @if($errors->has('prm_parensoli_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_parensoli_id') }}
@@ -317,7 +317,7 @@
     {{ Form::label('apoderado', 'Apoderado', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('apoderado', null, ['class' => $errors->first('apoderado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'apoderado', 
     'cols'=>'30','rows'=>'2', 'maxlength' => '500', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    <p id="contadorapoderado">0/500</p>
+        <span id="apoder"></span>
     @if($errors->has('apoderado'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('apoderado') }}
@@ -382,7 +382,7 @@
         
         {{ Form::textarea('consultaca', null, ['class' => $errors->first('consultaca') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'consultaca', 'cols'=>'30','rows'=>'3',
           'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        <p id="contadorconsultaca">0/4000</p>
+        <span id="chars"></span>
         @if($errors->has('consultaca'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('consultaca') }}
@@ -403,7 +403,7 @@
       
       {{ Form::textarea('asesoriaca', null, ['class' => $errors->first('asesoriaca') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'asesoriaca', 'cols'=>'30','rows'=>'3',
       'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-      <p id="contadorasesoriaca">0/4000</p>
+    <span id="asesor"></span>
       @if($errors->has('asesoriaca'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('asesoriaca') }}
