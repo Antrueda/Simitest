@@ -60,6 +60,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[5]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[6]['dataxxxx'] = [true, $padrexxx->id];
 
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
@@ -111,6 +113,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[5]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[6]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$padrexxx->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
         return $this->view(
@@ -141,6 +145,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->contarHabilidades($modeloxx->nnaj);
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
@@ -162,6 +168,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
@@ -204,6 +212,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
@@ -223,6 +233,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -237,6 +249,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+        $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
