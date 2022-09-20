@@ -5,15 +5,20 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Cuestion
     trait CigCuestionarioPestaniasTrait
     {
     
+    
         public $pestania = [
-            ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
-           ];
+            ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales', 'aiindex'], // por mínimo debe tener un controllaor
+        ];
         public $pestania2 = [
-            ['cgicuest', '', [], 'CUESTIONARIO DE GUSTOS, INTERESES Y HABILIDADES', true, '', 'Cuestionario de gustos e intereses'], // por mínimo debe tener un controlador
+            ['cgicuest', '', [], 'GUSTOS E INTERESES', false, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
+            ['vihcocup', '', [], 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES', true, '', 'Valoración e identificación de habilidades'], // por mínimo debe tener un controllador
+            ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', false, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
             ['pvocacif', '', [], 'PERFIL VOCACIONAL ', false, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
         ];
+    
         public $pestania3 = [
-            ['ventrevista', '', [], 'VALORACIÓN TERAPIA OCUPACIONAL', false, '', 'Valoración terapia ocupacional entrevista semiestructurada'], // por mínimo debe tener un controlador
+            ['fpoaplicacion', '-leer', [], 'PERFIL OCUPACIONAL', false, '', 'Perfil ocupacional'], // por mínimo debe tener un controlador
+            ['ventrevista', '', [], 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA', false, '', 'Valoración terapia ocupacional entrevista semiestructurada'], // por mínimo debe tener un controlador
         ];
         /**
          * permisos que va a manejar cada pestaña
@@ -135,5 +140,21 @@ namespace App\Traits\Acciones\Individuales\Educacion\CuestionarioGustos\Cuestion
         {
             $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
         }
+
+
+        public function activarPestanias($padrexxx)
+        {
+            $this->pestania2[1][4] = true;
+            $this->pestania2[1][2] = $padrexxx;
+            $this->pestania2[2][4] = true;
+            $this->pestania2[2][2] = $padrexxx;
+            $this->pestania2[3][4] = true;
+            $this->pestania2[3][2] = $padrexxx;
+            $this->pestania3[0][4] = true;
+            $this->pestania3[0][2] = $padrexxx;
+            $this->pestania3[1][4] = true;
+            $this->pestania3[1][2] = $padrexxx;
+        }
+
     }
     

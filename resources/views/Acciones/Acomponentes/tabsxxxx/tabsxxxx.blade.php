@@ -6,13 +6,39 @@
         <ul class="nav nav-tabs">
             @canany(['aiindex-leer', 'aiindex-crear', 'aiindex-editar', 'aiindex-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
-        text-sm" href="{{ route('ai.ver',$todoxxxx['usuariox']->sis_nnaj_id) }}">INDIVIDUALES</a></li>
+        text-sm" href="{{ route('ai.ver',$todoxxxx['usuariox']->sis_nnaj_id)}}">INDIVIDUALES</a></li>
             @endcanany
 
 
             @canany(['fpoaplicacion-leer', 'fpoaplicacion-crear', 'fpoaplicacion-editar', 'fpoaplicacion-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
-        text-sm" href="{{ route('fpoaplicacion-leer',$todoxxxx['usuariox']->sis_nnaj_id) }}">PERFIL OCUPACIONAL</a></li>
+        text-sm"  href="{{ route('fpoaplicacion-leer',$todoxxxx['usuariox']->sis_nnaj_id) }}">PERFIL OCUPACIONAL</a></li>
+            @endcanany
+
+            @canany(['fpoaplicacion-leer', 'fpoaplicacion-crear', 'fpoaplicacion-editar', 'fpoaplicacion-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
+        text-sm" href="{{ route('vihcocup',$todoxxxx['usuariox']->sis_nnaj_id) }}">VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES</a></li>
+            @endcanany
+
+            @canany(['fpoaplicacion-leer', 'fpoaplicacion-crear', 'fpoaplicacion-editar', 'fpoaplicacion-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
+        text-sm" href="{{ route('cgicuest',$todoxxxx['usuariox']->sis_nnaj_id) }}">CUESTIONARIO DE GUSTOS E INTERESES</a></li>
+            @endcanany
+
+            @canany(['fpoaplicacion-leer', 'fpoaplicacion-crear', 'fpoaplicacion-editar', 'fpoaplicacion-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
+        text-sm" href="{{ route('vctocupa',$todoxxxx['usuariox']->sis_nnaj_id) }}">VALORACIÓN Y CARACTERIZACIÓN T.O</a></li>
+            @endcanany
+
+
+            @canany(['fpoaplicacion-leer', 'fpoaplicacion-crear', 'fpoaplicacion-editar', 'fpoaplicacion-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
+        text-sm" href="{{ route('pvocacif',$todoxxxx['usuariox']->sis_nnaj_id) }}">PERFIL VOCACIONAL</a></li>
+            @endcanany
+
+            @canany(['fpoaplicacion-leer', 'fpoaplicacion-crear', 'fpoaplicacion-editar', 'fpoaplicacion-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aiindex') ?' active' : '' }}
+        text-sm" href="{{ route('ventrevista',$todoxxxx['usuariox']->sis_nnaj_id) }}">VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA</a></li>
             @endcanany
             
             @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2|| $todoxxxx['pestpadr']==3)
