@@ -2,13 +2,9 @@
 
 namespace App\Traits\Fi\Datobasi;
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisServicio;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -30,12 +26,12 @@ trait NnajEgresoTrait
         }
     }
     /**
-     * Verifica que el nnaj que se está editando tenga upi en en egreso en el antiguo sistemas y si lo tiene, entonces también lo asigna en el nuvo
+     * Verificar si el nnaj que se está editando tiene upi en en egreso 
+     * en el antiguo sistemas y si lo tiene, entonces también lo asigna en el nuevo
      */
     public function setEgresoNET($dataxxxx)
     {
         $respuest = false;
-
         $datosbas = SisNnaj::where('id', $dataxxxx['nnajidxx'])->first();
         $simianti = GeNnajDocumento::join('ge_upi_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             ->where('ge_nnaj_documento.id_nnaj', $datosbas->simianti_id)
@@ -55,25 +51,23 @@ trait NnajEgresoTrait
      */
     public function setTieneEgresoNET($dataxxxx)
     {
-        // GeUpiNnaj
+
         $respuest = true;
         $nnajupis = NnajUpi::where('sis_nnaj_id', $dataxxxx['nnajidxx'])->where('sis_depen_id', 37)
             ->where('sis_esta_id', 1)
             ->first();
-
-
         if (is_null($nnajupis)) {
             $respuest = false;
-            if (Auth::user()->s_documento == '111111111111') {
-                
-            // $this->setEgresoNET($dataxxxx);
-            }
         }
         return  $respuest;
     }
-
+    /**
+     * Activar la upi de egreso
+     */
     public function setActivarEgreso($dataxxxx)
     {
+       
+        // * E
         $nnajupis = NnajUpi::where('sis_nnaj_id', $dataxxxx['nnajidxx'])->where('sis_depen_id', 37)
             ->first();
 
@@ -95,16 +89,15 @@ trait NnajEgresoTrait
     public function getEgresNET($dataxxxx)
     {
         $respuest = $this->setTieneEgresoNET($dataxxxx);
-        if (Auth::user()->s_documento == '111111111111') {
-        }
-        // if (Auth::user()->s_documento == '111111111111') {
-
+       
+            $tienegre = $this->setEgresoNET($dataxxxx);
+            if ($tienegre) {
+                $respuest = $tienegre;
+            }
+      
         if ($respuest) {
             $this->getInactivarUpisNET($dataxxxx);
             $this->setActivarEgreso($dataxxxx);
         }
-
-    
-        // }
     }
 }

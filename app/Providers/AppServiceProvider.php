@@ -423,5 +423,9 @@ class AppServiceProvider extends ServiceProvider
         AeEncuentro::observe(AeEncuentroObserver::class);
         AeRecuadmi::observe(AeRecuadmiObserver::class);
         AeRecurso::observe(AeRecursoObserver::class);
+
+
+        // INCLUIR DIRECTIVAS BLADE PERZONALIZADAS
+        require_once('DirectivasPersonalizadas.php');
     }
 }

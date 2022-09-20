@@ -7,12 +7,21 @@ trait VihPestaniasTrait
 {
 
     public $pestania = [
-        ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
-       ];
+        ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales', 'aiindex'], // por mínimo debe tener un controllaor
+    ];
     public $pestania2 = [
         ['vihcocup', '', [], 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES', true, '', 'Valoración e identificación de habilidades'], // por mínimo debe tener un controllador
-        ['cgicuest', '', [], 'GUSTOS E INTERESES', true, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
+        ['cgicuest', '', [], 'GUSTOS E INTERESES', false, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
+        ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', false, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
+        ['pvocacif', '', [], 'PERFIL VOCACIONAL ', false, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
     ];
+
+    public $pestania3 = [
+        ['fpoaplicacion', '-leer', [], 'PERFIL OCUPACIONAL', false, '', 'Perfil ocupacional'], // por mínimo debe tener un controlador
+        ['ventrevista', '', [], 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA', false, '', 'Valoración terapia ocupacional entrevista semiestructurada'], // por mínimo debe tener un controlador
+    ];
+    /**
+     * 
     /**
      * permisos que va a manejar cada pestaña
      *
@@ -34,6 +43,18 @@ trait VihPestaniasTrait
     {
         $permisox = [
             'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
+        ];
+        $respuest = [];
+        foreach ($permisox as $key => $value) {
+            $respuest[] = $dataxxxx[0] . '-' . $value;
+        }
+        return $respuest;
+    }
+
+    private function getCanany3($dataxxxx)
+    {
+        $permisox = [
+            'leer', 'crear', 'editar', 'borrar', 'activarx'
         ];
         $respuest = [];
         foreach ($permisox as $key => $value) {
@@ -77,6 +98,22 @@ trait VihPestaniasTrait
         ];
         return $respuest;
     }
+
+    public function getArmarPestania3($dataxxxx)
+    {
+        $respuest = [
+            'muespest' => false, // indica si se mustra o no
+            'pestania' => [
+                'routexxx' => route($dataxxxx[0] . $dataxxxx[1], $dataxxxx[2]), // ruta que tiene la pestaña
+                'activexx' => $dataxxxx[5], // clase que activa la pestaña cuando se esté en ella
+                'tituloxx' => $dataxxxx[3], // titulo con el que se identifica la pestanña
+                'tooltipx' => $dataxxxx[6], // Ayuda para la pestaña
+                'cananyxx' => $this->getCanany3($dataxxxx),
+            ]
+        ];
+        return $respuest;
+    }
+
     /**
      * armar las pestañas que va a tener el módulo
      *
@@ -96,10 +133,29 @@ trait VihPestaniasTrait
                 $respuest[] = $this->getArmarPestania2($valuexxx);
             }
         }
+        foreach ($this->pestania3 as $key => $valuexxx) {
+            if ($valuexxx[4]) {
+                $respuest[] = $this->getArmarPestania3($valuexxx);
+            }
+        }
         return $respuest;
     }
     public function getPestanias($dataxxxx)
     {
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
+    }
+
+    public function activarPestanias($padrexxx)
+    {
+        $this->pestania2[1][4] = true;
+        $this->pestania2[1][2] = $padrexxx;
+        $this->pestania2[2][4] = true;
+        $this->pestania2[2][2] = $padrexxx;
+        $this->pestania2[3][4] = true;
+        $this->pestania2[3][2] = $padrexxx;
+        $this->pestania3[0][4] = true;
+        $this->pestania3[0][2] = $padrexxx;
+        $this->pestania3[1][4] = true;
+        $this->pestania3[1][2] = $padrexxx;
     }
 }

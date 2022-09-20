@@ -216,9 +216,10 @@ trait HomologacionesTrait
                 $value->modalidad = 7;
             }
             $servicio = SisServicio::where('simianti_id', $value->modalidad)->first();
-            if ($value->id_upi == 3) {
-                $value->id_upi = 30;
+            if ($value->id_upi == 30) {
+                $value->id_upi = 3;
             }
+            
             $dependen = SisDepen::where('simianti_id', $value->id_upi)->first();
 
 

@@ -136,7 +136,7 @@ function sumatotal(){
         document.getElementById('total_puntos').innerHTML='<p class="">Total, puntos <strong>'+suma+'</strong>: Lo que quiere decir que el/la Joven cuenta con un Desempeño de Baja Funcionalidad.</p>'; 
     } else if(suma >= 82 && suma < 163){
         document.getElementById('total_puntos').innerHTML='<p class="">Total, puntos <strong>'+suma+'</strong>: Lo que quiere decir que el/la Joven cuenta con un Desempeño Semifuncional.</p>'; 
-    }else if(suma >= 163 && suma < 244){
+    }else if(suma >= 163 && suma < 248){
         document.getElementById('total_puntos').innerHTML='<p class="">Total, puntos <strong>'+suma+'</strong>: Lo que quiere decir que el/la Joven cuenta con un Desempeño Funcional.</p>'; 
     }else{
         document.getElementById('total_puntos').innerHTML=''; 

@@ -142,6 +142,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->contarHabilidades($modeloxx->nnaj);
+        $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA ENTREVISTA SEMIESTRUCTURADA', 'btn btn-sm btn-primary']);
         return $this->view($do,
