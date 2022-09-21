@@ -429,20 +429,7 @@ class AppServiceProvider extends ServiceProvider
         AeRecurso::observe(AeRecursoObserver::class);
 
 
-<<<<<<< HEAD
-        //Valoración Medicina General
-         Vsmedicina::observe(VsmedicinaObserver::class);
-         VDiagnostico::observe(VDiagnosticosObserver::class);
-
-
-
-        // formatear valores decimales a maximo 2
-        \Blade::directive('convert2', function ($value) {
-            return "<?php echo number_format($value,0); ?>";
-        });
-=======
         // INCLUIR DIRECTIVAS BLADE PERZONALIZADAS
         require_once('DirectivasPersonalizadas.php');
->>>>>>> master
     }
 }

@@ -14,19 +14,11 @@ class GrupoMatriculaSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        GrupoMatricula::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'A','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'LUNES Y MARTES']); // 1
-        GrupoMatricula::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'B','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'MIERCOLES Y JUEVES']); // 2
-        GrupoMatricula::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'C','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'VIERNES Y SABADO']); // 3
-        GrupoMatricula::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'D','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'UNO O VARIOS DÍAS DE LA SEMANA']); // 4
-        GrupoMatricula::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'E','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'TODOS LOS DIAS']); // 5
-=======
          GrupoMatricula::create(['id'=>1, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'A','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'LUNES Y MARTES']); // 1
         GrupoMatricula::create(['id'=>2, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'B','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'MIERCOLES Y JUEVES']); // 2
         GrupoMatricula::create(['id'=>3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'C','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'VIERNES Y SABADO']); // 3
         GrupoMatricula::create(['id'=>4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'D','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'UNO O VARIOS DÍAS DE LA SEMANA']); // 4
         GrupoMatricula::create(['id'=>5, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_grupo' => 'E','horario' => '08:00','prm_jornada'=>2353,'observacion'=>'TODOS LOS DIAS']); // 5
->>>>>>> master
         
 
         GrupoDias::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'prm_dia_id' => 469,'grupo_id' => 1]); // 5

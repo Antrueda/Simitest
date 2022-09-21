@@ -160,28 +160,7 @@ class Area extends Model
     }
 
 
-    public static function comboPrincipal($cabecera, $ajaxxxxx,$padrexxx)
-    {
-        $comboxxx = [];
-        if ($cabecera) {
-            $comboxxx = ['' => 'Seleccione'];
-        }
 
-        $areaxxxx = Area::where('prm_principal', $padrexxx)->where('sis_esta_id',1)->get();
-        
-        
-
-
-        foreach ($areaxxxx as $registro) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
-            } else {
-                $comboxxx[$registro->id] = $registro->nombre;
-            }
-        }
-
-        return $comboxxx;
-    }
 
     public static function getUsuarioAreas($dataxxxx)
     {

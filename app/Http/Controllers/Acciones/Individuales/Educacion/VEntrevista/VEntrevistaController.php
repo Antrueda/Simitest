@@ -41,6 +41,7 @@ class VEntrevistaController extends Controller
         
         $this->opciones['permisox'] = 'ventrevista';
         $this->opciones['routxxxx'] = 'ventrevista';
+     
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->opciones['conthabi'] = [];
@@ -62,6 +63,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[5]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[6]['dataxxxx'] = [true, $padrexxx->id];
+        
+        
 
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
@@ -147,14 +150,11 @@ class VEntrevistaController extends Controller
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+       
         $this->contarHabilidades($modeloxx->nnaj);
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
-<<<<<<< HEAD
-        $this->opciones['valoraci'] = $modeloxx;
-=======
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
->>>>>>> master
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
         return $this->view($do,
