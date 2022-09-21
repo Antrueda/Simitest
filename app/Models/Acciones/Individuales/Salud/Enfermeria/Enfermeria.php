@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
-
+namespace App\Models\Acciones\Individuales\Salud\Enfermeria;
 
 use App\Models\AdmiActiAsd\AsdActividad;
 use App\Models\Parametro;
@@ -31,6 +30,9 @@ class Enfermeria extends Model
         'prm_motivoat_id',
         'prm_tipoaten_id',
         'prm_especial_id',
+        'prm_lugactiv_id',
+
+        
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
@@ -58,6 +60,14 @@ class Enfermeria extends Model
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
     
+
+
+    public function prm_actividad(){
+        return $this->belongsTo(Parametro::class, 'prm_lugactiv_id');
+    }
+
+
+
 
     public function funcionario()
     {

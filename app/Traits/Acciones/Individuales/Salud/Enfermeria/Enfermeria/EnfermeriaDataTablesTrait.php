@@ -53,8 +53,8 @@ trait EnfermeriaDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'cgih_cuestionarios.id'],
-                    ['data' => 'fecha', 'name' => 'cgih_cuestionarios.fecha'],
+                    ['data' => 'id', 'name' => 'enfermerias.id'],
+                    ['data' => 'fecha', 'name' => 'enfermerias.fecha'],
                     ['data' => 'dependencia', 'name' => 'sis_depens.nombre as dependencia'],
                     ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

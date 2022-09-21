@@ -2,20 +2,133 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
 
-use App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria\Enfermeria;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsisSema;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaAsisten;
+use App\Models\Acciones\Grupales\Asistencias\Semanal\AsissemaMatricula;
+use App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
 use App\Models\Parametro;
 use App\Models\sistema\SisDepen;
 use Carbon\Carbon;
+use DateInterval;
+use DatePeriod;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
 trait EnfermeriaAjaxTrait
 {
+ /**
+     * combo para los servicios de la upi
+     *
+     * @param Request $request
+     * @return string $respuest
+     */
+    public function getServiciosUpiAT(Request $request)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'dependen' => $request->padrexxx
+        ];
+        $respuest = response()->json($this->getServiciosUpiComboCT($dataxxxx));
+        return $respuest;
+    }
+
+    /**
+     * combo para el responsable de la upi
+     *
+     * @param Request $request
+     * @return string $respuest
+     */
+    public function getResponsableUpiAT(Request $request)
+    {
+        $dataxxxx = [
+            'selected' => $request->selected,
+            'ajaxxxxx' => true,
+            'cargosxx' => [23,50],
+            'usersele' => 0,
+            'whereinx' => $request->padrexxx
+        ];
+   
+        $respuest = response()->json($this->getResponsableUpiCT($dataxxxx));
+        return $respuest;
+    }
+
+    public function getGrado(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getGradoAsignar($dataxxxx));
+        return $respuest;
+    }
 
 
-    public function setAsignarEnfermeria(Enfermeria $modeloxx,Request $request){
+    public function getGrupo(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
+        return $respuest;
+    }
+
+    public function getCurso(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipoCurs' => $request->tipoCurs,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+        $respuest = response()->json($this->getCursoWithTipo($dataxxxx));
+        return $respuest;
+    }
+    
+    public function getActividad(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipoacti' => $request->tipoacti,
+            'dependen' => $request->upixxxxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+        $respuest = response()->json($this->getActividadAsignar($dataxxxx));
+        return $respuest;
+    }
+
+    public function setDesvincularMatricula(AsissemaMatricula $asismatricula,Request $request){
+        $asismatricula->delete();
+        $respuest = response()->json('exito');
+        return $respuest;
+    }
+
+    public function setAsignarMatricula(AsisSema $modeloxx,Request $request){
+
         $diasGrupo = []; 
         $diasGrupo=Parametro::select(['parametros.nombre'])->
         join('asissema_grupodias', 'parametros.id', '=', 'asissema_grupodias.prm_dia_id')->
@@ -25,7 +138,7 @@ trait EnfermeriaAjaxTrait
             $respuest = DB::transaction(function () use ($modeloxx,$request,$diasGrupo) {
                 $dataxxxx['modeloxx']=[];
                    //asistencia academica
-                if($modeloxx->prm_actividad_id == 2721){
+                if($modeloxx->prm_actividad_id == 1327){
                     $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                         'asissema_id'=>$modeloxx->id,
                         'matric_acade_id'=>$request->valuexxx,
@@ -43,7 +156,7 @@ trait EnfermeriaAjaxTrait
                     
                 }
                 //asistencia convenio 
-                if($modeloxx->prm_actividad_id == 2724){
+                if($modeloxx->prm_actividad_id == 1328){
                     $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                         'asissema_id'=>$modeloxx->id,
                         'matric_convenio_id'=>$request->valuexxx,
@@ -60,11 +173,11 @@ trait EnfermeriaAjaxTrait
                     }
                 }
                 //formacion tecnica-convenios
-                if($modeloxx->prm_actividad_id == 2723){
+                if($modeloxx->prm_actividad_id == 2864){
                 
                 }
                 //formscion tecnica talleres
-                if($modeloxx->prm_actividad_id == 2722){
+                if($modeloxx->prm_actividad_id == 1332){
                     $dataxxxx['modeloxx'] = AsissemaMatricula::create([
                         'asissema_id'=>$modeloxx->id,
                         'matricula_curso_id'=>$request->valuexxx,
@@ -99,246 +212,37 @@ trait EnfermeriaAjaxTrait
             $valor = 0;
         }
 
-
-
+        $asis = AsissemaAsisten::where('asissema_matri_id',$request->asistenx)->where('fecha',$request->fechaxxx)
+        ->update([
+            'valor_asis' => $valor
+         ]);
         
+        $respuest = response()->json('exito');
+        return $respuest;
     }
 
+    private function buscarDiasGrupo($modeloxx,$diasGrupo){
+        $diasRegistro=[];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function getDeparMunicipio($respuest, $dependen, $ajaxxxxx)
-    {
-        
-        $departam = $dependen->sisDepartam;
-        $municipi = $dependen->sisMunicipio;
-        if ($ajaxxxxx) {
-            $respuest['combosxx'][0]['comboxxx'] = [['valuexxx' => $departam->id, 'optionxx' => $departam->s_departamento]];
-            $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => $municipi->id, 'optionxx' => $municipi->s_municipio]];
-        } else {
-            $respuest['combosxx'][0]['comboxxx'] = [$departam->id => $departam->s_departamento];
-            $respuest['combosxx'][1]['comboxxx'] = [$municipi->id => $municipi->s_municipio];
+        $solodias=[];
+        foreach($diasGrupo as $dia){
+            array_push($solodias,$dia['nombre']);
         }
+        $diasGrupo=$solodias;
 
-        return $respuest;
-    }
+        $nombresDias = array("DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO");
 
-
-    public function getServiciosUpiAT(Request $request)
-    {
-        $dataxxxx = [
-            'selected' => $request->selected,
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'dependen' => $request->padrexxx
-        ];
-        $respuest = response()->json($this->getServiciosUpiComboCT($dataxxxx));
-        return $respuest;
-    }
-
- 
-
-    public function setDependen($dataxxxx)
-    {
-        $respuest = [
-            'emptyxxx' => '#sis_departam_id,#sis_municipio_id,#sis_localidad_id,#sis_upz_id,#sis_barrio_id',
-            'combosxx' => [
-                ['comboxxx' => [], 'selectid' => 'sis_departam_id'],
-                ['comboxxx' => [], 'selectid' => 'sis_municipio_id'],
-                ['comboxxx' => [], 'selectid' => 'sis_localidad_id'],
-                ['comboxxx' => [], 'selectid' => 'sis_upz_id'],
-                ['comboxxx' => [], 'selectid' => 'sis_barrio_id']
-            ]
-        ];
-        $dependen = SisDepen::find($dataxxxx['dependen']);
-      
-        switch ($dataxxxx['lugarxxx']) {
-            case '2762': // actividades dentor de la upi 
-                $respuest = $this->getDeparMunicipio($respuest, $dependen, $dataxxxx['ajaxxxxx']);
-                $localupz = $dependen->sisUpzbarri->sis_localupz;
-                $localida = $localupz->sis_localidad;
-                $upzxxxxx = $localupz->sis_upz;
-                $upzbarri = $dependen->sisUpzbarri;
-                $barrioxx = $upzbarri->sis_barrio;
-                if ($dataxxxx['ajaxxxxx']) {
-                    $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => $localida->id, 'optionxx' => $localida->s_localidad, 'selected' => 'selected']];
-                    $respuest['combosxx'][3]['comboxxx'] = [['valuexxx' => $localupz->id, 'optionxx' => $upzxxxxx->s_upz, 'selected' => 'selected']];
-                    $respuest['combosxx'][4]['comboxxx'] = [['valuexxx' => $upzbarri->id, 'optionxx' => $barrioxx->s_barrio, 'selected' => 'selected']];
-                } else {
-                    $respuest['combosxx'][2]['comboxxx'] = [$localida->id => $localida->s_localidad];
-                    $respuest['combosxx'][3]['comboxxx'] = [$localupz->id => $upzxxxxx->s_upz];
-                    $respuest['combosxx'][4]['comboxxx'] = [$upzbarri->id => $barrioxx->s_barrio];
-                }
-
-                break;
-
-            case '2763': // actividades dentro de la ciudad fuera de la upi
-                $respuest = $this->getDeparMunicipio($respuest, $dependen, $dataxxxx['ajaxxxxx']);
-                $localupz = $dependen->sisUpzbarri->sis_localupz;
-                $localida = $localupz->sis_localidad;
-                $respuest['combosxx'][2]['comboxxx'] = $this->getLocalidadesCT([
-                    'ajaxxxxx' => $dataxxxx['ajaxxxxx'],
-                    'selected' => $dataxxxx['selected']
-                ])['comboxxx'];
-                if ($dataxxxx['ajaxxxxx']) {
-                    $respuest['combosxx'][3]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
-                    $respuest['combosxx'][4]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
-                } else {
-                    $respuest['combosxx'][3]['comboxxx'] = ['' => 'Seleccione'];
-                    $respuest['combosxx'][4]['comboxxx'] = ['' => 'Seleccione'];
-                }
-                break;
-            case '2764': // fuera de la ciudad
-
-                $respuest['combosxx'][0]['comboxxx'] = $this->getSisDepartamCT([
-                    'ajaxxxxx' => $dataxxxx['ajaxxxxx'],
-                    'selected' => $dataxxxx['selected'],
-                    'padrexxx' => 2
-                ])['comboxxx'];
-                if ($dataxxxx['ajaxxxxx']) {
-                  //  $respuest['combosxx'][1]['comboxxx'] = [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => 'selected']];
-                    $respuest['combosxx'][2]['comboxxx'] = [['valuexxx' => '22', 'optionxx' => 'N/A', 'selected' => 'selected']];
-                    $respuest['combosxx'][3]['comboxxx'] =  [['valuexxx' => '119', 'optionxx' => 'N/A', 'selected' => 'selected']];
-                    $respuest['combosxx'][4]['comboxxx'] =  [['valuexxx' => '1654', 'optionxx' => 'N/A', 'selected' => 'selected']];
-                } else {
-                    $respuest['combosxx'][1]['comboxxx'] = ['' => 'Seleccione'];
-                    $respuest['combosxx'][2]['comboxxx'] = ['22' => 'N/A'];
-                    $respuest['combosxx'][3]['comboxxx'] = ['119' => 'N/A'];
-                    $respuest['combosxx'][4]['comboxxx'] = ['1654' => 'N/A'];
-                }
-                break;
+        $inicio= $modeloxx->prm_fecha_inicio;
+        $fin = new DateTime($modeloxx->prm_fecha_final);
+        $fin = $fin->modify('+1 day');
+        $periodo = new DatePeriod($inicio, new DateInterval('P1D') ,$fin);
+        foreach($periodo as $date){
+            if(in_array($nombresDias[$date->format("w")],$diasGrupo)){
+                $diasRegistro[]=$date;
+            }
         }
-        return $respuest;
-    }
-
-    public function getDependen(Request $request)
-    {
-        $respuest = $this->setDependen([
-            'dependen' => $request->dependen,
-            'lugarxxx' => $request->lugarxxx,
-            'selected' => $request->selected,
-            'ajaxxxxx' => true
-        ]);
-        return response()->json($respuest);
-    }
-
-    public function getUpz(Request $request)
-    {
-        $respuest = [
-            'emptyxxx' => '#sis_upz_id',
-            'combosxx' => [
-                [
-                    'comboxxx' => $this->getSisLocalupzCT(['ajaxxxxx' => true, 'padrexxx' => $request->padrexxx])['comboxxx'],
-                    'selectid' => 'sis_upz_id'
-                ],
-            ]
-        ];
-        return response()->json($respuest);
-    }
-
-    public function getBarrio(Request $request)
-    {
-        $respuest = [
-            'emptyxxx' => '#sis_barrio_id',
-            'combosxx' => [
-                [
-                    'comboxxx' => $this->getSisUpzBarriCT(['ajaxxxxx' => true, 'padrexxx' => $request->padrexxx])['comboxxx'],
-                    'selectid' => 'sis_barrio_id'
-                ],
-            ]
-        ];
-        return response()->json($respuest);
-    }
-
-    public function getMunicipio(Request $request)
-    {
-        $respuest = [
-            'emptyxxx' => '#sis_municipio_id',
-            'combosxx' => [
-                [
-                    'comboxxx' => $this->getSisMunicipioCT(['ajaxxxxx' => true, 'padrexxx' => $request->padrexxx])['comboxxx'],
-                    'selectid' => 'sis_municipio_id'
-                ],
-            ]
-        ];
-        return response()->json($respuest);
-    }
-
-
-    public function getActividad(Request $request)
-    {
-        $dataxxxx = [
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'selected' => $request->selected,
-            'orderxxx' => 'ASC',
-            'tipoacti' => $request->tipoacti,
-        ];
-        $dataxxxx['cabecera'] = $request->cabecera;
-        $respuest = response()->json($this->getActividadAsignar($dataxxxx));
-        return $respuest;
-    }
-
-    public function setPaginaGrupos($dataxxxx)
-    {
-        $respuest = [
-            'emptyxxx' => '#prm_grupo_id',
-            'readonid' => '#numepagi',
-            'readonly' => true,
-            'valuexxx' => '',
-            'combosxx' => [
-                ['comboxxx' => [], 'selectid' => 'prm_grupo_id'],
-            ]
-        ];
-
-        switch ($dataxxxx['progacti']) {
-            case '2765': // muestra combo de grupos e inactiva páginas
-                $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
-                    'temaxxxx' => 430,
-                    'cabecera' => false,
-                    'notinxxx' => [146, 147, 294],
-                    'ajaxxxxx' => $dataxxxx['ajaxxxxx']
-                ])['comboxxx'];
-                $respuest['readonly'] = false;
-                break;
-            case '2689': // activa páginas y mustrar no aplica en el combo de grupos 2766
-                $respuest['combosxx'][0]['comboxxx'] = $this->getTemacomboCT([
-                    'temaxxxx' => 430,
-                    'notinxxx' => [235],
-                    'ajaxxxxx' => $dataxxxx['ajaxxxxx']
-                ])['comboxxx'];
-
-                break;
-        }
-        return $respuest;
-    }
-
-    public function getPaginaGrupos(Request $request)
-    {
-        $respuest = $this->setPaginaGrupos(['progacti' => $request->progacti, 'ajaxxxxx' => true]);
-        return response()->json($respuest);
+        return $diasRegistro;
+       
     }
 
     public function getFechaPuede(Request $request)
