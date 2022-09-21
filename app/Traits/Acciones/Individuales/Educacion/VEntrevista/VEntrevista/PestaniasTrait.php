@@ -43,7 +43,7 @@ trait PestaniasTrait
         'ventrevista' => ['leer', 'crear', 'editar', 'borrar', 'activarx'],
         'vihcocup' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         'vctocupa' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
-        'fpoaplicacion' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+      //  'fpoaplicacion' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         
         ];
         $cananyxx = [];
