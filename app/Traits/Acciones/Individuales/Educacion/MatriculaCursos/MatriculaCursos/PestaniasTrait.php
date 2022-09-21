@@ -40,7 +40,7 @@ trait PestaniasTrait
         $pestania['ai'] = [
             'routexxx' => '',
             'activexx' => '',
-
+            'tooltipx' => 'INDIVIDUALES',
             'tituloxx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
@@ -51,6 +51,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'MATRÍCULA CURSOS INFORMALES FORMACIÓN TÉCNICA TALLERES',
+            'tooltipx' => 'MATRÍCULA CURSOS INFORMALES FORMACIÓN TÉCNICA TALLERES',
             'tablaxxx' => 'sis_pais',
             'datablex' =>  [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -62,6 +63,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'FORMATO VALORACIÓN DE COMPETENCIAS',
+            'tooltipx' => 'FORMATO VALORACIÓN DE COMPETENCIAS',
             'tablaxxx' => 'sis_pais',
             'datablex' =>  [],
             'cananyxx' => $this->getCanany($dataxxxx),

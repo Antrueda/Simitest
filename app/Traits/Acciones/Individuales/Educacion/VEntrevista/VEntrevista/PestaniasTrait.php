@@ -26,7 +26,7 @@ trait PestaniasTrait
             'permisox' => 'vctocupa', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'fpoaplicacion', 'routexxx' => '', 'dataxxxx' => [true, []],
+            'permisox' => 'fpoaplicacion', 'routexxx' => '-leer', 'dataxxxx' => [true, []],
         ],
         
 
@@ -61,6 +61,7 @@ trait PestaniasTrait
             'activexx' => '',
             //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
             'tituloxx' => 'INDIVIDUALES',
+            'tooltipx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => ['aiindex-leer'],
@@ -70,6 +71,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'CUESTIONARIO DE GUSTOS E INTERESES',
+            'tooltipx' => 'CUESTIONARIO DE GUSTOS E INTERESES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -78,6 +80,8 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'PERFIL VOCACIONAL',
+            'tooltipx' => 'PERFIL VOCACIONAL',
+
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -86,6 +90,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
+            'tooltipx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -94,6 +99,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES',
+            'tooltipx' => 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -102,6 +108,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN Y CARACTERIZACIÓN T.O',
+            'tooltipx' => 'VALORACIÓN Y CARACTERIZACIÓN T.O',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -110,6 +117,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'PERFIL OCUPACIONAL',
+            'tooltipx' => 'PERFIL OCUPACIONAL',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -138,3 +146,4 @@ trait PestaniasTrait
         return $pestania;
     }
 }
+
