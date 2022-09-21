@@ -13,7 +13,7 @@ class CamposAgSeeder extends Seeder
     public function run()
     {
         //AG_ACTIVIDADS
-        SisTcampo::create(['s_campo' => 'AG_STTEMA_ID', 's_descripcion' => 'AG_STTEMA_ID', 'sis_tabla_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => 'AG_STTEMA_ID', 'sis_esta_id' => 1]); //1
+         SisTcampo::create(['s_campo' => 'AG_STTEMA_ID', 's_descripcion' => 'AG_STTEMA_ID', 'sis_tabla_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => '', 's_idtarela' => '', 's_campsele' => 'AG_STTEMA_ID', 'sis_esta_id' => 1]); //1
         SisTcampo::create(['s_campo' => 'AG_TALLER_ID', 's_descripcion' => 'AG_TALLER_ID', 'sis_tabla_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'AG_TALLERS AS AG_TALLERS1', 's_idtarela' => 'AG_TALLERS1.ID', 's_campsele' => '', 'sis_esta_id' => 1]); //2
         SisTcampo::create(['s_campo' => 'AG_TEMA_ID', 's_descripcion' => 'AG_TEMA_ID', 'sis_tabla_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'AG_TEMAS AS AG_TEMAS1', 's_idtarela' => 'AG_TEMAS1.ID', 's_campsele' => '', 'sis_esta_id' => 1]); //3
         SisTcampo::create(['s_campo' => 'AREA_ID', 's_descripcion' => 'AREA_ID', 'sis_tabla_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_tablrela' => 'AREAS AS AREAS1', 's_idtarela' => 'AREAS1.ID', 's_campsele' => '', 'sis_esta_id' => 1]); //4

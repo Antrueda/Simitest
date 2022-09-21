@@ -16,7 +16,7 @@ class FiDiasGeneraIngresoSeeder extends Seeder
      */
     public function run()
     {
-        FiDiasGeneraIngreso::create(['prm_diagener_id' => 469, 'fi_generacion_ingreso_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:51:29', 'updated_at' => '2020-10-09 10:51:29',]); // 1
+         FiDiasGeneraIngreso::create(['prm_diagener_id' => 469, 'fi_generacion_ingreso_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:51:29', 'updated_at' => '2020-10-09 10:51:29',]); // 1
         FiDiasGeneraIngreso::create(['prm_diagener_id' => 478, 'fi_generacion_ingreso_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:51:29', 'updated_at' => '2020-10-09 10:51:29',]); // 2
         FiDiasGeneraIngreso::create(['prm_diagener_id' => 479, 'fi_generacion_ingreso_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:51:29', 'updated_at' => '2020-10-09 10:51:29',]); // 3
         FiDiasGeneraIngreso::create(['prm_diagener_id' => 480, 'fi_generacion_ingreso_id' => 1, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-09 10:51:29', 'updated_at' => '2020-10-09 10:51:29',]); // 4

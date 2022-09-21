@@ -13,7 +13,7 @@ class SisDepartamSeeder extends Seeder
     public function run()
     {
 
-        SisDepartam::create(["sis_pai_id" => 1,"s_departamento" => "N/A"]);
+         SisDepartam::create(["sis_pai_id" => 1,"s_departamento" => "N/A"]);
         SisDepartam::create(["sis_pai_id" => 2,'simianti_id'=>91, "s_departamento" => "AMAZONAS"]);
         SisDepartam::create(["sis_pai_id" => 2,'simianti_id'=>5, "s_departamento" => "ANTIOQUIA"]);
         SisDepartam::create(["sis_pai_id" => 2,'simianti_id'=>81, "s_departamento" => "ARAUCA"]);

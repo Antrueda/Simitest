@@ -13,7 +13,7 @@ class SisNnajsCaminandoSeeder extends Seeder
      */
     public function run()
     {
-        SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 17:58:46', 'updated_at' => '2020-11-11 17:58:46',]); // 762
+         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 17:58:46', 'updated_at' => '2020-11-11 17:58:46',]); // 762
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 18:01:24', 'updated_at' => '2020-11-11 18:01:24',]); // 763
         SisNnaj::create(['prm_escomfam_id' => '228', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-11-11 18:04:12', 'updated_at' => '2020-11-11 18:04:12',]); // 764
         SisNnaj::create(['prm_escomfam_id' => '227', 'user_crea_id' => 1942, 'user_edita_id' => 1942, 'sis_esta_id' => 1, 'created_at' => '2020-12-29 22:06:24', 'updated_at' => '2020-12-29 22:06:24',]); // 765

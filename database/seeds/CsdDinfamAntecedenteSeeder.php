@@ -12,7 +12,7 @@ class CsdDinfamAntecedenteSeeder extends Seeder
      */
     public function run()
     {
-        CsdDinfamAntecedente::create([ 'parametro_id' => 28, 'csd_dinfamiliar_id' => 10, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id'=>2316 ]);
+         CsdDinfamAntecedente::create([ 'parametro_id' => 28, 'csd_dinfamiliar_id' => 10, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id'=>2316 ]);
         CsdDinfamAntecedente::create([ 'parametro_id' => 28, 'csd_dinfamiliar_id' => 42, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id'=>2316 ]);
         CsdDinfamAntecedente::create([ 'parametro_id' => 28, 'csd_dinfamiliar_id' => 44, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id'=>2316 ]);
         CsdDinfamAntecedente::create([ 'parametro_id' => 28, 'csd_dinfamiliar_id' => 78, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'prm_tipofuen_id'=>2316 ]);

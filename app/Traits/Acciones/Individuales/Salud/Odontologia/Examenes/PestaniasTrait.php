@@ -7,16 +7,16 @@ trait PestaniasTrait
 {
     public $pestanix = [
         [
-            'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
+            'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [true, []],'checkxxx'=>2,
         ],
         [
-            'permisox' => 'vodontologia', 'routexxx' => '', 'dataxxxx' => [true, []],
+            'permisox' => 'vodontologia', 'routexxx' => '', 'dataxxxx' => [true, []],'checkxxx'=>2,
         ],
         [
-            'permisox' => 'vodonanteces', 'routexxx' => '.nuevo', 'dataxxxx' => [true, []],
+            'permisox' => 'vodonanteces', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
         [
-            'permisox' => 'vodonexamens', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+            'permisox' => 'vodonexamens', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
      
      
@@ -43,7 +43,7 @@ trait PestaniasTrait
         $pestania['ai'] = [
             'routexxx' => '',
             'activexx' => '',
-            //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
+            'checkxxx' => '',
             'tituloxx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
@@ -54,15 +54,18 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN ODONTOLOGÍA',
+            'checkxxx' => '',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
+        
         $pestania['vodonanteces'] = [
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'ANTECEDENTES',
             'tablaxxx' => 'sis_pais',
+            'checkxxx' => '',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
@@ -71,6 +74,7 @@ trait PestaniasTrait
             'activexx' => '',
             'tituloxx' => 'EXAMENES',
             'tablaxxx' => 'sis_pais',
+            'checkxxx' => '',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];

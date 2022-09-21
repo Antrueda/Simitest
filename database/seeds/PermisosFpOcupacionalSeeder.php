@@ -7,7 +7,7 @@ class PermisosFpOcupacionalSeeder extends Seeder
 {
     public function getPermisos($dataxxxx)
     {
-        $descripc = [
+         $descripc = [
             'leer' => 'Permiso que permite ver el contenido para: ',
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',

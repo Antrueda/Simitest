@@ -14,7 +14,7 @@ class MotivoEgreusSeeder extends Seeder
      */
     public function run()
     {
-        MotivoEgreu::create(['motivoe_id' => '1', 'motivoese_id' => '1', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-10-26T23:09:37.000000Z', 'updated_at' => '2021-10-26T23:09:37.000000Z',]); // 1
+         MotivoEgreu::create(['motivoe_id' => '1', 'motivoese_id' => '1', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-10-26T23:09:37.000000Z', 'updated_at' => '2021-10-26T23:09:37.000000Z',]); // 1
         MotivoEgreu::create(['motivoe_id' => '1', 'motivoese_id' => '2', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-10-26T23:09:37.000000Z', 'updated_at' => '2021-10-26T23:09:37.000000Z',]); // 2
         MotivoEgreu::create(['motivoe_id' => '1', 'motivoese_id' => '3', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-10-26T23:09:37.000000Z', 'updated_at' => '2021-10-26T23:09:37.000000Z',]); // 3
         MotivoEgreu::create(['motivoe_id' => '1', 'motivoese_id' => '4', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-10-26T23:09:37.000000Z', 'updated_at' => '2021-10-26T23:09:37.000000Z',]); // 4

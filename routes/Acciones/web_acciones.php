@@ -6,18 +6,19 @@ require_once('Grupales/web_grupales.php');
 require_once('Individuales/Educacion/MatriculaCursos/web_matriculac.php');
 require_once('Individuales/Educacion/FormatoValoracion/web_formatov.php');
 require_once('Individuales/Educacion/FormatoValoracion/web_valorcomp.php');
-require_once('Individuales/Educacion/VEntrevista/web_ventrevista.php');
-require_once('Individuales/Educacion/PerfilVocacionalF/web_perfilvocacional.php');
-require_once('Individuales/Educacion/VctOcupacional/web_vctocupacional.php');
 require_once('Individuales/Educacion/CuestionarioGustos/web_cgimodu.php');
 require_once('Individuales/Educacion/VctOcupacional/web_vctocupacional.php');
 require_once('Individuales\MedicinaG\web_vmedicageneral.php');
 require_once('Individuales/Educacion/PerfilVocacionalF/web_perfilvocacional.php');
 require_once('Individuales\Educacion\ValoIdentHabOcupacional\web_vihocupacional.php');
 require_once('Individuales/Educacion/PerfilOcupacional/Administracion/web_modulo.php');
+require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.php');
+
 require_once('Individuales\Educacion\VEntrevista\web_ventrevista.php');
 require_once('Individuales\SocioLegal\web_acasojuridico.php');
 require_once('Individuales\VOdontologia\web_vodontologia.php');
+
+
 
 Route::group(['prefix' => 'ai'], function () {
   
@@ -44,7 +45,8 @@ Route::group(['prefix' => 'ai'], function () {
   require_once('Individuales/Mitigacion/web_vma.php');
   require_once('Individuales/Mitigacion/web_vspa.php');
   require_once('Individuales/Educacion/CuestionarioGustos/web_cuestionariogustos.php');
-// require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.php');
+
+  
 });
 
 Route::group(['prefix' => 'acciones'], function () {

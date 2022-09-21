@@ -14,7 +14,7 @@ class CsdRedsocActualSeeder extends Seeder
      */
     public function run()
     {
-        CsdRedsocActual::create(['csd_id' => 78, 'prm_tipo_id' => 282, 'nombre' => ' ', 'servicios' => 'N/A', 'telefono' => 0, 'direccion' => ' ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
+         CsdRedsocActual::create(['csd_id' => 78, 'prm_tipo_id' => 282, 'nombre' => ' ', 'servicios' => 'N/A', 'telefono' => 0, 'direccion' => ' ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdRedsocActual::create(['csd_id' => 78, 'prm_tipo_id' => 803, 'nombre' => ' ', 'servicios' => 'N/A', 'telefono' => 0, 'direccion' => ' ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdRedsocActual::create(['csd_id' => 78, 'prm_tipo_id' => 547, 'nombre' => ' ', 'servicios' => 'N/A', 'telefono' => 0, 'direccion' => ' ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);
         CsdRedsocActual::create(['csd_id' => 78, 'prm_tipo_id' => 548, 'nombre' => ' ', 'servicios' => 'N/A', 'telefono' => 0, 'direccion' => ' ', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'prm_tipofuen_id' => 2316]);

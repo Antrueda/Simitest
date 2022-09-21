@@ -12,7 +12,7 @@ class SisNnajDosMilSeeder extends Seeder
      */
     public function run()
     {
-        SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '0', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2020-12-03T01:43:46.000000Z', 'updated_at' => '2020-12-03T01:43:46.000000Z', 'prm_nuevoreg_id' => '227',]); // 1001
+         SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '0', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2020-12-03T01:43:46.000000Z', 'updated_at' => '2020-12-03T01:43:46.000000Z', 'prm_nuevoreg_id' => '227',]); // 1001
         SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '98573', 'user_crea_id' => '1942', 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2020-12-30T02:45:10.000000Z', 'updated_at' => '2021-08-30T15:25:35.000000Z', 'prm_nuevoreg_id' => '227',]); // 1002
         SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '0', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2020-12-03T01:46:41.000000Z', 'updated_at' => '2020-12-03T01:46:41.000000Z', 'prm_nuevoreg_id' => '227',]); // 1003
         SisNnaj::create(['prm_escomfam_id' => '227', 'simianti_id' => '0', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2020-12-03T01:48:06.000000Z', 'updated_at' => '2020-12-03T01:48:06.000000Z', 'prm_nuevoreg_id' => '227',]); // 1004

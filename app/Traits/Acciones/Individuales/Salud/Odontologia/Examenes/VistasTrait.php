@@ -41,7 +41,12 @@ trait VistasTrait
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
         $opciones['condicio'] = Tema::comboNotIn(23, true, false,[2503]);        
-        
+        $opciones['dientesx'] = [];
+        for ($i = 11; $i <= 38; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+        $opciones['diagnost'] = Diagnostico::combo(true,false);
+
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];

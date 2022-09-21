@@ -59,24 +59,8 @@ class AplicacionFpoRequest extends FormRequest
             ]);
             $this->_reglasx['fecha'][] = new TiempoCargueRule(['puedexxx' => $puedexxx]);
         }
-        $this->validar();
 
         return $this->_reglasx;
     }
-    public function validar()
-    {
-
-        $dato = SisNnaj::findOrFail($this->segments()[2]);
-        $nnaj = $dato->fi_datos_basico;
-        if( $nnaj != null){
-            $edad = $nnaj->nnaj_nacimi->Edad;
-        }else{
-            $edad=0;
-        }
-
-        if (!($edad >= 18 && $edad <29)) {
-            $this->_mensaje['permiedad.required'] = 'NNAJ no cumple con la edad para este formulario.';
-            $this->_reglasx['permiedad'] = 'required';
-        }
-    }
+ 
 }

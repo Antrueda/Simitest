@@ -13,13 +13,13 @@ class ModuloCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             's_modulo.required' => 'El nombre es requerido',
-            's_modulo.max' => 'El nombre debe tener un máximo de 120 caracteres',
+            's_modulo.max' => 'El nombre debe tener un máximo de 200 caracteres',
             'num_unidades.required' => 'Ingrese el numero de unidades',
             'descripcion.max' => 'La descripción debe tener un máximo de 4000 caracteres',
             'estusuario_id.required'=> 'Seleccione la justificación de estado',
         ];
         $this->_reglasx = [
-             's_modulo' => ['Required','string','max:120',],
+             's_modulo' => ['Required','string','max:200',],
             'descripcion' => ['nullable','max:4000'],
             'estusuario_id' => ['Required'],
             'num_unidades' => ['Required'],

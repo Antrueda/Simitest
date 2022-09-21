@@ -171,6 +171,7 @@ trait DBVistaAuxTrait
                 ->where('prm_principa_id', 227)
                 ->first();
             $dataxxxx['modeloxx']->sis_depen_id = 0;
+            
             if ($upixxxxx != null) {
                 $dataxxxx['modeloxx']->sis_depen_id = $upixxxxx->sis_depen_id;
                 $servicio = $dataxxxx['modeloxx']
@@ -273,7 +274,7 @@ trait DBVistaAuxTrait
 
         // $this->opciones['dependen'] =$this->getUpisNnajUsuarioCT(['dependid'=>$dependid,'nnajidxx'=>$nnajidxx]);
        
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false,$dependid);
         $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);

@@ -17,7 +17,7 @@ trait EstructuraBaseTrait
     public function getBase()
     {
 
-        Permission::create([
+         Permission::create([
             'name' => $this->permisox . '-leerxxxx',
             'sis_pestania_id' => 1,
             'descripcion' => $this->leerxxxx . $this->compleme,

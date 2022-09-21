@@ -13,7 +13,7 @@ class PermisosVihocupacionalSeeder extends Seeder
         $editarxx = 'Permiso que permite editar registro para: ';
         $borrarxx = 'Permiso que permite inactivar registro para: ';
         $moduloxx = 'Permiso que habilita el contenido del: ';
-        $activarx = 'Permiso que permite activar registro para: ';
+         $activarx = 'Permiso que permite activar registro para: ';
 
         //formulario cliente perfil vocacional
         $permisox = 'vihcocup';

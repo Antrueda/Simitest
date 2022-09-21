@@ -7,7 +7,7 @@ class PermisosEjmploSeeder extends Seeder
 {
     public function getPermisos($dataxxxx)
     {
-        $listaxxx = 'Permiso que permite ver el contenido para: ';
+         $listaxxx = 'Permiso que permite ver el contenido para: ';
         $descripc = [
             'leerxxxx' => $listaxxx,
             'crearxxx' => 'Permiso que permite crear registro para: ',

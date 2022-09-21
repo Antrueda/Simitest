@@ -12,7 +12,7 @@ class CsdAlimentIngeSeeder extends Seeder
      */
     public function run()
     {
-        CsdAlimentInge::create([ 'parametro_id' => 227, 'csd_alimentacion_id' => 7, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
+         CsdAlimentInge::create([ 'parametro_id' => 227, 'csd_alimentacion_id' => 7, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentInge::create([ 'parametro_id' => 227, 'csd_alimentacion_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentInge::create([ 'parametro_id' => 227, 'csd_alimentacion_id' => 19, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);
         CsdAlimentInge::create([ 'parametro_id' => 227, 'csd_alimentacion_id' => 20, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1, 'prm_tipofuen_id'=>2316 ]);

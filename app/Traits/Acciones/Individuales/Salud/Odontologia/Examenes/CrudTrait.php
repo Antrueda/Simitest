@@ -3,6 +3,7 @@
 namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes;
 
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonexamen;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setOdoAntecedente($dataxxxx)
+    public function setOdoExamenes($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -28,7 +29,7 @@ trait CrudTrait
                 
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = VOdonantece::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = VOdonexamen::create($dataxxxx['requestx']->all());
             }
             
             return $dataxxxx['modeloxx'];
@@ -37,4 +38,6 @@ trait CrudTrait
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
+
+
 }

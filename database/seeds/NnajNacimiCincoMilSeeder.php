@@ -12,7 +12,7 @@ class NnajNacimiCincoMilSeeder extends Seeder
      */
     public function run()
     {
-        NnajNacimi::create(['fi_datos_basico_id' => '4004', 'd_nacimiento' => '1992-08-20 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => '2112', 'user_edita_id' => '2112', 'sis_esta_id' => '1', 'created_at' => '2021-08-09T19:48:56.000000Z', 'updated_at' => '2021-08-19T20:10:40.000000Z',  ]); // 4001
+         NnajNacimi::create(['fi_datos_basico_id' => '4004', 'd_nacimiento' => '1992-08-20 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => '2112', 'user_edita_id' => '2112', 'sis_esta_id' => '1', 'created_at' => '2021-08-09T19:48:56.000000Z', 'updated_at' => '2021-08-19T20:10:40.000000Z',  ]); // 4001
         NnajNacimi::create(['fi_datos_basico_id' => '4005', 'd_nacimiento' => '2002-02-26 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-09T20:04:55.000000Z', 'updated_at' => '2021-08-09T20:04:55.000000Z',  ]); // 4002
         NnajNacimi::create(['fi_datos_basico_id' => '4006', 'd_nacimiento' => '2000-01-19 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-09T20:16:42.000000Z', 'updated_at' => '2021-08-09T20:16:42.000000Z',  ]); // 4003
         NnajNacimi::create(['fi_datos_basico_id' => '4007', 'd_nacimiento' => '2001-10-11 00:00:00', 'sis_municipio_id' => '231', 'sis_docfuen_id' => '2', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-09T20:22:30.000000Z', 'updated_at' => '2021-08-09T20:22:30.000000Z',  ]); // 4004

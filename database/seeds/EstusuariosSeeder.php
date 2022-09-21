@@ -13,7 +13,7 @@ class EstusuariosSeeder extends Seeder
      */
     public function run()
     {
-        Estusuario::create(['estado' => 'CREACION USUARIO NUEVO,PERMISOS SEGUN CARGO PROFESIONAL Y SE RESTAURA CLAVE', 'prm_formular_id' => '2325', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 1
+         Estusuario::create(['estado' => 'CREACION USUARIO NUEVO,PERMISOS SEGUN CARGO PROFESIONAL Y SE RESTAURA CLAVE', 'prm_formular_id' => '2325', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 1
         Estusuario::create(['estado' => 'TERMINACIÓN DE CONTRATO', 'prm_formular_id' => '2325', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '2', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-07-27T17:02:40.000000Z',]); // 2
         Estusuario::create(['estado' => 'CARGO NUEVO SEGUN CONTRATO', 'prm_formular_id' => '2326', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 3
         Estusuario::create(['estado' => 'CARGO DESIGNADO POR LIDER AREA', 'prm_formular_id' => '2326', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:57:04.000000Z', 'updated_at' => '2021-04-27T16:57:04.000000Z',]); // 4

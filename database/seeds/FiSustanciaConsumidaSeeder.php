@@ -13,7 +13,7 @@ class FiSustanciaConsumidaSeeder extends Seeder
      */
     public function run()
     {
-        FiSustanciaConsumida::create(['i_prm_sustancia_id' => 402, 'fi_consumo_spa_id' => 1, 'i_prm_consume_id' => 228, 'i_edad_uso' => 10, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:02:08', 'updated_at' => '2020-10-07 16:02:08',]); // 1
+         FiSustanciaConsumida::create(['i_prm_sustancia_id' => 402, 'fi_consumo_spa_id' => 1, 'i_prm_consume_id' => 228, 'i_edad_uso' => 10, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:02:08', 'updated_at' => '2020-10-07 16:02:08',]); // 1
         FiSustanciaConsumida::create(['i_prm_sustancia_id' => 403, 'fi_consumo_spa_id' => 1, 'i_prm_consume_id' => 227, 'i_edad_uso' => 13, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:02:24', 'updated_at' => '2020-10-07 16:02:24',]); // 2
         FiSustanciaConsumida::create(['i_prm_sustancia_id' => 404, 'fi_consumo_spa_id' => 1, 'i_prm_consume_id' => 228, 'i_edad_uso' => 13, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:02:53', 'updated_at' => '2020-10-07 16:02:53',]); // 3
         FiSustanciaConsumida::create(['i_prm_sustancia_id' => 405, 'fi_consumo_spa_id' => 1, 'i_prm_consume_id' => 228, 'i_edad_uso' => 13, 'user_crea_id' => 8, 'user_edita_id' => 8, 'sis_esta_id' => 1, 'created_at' => '2020-10-07 16:03:18', 'updated_at' => '2020-10-07 16:03:18',]); // 4

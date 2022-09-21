@@ -12,7 +12,7 @@ class CursoModuloSeeder extends Seeder
      */
     public function run()
     {
-        CursoModulo::create(['id' =>  1, 'cursos_id' => 1, 'modulo_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+         CursoModulo::create(['id' =>  1, 'cursos_id' => 1, 'modulo_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         CursoModulo::create(['id' =>  2, 'cursos_id' => 1, 'modulo_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         CursoModulo::create(['id' =>  3, 'cursos_id' => 1, 'modulo_id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         CursoModulo::create(['id' =>  4, 'cursos_id' => 1, 'modulo_id' => 4, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);

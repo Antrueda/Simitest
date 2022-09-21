@@ -12,7 +12,7 @@ class SisCargosSeeder extends Seeder
      */
     public function run()
     {
-        SisCargo::create(['s_cargo'=>'INGENIERO DE SISTEMAS','itiestan'=>'10','itiegabe'=>'0','itigafin'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:09.000000Z','updated_at'=>'2021-04-27T16:56:09.000000Z',]); // 1
+          SisCargo::create(['s_cargo'=>'INGENIERO DE SISTEMAS','itiestan'=>'10','itiegabe'=>'0','itigafin'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:09.000000Z','updated_at'=>'2021-04-27T16:56:09.000000Z',]); // 1
         SisCargo::create(['s_cargo'=>'TÉCNICO','itiestan'=>'10','itiegabe'=>'0','itigafin'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:09.000000Z','updated_at'=>'2021-04-27T16:56:09.000000Z',]); // 2
         SisCargo::create(['s_cargo'=>'ABOGADO (A)','itiestan'=>'10','itiegabe'=>'0','itigafin'=>'0','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:09.000000Z','updated_at'=>'2021-04-27T16:56:09.000000Z',]); // 3
         SisCargo::create(['s_cargo'=>'ADMINISTRADOR-SIMI','itiestan'=>'10','itiegabe'=>'5','itigafin'=>'5','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','estusuario_id'=>'3','created_at'=>'2021-04-27T16:56:09.000000Z','updated_at'=>'2021-08-02T17:52:14.000000Z',]); // 4

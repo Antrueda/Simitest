@@ -12,7 +12,7 @@ class CsdNnajEspecialSeeder extends Seeder
      */
     public function run()
     {
-        CsdNnajEspecial::create(['parametro_id' => 28, 'csd_id' => 5, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1]);
+         CsdNnajEspecial::create(['parametro_id' => 28, 'csd_id' => 5, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1]);
         CsdNnajEspecial::create(['parametro_id' => 28, 'csd_id' => 32, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1]);
         CsdNnajEspecial::create(['parametro_id' => 28, 'csd_id' => 46, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1]);
         CsdNnajEspecial::create(['parametro_id' => 28, 'csd_id' => 70, 'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'sis_esta_id'=>1,'user_edita_id' => 1]);

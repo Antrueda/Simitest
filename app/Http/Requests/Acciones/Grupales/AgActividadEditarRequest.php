@@ -14,9 +14,19 @@ class AgActividadEditarRequest extends FormRequest
     private $_mensaje;
     private $_reglasx;
 
-    public function __construct()
+ 
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
     {
+        return true;
+    }
 
+    public function messages()
+    {
         $this->_mensaje = [
             'd_registro.required' => 'Seleccione un día de registro',
             'area_id.required' => 'Seleccione un área',
@@ -39,6 +49,16 @@ class AgActividadEditarRequest extends FormRequest
             's_doc_adjunto_ar.required' => 'Debe adjuntar el soporte',
             's_doc_adjunto_ar.mimes' => 'El archivo debe ser imagen o pdf',
         ];
+        return $this->_mensaje;
+    }
+
+    /**
+     * Get the validation rules that Apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
         $this->_reglasx = [
             'd_registro' => [
                 'required',
@@ -65,29 +85,7 @@ class AgActividadEditarRequest extends FormRequest
             's_evaluaci' => ['required'],
             's_observac' => ['required'],
         ];
-    }
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
 
-    public function messages()
-    {
-        return $this->_mensaje;
-    }
-
-    /**
-     * Get the validation rules that Apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
         $this->validar();
         return $this->_reglasx;
     }
@@ -95,30 +93,12 @@ class AgActividadEditarRequest extends FormRequest
     public function validar()
     {
 
-        if ($this->d_registro != '' && $this->sis_deporigen_id) {
-            $puedexxx = $this->getPuedeCargar([
-                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
-                'fechregi' => $this->d_registro,
-                'upixxxxx' => $this->sis_deporigen_id,
-                'formular' => 2,
-            ]);
-            $this->_reglasx['d_registro'][] = new TiempoCargueRule([
-                'puedexxx' => $puedexxx
-            ]);
-        }
+        
 
         if($this->sis_depdestino_id==1){
             $this->_reglasx['s_prm_espac']='required';
             $this->_mensaje['s_prm_espac.required'] = 'oooooooo';
         }
-        /*
-        $responsa = AgResponsable::where('ag_actividad_id', $this->segments()[2])->get();
-        $asistente = AgAsistente::where('ag_actividad_id', $this->segments()[2])->get();
-        $recursos = AgRelacion::where('ag_actividad_id', $this->segments()[2])->get();
-        if ($responsa==null|| $asistente==null||$recursos) {
-            $this->_mensaje['responsa.required'] = 'Falta agregar responsable, asistentes o recursos';
-            $this->_reglasx['responsa'] = 'required';
-        }
-        */
+        
     }
 }

@@ -12,7 +12,7 @@ class SisDepartamSisPaiSeeder extends Seeder
      */
     public function run()
     {
-        SisDepartamSisPai::create(['sis_departam_id' => 1, 'sis_pai_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
+         SisDepartamSisPai::create(['sis_departam_id' => 1, 'sis_pai_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisDepartamSisPai::create(['sis_departam_id' => 2, 'sis_pai_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisDepartamSisPai::create(['sis_departam_id' => 3, 'sis_pai_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisDepartamSisPai::create(['sis_departam_id' => 4, 'sis_pai_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
