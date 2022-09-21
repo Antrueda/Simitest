@@ -22,8 +22,19 @@ trait PestaniasTrait
             'permisox' => 'vihcocup', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
 
+        [
+            'permisox' => 'vctocupa', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+        // [
+        //     'permisox' => 'vctocupa', 'routexxx' => '', 'dataxxxx' => [true, []],
+        // ],
+        // [
+        //     'permisox' => 'fpoaplicacion', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
+        // ],
+        
 
-     
+// ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', false, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
+// ['fpoaplicacion', '-leer', [], 'PERFIL OCUPACIONAL', false, '', 'Perfil ocupacional'], // por mínimo debe tener un controlador     
     ];
 
     private function getCanany($dataxxxx)
@@ -34,6 +45,8 @@ trait PestaniasTrait
         'pvocacif' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         'ventrevista' => ['leer', 'crear', 'editar', 'borrar', 'activarx'],
         'vihcocup' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        'vctocupa' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+      //  'fpoaplicacion' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         
         ];
         $cananyxx = [];
@@ -88,6 +101,22 @@ trait PestaniasTrait
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
+        $pestania['vctocupa'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'VALORACIÓN Y CARACTERIZACIÓN T.O',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        // $pestania['fpoaplicacion'] = [
+        //     'routexxx' => '.ver',
+        //     'activexx' => '',
+        //     'tituloxx' => 'PERFIL OCUPACIONAL',
+        //     'tablaxxx' => 'sis_pais',
+        //     'datablex' => [],
+        //     'cananyxx' => ['fpoaplicacion-leer'],
+        // ];
 
 
       
