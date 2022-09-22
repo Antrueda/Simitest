@@ -18,7 +18,20 @@ trait PestaniasTrait
         [
             'permisox' => 'ventrevista', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
-     
+        [
+            'permisox' => 'vihcocup', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+
+        [
+            'permisox' => 'vctocupa', 'routexxx' => '', 'dataxxxx' => [true, []],
+        ],
+        [
+            'permisox' => 'fpoaplicacion', 'routexxx' => '-leer', 'dataxxxx' => [true, []],
+        ],
+        
+
+// ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', false, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
+// ['fpoaplicacion', '-leer', [], 'PERFIL OCUPACIONAL', false, '', 'Perfil ocupacional'], // por mínimo debe tener un controlador     
     ];
 
     private function getCanany($dataxxxx)
@@ -28,6 +41,10 @@ trait PestaniasTrait
         'cgicuest' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         'pvocacif' => ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         'ventrevista' => ['leer', 'crear', 'editar', 'borrar', 'activarx'],
+        'vihcocup' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        'vctocupa' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        'fpoaplicacion' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -44,6 +61,7 @@ trait PestaniasTrait
             'activexx' => '',
             //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
             'tituloxx' => 'INDIVIDUALES',
+            'tooltipx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => ['aiindex-leer'],
@@ -53,6 +71,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'CUESTIONARIO DE GUSTOS E INTERESES',
+            'tooltipx' => 'CUESTIONARIO DE GUSTOS E INTERESES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -61,6 +80,8 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'PERFIL VOCACIONAL',
+            'tooltipx' => 'PERFIL VOCACIONAL',
+
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -69,10 +90,39 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
+            'tooltipx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
+        $pestania['vihcocup'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES',
+            'tooltipx' => 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['vctocupa'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'VALORACIÓN Y CARACTERIZACIÓN T.O',
+            'tooltipx' => 'VALORACIÓN Y CARACTERIZACIÓN T.O',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['fpoaplicacion'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'PERFIL OCUPACIONAL',
+            'tooltipx' => 'PERFIL OCUPACIONAL',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
 
       
 
@@ -96,3 +146,4 @@ trait PestaniasTrait
         return $pestania;
     }
 }
+
