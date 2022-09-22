@@ -19,6 +19,7 @@ use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaLista
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaParametrizarTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaPestaniasTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaVistasTrait;
+use App\Traits\Combos\PlanillaDiariaComboTrait;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 // use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
@@ -36,6 +37,7 @@ class EnfermeriaController extends Controller
     use EnfermeriaAjaxTrait;
     use  ManageTimeTrait;
     use CombosTrait; //
+    use PlanillaDiariaComboTrait;
 
 
     public function __construct()

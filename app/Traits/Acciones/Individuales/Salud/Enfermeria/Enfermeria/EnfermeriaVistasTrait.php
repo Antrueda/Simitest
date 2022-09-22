@@ -55,22 +55,53 @@ trait EnfermeriaVistasTrait
             'temaxxxx' => 457,
         ])['comboxxx'];
 
+
+
         $this->opciones['prm_especial'] = $this->getTemacomboCT([
-            'temaxxxx' => 458,
+            'temaxxxx'=>458,
+            'cabecera' => false,
+            'notinxxx' => [1354,1355,1356,1357,1358,1290,1359,1360,1361,1362,1363,1364,1365,1366,1568,1295,2871,
+        2870, 2869,1367,1292, 1369,1370,1371,1386,1348,1294,1143,1373,1374,1375],
+           // 'ajaxxxxx' => $dataxxxx['ajaxxxxx']
         ])['comboxxx'];
 
-     
 
+// si seleccionan URGENCIAS MEDICAS  // medico 1568  & odontologico 2869 
+        $this->opciones['prm_especialidad'] = $this->getTemacomboCT([
+            'temaxxxx'=>458,
+            'cabecera' => false,
+            'notinxxx' => [1354,1355,1356,1357,1358,1290,1359,1360,1361,1362,1363,1364,1365,1366,1295,2871,
+        2870,1367,1292,235,1369,1370,1371,1386,1348,1294,1143,1373,1374,1375],
+           // 'ajaxxxxx' => $dataxxxx['ajaxxxxx']
+        ])['comboxxx'];
+
+
+        $this->opciones['prm_especialidades'] = $this->getTemacomboCT([
+            'temaxxxx'=>458,
+            'cabecera' => true,
+            'notinxxx' => [235],
+        ])['comboxxx'];
+//presencial 2490 vitual 828	
+        $this->opciones['prm_modalidades'] = $this->getTemacomboCT([
+            'temaxxxx'=>455,
+            'cabecera' => true,
+            'notinxxx' => [1634],
+        ])['comboxxx'];
+
+
+        
+  
 
     }
     public function view( $dataxxxx)
     {
+        $tipoacti = 0;
+
         $dependid =0;
         $upidxxxx = 0;
         $servicio = 0;
         $grupoxxx = 0;
         $gradoxxx = 0;
-        $tipoacti = 0;
         $activida = 0;
         $usersele = 0;
         $cursosxx = 0;
@@ -96,6 +127,7 @@ trait EnfermeriaVistasTrait
             $activida = $dataxxxx['modeloxx']->actividade_id;
             $cursosxx = $dataxxxx['modeloxx']->curso_id;
 
+
             $dependid =$dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -110,7 +142,13 @@ trait EnfermeriaVistasTrait
             $this->pestania[0][2]=$this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CREGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
+            $tipoacti =$this->opciones['modeloxx']->tipos_actividad_id = $dataxxxx['modeloxx']->asdActividad->tipos_actividad_id;
+
         } 
+
+        $this->opciones['tipoacti'] = $this->getTipoActividadPDCT([]);
+        $this->opciones['activida'] = $this->getActividadPDCT(['tipoacti' => $tipoacti]);
+
 
 
          if ($dataxxxx['modeloxx'] != '') {

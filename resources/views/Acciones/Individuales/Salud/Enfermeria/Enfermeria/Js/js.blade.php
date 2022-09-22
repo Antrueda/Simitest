@@ -11,6 +11,12 @@
         let tipocurso = '{{ old("prm_tipo_curso") }}';
         let curso = '{{ old("prm_curso") }}';
         let observacion = '{{ old("observacion") }}';
+
+        let especial = '{{ old("prm_especial_id") }}';
+
+        let old_tipoacti = '{{ old("tipoacti_id") }}';
+        let old_actividade = '{{ old("asd_actividads_id") }}';
+
         var fechaPuede;
 
 
@@ -38,6 +44,10 @@
                 }
             });
         }
+
+
+
+
 
         let f_sis_depen = (selected) => {
             let dataxxxx = {
@@ -112,54 +122,85 @@
         }
 
         function ocultarFields() {
-            $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field,#grado_id_field, #grupo_id_field,#tipo_curso_box, #curso_box, #observaciones')
+            $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field,#grado_id_field, #grupo_id_field, #curso_box, #observaciones,#prm_especial_fiel,#prm_especiales, #prm_especialidades1, #prm_modalidad')
                     .addClass('d-none');
-            $('#prm_programa_id, #prm_convenio_id, #actividade_id, #tipoacti_id, #prm_grupo_id, #eda_grados_id, #prm_tipo_curso, #prm_curso, #observacion').attr('disabled', true);
+            $('#prm_programa_id, #prm_convenio_id, #asd_actividad_id, #tipos_actividad_id, #prm_grupo_id, #eda_grados_id, #prm_curso, #observacion,                            #prm_especial_id, #prm_especiales_id, #prm_especialidades_id, #prm_modalidades_id').attr('disabled', true);
         }
+
+
+        function fillBook(){    
+   var first_select = document.getElementById('prm_actividad_id').value;
+   var second_select = document.getElementById('prm_tipo_curso').value;
+
+   // Si se selecciona acompañamiento y apoyos diagnosticos, se debe seleccionar el otro select
+    if(first_select == '1327' && second_select == '1339') {
+        ocultarFields();
+        $('#prm_especial_fiel').removeClass('d-none');
+        $('#prm_especial_id').attr('disabled', false);
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+   // Si se selecciona CONSULTA DE URGENCIAS MEDICAS
+    }if(first_select=='1327'&& second_select == '1340'){
+        ocultarFields();
+        $('#prm_especiales').removeClass('d-none');
+        $('#prm_especiales_id').attr('disabled', false);
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+   // Si se selecciona CONSULTA FUERA DE LA INSTITUCION PRESENCIAL
+    }if(first_select=='1327'&& second_select == '2866'){
+        ocultarFields();
+        $('#prm_especialidades1').removeClass('d-none');
+        $('#prm_especialidades_id').attr('disabled', false);
+        $('#prm_modalidad').removeClass('d-none');
+        $('#prm_modalidades_id').attr('disabled', false);
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+   // Si se selecciona JOR
+    }if(first_select=='1327'&& second_select == '2867'){
+        ocultarFields();
+
+
+
+
+        $('#tipoacti_id_field').removeClass('d-none');
+        $('#tipos_actividad_id').attr('disabled', false);        
+        $('#actividade_id_field').removeClass('d-none');
+        $('#asd_actividad_id').attr('disabled', false);
+
+
+
+
+
+
+
+   // Si se selecciona HOSPITALIZACION
+    }if(first_select=='1327'&& second_select == '1345'){
+        ocultarFields();
+
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+      //  $('#tipoacti_id_field').removeClass('d-none');
+      //  $('#tipos_actividad_id').attr('disabled', false);
+    }
+}
+
+
+
+
+
+
+
+
 
         function f_nom_actividad() {
             if (activida.find(':selected').text() === 'Seleccione') {
                 ocultarFields();
             }
-
             switch (activida.val()) {
                 case '1327': //ACOMPAÑAMINETO
-
                   ocultarFields();
                    $('#tipo_curso_box').removeClass('d-none');
-                   $('#prm_tipo_curso').attr('disabled', false);
-
-
-
-                   $('#observaciones').removeClass('d-none');
-                   $('#observacion').attr('disabled', false);
-
-                 
-
-
-                //     switch (tipocurso.val()){
-                //      case '1339':// Apoyos y diagnosticos
-
-                //   ocultarFields();
-                //     $('#curso_box').removeClass('d-none');
-                //     $('#prm_curso').attr('disabled', false);
-                //     $('#grupo_id_field').removeClass('d-none');
-                //     $('#prm_grupo_id').attr('disabled', false);
-                //     break;
-
-                //     case '1340': // CONSULTA DE URGENCIAS MEDICAS
-
-                //     ocultarFields();
-                //     $('#tipoacti_id_field').removeClass('d-none');
-                //     $('#tipoacti_id').attr('disabled', false);
-                //     break;
-
-                //     }
-
-                //     $('#grado_id_field').removeClass('d-none');
-                 //   $('#eda_grados_id').attr('disabled', false);
-                 //   $('#grupo_id_field').removeClass('d-none');
-                 //    $('#prm_grupo_id').attr('disabled', false);
+                   $('#prm_tipo_curso').attr('disabled', false)
 
                     break;
                 case '1328':// ATENCION PRESTADA DENTRO DE LA UPI
@@ -281,19 +322,7 @@
             f_grupo(0, dependen, servicio);
         })
 
-        // tipo de actividad
-        let inputTipoacti = $('#tipoacti_id');
-        inputTipoacti.change(() => {
-            let dependen = $('#sis_depen_id').find(":selected").val();
-            let tipoacti = inputTipoacti.find(':selected').val();
-            if (tipoacti != "") {
-                $('#actividade_id').attr('disabled', false);
-                f_actividad(0,dependen,tipoacti);
-            }else{
-                $('#actividade_id').attr('disabled', true);
-            }
-        })
-
+     
         let cambiarEstadoAsisten = function(asistenx,fechaxxx,valorxxx) {
             $.ajax({
                 url: "{{ route('asissema.estadoasis')}}",
@@ -324,6 +353,7 @@
         $('#prm_tipo_curso').change(() => {
             let tipo = $('#prm_tipo_curso').val();
             f_curso(0,tipo);
+            fillBook();
         });
 
         $('.select2').select2({
@@ -341,75 +371,6 @@
             cambiarEstadoAsisten(id,fecha,valor);
         });
 
-        let f_ajax = function(valuexxx) {
-            let url='{{ route("asissema.desvincular",":queryId")}}';
-                url = url.replace(':queryId', valuexxx);
 
-            $.ajax({
-                url: url,
-                type: 'DELETE',
-                data: {
-                    "_token": "{{ csrf_token() }}"
-                },
-                dataType: 'json',
-                success: function(json) {
-                    toastr.success('El nnaj fue eliminado de esta planilla de asistencia con exito');
-                    location.reload();
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existiÃ³ un problema');
-                }
-            });
-        }
-
-        $(".asistencias .eliminar-asigna-asistencia").on("click",function(){
-            let asistencia_matricula = $(this).attr("data-asis");
-            if(asistencia_matricula != undefined){
-                f_ajax(asistencia_matricula);
-            }
-        })
-
-        function fechapuede(dependex) {
-            $.ajax({
-                url: "{{ route('asissema.fechapuede')}}",
-                type: 'GET',
-                data: {
-                    'dependex': dependex,
-                    "_token": "{{ csrf_token() }}",
-                },
-                dataType: 'json',
-                success: function(json) {
-                    updateResult(json)
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existiÃ³ un problema');
-                }
-            });
-        }
-
-        function updateResult(data) {
-            fechaPuede = data;
-
-            $("#prm_fecha_inicio").attr({"min" : fechaPuede['fechlimi']});
-            $("#prm_fecha_inicio").attr({"max" : fechaPuede['actualxx']});
-            // $("#prm_fecha_inicio").attr({"value" : ''});
-        }
-
-        $("#prm_fecha_inicio").on("click",function(){
-            if ($('#sis_depen_id').val() != "") {
-            }else{
-                alert('seleccione primero una sede o dependencia')
-            }
-        })
-
-        $("#prm_fecha_inicio").on("change",function(){
-            let fechasele = $('#prm_fecha_inicio').val();
-            if (fechasele < fechaPuede['fechlimi'] || fechasele > fechaPuede['actualxx']) {
-                alert('La fecha es mayor o menor a la permitida');
-                $("#prm_fecha_inicio").val("");
-            }else{
-                armarfechaFinal(fechasele);
-            }
-        })
     });
 </script>

@@ -33,11 +33,20 @@ class Enfermeria extends Model
         'prm_lugactiv_id',
 
         
+        'asd_actividad_id',
+
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',   
     ];
+
+
+
+    public function asdActividad()
+    {
+        return $this->belongsTo(AsdActividad::class, 'asd_actividad_id');
+    }
 
 
     public function prm_motivos()
