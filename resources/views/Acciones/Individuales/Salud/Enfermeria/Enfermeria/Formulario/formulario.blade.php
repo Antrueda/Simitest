@@ -154,21 +154,21 @@ table, th, td {
 
 
             <div id="tipoacti_id_field" class="d-none form-group col-md-6 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
-                {!! Form::label('tipos_actividad_id', 'Tipo de Actividad:', ['class' => 'control-label']) !!}
-                {!! Form::select('tipos_actividad_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
-                @if($errors->has('tipos_actividad_id'))
+                {!! Form::label('tipo_vacunas_id', 'Tipo de Vacuna:', ['class' => 'control-label']) !!}
+                {!! Form::select('tipo_vacunas_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
+                @if($errors->has('tipo_vacunas_id'))
                 <div class="invalid-feedback d-block">
-                    {{ $errors->first('tipos_actividad_id') }}
+                    {{ $errors->first('tipo_vacunas_id') }}
                 </div>
                 @endif
             </div> 
             
             <div id="actividade_id_field" class="d-none form-group col-md-6 {{$errors->first('actividade_id') ? 'has-error' : ''}}">
-                {!! Form::label('asd_actividad_id', 'Actividad:', ['class' => 'control-label']) !!}
-                {!! Form::select('asd_actividad_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-                @if($errors->has('asd_actividad_id'))
+                {!! Form::label('vacuna_id', 'Vacuna:', ['class' => 'control-label']) !!}
+                {!! Form::select('vacuna_id', $todoxxxx['activida'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('vacuna_id'))
                 <div class="invalid-feedback d-block">
-                    {{ $errors->first('asd_actividad_id') }}
+                    {{ $errors->first('vacuna_id') }}
                 </div>
                 @endif
             </div>

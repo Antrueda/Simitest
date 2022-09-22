@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales\Salud\Enfermeria;
 
+use App\Models\Acciones\Individuales\Salud\Vacunas\Vacuna;
 use App\Models\AdmiActiAsd\AsdActividad;
 use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
@@ -31,10 +32,8 @@ class Enfermeria extends Model
         'prm_tipoaten_id',
         'prm_especial_id',
         'prm_lugactiv_id',
-
-        
         'asd_actividad_id',
-
+        'vacuna_id',
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
@@ -43,9 +42,15 @@ class Enfermeria extends Model
 
 
 
+    // public function asdActividad()
+    // {
+    //     return $this->belongsTo(AsdActividad::class, 'asd_actividad_id');
+    // }
+
+
     public function asdActividad()
     {
-        return $this->belongsTo(AsdActividad::class, 'asd_actividad_id');
+        return $this->belongsTo(Vacuna::class, 'vacuna_id');
     }
 
 

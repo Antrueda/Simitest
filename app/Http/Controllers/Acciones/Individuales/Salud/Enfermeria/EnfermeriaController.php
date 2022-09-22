@@ -10,7 +10,6 @@ use App\Models\sistema\SisDepen;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Salud\Enfermeria\EnfermeriaCrearRequest;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaAjaxTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaCrudTrait;
@@ -19,12 +18,9 @@ use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaLista
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaParametrizarTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaPestaniasTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaVistasTrait;
-use App\Traits\Combos\PlanillaDiariaComboTrait;
+use App\Traits\Combos\EnfermeriaComboTrait;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
-// use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-// use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
-// use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionarioCrearRequest;
 
 class EnfermeriaController extends Controller
 {
@@ -37,8 +33,7 @@ class EnfermeriaController extends Controller
     use EnfermeriaAjaxTrait;
     use  ManageTimeTrait;
     use CombosTrait; //
-    use PlanillaDiariaComboTrait;
-
+    use  EnfermeriaComboTrait;
 
     public function __construct()
     {

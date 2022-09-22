@@ -15,7 +15,7 @@
         let especial = '{{ old("prm_especial_id") }}';
 
         let old_tipoacti = '{{ old("tipoacti_id") }}';
-        let old_actividade = '{{ old("asd_actividads_id") }}';
+        let old_actividade = '{{ old("vacuna_id") }}';
 
         var fechaPuede;
 
@@ -107,6 +107,35 @@
             f_comboGeneral(dataxxxx);
         }
 
+        // cargar actividades select
+        let f_actividads = (selected, tipoacti) => {
+            let dataxxxx = {
+                dataxxxx: {
+                    tipoacti: tipoacti,
+                    cabecera: true,
+                    selected: [selected]
+                },
+                urlxxxxx: '{{ route("enfermeria.actividad") }}',
+                campoxxx: 'vacuna_id',
+                mensajex: 'Exite un error al cargar las actividades'
+            }
+            f_comboGeneral(dataxxxx);
+        }    
+           // tipo de actividad
+        let inputTipoacti = $('#tipo_vacunas_id');
+
+        inputTipoacti.change(() => {
+            let tipoacti = inputTipoacti.find(':selected').val();
+            if (tipoacti != "") {
+                $('#vacuna_id').attr('disabled', false);
+                f_actividads(0,tipoacti);
+            }else{
+                $('#vacuna_id').attr('disabled', true);
+            }      
+        })
+
+
+
         let f_curso = (selected, tipoCurs) => {
             let dataxxxx = {
                 dataxxxx: {
@@ -176,11 +205,8 @@
    // Si se selecciona HOSPITALIZACION
     }if(first_select=='1327'&& second_select == '1345'){
         ocultarFields();
-
         $('#observaciones').removeClass('d-none');
         $('#observacion').attr('disabled', false);
-      //  $('#tipoacti_id_field').removeClass('d-none');
-      //  $('#tipos_actividad_id').attr('disabled', false);
     }
 }
 
@@ -371,6 +397,19 @@
             cambiarEstadoAsisten(id,fecha,valor);
         });
 
+
+        if (old_tipoacti != '') {
+            if (old_actividade != '') {
+                f_actividads(old_actividade);
+            } else {
+                f_actividads(0);
+            }
+            f_actividads({
+                activida: old_actividade,
+                tipoacti: old_tipoacti,
+                selected: [0]
+            });
+        }
 
     });
 </script>

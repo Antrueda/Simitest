@@ -17,7 +17,9 @@ use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihLimite;
 use App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
+use App\Models\Acciones\Individuales\Salud\Vacunas\Vacuna;
 use App\Models\AdmiActi\Actividade;
+use App\Models\AdmiActiAsd\AsdActividad;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -130,13 +132,22 @@ trait EnfermeriaListadosTrait
         return $respuest;
     }
 
+    // public function getActividadAsignar($dataxxxx)
+    // {
+    //     $dataxxxx['dataxxxx'] = AsdActividad::select('asd_actividads.id AS valuexxx', 'asd_actividads.nombre AS optionxx')
+    //         ->where('asd_actividads.tipos_actividad_id', $dataxxxx['tipoacti'])
+    //         ->where('asd_actividads.sis_esta_id', 1)
+    //         ->get();
+    //     $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+    //     return $respuest;
+    // }
+
+
     public function getActividadAsignar($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = Actividade::select('actividades.id AS valuexxx', 'actividades.nombre AS optionxx')
-            ->join('actividade_sis_depen', 'actividades.id', 'actividade_sis_depen.actividade_id')
-            ->where('actividade_sis_depen.sis_depen_id', $dataxxxx['dependen'])
-            ->where('actividades.tipos_actividad_id', $dataxxxx['tipoacti'])
-            ->where('actividades.sis_esta_id', 1)
+        $dataxxxx['dataxxxx'] = Vacuna::select('vacunas.id AS valuexxx', 'vacunas.nombre AS optionxx')
+            ->where('vacunas.tipo_vacunas_id', $dataxxxx['tipoacti'])
+            ->where('vacunas.sis_esta_id', 1)
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;

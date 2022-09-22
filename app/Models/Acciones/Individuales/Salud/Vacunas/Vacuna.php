@@ -11,6 +11,7 @@ class Vacuna extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'vacunas';
 
 
     protected $fillable = [

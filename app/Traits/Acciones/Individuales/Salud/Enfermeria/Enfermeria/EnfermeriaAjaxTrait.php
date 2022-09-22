@@ -76,6 +76,22 @@ trait EnfermeriaAjaxTrait
     }
 
    
+    public function getActividad(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipoacti' => $request->tipoacti,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+        $respuest = response()->json($this->getActividadAsignar($dataxxxx));
+        return $respuest;
+    }
+
+
+
 
     public function getFechaPuede(Request $request)
     {

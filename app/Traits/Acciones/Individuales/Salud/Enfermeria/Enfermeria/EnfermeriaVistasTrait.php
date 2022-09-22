@@ -142,20 +142,24 @@ trait EnfermeriaVistasTrait
             $this->pestania[0][2]=$this->opciones['parametr'];
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'].'.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CREGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
-            $tipoacti =$this->opciones['modeloxx']->tipos_actividad_id = $dataxxxx['modeloxx']->asdActividad->tipos_actividad_id;
+            $tipoacti =$this->opciones['modeloxx']->tipo_vacunas_id = $dataxxxx['modeloxx']->asdActividad->tipo_vacunas_id;
 
+        
         } 
 
         $this->opciones['tipoacti'] = $this->getTipoActividadPDCT([]);
         $this->opciones['activida'] = $this->getActividadPDCT(['tipoacti' => $tipoacti]);
 
 
-
          if ($dataxxxx['modeloxx'] != '') {
              $this->opciones['funccont']  = User::getUsuario(false, false,$dataxxxx['modeloxx']->user_fun_id);
+
+           
             }else{
              $this->opciones['funccont']  = User::getUsuario(false, false);
          }
+
+
 
 
          $this->opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
