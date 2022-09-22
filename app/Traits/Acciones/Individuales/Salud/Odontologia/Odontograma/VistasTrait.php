@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma;
 
 
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
@@ -45,6 +45,11 @@ trait VistasTrait
         for ($i = 11; $i <= 85; $i++) {
             $opciones['dientesx'][$i] = $i;
         }
+
+        for ($i = 1; $i <= 5; $i++) {
+            $opciones['superfic'][$i] = $i;
+        }
+
         $opciones['diagnost'] = Diagnostico::combo(true,false);
 
         $opciones = $this->getVista($opciones, $dataxxxx);
@@ -61,7 +66,7 @@ trait VistasTrait
 
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
-        
+        $opciones=$this->getTablas($vercrear);
 
 
         // Se arma el titulo de acuerdo al array opciones

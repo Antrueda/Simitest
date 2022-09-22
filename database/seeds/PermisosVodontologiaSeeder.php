@@ -172,6 +172,81 @@ class PermisosVodontologiaSeeder extends Seeder
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
+
+        $permisox = 'vodontograma';
+        $compleme = 'Odontograma';
+        Permission::create([
+            'name' => $permisox . '-leer',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-crear',
+            'sis_pestania_id' => 1,
+            'descripcion' => $crearxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-editar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $editarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-borrar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $borrarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-activarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $activarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        $permisox = 'vodonhigiene';
+        $compleme = 'Higiene Oral';
+        Permission::create([
+            'name' => $permisox . '-leer',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-crear',
+            'sis_pestania_id' => 1,
+            'descripcion' => $crearxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-editar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $editarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-borrar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $borrarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-activarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $activarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
      
     }
 }

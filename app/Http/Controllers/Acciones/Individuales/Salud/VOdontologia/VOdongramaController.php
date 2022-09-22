@@ -7,15 +7,14 @@ use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesEditarRequest;
 
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\CrudTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\VistasTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\ListadosTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\CrudTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\VistasTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\ListadosTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
-
-
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
 
 class VOdongramaController extends Controller
 {
@@ -31,8 +30,8 @@ class VOdongramaController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'vodonanteces';
-        $this->opciones['routxxxx'] = 'vodonanteces';
+        $this->opciones['permisox'] = 'vodontograma';
+        $this->opciones['routxxxx'] = 'vodontograma';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -45,9 +44,9 @@ class VOdongramaController extends Controller
     public function create(VOdontologia $padrexxx)
     {
         
-        if($padrexxx->antecedentes){
+        if($padrexxx->odontograma){
             return redirect()
-            ->route('vodonanteces.editar', [$padrexxx->antecedentes->id]);
+            ->route('vodontograma.editar', [$padrexxx->odontograma->id]);
         }
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
@@ -73,7 +72,7 @@ class VOdongramaController extends Controller
     {//
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['odonto_id'=> $padrexxx->id]);
-        return $this->setOdoAntecedente([
+        return $this->setOdograma([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
@@ -83,7 +82,7 @@ class VOdongramaController extends Controller
     }
 
 
-    public function show(VOdonantece $modeloxx)
+    public function show(VOdontograma $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
@@ -101,7 +100,7 @@ class VOdongramaController extends Controller
         );
     }
 
-    public function edit(VOdonantece $modeloxx)
+    public function edit(VOdontograma $modeloxx)
     {    
         $this->pestanix[2]['routexxx'] = '.editar';
         //ddd( $this->pestanix[2]['routexxx']);
@@ -122,11 +121,11 @@ class VOdongramaController extends Controller
     }
 
 
-    public function update(VOdontoantecentesEditarRequest $request,  VOdonantece $modeloxx)
+    public function update(VOdontoantecentesEditarRequest $request,  VOdontograma $modeloxx)
     {
         $request->request->add(['odonto_id'=> $modeloxx->odontologia->id]);
         
-        return $this->setOdoAntecedente([
+        return $this->setOdograma([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,

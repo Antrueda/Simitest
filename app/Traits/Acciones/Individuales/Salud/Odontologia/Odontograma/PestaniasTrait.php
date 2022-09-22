@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Odontologia;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma;
 
 
 trait PestaniasTrait
@@ -18,6 +18,7 @@ trait PestaniasTrait
         [
             'permisox' => 'vodonexamens', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
+
         [
             'permisox' => 'vodontograma', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
@@ -93,6 +94,8 @@ trait PestaniasTrait
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
+      
+
         if (isset($pestania[$dataxxxx['slotxxxx']]['activexx'])) {
             $pestania[$dataxxxx['slotxxxx']]['activexx'] = 'active';
         }
@@ -100,22 +103,16 @@ trait PestaniasTrait
     }
     public function getPestanias($dataxxxx)
     {
-
         $pestania = [];
         foreach ($this->pestanix as $key => $value) {
              if ($value['dataxxxx'][0]) {
                 $dataxxxx['cananyxx'] = $value['permisox'];
                 $dotosxxx = $this->setPestanias($dataxxxx);
+                
                 $dotosxxx['routexxx'] = route($value['permisox'].$value['routexxx'], $value['dataxxxx'][1]);
-                $dotosxxx['checkxxx'] = $value['checkxxx'];
-             
                 $pestania[] = $dotosxxx;
             }
         }
-        
         return $pestania;
     }
-
-
-
 }

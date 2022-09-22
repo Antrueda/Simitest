@@ -158,6 +158,15 @@ class VOdontologiaController extends Controller
             $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
             $this->pestanix[3]['checkxxx'] = 0;
         }
+        if($modeloxx->odontograma){
+            $this->pestanix[4]['routexxx'] = '.editar';
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->odontograma->id];
+            $this->pestanix[4]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[4]['routexxx'] = '.nuevo';
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['checkxxx'] = 0;
+        }
       
         
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
