@@ -47,9 +47,7 @@ trait EnfermeriaVistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
         
-         $this->opciones['motivoxx'] = $this->getTemacomboCT([
-            'temaxxxx' => 456,
-        ])['comboxxx'];
+     
 
         $this->opciones['tipoaten'] = $this->getTemacomboCT([
             'temaxxxx' => 457,

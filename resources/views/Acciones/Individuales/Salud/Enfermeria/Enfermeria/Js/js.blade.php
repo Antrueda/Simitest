@@ -153,11 +153,17 @@
         function ocultarFields() {
             $('#prm_programa_id_field, #prm_convenio_id_field, #actividade_id_field, #tipoacti_id_field,#grado_id_field, #grupo_id_field, #curso_box, #observaciones,#prm_especial_fiel,#prm_especiales, #prm_especialidades1, #prm_modalidad')
                     .addClass('d-none');
-            $('#prm_programa_id, #prm_convenio_id, #asd_actividad_id, #tipos_actividad_id, #prm_grupo_id, #eda_grados_id, #prm_curso, #observacion,                            #prm_especial_id, #prm_especiales_id, #prm_especialidades_id, #prm_modalidades_id').attr('disabled', true);
+            $('#prm_programa_id, #prm_convenio_id, #vacuna_id, #tipo_vacunas_id, #prm_grupo_id, #eda_grados_id, #prm_curso, #observacion,                            #prm_especial_id, #prm_especiales_id, #prm_especialidades_id, #prm_modalidades_id').attr('disabled', true);
         }
 
 
-        function fillBook(){    
+        function ocultartemas() {
+            $('#tipo_curso_box') .addClass('d-none');
+            $('#prm_tipo_curso').attr('disabled', true);
+        }
+
+
+    function fillBook(){    
    var first_select = document.getElementById('prm_actividad_id').value;
    var second_select = document.getElementById('prm_tipo_curso').value;
 
@@ -187,24 +193,18 @@
    // Si se selecciona JOR
     }if(first_select=='1327'&& second_select == '2867'){
         ocultarFields();
-
-
-
-
         $('#tipoacti_id_field').removeClass('d-none');
-        $('#tipos_actividad_id').attr('disabled', false);        
+        $('#tipo_vacunas_id').attr('disabled', false);        
         $('#actividade_id_field').removeClass('d-none');
-        $('#asd_actividad_id').attr('disabled', false);
+        $('#tipo_vacunas_id').attr('disabled', false);
 
-
-
-
-
-
-
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
    // Si se selecciona HOSPITALIZACION
     }if(first_select=='1327'&& second_select == '1345'){
         ocultarFields();
+        $('#prm_especial_fiel').removeClass('d-none');
+        $('#prm_especial_id').attr('disabled', false);
         $('#observaciones').removeClass('d-none');
         $('#observacion').attr('disabled', false);
     }
@@ -212,12 +212,7 @@
 
 
 
-
-
-
-
-
-
+// Se arma el combo para el motivo de atencion 
         function f_nom_actividad() {
             if (activida.find(':selected').text() === 'Seleccione') {
                 ocultarFields();
@@ -230,14 +225,9 @@
 
                     break;
                 case '1328':// ATENCION PRESTADA DENTRO DE LA UPI
-                    ocultarFields();
-
-                    $('#tipoacti_id_field').removeClass('d-none');
-                    $('#tipoacti_id').attr('disabled', false);
-                    $('#actividade_id_field').removeClass('d-none');
-                    $('#actividade_id').attr('disabled', false);
-                    $('#grupo_id_field').removeClass('d-none');
-                    $('#prm_grupo_id').attr('disabled', false);
+                   // ocultarFields();
+                   ocultarFields();
+                    ocultartemas();
                     break;
 
                 case '2864'://NOVEDAD DE FALLECIMIENTO

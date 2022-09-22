@@ -136,23 +136,6 @@ table, th, td {
                 @endif
             </div>
 
-
-
-
-            <div id="observaciones" class="d-none form-group col-md-12 {{$errors->first('observacion') ? 'has-error' : ''}}">
-                {!! Form::label('observacion', 'OBSERVACIONES:', ['class' => 'control-label']) !!}
-                {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observacion')"]) !!}
-                <p id="observacion_char_counter" class="text-right">0/4000</p>
-                @if($errors->has('observacion'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('observacion') }}
-                </div>
-                @endif
-            </div>
-
-
-
-
             <div id="tipoacti_id_field" class="d-none form-group col-md-6 {{$errors->first('tipoacti_id') ? 'has-error' : ''}}">
                 {!! Form::label('tipo_vacunas_id', 'Tipo de Vacuna:', ['class' => 'control-label']) !!}
                 {!! Form::select('tipo_vacunas_id', $todoxxxx['tipoacti'], null, ['class' => 'form-control form-control-sm select2','required']) !!}
@@ -174,6 +157,16 @@ table, th, td {
             </div>
         
 
+            <div id="observaciones" class="d-none form-group col-md-12 {{$errors->first('observacion') ? 'has-error' : ''}}">
+                {!! Form::label('observacion', 'OBSERVACIONES:', ['class' => 'control-label']) !!}
+                {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observacion')"]) !!}
+                <p id="observacion_char_counter" class="text-right">0/4000</p>
+                @if($errors->has('observacion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('observacion') }}
+                </div>
+                @endif
+            </div>
          
 
         
