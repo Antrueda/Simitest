@@ -46,7 +46,7 @@ trait DastResultVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2718
+            'formular' => 2896
         ])['comboxxx'];
 
         $this->opciones['acciones'] = DastAccione::where('sis_esta_id', 1)->orWhere('id', $accion)->get()->pluck('nombre', 'id');
