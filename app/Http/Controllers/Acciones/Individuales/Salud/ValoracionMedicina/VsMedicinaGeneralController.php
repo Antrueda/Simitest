@@ -28,11 +28,11 @@ class VsMedicinaGeneralController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use CombosTrait; //
 
-    
+
 
     public function __construct()
     {
-        
+
         $this->opciones['permisox'] = 'vsmedicina';
         $this->opciones['routxxxx'] = 'vsmedicina';
         $this->getOpciones();
@@ -45,59 +45,58 @@ class VsMedicinaGeneralController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
-       $this->opciones['tablinde']=true;
+        $this->opciones['tablinde'] = true;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-       
-        
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
+
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones' => $this->opciones, 'padrexxx' => $this->opciones['usuariox']->id])]);
     }
 
 
     public function create(SisNnaj $padrexxx)
     {
 
-   
-        $salud =$padrexxx->fi_saluds;
-        
-        if($salud==null){
-                        return redirect()
-                    ->route('vsmedicina', [$padrexxx->id])
-                    ->with('info', 'No se puede realizar el formulario porque los datos de Ficha de Ingreso - Salud se encuentran incompletos');
 
+        $salud = $padrexxx->fi_saluds;
+
+        if ($salud == null) {
+            return redirect()
+                ->route('vsmedicina', [$padrexxx->id])
+                ->with('info', 'No se puede realizar el formulario porque los datos de Ficha de Ingreso - Salud se encuentran incompletos');
         }
-        
-        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+
+        $this->opciones['cursosxx'] = Diagnostico::combo(true, false);
+        $this->opciones['estadoxx'] = Tema::comboAsc(441, true, false);
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
-       
+
         $this->opciones['diagnost'] = '.listaxxy';
         $this->opciones['valoraci'] = $padrexxx;
-    
+
         $this->opciones['vercrear'] = false;
-        $this->opciones['tablinde']=false;
-        $this->opciones['parametr']=$padrexxx;
+        $this->opciones['tablinde'] = false;
+        $this->opciones['parametr'] = $padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $this->padrexxx->id]
         );
     }
-    public function store(VsmedicinaCrearRequest $request,SisNnaj $padrexxx)
-    {//
+    public function store(VsmedicinaCrearRequest $request, SisNnaj $padrexxx)
+    { //
 
-        $request->request->add(['sis_esta_id'=> 1]);
-        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
         return $this->setMedicinaGeneral([
-            'requestx' => $request,//
+            'requestx' => $request, //
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
             'infoxxxx' => 'Valoracion medica general creado con éxito',
@@ -115,11 +114,13 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['diagnost'] = '.listaxxz';
         $this->padrexxx = $modeloxx->nnaj;
-        
+
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
-        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
+        $do = $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        return $this->view(
+            $do,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->id]
         );
     }
 
@@ -132,20 +133,20 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx->nnaj;
         $this->opciones['diagnost'] = '.listaxxz';
-        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+        $this->opciones['cursosxx'] = Diagnostico::combo(true, false);
+        $this->opciones['estadoxx'] = Tema::comboAsc(441, true, false);
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
-        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'certificado'],'padrexxx'=>$modeloxx->id])->render();
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        return $this->view($do, ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'certificado'], 'padrexxx' => $modeloxx->id])->render();
     }
 
 
     public function edit(Vsmedicina $modeloxx)
-    {    
-        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+    {
+        $this->opciones['cursosxx'] = Diagnostico::combo(true, false);
+        $this->opciones['estadoxx'] = Tema::comboAsc(441, true, false);
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
@@ -157,17 +158,17 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary'])
-            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj]
+        return $this->view(
+            $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->nnaj]
         );
     }
 
 
     public function update(VsmedicinaEditarRequest $request,  Vsmedicina $modeloxx)
     {
-        
-        $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
+
+        $request->request->add(['sis_nnaj_id' => $modeloxx->nnaj->id]);
         return $this->setMedicinaGeneral([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -179,7 +180,7 @@ class VsMedicinaGeneralController extends Controller
 
     public function inactivate(Vsmedicina $modeloxx)
     {
-        
+
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
@@ -191,8 +192,8 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
 
@@ -219,10 +220,9 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
-
     }
 
     public function activar(Request $request, Vsmedicina $modeloxx)
