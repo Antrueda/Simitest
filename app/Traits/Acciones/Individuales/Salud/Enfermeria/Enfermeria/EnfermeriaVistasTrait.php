@@ -31,7 +31,6 @@ trait EnfermeriaVistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
         
-
         $this->opciones['tpcursos'] = $this->getTemacomboCT([
             'temaxxxx'=>457,
             'campoxxx'=>'nombre',
@@ -39,6 +38,34 @@ trait EnfermeriaVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false
         ])['comboxxx'];
+
+        $this->opciones['apespeci'] = $this->getTemacomboCT([
+            'temaxxxx'=>461,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        $this->opciones['tptamizaje'] = $this->getTemacomboCT([
+            'temaxxxx'=>462,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+
+        $this->opciones['novedadx'] = $this->getTemacomboCT([
+            'temaxxxx'=>463,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
         $this->opciones['tipoacti'] = TiposActividad::combo();
         $this->opciones['convenios_progs'] = [];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -46,14 +73,14 @@ trait EnfermeriaVistasTrait
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        
-     
 
         $this->opciones['tipoaten'] = $this->getTemacomboCT([
-            'temaxxxx' => 457,
+            'temaxxxx'=>460,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
         ])['comboxxx'];
-
-
 
         $this->opciones['prm_especial'] = $this->getTemacomboCT([
             'temaxxxx'=>458,

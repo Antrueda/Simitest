@@ -157,6 +157,54 @@ table, th, td {
             </div>
         
 
+            
+            <div id="tipo_aten" class="d-none form-group col-md-6 {{$errors->first('prm_tipo_aten') ? 'has-error' : ''}}">
+                {!! Form::label('prm_tipo_aten', 'TIPO DE ATENCIÓN:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_tipo_aten', $todoxxxx['tipoaten'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_tipo_aten'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_tipo_aten') }}
+                </div>
+                @endif
+            </div>
+
+
+
+
+            <div id="prm_espe_ap" class="d-none form-group col-md-6 {{$errors->first('prm_especialidad_ap') ? 'has-error' : ''}}">
+                {!! Form::label('prm_especialidad_ap', 'ESPECIALIDAD AP:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_especialidad_ap', $todoxxxx['apespeci'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_especialidad_ap'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_especialidad_ap') }}
+                </div>
+                @endif
+            </div>
+
+         
+
+            <div id="prm_prueba_tamizajes" class="d-none form-group col-md-6 {{$errors->first('prm_prueba_tamizaje') ? 'has-error' : ''}}">
+                {!! Form::label('prm_prueba_tamizaje', 'PRUEBAS DE TAMIZAJE:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_prueba_tamizaje', $todoxxxx['tptamizaje'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_prueba_tamizaje'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_prueba_tamizaje') }}
+                </div>
+                @endif
+            </div>
+
+
+
+            <div id="prm_novedads" class="d-none form-group col-md-6 {{$errors->first('prm_novedad') ? 'has-error' : ''}}">
+                {!! Form::label('prm_novedad', 'TIPO DE NOVEDAD:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_novedad', $todoxxxx['novedadx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_novedad'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_novedad') }}
+                </div>
+                @endif
+            </div>
+
             <div id="observaciones" class="d-none form-group col-md-12 {{$errors->first('observacion') ? 'has-error' : ''}}">
                 {!! Form::label('observacion', 'OBSERVACIONES:', ['class' => 'control-label']) !!}
                 {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observacion')"]) !!}
@@ -167,7 +215,8 @@ table, th, td {
                 </div>
                 @endif
             </div>
-         
+
+
 
         
             <div id="prm_convenio_id_field" class="d-none form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">

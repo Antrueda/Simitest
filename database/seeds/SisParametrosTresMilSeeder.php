@@ -911,5 +911,31 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'OBSTETRICIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2870
     Parametro::create(['nombre' => 'NUTRICION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2871
     Parametro::create(['nombre' => 'PRUEBA DE EMBARAZO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2872
+  
+  // Se actualiza los parametros del registro de DB
+    Parametro::create(['nombre' => 'FAVORECER APROVECHAMIENTO DE TIEMPO LIBRE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2873
+    Parametro::create(['nombre' => 'FAVORECER LA ESTRUCTURACION DE SU PROYECTO DE VIDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2874
+    Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO SDCRD N° 467/2022', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2875
+  
+    // REGISTRO DIARIO DE ENFERMERIA
+    Parametro::create(['nombre' => 'APOYO A PROFESIONALES DEL ÁREA DE SALUD DE IDIPRÓN PRESENCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2876
+    Parametro::create(['nombre' => 'APOYO A PROFESIONALES DEL ÁREA DE SALUD DE IDIPRÓN VIRTUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2877
+    Parametro::create(['nombre' => 'ACOMPAÑAMIENTO JORNADA DE VACUNACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2878
+    Parametro::create(['nombre' => 'ACOMPAÑAMIENTO A ODONTOLOGÍA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2879
+    Parametro::create(['nombre' => 'ACOMPAÑAMIENTO HIGIENE ORAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2880
+    Parametro::create(['nombre' => 'ACOMPAÑAMIENTO MEDICINA GENERAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2881
+    Parametro::create(['nombre' => 'ACOMPAÑAMIENTO NUTRICIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2882
+    Parametro::create(['nombre' => 'ACOMPAÑAMIENTO REDUCCIÓN DE RIESGO Y DAÑO MEDICINA ALTERNATIVA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2883
+    Parametro::create(['nombre' => 'ACOMPAÑAMIENTO FISIOTERAPIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2884
+    Parametro::create(['nombre' => 'SINTOMÁTICO RESPIRATORIO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2885
+    Parametro::create(['nombre' => 'CITOLOGÍA VAGINAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2886
+    Parametro::create(['nombre' => 'SIFILIS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2887
+    Parametro::create(['nombre' => 'COVID-19', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2888
+    Parametro::create(['nombre' => 'ACCIDENTE DE TRABAJO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2889
+    Parametro::create(['nombre' => 'ACCIDENTE DE TRANSITO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2890
+    Parametro::create(['nombre' => 'ENFERMEDAD PROFESIONAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2891
+    Parametro::create(['nombre' => 'EVENTO TRAUMATICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2892
+    Parametro::create(['nombre' => 'REPORTE SEECRETARIA DE SALUD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2893
+
   }
 }

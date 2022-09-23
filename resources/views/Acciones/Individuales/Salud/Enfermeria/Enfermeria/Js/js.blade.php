@@ -9,11 +9,11 @@
         let activida = $('#prm_actividad_id');
         let actividade = '{{ old("actividade_id") }}';
         let tipocurso = '{{ old("prm_tipo_curso") }}';
+        let tipoaten = '{{ old("prm_tipo_aten") }}';
+
         let curso = '{{ old("prm_curso") }}';
         let observacion = '{{ old("observacion") }}';
-
         let especial = '{{ old("prm_especial_id") }}';
-
         let old_tipoacti = '{{ old("tipoacti_id") }}';
         let old_actividade = '{{ old("vacuna_id") }}';
 
@@ -134,8 +134,6 @@
             }      
         })
 
-
-
         let f_curso = (selected, tipoCurs) => {
             let dataxxxx = {
                 dataxxxx: {
@@ -157,13 +155,10 @@
         }
 
 
-        function ocultartemas() {
-            $('#tipo_curso_box') .addClass('d-none');
-            $('#prm_tipo_curso').attr('disabled', true);
-        }
 
 
-    function fillBook(){    
+    function fillBook(){   
+
    var first_select = document.getElementById('prm_actividad_id').value;
    var second_select = document.getElementById('prm_tipo_curso').value;
 
@@ -211,6 +206,50 @@
 }
 
 
+function ocultartemas() {
+            $('#tipo_curso_box,#tipo_aten,#prm_espe_ap') .addClass('d-none');
+            $('#prm_tipo_curso,#prm_tipo_aten,#prm_especialidad_ap').attr('disabled', true);
+        }
+
+
+        function ocultartemas2() {
+            $('#prm_espe_ap,#prm_prueba_tamizajes,#prm_novedads') .addClass('d-none');
+            $('#prm_especialidad_ap,#prm_prueba_tamizaje,#prm_novedad').attr('disabled', true);
+        }
+
+
+
+function fillatencion(){    
+   var first_select = document.getElementById('prm_actividad_id').value;
+   var second_select = document.getElementById('prm_tipo_aten').value;
+
+   // Si se selecciona AP
+    if(first_select == '1328' && second_select == '2876') {
+        ocultarFields();
+        ocultartemas2();
+
+        $('#prm_espe_ap').removeClass('d-none');
+        $('#prm_especialidad_ap').attr('disabled', false);
+
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+    // Si se selecciona AV
+    }if(first_select=='1328'&& second_select == '2877'){
+        ocultarFields();
+        ocultartemas2();
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+   // Si se selecciona Tamizaje
+    }if(first_select=='1328'&& second_select == '1387'){
+        ocultarFields();
+        ocultartemas2();
+        $('#prm_prueba_tamizajes').removeClass('d-none');
+        $('#prm_prueba_tamizaje').attr('disabled', false);
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+    }
+}
+
 
 // Se arma el combo para el motivo de atencion 
         function f_nom_actividad() {
@@ -220,32 +259,42 @@
             switch (activida.val()) {
                 case '1327': //ACOMPAÑAMINETO
                   ocultarFields();
+                  ocultartemas2();
+                  ocultartemas();
+
+
                    $('#tipo_curso_box').removeClass('d-none');
                    $('#prm_tipo_curso').attr('disabled', false)
 
                     break;
                 case '1328':// ATENCION PRESTADA DENTRO DE LA UPI
                    // ocultarFields();
-                   ocultarFields();
-                    ocultartemas();
+                   ocultartemas();
+                   ocultartemas2();
+
+                    ocultarFields();
+                    $('#tipo_aten').removeClass('d-none');
+                   $('#prm_tipo_aten').attr('disabled', false)
+
+
                     break;
 
                 case '2864'://NOVEDAD DE FALLECIMIENTO
-                    ocultarFields();
-                    $('#prm_convenio_id_field').removeClass('d-none');
-                    $('#prm_convenio_id').attr('disabled', false);
-                    $('#grupo_id_field').removeClass('d-none');
-                    $('#prm_grupo_id').attr('disabled', false);
+                   // ocultarFields();
+
+                    ocultartemas();
+                   ocultartemas2();
+                    $('#prm_novedads').removeClass('d-none');
+                    $('#prm_novedad').attr('disabled', false);
+                    $('#observaciones').removeClass('d-none');
+                    $('#observacion').attr('disabled', false);
 
                     break;
                     case '1332':// PROCEDIMIENTO
                     ocultarFields();
                     $('#tipo_curso_box').removeClass('d-none');
                     $('#prm_tipo_curso').attr('disabled', false);
-                    $('#curso_box').removeClass('d-none');
-                    $('#prm_curso').attr('disabled', false);
-                    $('#grupo_id_field').removeClass('d-none');
-                    $('#prm_grupo_id').attr('disabled', false);
+                    
                     break;
 
 
@@ -371,6 +420,16 @@
             f_curso(0,tipo);
             fillBook();
         });
+
+
+          //CAMBIO DE TIPO DE ATENCION 
+          $('#prm_tipo_aten').change(() => {
+            let tipo = $('#prm_tipo_aten').val();
+            f_curso(0,tipo);
+            fillatencion();
+        });
+
+
 
         $('.select2').select2({
             language: "es"
