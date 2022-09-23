@@ -1215,7 +1215,33 @@ class ParametroTemacomboTresmilSeeder extends Seeder
         ParametroTema::create(['parametro_id' => 1399, 'temacombo_id' => 459, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
         ParametroTema::create(['parametro_id' => 2872, 'temacombo_id' => 459, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
 
+        ParametroTema::create(['parametro_id' => 2876, 'temacombo_id' => 460, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2877, 'temacombo_id' => 460, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 1387, 'temacombo_id' => 460, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+
+        ParametroTema::create(['parametro_id' => 2878, 'temacombo_id' => 461, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2879, 'temacombo_id' => 461, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2880, 'temacombo_id' => 461, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2881, 'temacombo_id' => 461, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2882, 'temacombo_id' => 461, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2883, 'temacombo_id' => 461, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2884, 'temacombo_id' => 461, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+
+        ParametroTema::create(['parametro_id' => 2885, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2201, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 1404, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 1405, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2886, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2887, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2872, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2888, 'temacombo_id' => 462, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+  
+        ParametroTema::create(['parametro_id' => 2889, 'temacombo_id' => 463, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2890, 'temacombo_id' => 463, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 1665, 'temacombo_id' => 463, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2891, 'temacombo_id' => 463, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2892, 'temacombo_id' => 463, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+        ParametroTema::create(['parametro_id' => 2893, 'temacombo_id' => 463, 'simianti_id' => '0', 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]); // 
+
     }
-
-
 }
