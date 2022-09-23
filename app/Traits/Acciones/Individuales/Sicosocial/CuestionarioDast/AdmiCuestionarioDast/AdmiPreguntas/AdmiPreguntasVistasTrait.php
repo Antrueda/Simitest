@@ -38,7 +38,7 @@ trait AdmiPreguntasVistasTrait
             'cabecera' => true,
             'ajaxxxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2718
+            'formular' => 2894
         ])['comboxxx'];
 
         $this->getPestanias($this->opciones);
