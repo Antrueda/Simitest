@@ -937,5 +937,9 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'EVENTO TRAUMATICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2892
     Parametro::create(['nombre' => 'REPORTE SECRETARIA DE SALUD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2893
 
+    Parametro::create(['nombre' => 'ADMINISTRACIÓN CUESTIONARIO DAST-PREGUNTAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2894
+    Parametro::create(['nombre' => 'ADMINISTRACIÓN CUESTIONARIO DAST-ACCIONES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2895
+    Parametro::create(['nombre' => 'ADMINISTRACIÓN CUESTIONARIO DAST-RESULTADOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2896
+
   }
 }
