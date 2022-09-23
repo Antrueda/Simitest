@@ -41,19 +41,31 @@ class VOdongramaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function index(VOdontologia $padrexxx)
+    {
+        $this->padrexxx = $padrexxx;
+        $this->opciones['tablinde']=false;
+        $this->opciones['padrexxx'] = $padrexxx;
+        $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+       
+        
+        return $this->view(
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
+        );
+    }
+
     public function create(VOdontologia $padrexxx)
     {
-        
-        if($padrexxx->odontograma){
-            return redirect()
-            ->route('vodontograma.editar', [$padrexxx->odontograma->id]);
-        }
         $this->padrexxx = $padrexxx;
-        $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
+        $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->opciones['valoraci'] = $padrexxx;
-
-        //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
+     //   ddd($padrexxx);
 
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
@@ -65,7 +77,7 @@ class VOdongramaController extends Controller
 
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->opciones['padrexxx']]
         );
     }
     public function store(VOdontoantecentesCrearRequest $request,VOdontologia $padrexxx)

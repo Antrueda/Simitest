@@ -104,8 +104,6 @@ trait ListadosTrait
         if ($request->ajax()) {
             $respuest = [];
             $dataxxxx = $request->all();
-          
-            $dataxxxx['odonto_id'] = $padrexxx->id;
             $dataxxxx['sis_esta_id'] = 1;
             VOdontograma::transaccion($dataxxxx, '');
             return response()->json($respuest);

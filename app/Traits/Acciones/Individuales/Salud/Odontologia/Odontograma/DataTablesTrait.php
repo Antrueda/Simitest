@@ -71,15 +71,15 @@ trait DataTablesTrait
                 ],
               ];
         }else {
-            //ddd($this->opciones['cursosxx']);
+            $dataxxxx['padrexxx']=$this->opciones['padrexxx'];
             $dataxxxx['tablasxx'][] =
             [
                 'titunuev' => 'AGREGAR REPRESENTANTE LEGAL',
-                'titulist' => 'REPRESENTANTE LEGAL',
+                'titulist' => 'DIENTES',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                 'titupreg' => '',
                 'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$this->padrexxx->id]),
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$this->opciones['padrexxx']]),
                 'permtabl' => [
                     $dataxxxx['permisox'] . '-leer',
                     $dataxxxx['permisox'] . '-crear',
@@ -102,7 +102,7 @@ trait DataTablesTrait
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
-                'parametr' => [],
+                'parametr' => $this->opciones['padrexxx']->id,
             ];    
         }
             $dataxxxx['ruarchjs'][] =

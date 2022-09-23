@@ -1,6 +1,6 @@
 <hr style="border:3px;">
-
-<div class="row">
+<button type="button" class="btn btn-primary" id="add_btn">Diagnosticos<i class="fas fa-plus"></i></button>
+<div class="row" id="test">
   
     <div class="col-sm-2">
       {{ Form::label('diente', 'Diente', ['class' => 'control-label col-form-label-sm']) }}
@@ -38,34 +38,12 @@
             </div>
          @endif
     </div>
-    <div class="col-sm-3">
-        {{ Form::label('diag_id', 'Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('diag_id', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-            @if($errors->has('diag_id'))
-              <div class="invalid-feedback d-block">
-                {{ $errors->first('diag_id') }}
-              </div>
-           @endif
-      </div>
-      <div class="col-sm-3">
-        {{ Form::label('diag_id', 'Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('diag_id', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-            @if($errors->has('diag_id'))
-              <div class="invalid-feedback d-block">
-                {{ $errors->first('diag_id') }}
-              </div>
-           @endif
-      </div>
-      <div class="col-sm-3">
-        {{ Form::label('diag_id', 'Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('diag_id', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-            @if($errors->has('diag_id'))
-              <div class="invalid-feedback d-block">
-                {{ $errors->first('diag_id') }}
-              </div>
-           @endif
-      </div>
+
   </div>
+
   <br>
+  <div>
+    <button type="button" class="btn btn-primary" id="agregar">Agregar Diente</button>
+  </div>
 
 

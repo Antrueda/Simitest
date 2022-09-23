@@ -28,12 +28,12 @@ $(document).ready(function() {
   $(".reload" ).click(function() {
             table.ajax.reload(null, false);
         }); 
-
-
+        
+        
         var agregar=function(dataxxxx){
-            console.log(dataxxxx);
+            
                     $.ajax({
-                        url : "{{route('vodontograma.agregar',$todoxxxx['padrexxx'])}}",
+                        url : "{{route('vodontograma.agregar')}}",
                         data : dataxxxx,
                         type : 'GET',
                         dataType :'json',
@@ -52,10 +52,14 @@ $(document).ready(function() {
             console.log($('#diente').val());
             console.log($('#super_id').val());
             console.log($('#diag_id').val());
+            console.log('{{ $todoxxxx["padrexxx"]->id }}');
             agregar({
                 diente: $('#diente').val(),
                 super_id: $('#super_id').val(),
                 diag_id: $('#diag_id').val(),
+                odonto_id:  '{{ $todoxxxx["padrexxx"]->id }}',
+
+                
             });
         });
 
@@ -63,4 +67,5 @@ $(document).ready(function() {
 
 } );
 </script>
+
 
