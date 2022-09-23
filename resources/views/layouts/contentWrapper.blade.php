@@ -29,13 +29,13 @@
                 document.onkeypress = resetTimer;
 
                 function logout() {
-                    alert("El sistema se cerró de estar 15 minutos inactivo.")
+                    alert("El sistema se cerró de estar 30 minutos inactivo.")
 
                 }
 
                 function resetTimer() {
                     clearTimeout(time);
-                    time = setTimeout(logout, 906000)
+                    time = setTimeout(logout, 1806000)
                     // 1000 milliseconds = 1 second
                 }
             };
