@@ -911,12 +911,12 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'OBSTETRICIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2870
     Parametro::create(['nombre' => 'NUTRICION', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2871
     Parametro::create(['nombre' => 'PRUEBA DE EMBARAZO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2872
-  
-  // Se actualiza los parametros del registro de DB
+
+    // Se actualiza los parametros del registro de DB
     Parametro::create(['nombre' => 'FAVORECER APROVECHAMIENTO DE TIEMPO LIBRE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2873
     Parametro::create(['nombre' => 'FAVORECER LA ESTRUCTURACION DE SU PROYECTO DE VIDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2874
     Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO SDCRD N° 467/2022', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2875
-  
+
     // REGISTRO DIARIO DE ENFERMERIA
     Parametro::create(['nombre' => 'APOYO A PROFESIONALES DEL ÁREA DE SALUD DE IDIPRÓN PRESENCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2876
     Parametro::create(['nombre' => 'APOYO A PROFESIONALES DEL ÁREA DE SALUD DE IDIPRÓN VIRTUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2877
@@ -935,7 +935,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'ACCIDENTE DE TRANSITO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2890
     Parametro::create(['nombre' => 'ENFERMEDAD PROFESIONAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2891
     Parametro::create(['nombre' => 'EVENTO TRAUMATICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2892
-    Parametro::create(['nombre' => 'REPORTE SEECRETARIA DE SALUD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2893
+    Parametro::create(['nombre' => 'REPORTE SECRETARIA DE SALUD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2893
 
   }
 }
