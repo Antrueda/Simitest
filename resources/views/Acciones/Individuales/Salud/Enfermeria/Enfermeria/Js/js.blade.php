@@ -207,8 +207,8 @@
 
 
 function ocultartemas() {
-            $('#tipo_curso_box,#tipo_aten,#prm_espe_ap') .addClass('d-none');
-            $('#prm_tipo_curso,#prm_tipo_aten,#prm_especialidad_ap').attr('disabled', true);
+            $('#tipo_curso_box,#tipo_aten,#prm_espe_ap,#prm_proced') .addClass('d-none');
+            $('#prm_tipo_curso,#prm_tipo_aten,#prm_especialidad_ap,#prm_procedimiento').attr('disabled', true);
         }
 
 
@@ -251,30 +251,21 @@ function procedimiento(){
    var first_select = document.getElementById('prm_actividad_id').value;
    var second_select = document.getElementById('prm_procedimiento').value;
 
-   // Si se selecciona AP
-    if(first_select == '1332' && second_select == '2876') {
+   // Si se selecciona administracion de medicamentos 
+    if(first_select == '1332' && second_select == '1378') {
         ocultarFields();
         ocultartemas2();
 
-        $('#prm_espe_ap').removeClass('d-none');
-        $('#prm_especialidad_ap').attr('disabled', false);
 
-        $('#observaciones').removeClass('d-none');
-        $('#observacion').attr('disabled', false);
-    // Si se selecciona AV
-    }if(first_select=='1328'&& second_select == '2877'){
+        alert('Administracion de medicamentos')
+       
+    // Si se selecciona CURACION 
+    }if(first_select=='1332'&& second_select == '1380'){
         ocultarFields();
         ocultartemas2();
-        $('#observaciones').removeClass('d-none');
-        $('#observacion').attr('disabled', false);
-   // Si se selecciona Tamizaje
-    }if(first_select=='1328'&& second_select == '1387'){
-        ocultarFields();
-        ocultartemas2();
-        $('#prm_prueba_tamizajes').removeClass('d-none');
-        $('#prm_prueba_tamizaje').attr('disabled', false);
-        $('#observaciones').removeClass('d-none');
-        $('#observacion').attr('disabled', false);
+
+        alert('selecciono Curacion')
+
     }
 }
 
@@ -292,42 +283,35 @@ function procedimiento(){
                   ocultarFields();
                   ocultartemas2();
                   ocultartemas();
-
-
                    $('#tipo_curso_box').removeClass('d-none');
                    $('#prm_tipo_curso').attr('disabled', false)
-
                     break;
+
                 case '1328':// ATENCION PRESTADA DENTRO DE LA UPI
                    // ocultarFields();
                    ocultartemas();
                    ocultartemas2();
-
                     ocultarFields();
                     $('#tipo_aten').removeClass('d-none');
                    $('#prm_tipo_aten').attr('disabled', false)
-
-
                     break;
 
                 case '2864'://NOVEDAD DE FALLECIMIENTO
-                   // ocultarFields();
-
                     ocultartemas();
                    ocultartemas2();
                     $('#prm_novedads').removeClass('d-none');
                     $('#prm_novedad').attr('disabled', false);
                     $('#observaciones').removeClass('d-none');
                     $('#observacion').attr('disabled', false);
-
                     break;
+
                     case '1332':// PROCEDIMIENTO
                     ocultarFields();
+                    ocultartemas();
+                    ocultartemas2();
                     $('#prm_proced').removeClass('d-none');
                     $('#prm_procedimiento').attr('disabled', false);
-                    
                     break;
-
 
                 case '2865':// FALTARIAN  PROMOCION Y DETECCION
                     ocultarFields();
@@ -338,8 +322,7 @@ function procedimiento(){
                     $('#grupo_id_field').removeClass('d-none');
                     $('#prm_grupo_id').attr('disabled', false);
                     break;
-
-
+                    
                 case '1329':// CAMBIO DE EPS
                     ocultarFields();
                     $('#tipo_curso_box').removeClass('d-none');
@@ -354,8 +337,8 @@ function procedimiento(){
 
 
         function ocultartemas2() {
-            $('#prm_espe_ap,#prm_prueba_tamizajes,#prm_novedads,#prm_proced') .addClass('d-none');
-            $('#prm_especialidad_ap,#prm_prueba_tamizaje,#prm_novedad,#prm_procedimiento').attr('disabled', true);
+            $('#prm_espe_ap,#prm_prueba_tamizajes,#prm_novedads') .addClass('d-none');
+            $('#prm_especialidad_ap,#prm_prueba_tamizaje,#prm_novedad').attr('disabled', true);
         }
 
 
@@ -466,6 +449,18 @@ function procedimiento(){
             f_curso(0,tipo);
             fillatencion();
         });
+
+
+
+          //CAMBIO DE TIPO DE ATENCION 
+          $('#prm_procedimiento').change(() => {
+            let tipo = $('#prm_procedimiento').val();
+            f_curso(0,tipo);
+            procedimiento();
+        });
+
+
+
 
 
 
