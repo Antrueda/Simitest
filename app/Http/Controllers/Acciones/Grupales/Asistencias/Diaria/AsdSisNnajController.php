@@ -67,10 +67,17 @@ class AsdSisNnajController extends Controller
         ]);
     }
 
-    public function show(AsdSisNnaj $modeloxx)
+    public function show($padrexxx)
     {
-        $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verxxxxx'], 'padrexxx' => $modeloxx->asd_diaria_id]);
+
+        $this->pestania[1][2] = false;
+        $this->opciones['parametr']=[$padrexxx];
+        $this->getPestanias([]);
+        $this->getAsdSisNnajver(['parametr'=>[$padrexxx]]);
+        $this->opciones['modeloxx'] =$padrexxx;
+        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'VOLVER A LISTA DE ASISTENCIA DIARIA','routexxx'=>'diariaxx']);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+       
     }
 
 

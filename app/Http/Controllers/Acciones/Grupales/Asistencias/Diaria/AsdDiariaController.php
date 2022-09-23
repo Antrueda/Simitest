@@ -61,8 +61,6 @@ class AsdDiariaController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'],]);
     }
 
-
-
     public function store(AsdDiariaCrearRequest $request)
     {
 
@@ -76,23 +74,24 @@ class AsdDiariaController extends Controller
     }
     public function show(AsdDiaria $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario']]);
+       
+        return redirect()
+      ->route('nnajasdi.verxxxxx', [$modeloxx]);
     }
-
 
     public function edit(AsdDiaria $modeloxx)
     {
+
                 //validamos que pueda editar por usuario de creacion o responsable de upi o superadmin
          if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
-        if ($modeloxx->asdSisNnajs()->count() == 0) {
+        if ($modeloxx->asdSisNnajs()->count() >= 1 ) {
             return redirect()
                 ->route('nnajasdi', [$modeloxx])
-                ->with('info', "Por favor agrege NNAJ");
+                ->with('info', "No puede editar asistencia diaria por que ya tiene creado NNAJ");
         }
 
         $this->getRespuesta(['btnxxxxx' => 'b']);
         $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'AGREGAR NNAJ', 'routexxx' => 'nnajasdi', 'parametr' => [$modeloxx->id]]);
-
 
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],]);
     }else{
@@ -101,10 +100,7 @@ class AsdDiariaController extends Controller
         ->with('error', 'Permiso denegado para editar esta Asistencia');
     }
 
-
 }
-
-
 
     public function update(AsdDiariaEditarRequest $request,  AsdDiaria $modeloxx)
     {
@@ -135,7 +131,6 @@ class AsdDiariaController extends Controller
         $this->getRespuesta(['btnxxxxx' => 'b', 'tituloxx' => 'INACTIVAR ASISTENCIA DIARIA']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['borrarxx', 'destroyx'],]);
     }
-
 
     public function destroy(Request $request, AsdDiaria $modeloxx)
     {

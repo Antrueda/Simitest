@@ -8,13 +8,20 @@ trait VctPestaniasTrait
 {
 
     public $pestania = [
-        ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
-       ];
+        ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales', 'aiindex'], // por mínimo debe tener un controllaor
+    ];
     public $pestania2 = [
         ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', true, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
+        ['vihcocup', '', [], 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES', false, '', 'Valoración e identificación de habilidades'], // por mínimo debe tener un controllador
+        ['cgicuest', '', [], 'GUSTOS E INTERESES', false, '', 'Custionario de gustos e intereses'], // por mínimo debe tener un controlador
+        ['pvocacif', '', [], 'PERFIL VOCACIONAL ', false, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
     ];
 
-   
+    public $pestania3 = [
+        ['fpoaplicacion', '-leer', [], 'PERFIL OCUPACIONAL', false, '', 'Perfil ocupacional'], // por mínimo debe tener un controlador
+        ['ventrevista', '', [], 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA', false, '', 'Valoración terapia ocupacional entrevista semiestructurada'], // por mínimo debe tener un controlador
+    ];
+
     /**
      * permisos que va a manejar cada pestaña
      *
@@ -36,6 +43,19 @@ trait VctPestaniasTrait
     {
         $permisox = [
             'leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'
+        ];
+        $respuest = [];
+        foreach ($permisox as $key => $value) {
+            $respuest[] = $dataxxxx[0] . '-' . $value;
+        }
+        return $respuest;
+    }
+
+
+    private function getCanany3($dataxxxx)
+    {
+        $permisox = [
+            'leer', 'crear', 'editar', 'borrar', 'activarx'
         ];
         $respuest = [];
         foreach ($permisox as $key => $value) {
@@ -80,28 +100,28 @@ trait VctPestaniasTrait
         return $respuest;
     }
 
-    public function getArmarPestaniaWithValidation($dataxxxx,$puedoeditar,$accionxx)
+    public function getArmarPestaniaWithValidation($dataxxxx, $puedoeditar, $accionxx)
     {
-        $accion= null;
+        $accion = null;
         if ($accionxx == 'verxxxxx') {
-            $accion='.verxxxxx';
-        }else{
+            $accion = '.verxxxxx';
+        } else {
             if ($dataxxxx[7] == null) {
-                $accion='.nuevoxxx';
-            }else{
-                ($puedoeditar) ? $accion='.editarxx':$accion='.verxxxxx';
-            } 
+                $accion = '.nuevoxxx';
+            } else {
+                ($puedoeditar) ? $accion = '.editarxx' : $accion = '.verxxxxx';
+            }
         }
 
         $respuest = [
             'muespest' => false, // indica si se mustra o no
             'pestania' => [
-                'routexxx' => route($dataxxxx[0].$accion, $dataxxxx[2]), // ruta que tiene la pestaña
+                'routexxx' => route($dataxxxx[0] . $accion, $dataxxxx[2]), // ruta que tiene la pestaña
                 'activexx' => $dataxxxx[5], // clase que activa la pestaña cuando se esté en ella
                 'tituloxx' => $dataxxxx[3], // titulo con el que se identifica la pestanña
                 'tooltipx' => $dataxxxx[6], // Ayuda para la pestaña
                 'cananyxx' => $this->getCanany2($dataxxxx),
-                'iconoxxx' => ($dataxxxx[7] == null)?false:true,
+                'iconoxxx' => ($dataxxxx[7] == null) ? false : true,
             ]
         ];
         return $respuest;
@@ -125,21 +145,26 @@ trait VctPestaniasTrait
                 $respuest[] = $this->getArmarPestania2($valuexxx);
             }
         }
+        foreach ($this->pestania3 as $key => $valuexxx) {
+            if ($valuexxx[4]) {
+                $respuest[] = $this->getArmarPestania3($valuexxx);
+            }
+        }
         return $respuest;
     }
 
-    public function getArmarPestaniasWithValidation($modeloxx,$activar_pestania,$accion)
+    public function getArmarPestaniasWithValidation($modeloxx, $activar_pestania, $accion)
     {
-        $puedoeditar=false;
-        if ( $modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
+        $puedoeditar = false;
+        if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1) {
             $puedoeditar = true;
         }
 
         $pestaniaWithValidation = [
-            ['vctocomp', '', $modeloxx->id, 'COMPETENCIAS OCUPACIONALES', true, '', '',$modeloxx->vctocompetencias], 
-            ['vctocara', '', $modeloxx->id, 'CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '',$modeloxx->caracterizacion()->first()], 
-            ['vctofort', '', $modeloxx->id, 'ÁREAS A FORTALECER', true, '', '',$modeloxx->fortalecer->first()], 
-            ['vctoremi', '', $modeloxx->id, 'REMITIR A', true, '', '',$modeloxx->prm_remitir], 
+            ['vctocomp', '', $modeloxx->id, 'COMPETENCIAS OCUPACIONALES', true, '', '', $modeloxx->vctocompetencias],
+            ['vctocara', '', $modeloxx->id, 'CARACTERIZACIÓN DEL DESEMPEÑO', true, '', '', $modeloxx->caracterizacion()->first()],
+            ['vctofort', '', $modeloxx->id, 'ÁREAS A FORTALECER', true, '', '', $modeloxx->fortalecer->first()],
+            ['vctoremi', '', $modeloxx->id, 'REMITIR A', true, '', '', $modeloxx->prm_remitir],
         ];
 
         if ($activar_pestania !== null) {
@@ -150,13 +175,28 @@ trait VctPestaniasTrait
             if ($valuexxx[4]) {
                 if ($accion == "verxxxxx") {
                     if ($valuexxx[7] != null) {
-                        $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx,$puedoeditar,$accion);
+                        $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx, $puedoeditar, $accion);
                     }
-                }else{
-                    $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx,$puedoeditar,$accion);
+                } else {
+                    $respuest[] = $this->getArmarPestaniaWithValidation($valuexxx, $puedoeditar, $accion);
                 }
             }
         }
+        return $respuest;
+    }
+
+    public function getArmarPestania3($dataxxxx)
+    {
+        $respuest = [
+            'muespest' => false, // indica si se mustra o no
+            'pestania' => [
+                'routexxx' => route($dataxxxx[0] . $dataxxxx[1], $dataxxxx[2]), // ruta que tiene la pestaña
+                'activexx' => $dataxxxx[5], // clase que activa la pestaña cuando se esté en ella
+                'tituloxx' => $dataxxxx[3], // titulo con el que se identifica la pestanña
+                'tooltipx' => $dataxxxx[6], // Ayuda para la pestaña
+                'cananyxx' => $this->getCanany3($dataxxxx),
+            ]
+        ];
         return $respuest;
     }
 
@@ -164,9 +204,23 @@ trait VctPestaniasTrait
     {
         $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
     }
-    
-    public function getPestaniasWitValidation($modeloxx,$accion,$activar_pestania = null)
+
+    public function getPestaniasWitValidation($modeloxx, $accion, $activar_pestania = null)
     {
-        $this->opciones['pestania'] = array_merge($this->opciones['pestania'],$this->getArmarPestaniasWithValidation($modeloxx,$activar_pestania,$accion));
+        $this->opciones['pestania'] = array_merge($this->opciones['pestania'], $this->getArmarPestaniasWithValidation($modeloxx, $activar_pestania, $accion));
+    }
+
+    public function activarPestanias($padrexxx)
+    {
+        $this->pestania2[1][4] = true;
+        $this->pestania2[1][2] = $padrexxx;
+        $this->pestania2[2][4] = true;
+        $this->pestania2[2][2] = $padrexxx;
+        $this->pestania2[3][4] = true;
+        $this->pestania2[3][2] = $padrexxx;
+        $this->pestania3[0][4] = true;
+        $this->pestania3[0][2] = $padrexxx;
+        $this->pestania3[1][4] = true;
+        $this->pestania3[1][2] = $padrexxx;
     }
 }
