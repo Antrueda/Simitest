@@ -66,7 +66,17 @@ trait EnfermeriaVistasTrait
         ])['comboxxx'];
 
 
-        $this->opciones['tipoacti'] = TiposActividad::combo();
+        $this->opciones['procedix'] = $this->getTemacomboCT([
+            'temaxxxx'=>266,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'notinxxx' => [1381,1379],
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+
         $this->opciones['convenios_progs'] = [];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];

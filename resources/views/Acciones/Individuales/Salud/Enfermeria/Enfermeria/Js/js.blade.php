@@ -212,11 +212,7 @@ function ocultartemas() {
         }
 
 
-        function ocultartemas2() {
-            $('#prm_espe_ap,#prm_prueba_tamizajes,#prm_novedads') .addClass('d-none');
-            $('#prm_especialidad_ap,#prm_prueba_tamizaje,#prm_novedad').attr('disabled', true);
-        }
-
+   
 
 
 function fillatencion(){    
@@ -249,6 +245,41 @@ function fillatencion(){
         $('#observacion').attr('disabled', false);
     }
 }
+
+
+function procedimiento(){    
+   var first_select = document.getElementById('prm_actividad_id').value;
+   var second_select = document.getElementById('prm_procedimiento').value;
+
+   // Si se selecciona AP
+    if(first_select == '1332' && second_select == '2876') {
+        ocultarFields();
+        ocultartemas2();
+
+        $('#prm_espe_ap').removeClass('d-none');
+        $('#prm_especialidad_ap').attr('disabled', false);
+
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+    // Si se selecciona AV
+    }if(first_select=='1328'&& second_select == '2877'){
+        ocultarFields();
+        ocultartemas2();
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+   // Si se selecciona Tamizaje
+    }if(first_select=='1328'&& second_select == '1387'){
+        ocultarFields();
+        ocultartemas2();
+        $('#prm_prueba_tamizajes').removeClass('d-none');
+        $('#prm_prueba_tamizaje').attr('disabled', false);
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+    }
+}
+
+
+
 
 
 // Se arma el combo para el motivo de atencion 
@@ -292,8 +323,8 @@ function fillatencion(){
                     break;
                     case '1332':// PROCEDIMIENTO
                     ocultarFields();
-                    $('#tipo_curso_box').removeClass('d-none');
-                    $('#prm_tipo_curso').attr('disabled', false);
+                    $('#prm_proced').removeClass('d-none');
+                    $('#prm_procedimiento').attr('disabled', false);
                     
                     break;
 
@@ -320,6 +351,13 @@ function fillatencion(){
                     break;
             }
         }
+
+
+        function ocultartemas2() {
+            $('#prm_espe_ap,#prm_prueba_tamizajes,#prm_novedads,#prm_proced') .addClass('d-none');
+            $('#prm_especialidad_ap,#prm_prueba_tamizaje,#prm_novedad,#prm_procedimiento').attr('disabled', true);
+        }
+
 
         @if(old('sis_depen_id') != null)
         f_repsable({

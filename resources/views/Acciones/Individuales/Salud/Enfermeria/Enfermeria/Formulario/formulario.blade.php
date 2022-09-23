@@ -217,6 +217,20 @@ table, th, td {
             </div>
 
 
+            <div id="prm_proced" class="d-none form-group col-md-6 {{$errors->first('prm_procedimiento') ? 'has-error' : ''}}">
+                {!! Form::label('prm_procedimiento', 'TIPO DE PROCEDIMIENTO:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_procedimiento', $todoxxxx['procedix'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_procedimiento'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_procedimiento') }}
+                </div>
+                @endif
+            </div>
+
+
+
+
+
 
         
             <div id="prm_convenio_id_field" class="d-none form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
