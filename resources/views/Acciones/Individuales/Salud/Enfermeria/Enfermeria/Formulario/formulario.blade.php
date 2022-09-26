@@ -205,16 +205,6 @@ table, th, td {
                 @endif
             </div>
 
-            <div id="observaciones" class="d-none form-group col-md-12 {{$errors->first('observacion') ? 'has-error' : ''}}">
-                {!! Form::label('observacion', 'OBSERVACIONES:', ['class' => 'control-label']) !!}
-                {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observacion')"]) !!}
-                <p id="observacion_char_counter" class="text-right">0/4000</p>
-                @if($errors->has('observacion'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('observacion') }}
-                </div>
-                @endif
-            </div>
 
 
             <div id="prm_proced" class="d-none form-group col-md-6 {{$errors->first('prm_procedimiento') ? 'has-error' : ''}}">
@@ -227,12 +217,16 @@ table, th, td {
                 @endif
             </div>
 
+            <div id="prm_formula" class="d-none form-group col-md-6 {{$errors->first('prm_formulacion') ? 'has-error' : ''}}">
+                {!! Form::label('prm_formulacion', 'TIPO DE FORMULACION:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_formulacion', $todoxxxx['tipfomulacion'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_formulacion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_formulacion') }}
+                </div>
+                @endif
+            </div>
 
-
-
-
-
-        
             <div id="prm_convenio_id_field" class="d-none form-group col-md-6 {{$errors->first('prm_convenio_id') ? 'has-error' : ''}}">
                 {!! Form::label('prm_convenio_id', 'CONVENIO /PROGRAMA:', ['class' => 'control-label']) !!}
                 {!! Form::select('prm_convenio_id',$todoxxxx['convenios_progs'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -243,35 +237,51 @@ table, th, td {
                 @endif
             </div>
        
+
+            <div id="prm_tipyd" class="d-none form-group col-md-6 {{$errors->first('prm_promocion') ? 'has-error' : ''}}">
+                {!! Form::label('prm_promocion', 'TIPO DE PROMOCION Y DETECCION:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_promocion', $todoxxxx['tippyd'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_promocion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_promocion') }}
+                </div>
+                @endif
+            </div>
      
+
+            <div id="prm_chindividuals" class="d-none form-group col-md-6 {{$errors->first('prm_chindividual') ? 'has-error' : ''}}">
+                {!! Form::label('prm_chindividual', 'CHARLA INDIVIDUAL:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_chindividual', $todoxxxx['chindividual'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_chindividual'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_chindividual') }}
+                </div>
+                @endif
+            </div>
+
+
+            <div id="prm_tztamizaje" class="d-none form-group col-md-6 {{$errors->first('prm_tamizaje') ? 'has-error' : ''}}">
+                {!! Form::label('prm_tamizaje', 'TZ TAMIZAJE:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_tamizaje', $todoxxxx['tamizaje'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_tamizaje'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_tamizaje') }}
+                </div>
+                @endif
+            </div>
+
+            <div id="observaciones" class="d-none form-group col-md-12 {{$errors->first('observacion') ? 'has-error' : ''}}">
+                {!! Form::label('observacion', 'OBSERVACIONES:', ['class' => 'control-label']) !!}
+                {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observacion')"]) !!}
+                <p id="observacion_char_counter" class="text-right">0/4000</p>
+                @if($errors->has('observacion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('observacion') }}
+                </div>
+                @endif
+            </div>
          
-            <div id="curso_box" class="d-none form-group col-md-6 {{$errors->first('prm_curso') ? 'has-error' : ''}}">
-                {!! Form::label('prm_curso', 'CURSO:', ['class' => 'control-label']) !!}
-                {!! Form::select('prm_curso', $todoxxxx['cursosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-                @if($errors->has('prm_curso'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('prm_curso') }}
-                </div>
-                @endif
-            </div>
-            <div id="grado_id_field" class="d-none form-group col-md-6 {{$errors->first('eda_grados_id') ? 'has-error' : ''}}">
-                {!! Form::label('eda_grados_id', 'GRADO:', ['class' => 'control-label']) !!}
-                {!! Form::select('eda_grados_id', $todoxxxx['gradosxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-                @if($errors->has('eda_grados_id'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('eda_grados_id') }}
-                </div>
-                @endif
-            </div>
-            <div id="grupo_id_field" class="d-none form-group col-md-6 {{$errors->first('prm_grupo_id') ? 'has-error' : ''}}">
-                {!! Form::label('prm_grupo_id', 'GRUPO:', ['class' => 'control-label']) !!}
-                {!! Form::select('prm_grupo_id', $todoxxxx['gruposxx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
-                @if($errors->has('prm_grupo_id'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('prm_grupo_id') }}
-                </div>
-                @endif
-            </div>
+        
             
           
             <div class="form-group col-md-6">

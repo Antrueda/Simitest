@@ -76,6 +76,46 @@ trait EnfermeriaVistasTrait
         ])['comboxxx'];
 
 
+        $this->opciones['tipfomulacion'] = $this->getTemacomboCT([
+            'temaxxxx'=>464,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+        $this->opciones['tippyd'] = $this->getTemacomboCT([
+            'temaxxxx'=>465,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+/// Charla individual PYD
+        $this->opciones['chindividual'] = $this->getTemacomboCT([
+            'temaxxxx'=>466,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+        /// TZ Tamizaje PYD
+        $this->opciones['tamizaje'] = $this->getTemacomboCT([
+            'temaxxxx'=>459,
+            'campoxxx'=>'nombre',
+            'orederby'=>'ASC',
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+
+
 
         $this->opciones['convenios_progs'] = [];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

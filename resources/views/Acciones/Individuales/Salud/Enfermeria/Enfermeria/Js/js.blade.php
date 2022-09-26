@@ -165,6 +165,7 @@
    // Si se selecciona acompañamiento y apoyos diagnosticos, se debe seleccionar el otro select
     if(first_select == '1327' && second_select == '1339') {
         ocultarFields();
+        ocultartemas2();
         $('#prm_especial_fiel').removeClass('d-none');
         $('#prm_especial_id').attr('disabled', false);
         $('#observaciones').removeClass('d-none');
@@ -172,6 +173,7 @@
    // Si se selecciona CONSULTA DE URGENCIAS MEDICAS
     }if(first_select=='1327'&& second_select == '1340'){
         ocultarFields();
+        ocultartemas2();
         $('#prm_especiales').removeClass('d-none');
         $('#prm_especiales_id').attr('disabled', false);
         $('#observaciones').removeClass('d-none');
@@ -179,6 +181,7 @@
    // Si se selecciona CONSULTA FUERA DE LA INSTITUCION PRESENCIAL
     }if(first_select=='1327'&& second_select == '2866'){
         ocultarFields();
+        ocultartemas2();
         $('#prm_especialidades1').removeClass('d-none');
         $('#prm_especialidades_id').attr('disabled', false);
         $('#prm_modalidad').removeClass('d-none');
@@ -188,6 +191,7 @@
    // Si se selecciona JOR
     }if(first_select=='1327'&& second_select == '2867'){
         ocultarFields();
+        ocultartemas2();
         $('#tipoacti_id_field').removeClass('d-none');
         $('#tipo_vacunas_id').attr('disabled', false);        
         $('#actividade_id_field').removeClass('d-none');
@@ -198,6 +202,7 @@
    // Si se selecciona HOSPITALIZACION
     }if(first_select=='1327'&& second_select == '1345'){
         ocultarFields();
+        ocultartemas2();
         $('#prm_especial_fiel').removeClass('d-none');
         $('#prm_especial_id').attr('disabled', false);
         $('#observaciones').removeClass('d-none');
@@ -205,11 +210,6 @@
     }
 }
 
-
-function ocultartemas() {
-            $('#tipo_curso_box,#tipo_aten,#prm_espe_ap,#prm_proced') .addClass('d-none');
-            $('#prm_tipo_curso,#prm_tipo_aten,#prm_especialidad_ap,#prm_procedimiento').attr('disabled', true);
-        }
 
 
    
@@ -255,20 +255,53 @@ function procedimiento(){
     if(first_select == '1332' && second_select == '1378') {
         ocultarFields();
         ocultartemas2();
+      //  ocultartemas();
+        $('#prm_formula').removeClass('d-none');
+        $('#prm_formulacion').attr('disabled', false);
 
-
-        alert('Administracion de medicamentos')
        
     // Si se selecciona CURACION 
     }if(first_select=='1332'&& second_select == '1380'){
         ocultarFields();
         ocultartemas2();
-
+        ocultartemas();
         alert('selecciono Curacion')
 
     }
 }
 
+
+function ocultartemas() {
+            $('#tipo_curso_box,#tipo_aten,#prm_espe_ap,#prm_proced,#prm_formula,#prm_chindividuals,#prm_tztamizaje,#prm_tipyd') .addClass('d-none');
+            $('#prm_tipo_curso,#prm_tipo_aten,#prm_especialidad_ap,#prm_procedimiento,#prm_formulacion,#prm_chindividual,#prm_tamizaje,#prm_promocion').attr('disabled', true);
+        }
+
+
+function promocion(){    
+   var first_select = document.getElementById('prm_actividad_id').value;
+   var second_select = document.getElementById('prm_promocion').value;
+
+   // Si se selecciona Charla 
+    if(first_select == '2865' && second_select == '1383') {
+        //1391 Auto cuidado   //1386 Planificacion Familiar
+        ocultarFields();
+        ocultartemas2();
+        ocultartemas();
+        $('#prm_chindividuals').removeClass('d-none');
+        $('#prm_chindividual').attr('disabled', false);
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+    // Si se selecciona Tamizaje 
+    }if(first_select=='2865'&& second_select == '1387'){
+        ocultarFields();
+        ocultartemas2();
+        ocultartemas();
+        $('#prm_tztamizaje').removeClass('d-none');
+        $('#prm_tamizaje').attr('disabled', false);
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+    }
+}
 
 
 
@@ -281,8 +314,9 @@ function procedimiento(){
             switch (activida.val()) {
                 case '1327': //ACOMPAÑAMINETO
                   ocultarFields();
-                  ocultartemas2();
                   ocultartemas();
+
+                
                    $('#tipo_curso_box').removeClass('d-none');
                    $('#prm_tipo_curso').attr('disabled', false)
                     break;
@@ -290,14 +324,14 @@ function procedimiento(){
                 case '1328':// ATENCION PRESTADA DENTRO DE LA UPI
                    // ocultarFields();
                    ocultartemas();
-                   ocultartemas2();
+                //   ocultartemas2();
                     ocultarFields();
                     $('#tipo_aten').removeClass('d-none');
                    $('#prm_tipo_aten').attr('disabled', false)
                     break;
 
                 case '2864'://NOVEDAD DE FALLECIMIENTO
-                    ocultartemas();
+                   ocultartemas();
                    ocultartemas2();
                     $('#prm_novedads').removeClass('d-none');
                     $('#prm_novedad').attr('disabled', false);
@@ -305,9 +339,9 @@ function procedimiento(){
                     $('#observacion').attr('disabled', false);
                     break;
 
-                    case '1332':// PROCEDIMIENTO
+                    case '1332':// PROCEDIMIENTO HACE FALTA LA TABLA DE MEDICAMENTOS Y DE HERIDAS 
                     ocultarFields();
-                    ocultartemas();
+                  //  ocultartemas();
                     ocultartemas2();
                     $('#prm_proced').removeClass('d-none');
                     $('#prm_procedimiento').attr('disabled', false);
@@ -315,22 +349,18 @@ function procedimiento(){
 
                 case '2865':// FALTARIAN  PROMOCION Y DETECCION
                     ocultarFields();
-                    $('#tipo_curso_box').removeClass('d-none');
-                    $('#prm_tipo_curso').attr('disabled', false);
-                    $('#curso_box').removeClass('d-none');
-                    $('#prm_curso').attr('disabled', false);
-                    $('#grupo_id_field').removeClass('d-none');
-                    $('#prm_grupo_id').attr('disabled', false);
+                     ocultartemas();
+                    ocultartemas2();              
+                    $('#prm_tipyd').removeClass('d-none');
+                    $('#prm_promocion').attr('disabled', false);
+
                     break;
                     
                 case '1329':// CAMBIO DE EPS
                     ocultarFields();
-                    $('#tipo_curso_box').removeClass('d-none');
-                    $('#prm_tipo_curso').attr('disabled', false);
-                    $('#curso_box').removeClass('d-none');
-                    $('#prm_curso').attr('disabled', false);
-                    $('#grupo_id_field').removeClass('d-none');
-                    $('#prm_grupo_id').attr('disabled', false);
+                    ocultartemas();
+                    ocultartemas2(); 
+                 
                     break;
             }
         }
@@ -450,13 +480,18 @@ function procedimiento(){
             fillatencion();
         });
 
-
-
           //CAMBIO DE TIPO DE ATENCION 
           $('#prm_procedimiento').change(() => {
             let tipo = $('#prm_procedimiento').val();
             f_curso(0,tipo);
             procedimiento();
+        });
+
+           //CAMBIO DE TIPO DE ATENCION 
+          $('#prm_promocion').change(() => {
+            let tipo = $('#prm_promocion').val();
+            f_curso(0,tipo);
+            promocion();
         });
 
 
