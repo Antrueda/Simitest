@@ -336,8 +336,8 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: new Date(<?=$todoxxxx['mindatex'][0]?>, <?=$todoxxxx['mindatex'][1]-1?>, <?=$todoxxxx['mindatex'][2]?>),
-            maxDate:new Date(<?=$todoxxxx['maxdatex'][0]?>, <?=$todoxxxx['maxdatex'][1]-1?>, <?=$todoxxxx['maxdatex'][2]?>),
+            minDate: new Date(<?=$todoxxxx['mindatex'][0]-1?>, <?=$todoxxxx['mindatex'][1]-1?>, <?=$todoxxxx['mindatex'][2]?>),
+            maxDate:new Date(<?=$todoxxxx['maxdatex'][0]-1?>, <?=$todoxxxx['maxdatex'][1]-1?>, <?=$todoxxxx['maxdatex'][2]?>),
             yearRange: "-29:-5",
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
