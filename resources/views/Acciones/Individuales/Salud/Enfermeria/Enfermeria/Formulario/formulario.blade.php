@@ -168,9 +168,6 @@ table, th, td {
                 @endif
             </div>
 
-
-
-
             <div id="prm_espe_ap" class="d-none form-group col-md-6 {{$errors->first('prm_especialidad_ap') ? 'has-error' : ''}}">
                 {!! Form::label('prm_especialidad_ap', 'ESPECIALIDAD AP:', ['class' => 'control-label']) !!}
                 {!! Form::select('prm_especialidad_ap', $todoxxxx['apespeci'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -180,8 +177,6 @@ table, th, td {
                 </div>
                 @endif
             </div>
-
-         
 
             <div id="prm_prueba_tamizajes" class="d-none form-group col-md-6 {{$errors->first('prm_prueba_tamizaje') ? 'has-error' : ''}}">
                 {!! Form::label('prm_prueba_tamizaje', 'PRUEBAS DE TAMIZAJE:', ['class' => 'control-label']) !!}
@@ -194,7 +189,6 @@ table, th, td {
             </div>
 
 
-
             <div id="prm_novedads" class="d-none form-group col-md-6 {{$errors->first('prm_novedad') ? 'has-error' : ''}}">
                 {!! Form::label('prm_novedad', 'TIPO DE NOVEDAD:', ['class' => 'control-label']) !!}
                 {!! Form::select('prm_novedad', $todoxxxx['novedadx'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
@@ -204,8 +198,6 @@ table, th, td {
                 </div>
                 @endif
             </div>
-
-
 
             <div id="prm_proced" class="d-none form-group col-md-6 {{$errors->first('prm_procedimiento') ? 'has-error' : ''}}">
                 {!! Form::label('prm_procedimiento', 'TIPO DE PROCEDIMIENTO:', ['class' => 'control-label']) !!}
@@ -266,6 +258,27 @@ table, th, td {
                 @if($errors->has('prm_tamizaje'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('prm_tamizaje') }}
+                </div>
+                @endif
+            </div>
+
+            <div id="prm_afiliacions" class="d-none form-group col-md-6 {{$errors->first('prm_afiliacion') ? 'has-error' : ''}}">
+                {!! Form::label('prm_afiliacion', 'TRAMITE DE AFILIACIÓN:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_afiliacion', $todoxxxx['tramitex'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_afiliacion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_afiliacion') }}
+                </div>
+                @endif
+            </div>
+
+
+            <div id="prm_tramepsx" class="d-none form-group col-md-6 {{$errors->first('prm_trameps') ? 'has-error' : ''}}">
+                {!! Form::label('prm_trameps', 'TRAMITE DE EPS:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_trameps', $todoxxxx['tramitex'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_trameps'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_trameps') }}
                 </div>
                 @endif
             </div>

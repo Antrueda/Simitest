@@ -258,10 +258,12 @@ function procedimiento(){
       //  ocultartemas();
         $('#prm_formula').removeClass('d-none');
         $('#prm_formulacion').attr('disabled', false);
-
-       
+        alert('Disculpe, existiÃ³ un problema al cargar medicamentos');
     // Si se selecciona CURACION 
     }if(first_select=='1332'&& second_select == '1380'){
+
+        alert('Disculpe, existiÃ³ un problema al cargar');
+
         ocultarFields();
         ocultartemas2();
         ocultartemas();
@@ -347,13 +349,12 @@ function promocion(){
                     $('#prm_procedimiento').attr('disabled', false);
                     break;
 
-                case '2865':// FALTARIAN  PROMOCION Y DETECCION
+                case '2865':// PROMOCION Y DETECCION
                     ocultarFields();
                      ocultartemas();
                     ocultartemas2();              
                     $('#prm_tipyd').removeClass('d-none');
                     $('#prm_promocion').attr('disabled', false);
-
                     break;
                     
                 case '1329':// CAMBIO DE EPS
@@ -362,13 +363,36 @@ function promocion(){
                     ocultartemas2(); 
                  
                     break;
+
+                    case '1336':// Tramites de Afiliacion
+
+                     //2899 , 2900 2901    => 467 
+                    ocultarFields();
+                    ocultartemas();
+                    ocultartemas2();  
+                    $('#prm_afiliacions').removeClass('d-none');
+                    $('#prm_afiliacion').attr('disabled', false);
+                    $('#observaciones').removeClass('d-none');
+                    $('#observacion').attr('disabled', false);
+                    break;
+
+                    case '1337':// Tramites de EPS
+
+                     //2902 , 2903 2904    => 468 
+                    ocultarFields();
+                    ocultartemas();
+                    ocultartemas2();  
+                    $('#prm_tramepsx').removeClass('d-none');
+                    $('#prm_trameps').attr('disabled', false);
+                    $('#observaciones').removeClass('d-none');
+                    $('#observacion').attr('disabled', false);
+                    break;
             }
         }
 
-
         function ocultartemas2() {
-            $('#prm_espe_ap,#prm_prueba_tamizajes,#prm_novedads') .addClass('d-none');
-            $('#prm_especialidad_ap,#prm_prueba_tamizaje,#prm_novedad').attr('disabled', true);
+            $('#prm_espe_ap,#prm_prueba_tamizajes,#prm_novedads,#prm_afiliacions,#prm_tramepsx') .addClass('d-none');
+            $('#prm_especialidad_ap,#prm_prueba_tamizaje,#prm_novedad,#prm_afiliacion,#prm_trameps').attr('disabled', true);
         }
 
 
