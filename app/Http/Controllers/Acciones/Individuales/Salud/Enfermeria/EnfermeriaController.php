@@ -9,7 +9,8 @@ use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDepen;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
+use App\Http\Requests\Acciones\Individuales\Salud\Enfermeria\EnfermeriaCrearRequest;
+use App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaAjaxTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaCrudTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaDataTablesTrait;
@@ -17,11 +18,9 @@ use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaLista
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaParametrizarTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaPestaniasTrait;
 use App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria\EnfermeriaVistasTrait;
+use App\Traits\Combos\EnfermeriaComboTrait;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
-// use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-// use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
-// use App\Http\Requests\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionarioCrearRequest;
 
 class EnfermeriaController extends Controller
 {
@@ -34,7 +33,7 @@ class EnfermeriaController extends Controller
     use EnfermeriaAjaxTrait;
     use  ManageTimeTrait;
     use CombosTrait; //
-
+    use  EnfermeriaComboTrait;
 
     public function __construct()
     {
@@ -42,7 +41,6 @@ class EnfermeriaController extends Controller
         $this->opciones['routxxxx'] = 'enfermeria';
         $this->getOpciones();
         $this->middleware($this->getMware());
-        $this->opciones['conthabi'] = [];
 
         $this->pestania2[0][4]=true;
         $this->pestania2[0][5] = 'active';
@@ -84,7 +82,7 @@ class EnfermeriaController extends Controller
                 ->with('info', $puedoCrear['meserror']);
         }
     }
-    public function store(CgihCuestionarioCrearRequest $request, SisNnaj  $padrexxx)
+    public function store(EnfermeriaCrearRequest $request, SisNnaj  $padrexxx)
     {
 
         $request->request->add(['sis_esta_id' => 1]);
@@ -96,7 +94,7 @@ class EnfermeriaController extends Controller
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
-    public function show(CgihCuestionario $modeloxx)
+    public function show(Enfermeria $modeloxx)
     {
     
       $this->contarHabilidades($modeloxx);
@@ -123,7 +121,7 @@ class EnfermeriaController extends Controller
     
     }
 
-    public function edit(CgihCuestionario $modeloxx)
+    public function edit(Enfermeria $modeloxx)
     {
         $this->contarHabilidades($modeloxx);
         $puedexxx = $this->getPuedeCargar([
@@ -148,7 +146,7 @@ class EnfermeriaController extends Controller
                 ->with('info', $puedexxx['msnxxxxx']);
         }
     }
-    public function update(CgihCuestionarioCrearRequest $request, CgihCuestionario $modeloxx)
+    public function update(EnfermeriaCrearRequest $request, Enfermeria $modeloxx)
     {
         
         return $this->setCghiCuestionario([
@@ -159,7 +157,7 @@ class EnfermeriaController extends Controller
         ]);
     }
 
-    public function inactivate(CgihCuestionario $modeloxx)
+    public function inactivate(Enfermeria $modeloxx)
     {
 
         $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CUESTIONARIO', 'btn btn-sm btn-primary']);
@@ -167,7 +165,7 @@ class EnfermeriaController extends Controller
     }
 
 
-    public function destroy(Request $request, CgihCuestionario $modeloxx)
+    public function destroy(Request $request, Enfermeria $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -176,12 +174,12 @@ class EnfermeriaController extends Controller
             ->with('info', 'Registro diario de enfermeria inactivado correctamente');
     }
 
-    public function activate(CgihCuestionario $modeloxx)
+    public function activate(Enfermeria $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, 'ACTIVAR Cuestionario de Gustos e Intereses', 'btn btn-sm btn-primary']);
         return $this->viewSimple(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->nnaj]);
     }
-    public function activar(Request $request, CgihCuestionario  $modeloxx)
+    public function activar(Request $request, Enfermeria  $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
@@ -198,7 +196,7 @@ class EnfermeriaController extends Controller
         if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 1 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 29) {
             $data['puedo'] = true;
 
-            $ultimoperfil = CgihCuestionario::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
+            $ultimoperfil = Enfermeria::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
             if ($ultimoperfil != null) {
                 $fecha1 = new DateTime($ultimoperfil->fecha);
                 $diff = $date->diff($fecha1);

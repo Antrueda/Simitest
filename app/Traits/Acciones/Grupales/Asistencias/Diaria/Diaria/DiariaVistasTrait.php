@@ -87,6 +87,7 @@ trait DiariaVistasTrait
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
+
             $tipoacti =$this->opciones['modeloxx']->tipos_actividad_id = $dataxxxx['modeloxx']->asdActividad->tipos_actividad_id;
            $this->opciones['consecut'] = $dataxxxx['modeloxx']->consecut;
         }
@@ -98,6 +99,8 @@ trait DiariaVistasTrait
             'ajaxxxxx' => false,
             'dependen' => $upidxxxx
         ]);
+
+
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

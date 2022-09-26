@@ -19,7 +19,6 @@ class CompuestoEditarRequest extends FormRequest
         ];
         $this->_reglasx = [
             'nombre'               => ['required', 'string'],
-            'descripcion'          => ['required', 'string'],
             'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],
             'sis_esta_id'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];
