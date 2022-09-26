@@ -4,6 +4,7 @@ namespace App\Http\Requests\FichaIngreso;
 
 use App\Rules\CedulaValidaRule;
 use App\Rules\FechaMenor;
+use App\Rules\ValidarEdadNnajRule;
 use App\Rules\ValidarUpiNnajRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -54,7 +55,7 @@ class FiDatosBasicoMigrarCrearRequest extends FormRequest
             's_primer_nombre' => ['required'],
             's_primer_apellido' => ['required'],
             'prm_sexo_id' => ['required'],
-            'd_nacimiento' => ['required'],
+            'd_nacimiento' => ['required',new ValidarEdadNnajRule([])],
             'sis_municipio_id' => ['required'],
             'sis_municipioexp_id' => ['required'],
             'prm_gsanguino_id' => ['required'],

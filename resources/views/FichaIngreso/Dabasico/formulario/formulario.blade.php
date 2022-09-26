@@ -117,6 +117,11 @@
     <div class="form-group col-md-4">
         {{ Form::label('d_nacimiento', '1.4 Fecha de Nacimiento', ['class' => 'control-label']) }}
         {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly','autocomplete'=>"off"]) }}
+        @if($errors->has('d_nacimiento'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('d_nacimiento') }}
+        </div>
+        @endif
     </div>
     <div class="form-group col-md-4" id="edadxxxx">
         {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}
