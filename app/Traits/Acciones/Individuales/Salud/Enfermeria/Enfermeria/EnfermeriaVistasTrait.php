@@ -136,9 +136,82 @@ trait EnfermeriaVistasTrait
         ])['comboxxx'];
 
 
+        /// CAMBIO DE EPS 
+        $this->opciones['cambioeps'] = $this->getTemacomboCT([
+            'temaxxxx' => 303,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => true,
+            'notinxxx' => [1671, 1638, 2775],
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+        /// ESTADO DE AFILIACION
+        $this->opciones['afiliacion'] = $this->getTemacomboCT([
+            'temaxxxx' => 21,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'cabecera' => false,
+            'notinxxx' => [165, 166, 1631, 168, 167],
+            'ajaxxxxx' => false
+        ])['comboxxx'];
 
 
 
+        /// ESTADO DE AFILIACION
+        $this->opciones['afiliacions'] = $this->getTemacomboCT([
+            'temaxxxx' => 21,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'notinxxx' => [235, 168],
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+
+
+        /// CONDICION 
+        $this->opciones['condicion'] = $this->getTemacomboCT([
+            'temaxxxx' => 303,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'notinxxx' => [1671, 1637],
+            'cabecera' => true,
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        /// ENTIDAD PROMOTORA DE SALUD
+        $this->opciones['entidad'] = $this->getTemacomboCT([
+            'temaxxxx' => 22,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        /// REGIMEN ESPECIAL 
+        $this->opciones['regesp'] = $this->getTemacomboCT([
+            'temaxxxx' => 67,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+        /// CSD - RÉGIMEN VINCULADO
+        $this->opciones['vinculado'] = $this->getTemacomboCT([
+            'temaxxxx' => 68,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+
+          /// APLICACION SISBEN
+          $this->opciones['sisben'] = $this->getTemacomboCT([
+            'temaxxxx' => 26,
+            'campoxxx' => 'nombre',
+            'orederby' => 'ASC',
+            'ajaxxxxx' => false
+        ])['comboxxx'];
+        
         $this->opciones['convenios_progs'] = [];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];

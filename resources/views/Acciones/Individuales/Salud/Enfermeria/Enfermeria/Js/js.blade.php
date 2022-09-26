@@ -45,10 +45,6 @@
             });
         }
 
-
-
-
-
         let f_sis_depen = (selected) => {
             let dataxxxx = {
                 dataxxxx: {
@@ -166,6 +162,9 @@
     if(first_select == '1327' && second_select == '1339') {
         ocultarFields();
         ocultartemas2();
+        ocultartemas();
+
+
         $('#prm_especial_fiel').removeClass('d-none');
         $('#prm_especial_id').attr('disabled', false);
         $('#observaciones').removeClass('d-none');
@@ -274,8 +273,8 @@ function procedimiento(){
 
 
 function ocultartemas() {
-            $('#tipo_curso_box,#tipo_aten,#prm_espe_ap,#prm_proced,#prm_formula,#prm_chindividuals,#prm_tztamizaje,#prm_tipyd') .addClass('d-none');
-            $('#prm_tipo_curso,#prm_tipo_aten,#prm_especialidad_ap,#prm_procedimiento,#prm_formulacion,#prm_chindividual,#prm_tamizaje,#prm_promocion').attr('disabled', true);
+            $('#tipo_curso_box,#tipo_aten,#prm_espe_ap,#prm_proced,#prm_formula,#prm_chindividuals,#prm_tztamizaje,#prm_tipyd,#prm_estactivo,#prm_condicionx,#prm_entidadx,#prm_regimenespx,#prm_vinculadox,#prm_estafili') .addClass('d-none');
+            $('#prm_tipo_curso,#prm_tipo_aten,#prm_especialidad_ap,#prm_procedimiento,#prm_formulacion,#prm_chindividual,#prm_tamizaje,#prm_promocion,#prm_estafilicionx,#prm_condicion,#prm_entidad,#prm_regimenesp,#prm_vinculado,#prm_estafilicion').attr('disabled', true);
         }
 
 
@@ -305,8 +304,64 @@ function promocion(){
     }
 }
 
+/// CAMBIO DE EPS
+function cambioeps(){    
+   var first_select = document.getElementById('prm_actividad_id').value;
+   var second_select = document.getElementById('prm_afilicion').value;
+   var tres = document.getElementById('prm_estafilicionx').value;
 
 
+   // Si se selecciona ACTIVO
+    if(first_select == '1329' && second_select == '1636') {
+
+        ocultarFields();
+        ocultartemas2();
+        ocultartemas();
+        $('#prm_estactivo').removeClass('d-none');
+        $('#prm_estafilicionx').attr('disabled', false);
+        
+        $('#observaciones').removeClass('d-none');
+        $('#observacion').attr('disabled', false);
+
+        //165 contributivo 
+        if (tres == 165){ 
+        $('#prm_condicionx').removeClass('d-none');
+        $('#prm_condicion').attr('disabled', false);
+
+        $('#prm_entidadx').removeClass('d-none');
+        $('#prm_entidad').attr('disabled', false);
+
+        
+
+        //167 Regimen especial
+        }if (tres == 167){
+        $('#prm_regimenespx').removeClass('d-none');
+        $('#prm_regimenesp').attr('disabled', false);
+
+       
+        //166 Subsiadiado 
+        }if(tres == 166){
+        $('#prm_entidadx').removeClass('d-none');
+        $('#prm_entidad').attr('disabled', false);
+
+       
+        //1631 vinculado
+        }if (tres ==1631){
+        $('#prm_vinculadox').removeClass('d-none');
+        $('#prm_vinculado').attr('disabled', false);
+
+        }
+
+    // Si se selecciona INNACTIVO
+    }if(first_select=='1329'&& second_select == '1637'){
+        ocultarFields();
+        ocultartemas2();
+        ocultartemas();
+         $('#prm_estafili').removeClass('d-none');
+         $('#prm_estafilicion').attr('disabled', false);
+      
+    }
+}
 
 // Se arma el combo para el motivo de atencion 
         function f_nom_actividad() {
@@ -361,7 +416,9 @@ function promocion(){
                     ocultarFields();
                     ocultartemas();
                     ocultartemas2(); 
-                 
+                    $('#prm_afilicionx').removeClass('d-none');
+                    $('#prm_afilicion').attr('disabled', false);
+                   
                     break;
 
                     case '1336':// Tramites de Afiliacion
@@ -518,10 +575,20 @@ function promocion(){
             promocion();
         });
 
+          //CAMBIO DE TIPO DE ATENCION 
+          $('#prm_afilicion').change(() => {
+            let tipo = $('#prm_afilicion').val();
+            f_curso(0,tipo);
+            cambioeps();
+        });
 
 
-
-
+          //CAMBIO DE TIPO DE ATENCION 
+          $('#prm_estafilicionx').change(() => {
+            let tipo = $('#prm_estafilicionx').val();
+            f_curso(0,tipo);
+            cambioeps();
+        });
 
         $('.select2').select2({
             language: "es"
@@ -539,6 +606,7 @@ function promocion(){
         });
 
 
+        // tipo de vacunas 
         if (old_tipoacti != '') {
             if (old_actividade != '') {
                 f_actividads(old_actividade);

@@ -283,6 +283,92 @@ table, th, td {
                 @endif
             </div>
 
+        
+         
+
+            <div id="prm_afilicionx" class="d-none form-group col-md-6 {{$errors->first('prm_afilicion') ? 'has-error' : ''}}">
+                {!! Form::label('prm_afilicion', 'PREGUNTA DE AFILIACIÓN:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_afilicion', $todoxxxx['cambioeps'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_afilicion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_afilicion') }}
+                </div>
+                @endif
+            </div>
+
+            <div id="prm_estafili" class="d-none form-group col-md-6 {{$errors->first('prm_estafilicion') ? 'has-error' : ''}}">
+                {!! Form::label('prm_estafilicion', 'ESTADO DE AFILIACIÓN:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_estafilicion', $todoxxxx['afiliacion'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_estafilicion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_estafilicion') }}
+                </div>
+                @endif
+            </div>
+
+            <div id="prm_estactivo" class="d-none form-group col-md-6 {{$errors->first('prm_estafilicionx') ? 'has-error' : ''}}">
+                {!! Form::label('prm_estafilicionx', 'ESTADO DE AFILIACIÓN:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_estafilicionx', $todoxxxx['afiliacions'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_estafilicionx'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_estafilicionx') }}
+                </div>
+                @endif
+            </div>
+
+
+            <div id="prm_condicionx" class="d-none form-group col-md-6 {{$errors->first('prm_condicion') ? 'has-error' : ''}}">
+                {!! Form::label('prm_condicion', 'ESTADO DE AFILIACIÓN:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_condicion', $todoxxxx['condicion'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_condicion'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_condicion') }}
+                </div>
+                @endif
+            </div>
+
+            <div id="prm_entidadx" class="d-none form-group col-md-6 {{$errors->first('prm_entidad') ? 'has-error' : ''}}">
+                {!! Form::label('prm_entidad', 'ENTIDAD PROMOTORA DE SALUD:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_entidad', $todoxxxx['entidad'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_entidad'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_entidad') }}
+                </div>
+                @endif
+            </div>
+ 
+
+
+            <div id="prm_regimenespx" class="d-none form-group col-md-6 {{$errors->first('prm_regimenesp') ? 'has-error' : ''}}">
+                {!! Form::label('prm_regimenesp', 'CSD - RÉGIMEN ESPECIAL EN SALUD:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_regimenesp', $todoxxxx['entidad'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_regimenesp'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_regimenesp') }}
+                </div>
+                @endif
+            </div>
+
+            <div id="prm_vinculadox" class="d-none form-group col-md-6 {{$errors->first('prm_vinculado') ? 'has-error' : ''}}">
+                {!! Form::label('prm_vinculado', 'CSD - RÉGIMEN VINCULADO:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_vinculado', $todoxxxx['vinculado'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_vinculado'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_vinculado') }}
+                </div>
+                @endif
+            </div>
+
+            <div id="prm_sisbenx" class="d-none form-group col-md-6 {{$errors->first('prm_sisben') ? 'has-error' : ''}}">
+                {!! Form::label('prm_sisben', 'CSD - RÉGIMEN VINCULADO:', ['class' => 'control-label']) !!}
+                {!! Form::select('prm_sisben', $todoxxxx['sisben'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+                @if($errors->has('prm_sisben'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_sisben') }}
+                </div>
+                @endif
+            </div>
+
             <div id="observaciones" class="d-none form-group col-md-12 {{$errors->first('observacion') ? 'has-error' : ''}}">
                 {!! Form::label('observacion', 'OBSERVACIONES:', ['class' => 'control-label']) !!}
                 {!! Form::textarea('observacion', null, ['class' => 'form-control form-control-sm text-uppercase', 'onkeyup' => "countCharts('observacion')"]) !!}
@@ -293,10 +379,7 @@ table, th, td {
                 </div>
                 @endif
             </div>
-         
-        
-            
-          
+
             <div class="form-group col-md-6">
                 {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el registro:', ['class' => 'control-label']) !!}
                 {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}
