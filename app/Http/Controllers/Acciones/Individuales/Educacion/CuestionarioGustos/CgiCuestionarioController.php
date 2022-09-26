@@ -95,28 +95,9 @@ class CgiCuestionarioController extends Controller
     public function show(CgihCuestionario $modeloxx)
     {
     
-      $this->contarHabilidades($modeloxx);
-      $puedexxx = $this->getPuedeCargar([
-          'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-          'fechregi' => $modeloxx->fecha,
-      ]);
-      if ($puedexxx['tienperm']) {
-          if ($this->verificarPuedoEditar($modeloxx)) {
-              $this->opciones['puedetiempo'] = $puedexxx;
+              $this->contarHabilidades($modeloxx);
               $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
               return $this->viewVer(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
-      
-          } else {
-              return redirect()
-                  ->route('cgicuest', [$modeloxx->sis_nnaj_id])
-                  ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
-          }
-      } else {
-          return redirect()
-              ->route('cgicuest', [$modeloxx->sis_nnaj_id])
-              ->with('info', $puedexxx['msnxxxxx']);
-      }
-    
     }
 
     public function edit(CgihCuestionario $modeloxx)
