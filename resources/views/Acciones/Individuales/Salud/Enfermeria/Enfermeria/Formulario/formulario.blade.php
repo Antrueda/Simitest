@@ -414,16 +414,6 @@ table, th, td {
                 </div>
                 @endif
             </div>
-            <div class="form-group col-md-6">
-                {!! Form::label('user_res_id', 'Responsable de UPI:', ['class' => 'control-label']) !!}
-                {!! Form::select('user_res_id', $todoxxxx['usuariox'], null, ['class' => 'form-control form-control-sm','required','id'=>'responsable']) !!}
-                @if($errors->has('user_res_id'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('user_res_id') }}
-                </div>
-                @endif
-            </div>
-        
         </div>
         
     

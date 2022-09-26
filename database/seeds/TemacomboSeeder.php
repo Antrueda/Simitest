@@ -473,7 +473,6 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'ESPECIALIDAD AP', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 461
     Temacombo::create(['nombre' => 'PRUEBAS DE TAMIZAJE', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 462
     Temacombo::create(['nombre' => 'NOVEDAD/FALLECIMIENTO', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 463
-    Temacombo::create(['nombre' => 'TIPO FORMULACION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 464
-    
+
   }
 }

@@ -34,11 +34,11 @@ class VEntrevistaController extends Controller
     use CombosTrait; //
 
     private $padrexxx = null;
- 
+
 
     public function __construct()
     {
-        
+
         $this->opciones['permisox'] = 'ventrevista';
         $this->opciones['routxxxx'] = 'ventrevista';
         $this->getOpciones();
@@ -52,7 +52,7 @@ class VEntrevistaController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
-        $this->opciones['tablinde']=true;
+        $this->opciones['tablinde'] = true;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
@@ -64,50 +64,50 @@ class VEntrevistaController extends Controller
         $this->pestanix[6]['dataxxxx'] = [true, $padrexxx->id];
 
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-       
-        
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
+
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones' => $this->opciones, 'padrexxx' => $this->opciones['usuariox']->id])]);
     }
 
 
     public function create(SisNnaj $padrexxx)
     {
-       
-        $perfil =$padrexxx->PerfilVocacional;
-        $cuesti =$padrexxx->CuestionarioInteres;
-        
-        if(count($cuesti)==0&&count($perfil)==0){
-                    return redirect()
-                    ->route('ventrevista', [$padrexxx->id])
-                    ->with('info', 'No se puede realizar el formulario porque no se han diligenciado los formularios de perfil vocacional Cuestionario de Gustos e Intereses');
-        }
-        if($padrexxx->fi_datos_basico->nnaj_nacimi->Edad <18){
+
+        $perfil = $padrexxx->PerfilVocacional;
+        $cuesti = $padrexxx->CuestionarioInteres;
+
+        if (count($cuesti) == 0 && count($perfil) == 0) {
             return redirect()
-            ->route('ventrevista', [$padrexxx->id])
-            ->with('info', 'No se puede realizar el formulario porque es menor de edad');
+                ->route('ventrevista', [$padrexxx->id])
+                ->with('info', 'No se puede realizar el formulario porque no se han diligenciado los formularios de perfil vocacional Cuestionario de Gustos e Intereses');
+        }
+        if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 18) {
+            return redirect()
+                ->route('ventrevista', [$padrexxx->id])
+                ->with('info', 'No se puede realizar el formulario porque es menor de edad');
         }
         $hoyxxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
-        
-        $entrevistz='';
-        $entrevista = VEntrevista::where('sis_nnaj_id',$padrexxx->id)->where('sis_esta_id',1)->orderBy('created_at', 'desc')->first();
-        
-        if($entrevista!=null){
-            $entrevistz=date('d-m-Y', strtotime($entrevista->fecha. ' + 1 years')) ;
-            if( $hoyxxxxx<=$entrevistz){
+
+        $entrevistz = '';
+        $entrevista = VEntrevista::where('sis_nnaj_id', $padrexxx->id)->where('sis_esta_id', 1)->orderBy('created_at', 'desc')->first();
+
+        if ($entrevista != null) {
+            $entrevistz = date('d-m-Y', strtotime($entrevista->fecha . ' + 1 years'));
+            if ($hoyxxxxx <= $entrevistz) {
                 return redirect()
-                ->route('ventrevista', [$padrexxx->id])
-                ->with('info', 'Solo se puede diligenciar el formulario anualmente, la fecha para poder crear una nueva valoración es '.$entrevistz);
-                }
+                    ->route('ventrevista', [$padrexxx->id])
+                    ->with('info', 'Solo se puede diligenciar el formulario anualmente, la fecha para poder crear una nueva valoración es ' . $entrevistz);
+            }
         }
 
         $this->contarHabilidades($padrexxx);
-                $this->padrexxx = $padrexxx;
+        $this->padrexxx = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['vercrear'] = false;
-        $this->opciones['tablinde']=false;
-        $this->opciones['parametr']=$padrexxx;
+        $this->opciones['tablinde'] = false;
+        $this->opciones['parametr'] = $padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
@@ -119,16 +119,16 @@ class VEntrevistaController extends Controller
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$padrexxx->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $this->padrexxx->id]
         );
     }
-    public function store(VEntrevistaCrearRequest $request,SisNnaj $padrexxx)
-    {//
+    public function store(VEntrevistaCrearRequest $request, SisNnaj $padrexxx)
+    { //
 
-        $request->request->add(['sis_esta_id'=> 1]);
-        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
         return $this->setFormatoValoracion([
-            'requestx' => $request,//
+            'requestx' => $request, //
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
             'infoxxxx' =>       'Entrevista Semiestructurada creado con éxito',
@@ -151,9 +151,10 @@ class VEntrevistaController extends Controller
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
-        return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
+        $do = $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
+        return $this->view(
+            $do,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->id]
         );
     }
 
@@ -162,10 +163,10 @@ class VEntrevistaController extends Controller
     {
 
         $usuario = Auth::user()->id;
-        if($modeloxx->user_crea_id!=$usuario){
+        if ($modeloxx->user_crea_id != $usuario) {
             return redirect()
-            ->route('ventrevista', [$modeloxx->sis_nnaj_id])    
-            ->with('info', 'No puede editar este formulario');
+                ->route('ventrevista', [$modeloxx->sis_nnaj_id])
+                ->with('info', 'No puede editar este formulario');
         }
 
         $this->contarHabilidades($modeloxx->nnaj);
@@ -179,29 +180,29 @@ class VEntrevistaController extends Controller
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
-        $unidades=count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
-        
-        if($unidades<$modeloxx->unidades){
+        $unidades = count(UniComp::where('valora_id', $modeloxx->id)->where('sis_esta_id', 1)->get());
+
+        if ($unidades < $modeloxx->unidades) {
             $this->opciones['vercrear'] = true;
-        }else{
+        } else {
             $this->opciones['vercrear'] = false;
-        }        
-        
+        }
+
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER AL INICIO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA ENTREVISTA SEMIESTRUCTURADA', 'btn btn-sm btn-primary'])
-            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj]
+        return $this->view(
+            $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->nnaj->id]], 2, 'CREAR NUEVA ENTREVISTA SEMIESTRUCTURADA', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->nnaj]
         );
     }
 
 
     public function update(VEntrevistaEditarRequest $request,  VEntrevista $modeloxx)
     {
-        Post::create(['sis_esta_id' => 1,'user_crea_id' => Auth::user()->id,'titulo' => 'Entrevista Semiestructurada editado con éxito','descripcion' => 'Entrevista Semiestructurada editado con éxito','user_id' => Auth::user()->id]);
-        $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
+        Post::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'titulo' => 'Entrevista Semiestructurada editado con éxito', 'descripcion' => 'Entrevista Semiestructurada editado con éxito', 'user_id' => Auth::user()->id]);
+        $request->request->add(['sis_nnaj_id' => $modeloxx->nnaj->id]);
         return $this->setFormatoValoracion([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -226,8 +227,8 @@ class VEntrevistaController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A INICIO', 'btn btn-sm btn-primary']);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
 
@@ -263,10 +264,9 @@ class VEntrevistaController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A INICIO', 'btn btn-sm btn-primary']);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
-
     }
 
     public function activar(Request $request, VEntrevista $modeloxx)
@@ -279,20 +279,20 @@ class VEntrevistaController extends Controller
 
     public function contarHabilidades(SisNnaj $padrexxx)
     {
-        $cuestionario=CgihCuestionario::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
-       
+        $cuestionario = CgihCuestionario::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
+
         $itemsxxx = [];
-        if($cuestionario!=null){
-        foreach ($cuestionario->habilidades as $key => $value) {
-            $cursoxxx = $value->curso->s_cursos;
-            $letraxxx = $value->letra->nombre;
-            if (!array_key_exists($letraxxx, $itemsxxx)) {
-                $itemsxxx[$letraxxx] = [1,$cursoxxx];
-            } else {
-                $itemsxxx[$letraxxx][0] += 1;
+        if ($cuestionario != null) {
+            foreach ($cuestionario->habilidades as $key => $value) {
+                $cursoxxx = $value->curso->s_cursos;
+                $letraxxx = $value->letra->nombre;
+                if (!array_key_exists($letraxxx, $itemsxxx)) {
+                    $itemsxxx[$letraxxx] = [1, $cursoxxx];
+                } else {
+                    $itemsxxx[$letraxxx][0] += 1;
+                }
             }
         }
-    }
         $this->opciones['conthabi'] = $itemsxxx;
     }
 }

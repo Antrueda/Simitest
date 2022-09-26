@@ -941,8 +941,5 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'ADMINISTRACIÓN CUESTIONARIO DAST-ACCIONES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2895
     Parametro::create(['nombre' => 'ADMINISTRACIÓN CUESTIONARIO DAST-RESULTADOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2896
 
-    Parametro::create(['nombre' => 'INTERNA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2897
-    Parametro::create(['nombre' => 'EXTERNA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2898
-
   }
 }

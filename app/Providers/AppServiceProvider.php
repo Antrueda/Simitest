@@ -22,6 +22,8 @@ use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
 use App\Models\Actaencu\AeAsisNnaj;
 use App\Models\Actaencu\AeAsistencia;
 use App\Models\Actaencu\AeContacto;
@@ -242,6 +244,8 @@ use App\Observers\Observes\Educacion\Administ\Pruediag\EdaPresaberObserver;
 use App\Observers\SisEnprsaObserver;
 use App\Observers\TrasladoNnajObserver;
 use App\Observers\TrasladoObserver;
+use App\Observers\VDiagnosticosObserver;
+use App\Observers\VsmedicinaObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Blade;
@@ -424,6 +428,10 @@ class AppServiceProvider extends ServiceProvider
         AeRecuadmi::observe(AeRecuadmiObserver::class);
         AeRecurso::observe(AeRecursoObserver::class);
 
+
+        //Valoración Medicina General
+        Vsmedicina::observe(VsmedicinaObserver::class);
+        VDiagnostico::observe(VDiagnosticosObserver::class);
 
         // INCLUIR DIRECTIVAS BLADE PERZONALIZADAS
         require_once('DirectivasPersonalizadas.php');
