@@ -212,6 +212,14 @@ trait EnfermeriaVistasTrait
             'ajaxxxxx' => false
         ])['comboxxx'];
         
+        $this->opciones['apsisben'] = Tema::comboAsc(26, true, false);
+
+
+
+
+
+
+
         $this->opciones['convenios_progs'] = [];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -296,6 +304,9 @@ trait EnfermeriaVistasTrait
             $activida = $dataxxxx['modeloxx']->actividade_id;
             $cursosxx = $dataxxxx['modeloxx']->curso_id;
 
+            if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//
+                $this->opciones['apsisben'] = Parametro::find(235)->Combo;
+            }
 
             $dependid = $dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

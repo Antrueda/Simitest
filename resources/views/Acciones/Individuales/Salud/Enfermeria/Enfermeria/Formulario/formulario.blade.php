@@ -327,7 +327,7 @@ table, th, td {
                 @endif
             </div>
 
-            <div id="prm_entidadx" class="d-none form-group col-md-6 {{$errors->first('prm_entidad') ? 'has-error' : ''}}">
+            <div id="prm_entidadx" class="d-none form-group col-md-4 {{$errors->first('prm_entidad') ? 'has-error' : ''}}">
                 {!! Form::label('prm_entidad', 'ENTIDAD PROMOTORA DE SALUD:', ['class' => 'control-label']) !!}
                 {!! Form::select('prm_entidad', $todoxxxx['entidad'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
                 @if($errors->has('prm_entidad'))
@@ -368,6 +368,31 @@ table, th, td {
                 </div>
                 @endif
             </div>
+
+
+ 
+
+ <div id="d_puntaje" class="d-none form-group col-md-4 {{$errors->first('d_puntaje_sisben') ? 'has-error' : ''}}">
+    {!! Form::label('d_puntaje_sisben', 'Puntaje SISBEN:', ['class' => 'control-label ']) !!}
+    {{ Form::text('d_puntaje_sisben', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'maxlength'=>3]) }}
+
+    @if($errors->has('d_puntaje_sisben'))
+    <div class="invalid-feedback d-block">
+        {{ $errors->first('d_puntaje_sisben') }}
+    </div>
+    @endif
+</div>
+
+
+<div id="prm_tienesisben" class="d-none form-group col-md-4 {{$errors->first('prm_tiensisb_id') ? 'has-error' : ''}}">
+    {!! Form::label('prm_tiensisb_id', 'Tiene SISBEN:', ['class' => 'control-label']) !!}
+    {!! Form::select('prm_tiensisb_id', $todoxxxx['sisben'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+    @if($errors->has('prm_tiensisb_id'))
+    <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_tiensisb_id') }}
+    </div>
+    @endif
+</div>
 
             <div id="observaciones" class="d-none form-group col-md-12 {{$errors->first('observacion') ? 'has-error' : ''}}">
                 {!! Form::label('observacion', 'OBSERVACIONES:', ['class' => 'control-label']) !!}

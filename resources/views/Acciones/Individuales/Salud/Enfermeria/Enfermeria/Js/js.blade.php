@@ -323,6 +323,11 @@ function cambioeps(){
         $('#observaciones').removeClass('d-none');
         $('#observacion').attr('disabled', false);
 
+      
+
+      
+
+
         //165 contributivo 
         if (tres == 165){ 
         $('#prm_condicionx').removeClass('d-none');
@@ -418,6 +423,12 @@ function cambioeps(){
                     ocultartemas2(); 
                     $('#prm_afilicionx').removeClass('d-none');
                     $('#prm_afilicion').attr('disabled', false);
+
+                    $('#d_puntaje').removeClass('d-none');
+                    $('#d_puntaje_sisben').attr('disabled', false);
+
+                    $('#prm_tienesisben').removeClass('d-none');
+                    $('#prm_tiensisb_id').attr('disabled', false);
                    
                     break;
 
