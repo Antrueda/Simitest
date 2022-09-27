@@ -56,11 +56,11 @@ class VsiController extends Controller
             'routxxxx' => 'vsixxxxx',
         ];
         $this->opciones['rutacomp'] = 'Sicosocial.Acomponentes.';
-        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'].'tabsxxxx.tabsxxxx';
-        $this->opciones['rutaperf'] = $this->opciones['rutacomp'].'tabsxxxx.perfilxx';
+        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'] . 'tabsxxxx.tabsxxxx';
+        $this->opciones['rutaperf'] = $this->opciones['rutacomp'] . 'tabsxxxx.perfilxx';
         $this->opciones['pestania'] = $this->opciones['rutacomp'] . 'Acrud.pestania';
-        $this->opciones['rutaboto'] = $this->opciones['rutacomp'].'Botones.botones';
-        $this->opciones['rutaform'] = $this->opciones['rutacarp'].$this->opciones['carpetax'].'.Formulario.formulario';
+        $this->opciones['rutaboto'] = $this->opciones['rutacomp'] . 'Botones.botones';
+        $this->opciones['rutaform'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.formulario';
         $this->middleware([
             'permission:'
                 . $this->opciones['permisox'] . '-leer|'
@@ -156,23 +156,23 @@ class VsiController extends Controller
             'tituloxx' => 'VOLVER A VALORACIÓN SICOSOCIAL',
             'parametr' => [$dataxxxx['padrexxx']->sis_nnaj_id],
             'tipoboto' => 2,
-            'routingx'=>$this->opciones['routxxxx'],
+            'routingx' => $this->opciones['routxxxx'],
         ]);
-        
+
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
-            
-        
+
+
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['estadoxx'] = $this->getEstadosAECT([
             'cabecera' => false,
             'campoxxx' => 'id',
             'inxxxxxx' => [$this->estadoid],
         ])['comboxxx'];
-$upixxxxx=0;
+        $upixxxxx = 0;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $upixxxxx=$dataxxxx['modeloxx']->sis_depen_id;
+            $upixxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['vsixxxxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -182,17 +182,17 @@ $upixxxxx=0;
                 'tituloxx' => 'NUEVA VALORACIÓN SICOSOCIAL',
                 'parametr' => [$dataxxxx['padrexxx']->id],
                 'tipoboto' => 2,
-                'routingx'=>$this->opciones['routxxxx'] . '.nuevo',
+                'routingx' => $this->opciones['routxxxx'] . '.nuevo',
             ]);
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-            $this->opciones['dependen']=$this->getDependenciasNnajUsuarioCT([
-                'padrexxx'=>$dataxxxx['padrexxx']->sis_nnaj_id,
-                'notinxxy'=>[$upixxxxx]
-            ]);
+        $this->opciones['dependen'] = $this->getUpisNnajUsuarioCT([
+            'nnajidxx' => $dataxxxx['padrexxx']->sis_nnaj_id,
+            'dependid' => $upixxxxx
+        ]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
@@ -248,7 +248,7 @@ $upixxxxx=0;
      */
     public function edit(Vsi $objetoxx)
     {
-       
+
         $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
@@ -265,21 +265,21 @@ $upixxxxx=0;
 
     private function grabar($dataxxxx)
     {
-        $respuest=null;
-        if ($dataxxxx['modeloxx'] != ''){
-            $respuest=   Vsi::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
-        }else{
-            $vsihoyxx=Vsi::where('created_at', 'LIKE',date('Y-m-d').'%')
-            ->where('sis_nnaj_id',$dataxxxx['dataxxxx']['sis_nnaj_id'])->first();
-            if(is_null($vsihoyxx)){
-                $respuest=   Vsi::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
-            }else{
-                $dataxxxx['menssage']='El nnaj ya tiene una valoración para hoy';
-                $respuest= $vsihoyxx;
+        $respuest = null;
+        if ($dataxxxx['modeloxx'] != '') {
+            $respuest =   Vsi::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
+        } else {
+            $vsihoyxx = Vsi::where('created_at', 'LIKE', date('Y-m-d') . '%')
+                ->where('sis_nnaj_id', $dataxxxx['dataxxxx']['sis_nnaj_id'])->first();
+            if (is_null($vsihoyxx)) {
+                $respuest =   Vsi::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
+            } else {
+                $dataxxxx['menssage'] = 'El nnaj ya tiene una valoración para hoy';
+                $respuest = $vsihoyxx;
             }
         }
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [ $respuest->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$respuest->id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -301,7 +301,7 @@ $upixxxxx=0;
 
     public function inactivate(Vsi $modeloxx)
     {
-        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'].'tabsxxxx.tabsxxxy';
+        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'] . 'tabsxxxx.tabsxxxy';
         $this->opciones['vsixxxxx'] = $modeloxx;
         $this->opciones['padrexxx'] = $modeloxx->id;
         $this->opciones['parametr'] = [$modeloxx->id];
@@ -323,7 +323,7 @@ $upixxxxx=0;
 
     public function activate(Vsi $modeloxx)
     {
-        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'].'tabsxxxx.tabsxxxy';
+        $this->opciones['rutabxxx'] = $this->opciones['rutacomp'] . 'tabsxxxx.tabsxxxy';
         $this->opciones['vsixxxxx'] = $modeloxx;
         $this->opciones['padrexxx'] = $modeloxx->id;
         $this->opciones['parametr'] = [$modeloxx->id];

@@ -13,13 +13,11 @@ class PresentacionCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'nombre.required'               => 'Debe diligenciar el nombre de la categoria.',
-            'descripcion.required'          => 'Debe diligenciar la descripción de la categoria.',
             'sis_esta_id.required'          => 'Debe seleccionar el estado de la categoria.',
             'estusuarios_id.required'       => 'Debe seleccionar la justificacion de la categoria.',
         ];        
         $this->_reglasx = [
             'nombre'               => ['required', 'string'],
-            'descripcion'          => ['required', 'string'],
             'estusuarios_id'       => ['required', 'integer', 'exists:estusuarios,id'],
             'sis_esta_id'          => ['required', 'integer', 'exists:sis_estas,id'],
         ];

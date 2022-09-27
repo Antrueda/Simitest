@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
+namespace App\Models\Acciones\Individuales\Salud\Enfermeria;
 
-
+use App\Models\Acciones\Individuales\Salud\Vacunas\Vacuna;
 use App\Models\AdmiActiAsd\AsdActividad;
 use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
@@ -30,6 +30,10 @@ class Enfermeria extends Model
         'sintoma',
         'prm_motivoat_id',
         'prm_tipoaten_id',
+        'prm_especial_id',
+        'prm_lugactiv_id',
+        'asd_actividad_id',
+        'vacuna_id',
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
@@ -38,10 +42,46 @@ class Enfermeria extends Model
 
 
 
+    // public function asdActividad()
+    // {
+    //     return $this->belongsTo(AsdActividad::class, 'asd_actividad_id');
+    // }
+
+
+    public function asdActividad()
+    {
+        return $this->belongsTo(Vacuna::class, 'vacuna_id');
+    }
+
+
+    public function prm_motivos()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_motivoat_id');
+    }
+
+    public function prm_tipoaten()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_tipoaten_id');
+    }
+
+    public function prm_especial()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_especial_id');
+    }
+
+
     public function nnaj(){
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
     
+
+
+    public function prm_actividad(){
+        return $this->belongsTo(Parametro::class, 'prm_lugactiv_id');
+    }
+
+
+
 
     public function funcionario()
     {

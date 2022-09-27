@@ -120,7 +120,7 @@ trait DBControllerTrait
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
-
+        // funcionalidad para poner en egreso al NNAJ en el caso de que en el antiguo esté en egreso
         $this->getEgresNET(['nnajidxx' => $objetoxx->sis_nnaj_id]);
         return $this->edtitAuxiliar($objetoxx);
     }

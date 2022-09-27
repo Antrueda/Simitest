@@ -635,7 +635,7 @@ class User extends Authenticatable
         }
         return [$comboxxx, $userxxxx->sis_cargo->s_cargo];
     }
-    public static function getUpiUsuario($cabecera, $ajaxxxxx)
+    public static function getUpiUsuario($cabecera, $ajaxxxxx,$seleccio=0)
     {
         $comboxxx = [];
         if ($cabecera) {
@@ -645,9 +645,11 @@ class User extends Authenticatable
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $upixxxxx = SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+        $upixxxxx = SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])
+        ->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
             ->where('user_id', Auth::user()->id)
             ->where('sis_depen_user.sis_esta_id', 1)
+            ->orWhere('sis_depens.id',$seleccio)
             ->get();
         foreach ($upixxxxx as $registro) {
             if ($ajaxxxxx) {

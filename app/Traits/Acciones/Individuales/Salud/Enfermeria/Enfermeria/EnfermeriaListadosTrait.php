@@ -2,17 +2,24 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
 
+use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
+use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDepen;
 use App\Models\Ejemplo\AeEncuentro;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihLimite;
+use App\Models\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
+use App\Models\Acciones\Individuales\Salud\Vacunas\Vacuna;
+use App\Models\AdmiActi\Actividade;
+use App\Models\AdmiActiAsd\AsdActividad;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -57,18 +64,18 @@ trait EnfermeriaListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  CgihCuestionario::select([
-                'cgih_cuestionarios.id',
+            $dataxxxx =  Enfermeria::select([
+                'enfermerias.id',
                 'sis_depens.nombre as dependencia',
-                'cgih_cuestionarios.fecha',
-                'cgih_cuestionarios.sis_esta_id',
+                'enfermerias.fecha',
+                'enfermerias.sis_esta_id',
                 'users.name',
                 'sis_estas.s_estado'
             ])
-                ->join('sis_depens', 'cgih_cuestionarios.sis_depen_id', '=', 'sis_depens.id')
-                ->join('users', 'cgih_cuestionarios.user_fun_id', '=', 'users.id')
-                ->join('sis_estas', 'cgih_cuestionarios.sis_esta_id', '=', 'sis_estas.id')
-                ->where('cgih_cuestionarios.sis_nnaj_id',$padrexxx->id);
+                ->join('sis_depens', 'enfermerias.sis_depen_id', '=', 'sis_depens.id')
+                ->join('users', 'enfermerias.user_fun_id', '=', 'users.id')
+                ->join('sis_estas', 'enfermerias.sis_esta_id', '=', 'sis_estas.id')
+                ->where('enfermerias.sis_nnaj_id',$padrexxx->id);
             return $this->getDt($dataxxxx, $request);
         }
     }
@@ -90,19 +97,85 @@ trait EnfermeriaListadosTrait
 
 }
 
-    public function getListaHabilidades()
+    
+
+    public function getGrupoAsignar($dataxxxx)
     {
-        $data = CgihCategoria::with('habilidades:id,categorias_id,nombre,prm_letras_id','habilidades.letra:id,nombre')
-        ->select('cgih_categorias.id','cgih_categorias.nombre')
-        ->where('cgih_categorias.sis_esta_id',1)
-
-        ->get();
-
-        return $data;
+        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['grupo_matriculas.id as valuexxx', 'grupo_matriculas.s_grupo as optionxx'])
+            ->join('grupo_matriculas', 'grupo_asignars.grupo_matricula_id', '=', 'grupo_matriculas.id')
+            ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+            ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])
+            ->where('grupo_asignars.sis_servicio_id', $dataxxxx['servicio'])
+            ->where('grupo_asignars.sis_esta_id', 1)
+            ->orderBy('grupo_asignars.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
     }
 
 
 
+    
+    public function getGradoAsignar($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = GradoAsignar::select(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx'])
+            ->join('eda_grados', 'grado_asignars.grado_matricula', '=', 'eda_grados.id')
+            ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
+            ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
+            ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
+            ->where('grado_asignars.sis_esta_id', 1)
+            ->orderBy('grado_asignars.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    // public function getActividadAsignar($dataxxxx)
+    // {
+    //     $dataxxxx['dataxxxx'] = AsdActividad::select('asd_actividads.id AS valuexxx', 'asd_actividads.nombre AS optionxx')
+    //         ->where('asd_actividads.tipos_actividad_id', $dataxxxx['tipoacti'])
+    //         ->where('asd_actividads.sis_esta_id', 1)
+    //         ->get();
+    //     $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+    //     return $respuest;
+    // }
+
+
+    public function getActividadAsignar($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = Vacuna::select('vacunas.id AS valuexxx', 'vacunas.nombre AS optionxx')
+            ->where('vacunas.tipo_vacunas_id', $dataxxxx['tipoacti'])
+            ->where('vacunas.sis_esta_id', 1)
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getCursoWithTipo($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = Curso::select('cursos.id AS valuexxx', 'cursos.s_cursos AS optionxx')
+            ->where('cursos.tipo_curso_id', $dataxxxx['tipoCurs'])
+            ->where('cursos.sis_esta_id', 1)
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    public function getResponsableUpiMatricula(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [
+                'comboxxx' => SisDepen::find($request->padrexxx)->ResponsableAjax,
+                'campoxxx' => '#responsable',
+                'selected' => 'selected'
+            ];
+            return response()->json($respuest);
+        }
+    }
+
+    
 
 
 

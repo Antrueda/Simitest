@@ -7,7 +7,7 @@
             @foreach($todoxxxx['pestania'] as $pestania)
                 @canany($pestania['cananyxx'])
                 <li class="nav-item">
-                    <a class="nav-link {{ $pestania['activexx'] }} text-sm" href="{{ $pestania['routexxx'] }}">
+                    <a data-toggle="tooltip" title="{{ $pestania['tooltipx'] }}" class="nav-link {{ $pestania['activexx'] }} text-sm tooltipx" href="{{ $pestania['routexxx'] }}">
                         {{ $pestania['tituloxx'] }}
                     </a>
                 </li>
