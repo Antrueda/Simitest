@@ -146,5 +146,29 @@ class VOdongramaController extends Controller
         ]);
     }
 
+    public function inactivate(VOdontograma $modeloxx)
+    {
+        $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->odontologia;
+        $this->opciones['valoraci'] = $modeloxx;
+        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
+        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
+        
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        //return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],$this->getBotones(['borrar', [], 1, 'INACTIVAR ASISTENTE', 'btn btn-sm btn-primary']),
+        return $this->destroy($modeloxx);
+            }
+
+
+    public function destroy(VOdontograma $modeloxx)
+    {
+        $modeloxx->delete();
+        return redirect()->back()
+            ->with('info', 'Diagnostico eliminado correctamente');
+    }
+
 
 }

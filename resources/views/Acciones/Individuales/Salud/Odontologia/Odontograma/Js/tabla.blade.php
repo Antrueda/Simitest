@@ -43,25 +43,33 @@ $(document).ready(function() {
 
                             },
                         error: function(xhr, status) {
-                            alert('Disculpe, al agregar el asitente');
+                            alert('Disculpe, error al agregar el asitente');
                         }
                     });
                 }
 
         $('#agregar').on('click',function() {
+            $('#diente').prop('required',false);
             console.log($('#diente').val());
             console.log($('#super_id').val());
             console.log($('#diag_id').val());
+            console.log($('#tiposup_id').val());
             console.log('{{ $todoxxxx["padrexxx"]->id }}');
             agregar({
                 diente: $('#diente').val(),
                 super_id: $('#super_id').val(),
                 diag_id: $('#diag_id').val(),
+                tiposup_id: $('#tiposup_id').val(),
                 odonto_id:  '{{ $todoxxxx["padrexxx"]->id }}',
 
                 
             });
+            $('#diente').val('');
+            $('#super_id').val('');
+            $('#tiposup_id').val('');
+            $('#diag_id').val([]);
         });
+                        
 
 
 

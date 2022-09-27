@@ -7,6 +7,7 @@ namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Salud\Odontologia\Superficie;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
@@ -77,21 +78,23 @@ trait ListadosTrait
 
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            //$request->botonesx = $this->opciones['rutacarp'] .
+            //$this->opciones['carpetax'] . '.Botones.quitarnnaj';
+             $request->botonesx = $this->opciones['rutacarp'] .
+                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  VOdontograma::select([
                 'v_odontogramas.id',
-                'v_odontologias.id',
                 'v_odontogramas.diente',
+                'super.nombre as super',
                 'diag.nombre as diag',
                 'sis_estas.s_estado',
-                
                 'v_odontogramas.sis_esta_id',
                 ])
                 ->join('v_odontologias', 'v_odontogramas.odonto_id', '=', 'v_odontologias.id')
                 ->join('sis_estas', 'v_odontogramas.sis_esta_id', '=', 'sis_estas.id')
                 ->join('diagnosticos as diag', 'v_odontogramas.diag_id', '=', 'diag.id')
+                ->join('superficies as super', 'v_odontogramas.super_id', '=', 'super.id')
                 ->where('v_odontogramas.sis_esta_id', 1)
                 ->where('v_odontogramas.odonto_id',$padrexxx->id);
                 
@@ -115,11 +118,38 @@ trait ListadosTrait
         if ($request->ajax()) {
             $respuest = [];
             $dataxxxx = $request->all();
-            $dataxxxx['ag_actividad_id'] = $padrexxx->id;
-            $dataxxxx['sis_esta_id'] = 0;
-            VOdontograma::transaccion($dataxxxx, '');
+            VOdontograma::delete($dataxxxx,'');
             return response()->json($respuest);
         }
+    }
+
+    public function getSuperficieTp($dataxxxx)
+    {
+
+        $dataxxxx['dataxxxx'] = Superficie::select(['superficies.id as valuexxx', 'superficies.nombre as optionxx'])
+            ->where('superficies.tiposu_id', $dataxxxx['tipocurs'])
+            ->where('superficies.sis_esta_id', 1)
+            ->orderBy('superficies.id', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+
+    public function getSuperficie(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipocurs' => $request->upixxxxx,
+            
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getSuperficieTp($dataxxxx));
+        return $respuest;
     }
 
 

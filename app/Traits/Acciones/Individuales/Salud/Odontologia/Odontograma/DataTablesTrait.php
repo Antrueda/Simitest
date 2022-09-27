@@ -76,7 +76,7 @@ trait DataTablesTrait
             [
                 'titunuev' => 'AGREGAR REPRESENTANTE LEGAL',
                 'titulist' => 'DIENTES',
-                'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
+                'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
                 'vercrear' => false,
                 'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxz', [$this->opciones['padrexxx']]),
@@ -90,19 +90,22 @@ trait DataTablesTrait
                 'cabecera' => [
                     [
                         ['td' => 'DIENTE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    //    ['td' => 'TIPO DE SUPERFICIE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SUPERFICIES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DIAGNOSTICO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
+                    
                     ['data' => 'diente', 'name' => 'v_odontogramas.diente'],
-                 //   ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 'super', 'name' => 'super.nombre as super'],
                     ['data' => 'diag', 'name' => 'diag.nombre as diag'],
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
-                'parametr' => $this->opciones['padrexxx']->id,
+                'parametr' => [],
             ];    
         }
             $dataxxxx['ruarchjs'][] =

@@ -22,6 +22,9 @@ class CreateVOdontogramasTable extends Migration
             $table->integer('diag_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->foreign('diag_id')->references('id')->on('diagnosticos');
             $table->integer('super_id')->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('super_id')->references('id')->on('superficies');
+            $table->integer('tiposup_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->foreign('tiposup_id')->references('id')->on('tipo_supers');
             $table = CamposMagicos::magicos($table);
         });
     }

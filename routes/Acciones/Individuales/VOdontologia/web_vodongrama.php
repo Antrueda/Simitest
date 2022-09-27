@@ -50,6 +50,11 @@ Route::group(['prefix' => 'Odongramas'], function () use ($controll, $routxxxx) 
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.quitar');
 
+    Route::get('superficie', [
+        'uses' => $controll . 'Controller@getSuperficie',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.superficie');
+
 
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@destroy',

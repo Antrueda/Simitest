@@ -1,1 +1,1 @@
-<button type="button" class="btn btn-sm btn-danger" >ELIMINAR</button>
+<button type="button" class="btn btn-sm btn-danger"  href="{{ route($requestx->routexxx[0].'.quitar', [$queryxxx->id]) }}" >ELIMINAR</button>
