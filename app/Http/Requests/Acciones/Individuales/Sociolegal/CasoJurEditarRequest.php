@@ -110,19 +110,16 @@ class CasoJurEditarRequest extends FormRequest
                 $this->_reglasx['doc_autorizado'] = 'Required';
 
                 }
-
-
+            }
             if($this->checki==1){
-                $this->_reglasx['i_prm_tipo_direccion_id'] = 'Required';
-                $this->_mensaje['i_prm_tipo_direccion_id.required'] = 'Seleccione Tipo de residencia';
+                $this->_reglasx['i_prm_tipo_duerme_id'] = 'Required';
+                $this->_mensaje['i_prm_tipo_duerme_id.required'] = 'Seleccione Tipo de residencia';
                 $this->_reglasx['sis_upzbarri_id'] = 'Required';
                 $this->_mensaje['sis_upzbarri_id.required'] = 'Seleccione el barrio';
                 $this->_reglasx['sis_upz_id'] = 'Required';
                 $this->_mensaje['sis_upz_id.required'] = 'Seleccione UPZ';
 
             }
-         
-        }
     }
 }
 

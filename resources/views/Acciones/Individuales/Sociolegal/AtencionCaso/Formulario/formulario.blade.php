@@ -1,7 +1,7 @@
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>1. Datos Basicos</h5>
+    <h5>1. Datos Básicos</h5>
   </div>
 </div>
 <hr>
@@ -17,7 +17,7 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('upi_id', 'Upi/ Área/ Dependencia', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('upi_id', 'UPI/ Área/ Dependencia', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('upi_id'))
     <div class="invalid-feedback d-block">
@@ -26,7 +26,7 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('upiorigen_id', 'Upi de Origen', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('upiorigen_id', 'UPI de Origen', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('upiorigen_id', $todoxxxx['depenori'], null, ['class' => $errors->first('upiorigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('upiorigen_id'))
     <div class="invalid-feedback d-block">
@@ -80,7 +80,7 @@
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>2. Datos De Residencia Y De Notificación</h5>
+    <h5>2. Datos de residencia y de notificación</h5>
     <ul class="list-group list-group-unbordered mb-3">
       <li class="list-group-item">
         <b>Dirección:</b>
@@ -270,16 +270,16 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_solicita_id', 'Persona que solicita la asesoría', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_solicita_id', $todoxxxx['solicita'], null, ['class' => $errors->first('prm_solicita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_solicita_id', $todoxxxx['solicita'], null, ['class' => $errors->first('prm_solicita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)','id'=>'prm_solicita_id']) }}
     @if($errors->has('prm_solicita_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_solicita_id') }}
     </div>
     @endif
   </div>
-  <div class="col-md-3">
+  <div id="paren_div" class="col-md-3">
     {{ Form::label('prm_parensoli_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_parensoli_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parensoli_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+    {{ Form::select('prm_parensoli_id', $todoxxxx['parentez'], null, ['class' => $errors->first('prm_parensoli_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','id'=>'prm_parensoli_id']) }}
     @if($errors->has('prm_parensoli_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_parensoli_id') }}
@@ -296,8 +296,8 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('num_proceso', 'Numero Proceso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('num_proceso', null, ['class' => $errors->first('num_proceso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '200', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+    {{ Form::label('num_proceso', 'Número Proceso', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('num_proceso', null, ['class' => $errors->first('num_proceso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',  'minlength' => '200', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
     @if($errors->has('num_proceso'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('num_proceso') }}
@@ -326,7 +326,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('telfapo', 'Número Telefónico 1', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('telfapo', null, ['class' => $errors->first('telfapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('telfapo', null, ['class' => $errors->first('telfapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'minlength' => '10', 'maxlength' => '15',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('telfapo'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('telfapo') }}
@@ -335,7 +335,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('telfapo2', 'Número Telefónico 2', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('telfapo2', null, ['class' => $errors->first('telfapo2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'minlength' => '10', 'maxlength' => '15',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('telfapo2', null, ['class' => $errors->first('telfapo2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'minlength' => '10', 'maxlength' => '15',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('telfapo2'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('telfapo2') }}
