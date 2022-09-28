@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma;
 
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonexamen;
@@ -20,7 +20,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setOdoExamenes($dataxxxx)
+    public function setOdograma($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);

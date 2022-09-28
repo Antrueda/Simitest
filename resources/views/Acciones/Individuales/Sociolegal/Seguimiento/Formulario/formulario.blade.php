@@ -28,7 +28,7 @@
     @endif
 </div>
   <div class="col-md-3" id='pard_id'>
-    {{ Form::label('num_sim', 'Numero SIM', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('num_sim', 'Número SIM', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('num_sim',  null, ['class' => $errors->first('num_sim') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('num_sim'))
     <div class="invalid-feedback d-block">
@@ -112,7 +112,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('estadocaso', 'Estado del caso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('estadocaso', $todoxxxx['estadcas'], $todoxxxx['padrexxx']->estacaso, ['class' => $errors->first('estadocaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estadocaso']) }}
+    {{ Form::select('estadocaso', $todoxxxx['estadcas'], null, ['class' => $errors->first('estadocaso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'estadocaso']) }}
     @if($errors->has('estadocaso'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('estadocaso') }}
@@ -126,7 +126,7 @@
 <div class="col-md-12">
   {{ Form::label('descripcion', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}
   {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
-  <p id="descripcioncont">0/4000</p>
+  <span id="chars"></span>
   @if($errors->has('descripcion'))
   <div class="invalid-feedback d-block">
     {{ $errors->first('descripcion') }}

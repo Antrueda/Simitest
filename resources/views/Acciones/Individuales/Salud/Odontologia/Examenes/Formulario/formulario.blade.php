@@ -116,6 +116,30 @@
         </div>
 </div>
 
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">DIENTE</th>
+        <th scope="col"># SUPERFICIES</th>
+        <th scope="col">SUPERFICIES</th>
+        <th scope="col">DIAGNOSTICO</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{Form::select('diente[]', $todoxxxx['dientesx'],null, ['class' => $errors->first('valora_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder'=>'Seleccione']) }}</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>{{ Form::select('diag_id[]', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','id'=>'diag_id']) }}</td>
+        <td><button type="button" class="btn btn-primary" id="add_btn"><i class="fas fa-plus"></i></button></td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+    
+
 <hr>
 <br>
 <hr>

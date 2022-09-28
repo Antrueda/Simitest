@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales\Salud\VOdontologia;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\Salud\VOdoexamenesCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesEditarRequest;
 
@@ -15,6 +16,8 @@ use App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonexamen;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
+use Illuminate\Support\Facades\Auth;
 
 class VOdonExamenesController extends Controller
 {
@@ -69,11 +72,20 @@ class VOdonExamenesController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(VOdontoantecentesCrearRequest $request,VOdontologia $padrexxx)
+    public function store(VOdoexamenesCrearRequest $request,VOdontologia $padrexxx)
     {//
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['odonto_id'=> $padrexxx->id]);
-        return $this->setOdoAntecedente([
+        foreach($request->diente as $key => $value){
+            $dientes =$value;
+            $diag=$request->diag_id[$key];
+            $test=VOdontograma::create(['diente' =>$dientes, 'diag_id' => $diag, 'odonto_id' => $padrexxx->id, 'sis_esta_id' =>1, 'user_crea_id' =>Auth::user()->id]);
+          //  ddd($test);
+        }
+
+
+   
+        return $this->setOdoExamenes([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
@@ -127,7 +139,7 @@ class VOdonExamenesController extends Controller
     {
         $request->request->add(['odonto_id'=> $modeloxx->odontologia->id]);
         
-        return $this->setOdoAntecedente([
+        return $this->setOdoExamenes([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,

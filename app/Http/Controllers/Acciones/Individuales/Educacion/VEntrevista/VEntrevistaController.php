@@ -41,6 +41,7 @@ class VEntrevistaController extends Controller
 
         $this->opciones['permisox'] = 'ventrevista';
         $this->opciones['routxxxx'] = 'ventrevista';
+     
         $this->getOpciones();
         $this->middleware($this->getMware());
         $this->opciones['conthabi'] = [];
@@ -62,6 +63,8 @@ class VEntrevistaController extends Controller
         $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[5]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[6]['dataxxxx'] = [true, $padrexxx->id];
+        
+        
 
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
@@ -146,6 +149,7 @@ class VEntrevistaController extends Controller
         $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->nnaj->id];
+       
         $this->contarHabilidades($modeloxx->nnaj);
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
         $this->padrexxx = $modeloxx->nnaj;

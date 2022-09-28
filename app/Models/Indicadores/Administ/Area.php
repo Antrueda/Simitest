@@ -153,6 +153,9 @@ class Area extends Model
         return $usuariox;
     }
 
+
+
+
     public static function getUsuarioAreas($dataxxxx)
     {
         $comboxxx = [];

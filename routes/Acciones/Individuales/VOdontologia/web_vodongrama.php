@@ -1,16 +1,11 @@
 <?php
-$routxxxx = 'vodontologia';
-$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdontologia';
-Route::group(['prefix' => '{padrexxx}/Odontologia'], function () use ($controll, $routxxxx) {
+$routxxxx = 'vodontograma';
+$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdongrama';
+Route::group(['prefix' => '{padrexxx}/Odongrama'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-    Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaOdontologia',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listaxxx');
-    
     Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
@@ -19,10 +14,15 @@ Route::group(['prefix' => '{padrexxx}/Odontologia'], function () use ($controll,
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
+	Route::get('listaxxz', [
+        'uses' => $controll . 'Controller@listaDientes',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxz');
+
 
 });
 
-Route::group(['prefix' => 'Odontologias'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Odongramas'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
@@ -40,6 +40,20 @@ Route::group(['prefix' => 'Odontologias'], function () use ($controll, $routxxxx
         'uses' => $controll . 'Controller@inactivate',
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
+    Route::get('agregar', [
+        'uses' => $controll . 'Controller@getAgregar',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.agregar');
+
+    Route::get('quitar', [
+        'uses' => $controll . 'Controller@getQuitar',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.quitar');
+
+    Route::get('superficie', [
+        'uses' => $controll . 'Controller@getSuperficie',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.superficie');
 
 
     Route::put('borrar/{modeloxx}', [
@@ -57,7 +71,5 @@ Route::group(['prefix' => 'Odontologias'], function () use ($controll, $routxxxx
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 });
-require_once('web_vodonantece.php');
-require_once('web_vodonexamen.php');
-require_once('web_vodongrama.php');
+
 

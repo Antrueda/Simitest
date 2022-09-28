@@ -83,7 +83,7 @@ class SeguimientoCasoJuridicoController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$padrexxx->id]], 2, 'VOLVER A SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
@@ -163,11 +163,12 @@ class SeguimientoCasoJuridicoController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->casojur->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->casojur->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->casojur->id];
-        $this->opciones['padrexxx'] = $modeloxx->casojur->nnaj;
+        $this->opciones['usuariox'] = $modeloxx->casojur->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->casojur;
+        $this->opciones['juridica'] = $modeloxx->casojur->nnaj->fi_justrests->fi_proceso_srpas;
         $this->padrexxx = $modeloxx->casojur->nnaj;
         $this->opciones['vercrear'] = false;
    
-        $this->opciones['usuariox'] = $modeloxx->casojur->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->casojur]], 2, 'VOLVER A SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view(

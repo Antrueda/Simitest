@@ -24,6 +24,10 @@ class VOdontologia extends Model
         return $this->hasOne(VOdonantece::class, 'odonto_id');
     }
 
+    public function odontograma(){
+        return $this->hasOne(VOdontograma::class, 'odonto_id');
+    }
+
     
     public function examenes(){
         return $this->hasOne(VOdonexamen::class, 'odonto_id');

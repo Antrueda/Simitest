@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Examenes;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma;
 
-
+use App\Models\Acciones\Individuales\Salud\Odontologia\TipoSuper;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
@@ -41,11 +41,15 @@ trait VistasTrait
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
         $opciones['condicio'] = Tema::comboNotIn(23, true, false,[2503]);        
+        $opciones['superfic'] = TipoSuper::combo( true, false);    
         $opciones['dientesx'] = [];
         for ($i = 11; $i <= 85; $i++) {
             $opciones['dientesx'][$i] = $i;
         }
-        $opciones['diagnost'] = Diagnostico::combo(true,false);
+
+
+
+        $opciones['diagnost'] = Diagnostico::combo(false,false);
 
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
@@ -61,7 +65,7 @@ trait VistasTrait
 
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
-        
+        $opciones=$this->getTablas($vercrear);
 
 
         // Se arma el titulo de acuerdo al array opciones

@@ -86,7 +86,7 @@ trait VistasTrait
 
         $opciones['tablinde']=false;
         $vercrear=['opciones'=>$opciones,'dataxxxx'=>$dataxxxx];
-        $opciones=$this->getTablas($vercrear);
+      //  $opciones=$this->getTablas($vercrear);
 
 
         // Se arma el titulo de acuerdo al array opciones

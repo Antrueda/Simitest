@@ -283,10 +283,11 @@ function soloNumeros(e) {
       
         }  
     function doc2(valor){
-        if(valor != 805){
-        document.getElementById("prm_parensoli_id").hidden=false;
-        }else{
-        document.getElementById("prm_parensoli_id").hidden=true;
+        console.log(valor==805);
+        if(valor == 805){
+             document.getElementById("paren_div").hidden=true;
+            }else{
+            document.getElementById("paren_div").hidden=false;
          }
     } 
        
