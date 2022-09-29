@@ -5,6 +5,7 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Rules\CedulaValidaRule;
 use App\Rules\FechaMenor;
+use App\Rules\ValidarEdadNnajRule;
 use App\Rules\ValidarUpiNnajRule;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -44,6 +45,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'prm_sexo_id.required' => 'Seleccione el sexo',
             'prm_doc_fisico_id.required' => 'Seleccione si cuenta con el documento físico',
             'd_nacimiento.required' => 'Seleccione la fecha de nacimiento o dige la edad',
+            'd_nacimiento.date_format' => 'La fecha de nacimiento debe tener el siguiente formato: año-mes-dia',
             'sis_municipio_id.required' => 'Seleccione un municipio',
             'sis_municipioexp_id.required' => 'Seleccione un municipio de expdición',
             'prm_gsanguino_id.required' => 'Seleccione el grupo sanguíneo',
@@ -85,7 +87,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             's_primer_nombre' => ['required'],
             's_primer_apellido' => ['required'],
             'prm_sexo_id' => ['required'],
-            'd_nacimiento' => ['required'],
+            'd_nacimiento' => ['required','date_format:Y-m-d',new ValidarEdadNnajRule([])],
             'sis_municipio_id' => ['required'],
             'sis_municipioexp_id' => ['required'],
             'prm_gsanguino_id' => [

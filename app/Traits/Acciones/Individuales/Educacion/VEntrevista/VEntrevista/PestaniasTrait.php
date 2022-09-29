@@ -25,12 +25,9 @@ trait PestaniasTrait
         [
             'permisox' => 'vctocupa', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
-        // [
-        //     'permisox' => 'vctocupa', 'routexxx' => '', 'dataxxxx' => [true, []],
-        // ],
-        // [
-        //     'permisox' => 'fpoaplicacion', 'routexxx' => '.ver', 'dataxxxx' => [true, []],
-        // ],
+        [
+            'permisox' => 'fpoaplicacion', 'routexxx' => '-leer', 'dataxxxx' => [true, []],
+        ],
         
 
 // ['vctocupa', '', [], 'VALORACIÓN Y CARACTERIZACIÓN T.O', false, '', 'Gestionar valoración y caracterización terapia ocupacional'], // por mínimo debe tener un controllador
@@ -46,7 +43,7 @@ trait PestaniasTrait
         'ventrevista' => ['leer', 'crear', 'editar', 'borrar', 'activarx'],
         'vihcocup' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         'vctocupa' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
-      //  'fpoaplicacion' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
+        'fpoaplicacion' =>  ['leerxxxx', 'crearxxx', 'editarxx', 'borrarxx', 'activarx'],
         
         ];
         $cananyxx = [];
@@ -64,6 +61,7 @@ trait PestaniasTrait
             'activexx' => '',
             //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
             'tituloxx' => 'INDIVIDUALES',
+            'tooltipx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => ['aiindex-leer'],
@@ -73,6 +71,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'CUESTIONARIO DE GUSTOS E INTERESES',
+            'tooltipx' => 'CUESTIONARIO DE GUSTOS E INTERESES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -81,6 +80,8 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'PERFIL VOCACIONAL',
+            'tooltipx' => 'PERFIL VOCACIONAL',
+
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -89,6 +90,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
+            'tooltipx' => 'VALORACIÓN TERAPIA OCUPACIONAL ENTREVISTA SEMIESTRUCTURADA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -97,6 +99,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES',
+            'tooltipx' => 'VALORACIÓN E IDENTIFICACIÓN DE HABILIDADES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -105,18 +108,20 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'VALORACIÓN Y CARACTERIZACIÓN T.O',
+            'tooltipx' => 'VALORACIÓN Y CARACTERIZACIÓN T.O',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
-        // $pestania['fpoaplicacion'] = [
-        //     'routexxx' => '.ver',
-        //     'activexx' => '',
-        //     'tituloxx' => 'PERFIL OCUPACIONAL',
-        //     'tablaxxx' => 'sis_pais',
-        //     'datablex' => [],
-        //     'cananyxx' => ['fpoaplicacion-leer'],
-        // ];
+        $pestania['fpoaplicacion'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'PERFIL OCUPACIONAL',
+            'tooltipx' => 'PERFIL OCUPACIONAL',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
 
 
       
@@ -141,3 +146,4 @@ trait PestaniasTrait
         return $pestania;
     }
 }
+
