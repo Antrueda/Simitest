@@ -5,12 +5,13 @@ namespace App\Models\Acciones\Grupales\Asistencias\Diaria;
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsdSisNnaj extends Model
 {
-  //  use SoftDeletes;
+    use SoftDeletes;
 
     //protected $table = 'asisdiar_sis_nnaj';
 
@@ -38,6 +39,12 @@ class AsdSisNnaj extends Model
 
     public function sisNnaj()
     {
-        return $this->belongsTo(SisNnaj::class);
+        return $this->belongsTo(AsdNnajActividades::class);
     }
+
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
+    }
+    
 }
