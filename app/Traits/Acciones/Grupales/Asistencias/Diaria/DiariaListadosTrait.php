@@ -66,6 +66,7 @@ trait DiariaListadosTrait
             )->addColumn(
                 'edadxxxx',
                 function ($queryxxx) use ($requestx) {
+
                     return $queryxxx->calcularEdad($queryxxx->d_nacimiento);
                 }
             )
@@ -160,6 +161,7 @@ trait DiariaListadosTrait
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'asd_sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('asd_sis_nnajs.asd_diaria_id',$padrexxx);
+
                 return $this->getAsistenciaNnajDt($dataxxxx, $request);
             }
     }
@@ -212,12 +214,10 @@ trait DiariaListadosTrait
                 ->where('nnaj_upis.sis_esta_id', 1)
                 ->where('nnaj_deses.sis_servicio_id', '<>', 8)
                 ->where('nnaj_deses.sis_servicio_id', '<>', 16)
-
-                //1488 //1468  // 1451
-
                 ->where(function ($query) use ($padrexxx) {
                     $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id)
                             ->orWhere('asd_sis_nnajs.id', null);
+                            //->where('asd_sis_nnajs.deleted_at','<>',$padrexxx->id);
                 });
                 
                 if ($padrexxx->dependencia->prm_recreativa_id != 227 && $padrexxx->sis_servicio_id != 6) {
@@ -225,6 +225,7 @@ trait DiariaListadosTrait
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
                 }   
                 return $this->getAsistenciaNnajDt($dataxxxx, $request);
+
             }
     }
 

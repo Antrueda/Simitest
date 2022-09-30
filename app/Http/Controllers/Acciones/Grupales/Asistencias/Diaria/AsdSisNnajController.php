@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
+use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdNnajActividades;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
 use App\Models\sistema\SisNnaj;
@@ -43,25 +44,25 @@ class AsdSisNnajController extends Controller
 
     public function index($padrexxx)
     {
-        $this->pestania[1][2] = $this->opciones['parametr']=[$padrexxx];
+        $this->pestania[1][2] = $this->opciones['parametr'] = [$padrexxx];
         $this->getPestanias([]);
-        $this->getAsdSisNnaj(['parametr'=>[$padrexxx]]);
-        $this->opciones['modeloxx'] =$padrexxx;
-        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'VOLVER ASISTENCIA DIARIA','routexxx'=>'diariaxx.editarxx','parametr'=>[$padrexxx]]);
+        $this->getAsdSisNnaj(['parametr' => [$padrexxx]]);
+        $this->opciones['modeloxx'] = $padrexxx;
+        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER ASISTENCIA DIARIA', 'routexxx' => 'diariaxx.editarxx', 'parametr' => [$padrexxx]]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
-    public function create($padrexxx,SisNnaj $nnajxxxx)
+    public function create($padrexxx, SisNnaj $nnajxxxx)
     {
-        $this->opciones['nnajxxxx']=$nnajxxxx;
+        $this->opciones['nnajxxxx'] = $nnajxxxx;
         $this->getRespuesta(['btnxxxxx' => 'b']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    public function store(Request $request,$padrexxx)
+    public function store(Request $request, $padrexxx)
     {
-        $request->request->add(['asd_diaria_id' => $padrexxx,'sis_nnaj_id' => $request->sisnnajx,'sis_esta_id' => 1]);
+        $request->request->add(['asd_diaria_id' => $padrexxx, 'sis_nnaj_id' => $request->sisnnajx, 'sis_esta_id' => 1]);
         return $this->setCreaeAsdSisNnaj([
             'requestx' => $request,
             'modeloxx' => '',
@@ -72,19 +73,18 @@ class AsdSisNnajController extends Controller
     {
 
         $this->pestania[1][2] = false;
-        $this->opciones['parametr']=[$padrexxx];
+        $this->opciones['parametr'] = [$padrexxx];
         $this->getPestanias([]);
-        $this->getAsdSisNnajver(['parametr'=>[$padrexxx]]);
-        $this->opciones['modeloxx'] =$padrexxx;
-        $this->getRespuesta(['btnxxxxx' => 'a','tituloxx'=>'VOLVER A LISTA DE ASISTENCIA DIARIA','routexxx'=>'diariaxx']);
+        $this->getAsdSisNnajver(['parametr' => [$padrexxx]]);
+        $this->opciones['modeloxx'] = $padrexxx;
+        $this->getRespuesta(['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A LISTA DE ASISTENCIA DIARIA', 'routexxx' => 'diariaxx']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-       
     }
 
 
     public function edit(AsdSisNnaj $modeloxx)
     {
-        $this->opciones['nnajxxxx']=$modeloxx->sisNnaj;
+        $this->opciones['nnajxxxx'] = $modeloxx->sisNnaj;
         $this->getRespuesta(['btnxxxxx' => 'b']);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->asd_diaria_id]);
     }
@@ -99,29 +99,27 @@ class AsdSisNnajController extends Controller
             'routxxxx' => $this->opciones['permisox'] . '.editarxx'
         ]);
     }
-    public function destroy( AsdSisNnaj $modeloxx)
-    {       
-        
+    public function destroy(AsdSisNnaj $modeloxx)
+    {
 
-        $count = DB::table('asd_nnaj_actividades')
-                     ->select(DB::raw('count(*) as count'))
-                     ->where('sis_nnaj_id', '=', 'asd_sis_nnajs_id')
-                     ->first()
-                      ->count;
+        $count = AsdNnajActividades::where('asd_sis_nnajs_id', '=' , $modeloxx->id)
+            ->whereNull('deleted_at')
+            //->update(['deleted_at' => now()])
+            ->get();
 
-                      
+        // Si es mayor a cero, quiere decir que existen registros en la tabla hija, por lo tanto se puede enviar 
+        // un mensaje error
+        if(count($count) > 0 ){
 
-                      dd($count);
+            return back()->with('error', 'No sepuede eliminar NNAJ ya que ha existido un registro');
 
+        }  // Que sea cero , si se puede eliminar
+        else {
 
-    //   if ($modeloxx->sisNnaj()->count() >= 1 ) {
-    //     return redirect()
-    //         ->route('nnajasdi', [$modeloxx])
-    //         ->with('info', "No puede editar asistencia diaria por que ya tiene creado NNAJ");
-    // }
-
-        $modeloxx->delete();
-        return back()->with('info', 'NNAJ eliminado de la lista');
+            $modeloxx->delete();
+            return back()->with('info', 'NNAJ eliminado NNAJ Exitosamente');
+        }
+       
     }
 
     public function activar(Request $request, AsdSisNnaj $modeloxx)

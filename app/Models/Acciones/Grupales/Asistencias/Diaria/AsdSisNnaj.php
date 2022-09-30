@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsdSisNnaj extends Model
 {
-    //use SoftDeletes;
+    use SoftDeletes;
 
     //protected $table = 'asisdiar_sis_nnaj';
 
