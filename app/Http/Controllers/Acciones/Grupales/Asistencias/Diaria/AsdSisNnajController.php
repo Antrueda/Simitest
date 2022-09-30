@@ -17,6 +17,7 @@ use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaPestaniasTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\DiariaDataTablesTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\Nnajasdi\NnajasdiParametrizarTrait;
 use App\Traits\Acciones\Grupales\Asistencias\Diaria\Nnajasdi\NnajasdiVistasTrait;
+use Illuminate\Support\Facades\DB;
 
 class AsdSisNnajController extends Controller
 {
@@ -99,9 +100,28 @@ class AsdSisNnajController extends Controller
         ]);
     }
     public function destroy( AsdSisNnaj $modeloxx)
-    {        
-         $modeloxx->delete();
-         return back()->with('info', 'NNAJ eliminado de la lista.');
+    {       
+        
+
+        $count = DB::table('asd_nnaj_actividades')
+                     ->select(DB::raw('count(*) as count'))
+                     ->where('sis_nnaj_id', '=', 'asd_sis_nnajs_id')
+                     ->first()
+                      ->count;
+
+                      
+
+                      dd($count);
+
+
+    //   if ($modeloxx->sisNnaj()->count() >= 1 ) {
+    //     return redirect()
+    //         ->route('nnajasdi', [$modeloxx])
+    //         ->with('info', "No puede editar asistencia diaria por que ya tiene creado NNAJ");
+    // }
+
+        $modeloxx->delete();
+        return back()->with('info', 'NNAJ eliminado de la lista');
     }
 
     public function activar(Request $request, AsdSisNnaj $modeloxx)

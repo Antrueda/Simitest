@@ -26,7 +26,7 @@ class CreateAsdNnajActividadesTable extends Migration
 
 
 
-            $table->foreign('asd_sis_nnajs_id')->references('id')->on('asd_sis_nnajs')->onDelete('cascade');
+            $table->foreign('asd_sis_nnajs_id')->references('id')->on('asd_sis_nnajs');
             $table->foreign('asd_actividads_id')->references('id')->on('asd_actividads');
             $table->foreign('prm_novedadx_id')->references('id')->on('parametros');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

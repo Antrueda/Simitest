@@ -48,6 +48,31 @@ trait DiariaListadosTrait
             ->toJson();
     }
 
+    public  function getAsistenciaNnajDt($queryxxx, $requestx)
+    {
+
+        return datatables()->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )->addColumn(
+                'edadxxxx',
+                function ($queryxxx) use ($requestx) {
+                    return $queryxxx->calcularEdad($queryxxx->d_nacimiento);
+                }
+            )
+            ->rawColumns(['botonexx'])
+            ->toJson();
+    }
+
     /**
      * encontrar la lisa de actas de encuentro
      */
@@ -122,6 +147,7 @@ trait DiariaListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_nacimis.d_nacimiento',
                 'asd_sis_nnajs.sis_esta_id',
                 'nnaj_docus.s_documento',
                 'asd_diarias.consecut',
@@ -130,11 +156,12 @@ trait DiariaListadosTrait
                 ->join('asd_diarias', 'asd_sis_nnajs.asd_diaria_id', '=', 'asd_diarias.id')
                 ->join('sis_nnajs', 'asd_sis_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'asd_sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('asd_sis_nnajs.asd_diaria_id',$padrexxx);
-            return $this->getDt($dataxxxx, $request);
-        }
+                return $this->getAsistenciaNnajDt($dataxxxx, $request);
+            }
     }
 
     /// para asignar las actividades 
@@ -151,8 +178,6 @@ trait DiariaListadosTrait
 //agregar al nnajs
     public function getNnajsAgregar(Request $request,AsdDiaria $padrexxx)
     {
-
-
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->padrexxx = $padrexxx;
@@ -166,6 +191,7 @@ trait DiariaListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_nacimis.d_nacimiento',
                 'sis_nnajs.sis_esta_id',
                 'nnaj_docus.s_documento',
                 'sis_estas.s_estado',
@@ -177,6 +203,7 @@ trait DiariaListadosTrait
                     })
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')//servicios
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
@@ -192,12 +219,13 @@ trait DiariaListadosTrait
                     $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id)
                             ->orWhere('asd_sis_nnajs.id', null);
                 });
+                
                 if ($padrexxx->dependencia->prm_recreativa_id != 227 && $padrexxx->sis_servicio_id != 6) {
                     $dataxxxx = $dataxxxx->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
-                }
-           return $this->getDt($dataxxxx, $request);
-        }
+                }   
+                return $this->getAsistenciaNnajDt($dataxxxx, $request);
+            }
     }
 
     public function getNnajActividades(Request $request,$padrexxx)
