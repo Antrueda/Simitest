@@ -4,8 +4,8 @@
         {!! Form::label('nombre', 'Puntaje:', ['class' => 'control-label']) !!}
         <div class="row">
             <div class="col-md-6">
-                {!! Form::label('minimo', 'Minimo:', ['class' => 'control-label']) !!}
-                {!! Form::number('minimo', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+                {!! Form::label('minimo', 'Mínimo:', ['class' => 'control-label']) !!}
+                {!! Form::number('minimo', null, ['class' => 'form-control form-control-sm text-uppercase','min'=>0]) !!}
                 @if($errors->has('minimo'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('minimo') }}
@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6">
                 {!! Form::label('superior', 'Superior:', ['class' => 'control-label']) !!}
-                {!! Form::number('superior', null, ['class' => 'form-control form-control-sm text-uppercase']) !!}
+                {!! Form::number('superior', null, ['class' => 'form-control form-control-sm text-uppercase','min'=>0]) !!}
                 @if($errors->has('superior'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('superior') }}

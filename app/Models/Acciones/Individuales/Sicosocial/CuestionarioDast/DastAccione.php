@@ -18,11 +18,11 @@ class DastAccione extends Model
 
     public function getNombreAttribute($value)
     {
-        return strtoupper($value);
+        return mb_strtoupper($value, 'utf-8');
     }
 
     public function getDescripcionAttribute($value)
     {
-        return strtoupper($value);
+        return mb_strtoupper($value, 'utf-8');
     }
 }
