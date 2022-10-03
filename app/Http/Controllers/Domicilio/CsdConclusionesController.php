@@ -26,7 +26,7 @@ class CsdConclusionesController extends Controller
 
     public function __construct()
     {
-        $this->opciones['botoform']=[];
+        $this->opciones['botoform'] = [];
         $this->opciones['permisox'] = 'csdconclusiones';
         $this->opciones['routxxxx'] = 'csdconclusiones';
         $this->opciones['rutacarp'] = 'Csd.';
@@ -59,6 +59,15 @@ class CsdConclusionesController extends Controller
         $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['padrexxx']->csd_id)
             ->where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             ->first();
+        if (is_null($compfami)) {
+            return redirect()
+                ->route('csdcomfamiliar', [$dataxxxx['padrexxx']->id])
+                ->with('info', 'No se encuentra en la composición familiar');
+        }
+        // if (Auth::user()->s_documento == '1070010061') {
+        if (Auth::user()->s_documento == '17496705') {
+            // dd( $dataxxxx['padrexxx']->id);
+        }
         $this->opciones['familiax'] = Parametro::find($compfami->prm_parentezco_id)->combo;
         $nombrexx = $dataxxxx['padrexxx']->csd->CsdDatosBasico;
         $nombrexx =
@@ -143,11 +152,11 @@ class CsdConclusionesController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
     {
-        
+
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
-                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+                ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
         }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {

@@ -58,7 +58,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['discapac'] = Tema::comboAsc(24, true, false);
         $this->opciones['educacio'] = Tema::comboAsc(153, true, false);
         $this->opciones['estadciv'] = Tema::comboAsc(19, true, false);
-        $this->opciones['parentes'] = Tema::comboAsc(66, true, false);
+        // $this->opciones['parentes'] = Tema::comboAsc(66, true, false);
         $this->opciones['grupoetn'] = Tema::comboAsc(20, true, false);
         $this->opciones['ocupacio'] = Tema::comboAsc(294, true, false);
         $this->opciones['vinculax'] = Tema::comboAsc(287, true, false);
