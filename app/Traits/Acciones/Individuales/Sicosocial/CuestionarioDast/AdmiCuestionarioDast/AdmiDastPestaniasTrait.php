@@ -8,7 +8,7 @@ trait AdmiDastPestaniasTrait
 
     public $pestania = [
         ['adastres', '', [], 'RESULTADOS (PUNTAJE - GRADO DEL PROBLEMA)', true, '', 'Resultados'], // por mínimo debe tener un controllador
-        ['adastacc', '', [], 'ACCIÓNES', true, '', 'Acciónes dast'], // por mínimo debe tener un controllador
+        ['adastacc', '', [], 'ACCIONES', true, '', 'Acciones dast'], // por mínimo debe tener un controllador
         ['adastpre', '', [], 'PREGUNTAS', true, '', 'Preguntas dast'], // por mínimo debe tener un controllador
     ];
     /**
