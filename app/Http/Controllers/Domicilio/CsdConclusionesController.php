@@ -60,14 +60,19 @@ class CsdConclusionesController extends Controller
             ->where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             ->first();
         if (is_null($compfami)) {
+            $document=$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento;
+            $nombresx=$dataxxxx['padrexxx']->csd->CsdDatosBasico;
+            $nombresx=$nombresx->s_primer_nombre .' '.$nombresx->s_segundo_nombre .' '.$nombresx->s_primer_apellido .' '.$nombresx->s_segundo_apellido;
+            // if (Auth::user()->s_documento == '1070010061') {
+            //     dd( $nombresx);
+            // }
             return redirect()
-                ->route('csdcomfamiliar', [$dataxxxx['padrexxx']->id])
-                ->with('info', 'No se encuentra en la composición familiar');
+                ->route('csdcomfamiliar.nuevo', [$dataxxxx['padrexxx']->id])
+                ->with('info1', "La persona: $nombresx con documento de identidad: $document no se encuentra en la composición familiar, 
+                para continuar con las observaciones primero se debe agregar");
         }
         // if (Auth::user()->s_documento == '1070010061') {
-        if (Auth::user()->s_documento == '17496705') {
-            // dd( $dataxxxx['padrexxx']->id);
-        }
+       
         $this->opciones['familiax'] = Parametro::find($compfami->prm_parentezco_id)->combo;
         $nombrexx = $dataxxxx['padrexxx']->csd->CsdDatosBasico;
         $nombrexx =
