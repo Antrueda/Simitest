@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma;
+namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Higiene;
 
 
 
@@ -8,7 +8,6 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\Superficie;
-use App\Models\Acciones\Individuales\Salud\Odontologia\TipoSuper;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
@@ -150,112 +149,6 @@ trait ListadosTrait
         $dataxxxx['cabecera'] = $request->cabecera;
 
         $respuest = response()->json($this->getSuperficieTp($dataxxxx));
-        return $respuest;
-    }
-
-
-    public function getDiagnosticoTp($dataxxxx)
-    {
-        $diente =VOdontograma::select([
-            'v_odontogramas.diag_id',
-            ])
-            ->where('v_odontogramas.sis_esta_id', 1)
-            ->where('v_odontogramas.diente', $dataxxxx['tipocurs'])
-            ->where('v_odontogramas.odonto_id',$dataxxxx['padrexxx'])->get();
-
-        $dataxxxx['dataxxxx'] = Diagnostico::select(['diagnosticos.id as valuexxx', 'diagnosticos.nombre as optionxx'])
-            ->whereNotIn('diagnosticos.id', $diente)
-            ->where('diagnosticos.area_id', 2869)
-            ->where('diagnosticos.sis_esta_id', 1)
-            ->orderBy('diagnosticos.nombre', 'asc')
-            ->get();
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return    $respuest;
-    }
-
-
-    public function getDiagnostico(Request $request)
-    {
-        $dataxxxx = [
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'padrexxx' => true,
-            'selected' => $request->selected,
-            'orderxxx' => 'ASC',
-            'tipocurs' => $request->upixxxxx,
-            
-        ];
-        $dataxxxx['cabecera'] = $request->cabecera;
-
-        $respuest = response()->json($this->getDiagnosticoTp($dataxxxx));
-        return $respuest;
-    }
-
-
-    public function getTiposuperficieTp($dataxxxx)
-    {
-       
-        // $Noaplica=[1032,1040,1042,1047,1048,1058,1062,1071,1076];
-        // $result = !empty(array_intersect($dataxxxx['diagnost'], $Noaplica));
-        // if($result){
-        //     $dataxxxx['inxxxxxx']=6;
-        // }
-
-        
-        $dataxxxx['dataxxxx'] = TipoSuper::select(['id as valuexxx', 'nombre as optionxx'])
-        ->whereIn('id', $dataxxxx['inxxxxxx'])
-        ->where('sis_esta_id', '1')
-        ->orderBy('id', 'asc')
-        ->get();
-        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
-        return    $respuest;
-    }
-
-
-    public function getTipoSuperficie(Request $request)
-    {
-
-        $Noaplica=[1032,1040,1042,1047,1048,1058,1062,1071,1076];
-        $todasxxx=[1039,1043,1045,1057,1059,1060,1061];
-        $result = !empty(array_intersect($request->upixxxxx, $Noaplica));
-        $todas =  !empty(array_intersect($request->upixxxxx, $todasxxx));
-
-        if($result){
-        $dataxxxx = [
-            'cabecera' => true,
-            'ajaxxxxx' => true,
-            'padrexxx' => true,
-            'inxxxxxx' => [6],
-            'selected' => $request->selected,
-            'orderxxx' => 'ASC',
-            'diagnost' => $request->upixxxxx,
-        ];
-         }else{
-            if($todas){
-                $dataxxxx = [
-                    'cabecera' => true,
-                    'ajaxxxxx' => true,
-                    'padrexxx' => true,
-                    'inxxxxxx' => [6],
-                    'selected' => $request->selected,
-                    'orderxxx' => 'ASC',
-                    'diagnost' => $request->upixxxxx,
-                ];
-         }else{
-                $dataxxxx = [
-                    'cabecera' => true,
-                    'ajaxxxxx' => true,
-                    'padrexxx' => true,
-                    'inxxxxxx' => [1,2,3,4,5],
-                    'selected' => $request->selected,
-                    'orderxxx' => 'ASC',
-                    'diagnost' => $request->upixxxxx,
-                ];
-             }
-        }
-        $dataxxxx['cabecera'] = $request->cabecera;
-
-        $respuest = response()->json($this->getTiposuperficieTp($dataxxxx));
         return $respuest;
     }
 

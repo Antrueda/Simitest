@@ -1,7 +1,7 @@
 <?php
-$routxxxx = 'vodontograma';
-$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdongrama';
-Route::group(['prefix' => '{padrexxx}/Odongrama'], function () use ($controll, $routxxxx) {
+$routxxxx = 'vodonhigiene';
+$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdonHigiene';
+Route::group(['prefix' => '{padrexxx}/HigieneOral'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
@@ -19,14 +19,10 @@ Route::group(['prefix' => '{padrexxx}/Odongrama'], function () use ($controll, $
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxz');
 
-    Route::get('quitar', [
-        'uses' => $controll . 'Controller@getQuitar',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.quitar');
 
 });
 
-Route::group(['prefix' => 'Odongramas'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Higiene'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
@@ -49,21 +45,15 @@ Route::group(['prefix' => 'Odongramas'], function () use ($controll, $routxxxx) 
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agregar');
 
+    Route::get('quitar', [
+        'uses' => $controll . 'Controller@getQuitar',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.quitar');
 
     Route::get('superficie', [
         'uses' => $controll . 'Controller@getSuperficie',
         'middleware' => ['permission:' . $routxxxx . '-crear']
 	])->name($routxxxx . '.superficie');
-
-    Route::get('diagnostico', [
-        'uses' => $controll . 'Controller@getDiagnostico',
-        'middleware' => ['permission:' . $routxxxx . '-crear']
-	])->name($routxxxx . '.diagnostico');
-
-    Route::get('tiposuper', [
-        'uses' => $controll . 'Controller@getTipoSuperficie',
-        'middleware' => ['permission:' . $routxxxx . '-crear']
-	])->name($routxxxx . '.tiposuper');
 
 
     Route::put('borrar/{modeloxx}', [

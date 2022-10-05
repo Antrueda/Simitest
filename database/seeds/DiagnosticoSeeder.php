@@ -1046,6 +1046,71 @@ class DiagnosticoSeeder extends Seeder
         Diagnostico::create(['id'=>1030, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'OTROS ESTADOS POSTQUIRURGICOS ESPECIFICADOS', 'codigo' =>'Z988','estusuario_id'=>49]); // 1030
         
 
+        //Odontologia 
+
+        Diagnostico::create(['id'=>1031, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ABSCESO', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1031
+        Diagnostico::create(['id'=>1032, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'AUSENTE', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1032
+        Diagnostico::create(['id'=>1033, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'AMALGAMA DESADAPTADA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1033
+        Diagnostico::create(['id'=>1034, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ABFRACCIÓN CERVICAL', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1034
+        Diagnostico::create(['id'=>1035, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ABRASIÓN DENTAL', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1035
+        Diagnostico::create(['id'=>1036, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CÁLCULOS DENTALES', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1036
+        Diagnostico::create(['id'=>1037, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CARIES', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1037
+        Diagnostico::create(['id'=>1038, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CARIES RECURRENTE', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1038
+        Diagnostico::create(['id'=>1039, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CORONA ADAPTADA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1039
+        Diagnostico::create(['id'=>1040, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CORONA DESADAPTADA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1040
+        Diagnostico::create(['id'=>1041, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DEFECTOS DEL DESARROLLO', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1041
+        Diagnostico::create(['id'=>1042, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTE AUSENTE CON REHABILITACIÓN', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1042
+        Diagnostico::create(['id'=>1043, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTE ROTADO', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1043
+        Diagnostico::create(['id'=>1044, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTE PARA ENDODONCIA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1044
+        Diagnostico::create(['id'=>1045, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTE SANO', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1045
+        Diagnostico::create(['id'=>1046, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DESGASTE INCISAL', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1046
+        Diagnostico::create(['id'=>1047, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'EN ERUPCIÓN', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1047
+        Diagnostico::create(['id'=>1048, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'EXODONCIA INDICADA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1048
+        Diagnostico::create(['id'=>1049, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'FLUOROSIS DENTAL', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1049
+        Diagnostico::create(['id'=>1050, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'FISTULA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1050
+        Diagnostico::create(['id'=>1051, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'FRACTURA CON COMPROMISO PULPAR', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1051
+        Diagnostico::create(['id'=>1052, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'FRACTURA SIN COMPROMISO PULPAR', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1052
+        Diagnostico::create(['id'=>1053, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'GINGIVITIS', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1053
+        Diagnostico::create(['id'=>1054, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'IONOMERO DESADAPTADO', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1054
+        Diagnostico::create(['id'=>1055, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'INDICADO PARA ENDODONCIA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1055
+        Diagnostico::create(['id'=>1056, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'INDICADO PARA SELLANTE', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1056
+        Diagnostico::create(['id'=>1057, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'IMPLANTE CON REHABILITACIÓN', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1057
+        Diagnostico::create(['id'=>1058, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'IMPLANTE SIN REHABILITACIÓN', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1058
+        Diagnostico::create(['id'=>1059, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'MOVILIDAD 1', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1059
+        Diagnostico::create(['id'=>1060, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'MOVILIDAD 2', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1060
+        Diagnostico::create(['id'=>1061, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'MOVILIDAD 3', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1061
+        Diagnostico::create(['id'=>1062, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'NECROSIS PULPAR', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1062
+        Diagnostico::create(['id'=>1063, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'OBTURACIÓN CON CEMENTO', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1063
+        Diagnostico::create(['id'=>1064, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'OBTURACIÓN CON IONOMERO', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1064
+        Diagnostico::create(['id'=>1065, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'OBTURACIÓN CON AMALGAMA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1065
+        Diagnostico::create(['id'=>1066, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'OBTURACIÓN CON RESINA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1066
+        Diagnostico::create(['id'=>1067, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PLACA BACTERIANA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1067
+        Diagnostico::create(['id'=>1068, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PERIODONTITIS', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1068
+        Diagnostico::create(['id'=>1069, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PROVISIONAL', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1069
+        Diagnostico::create(['id'=>1071, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'RESTO RADICULAR', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1071
+        Diagnostico::create(['id'=>1072, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'RESINA DESADAPTADA', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1072
+        Diagnostico::create(['id'=>1073, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'RETRACCIÓN GINGIVAL', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1073
+        Diagnostico::create(['id'=>1074, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SANO PARA SELLANTE', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1074
+        Diagnostico::create(['id'=>1075, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SELLANTE', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1075
+        Diagnostico::create(['id'=>1076, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SIN ERUPCIONAR', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1076
+        Diagnostico::create(['id'=>1077, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTES SUPER NUMERARIOS', 'codigo' =>'K001','estusuario_id'=>49]); // 1077
+        Diagnostico::create(['id'=>1078, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTES MOTEADOS ', 'codigo' =>'K003','estusuario_id'=>49]); // 1078
+        Diagnostico::create(['id'=>1079, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CARIES LIMITADA AL ESMALTE ', 'codigo' =>'K020','estusuario_id'=>49]); // 1079
+        Diagnostico::create(['id'=>1080, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CARIES DE CEMENTO ', 'codigo' =>'K022','estusuario_id'=>49]); // 1080
+        Diagnostico::create(['id'=>1081, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ATRICCION EXCESIVA DE LOS DIENTES ', 'codigo' =>'K030','estusuario_id'=>49]); // 1081
+        Diagnostico::create(['id'=>1082, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ABRASION DE LOS DIENTES ', 'codigo' =>'K031','estusuario_id'=>49]); // 1082
+        Diagnostico::create(['id'=>1083, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ANQUILOSIS DENTAL', 'codigo' =>'K035','estusuario_id'=>49]); // 1083
+        Diagnostico::create(['id'=>1084, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PULPITIS', 'codigo' =>'K040','estusuario_id'=>49]); // 1084
+        Diagnostico::create(['id'=>1085, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'NECROSIS DE LA PULPA', 'codigo' =>'K041','estusuario_id'=>49]); // 1085
+        Diagnostico::create(['id'=>1086, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PERIODONTITIS APICAL AGUDA ORIGINADA EN LA PULPA ', 'codigo' =>'K044','estusuario_id'=>49]); // 1086
+        Diagnostico::create(['id'=>1087, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PERIODONTITIS APICAL CRONICA ', 'codigo' =>'K045','estusuario_id'=>49]); // 1087
+        Diagnostico::create(['id'=>1088, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PERIODONTITIS AGUDA', 'codigo' =>'K052','estusuario_id'=>49]); // 1088
+        Diagnostico::create(['id'=>1089, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PERIODONTITIS CRONICA ', 'codigo' =>'K053','estusuario_id'=>49]); // 1089
+        Diagnostico::create(['id'=>1090, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'RETRACCION GINGIVAL', 'codigo' =>'K060','estusuario_id'=>49]); // 1090
+        Diagnostico::create(['id'=>1091, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'TRASTORNO DE LOS DIENTES Y DE SUS ESTRUCTURAS DE SOSTEN, NO ESPECIFICADO', 'codigo' =>'K089','estusuario_id'=>49]); // 1091
+
+        
+
 
         
         
