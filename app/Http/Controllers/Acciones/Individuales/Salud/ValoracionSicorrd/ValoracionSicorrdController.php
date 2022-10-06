@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 
+use App\Models\Acciones\Individuales\Salud\ValoracionSicorrd\Vsrrd;
+use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
 use App\Http\Requests\Acciones\Individuales\Salud\ValoracionSicorrd\VsrrdCrearRequest;
 use App\Traits\Acciones\Individuales\Salud\ValaracionSicorrd\ValaracionSicorrd\VpsiCrudTrait;
 use App\Traits\Acciones\Individuales\Salud\ValaracionSicorrd\ValaracionSicorrd\VpsiVistasTrait;
@@ -19,7 +21,6 @@ use App\Traits\Acciones\Individuales\Salud\ValaracionSicorrd\ValaracionSicorrd\V
 use App\Traits\Acciones\Individuales\Salud\ValaracionSicorrd\ValaracionSicorrd\VpsiPestaniasTrait;
 use App\Traits\Acciones\Individuales\Salud\ValaracionSicorrd\ValaracionSicorrd\VpsiDataTablesTrait;
 use App\Traits\Acciones\Individuales\Salud\ValaracionSicorrd\ValaracionSicorrd\VpsiParametrizarTrait;
-use App\Models\Acciones\Individuales\Salud\ValoracionSicorrd\Vsrrd;
 
 class ValoracionSicorrdController extends Controller
 {
