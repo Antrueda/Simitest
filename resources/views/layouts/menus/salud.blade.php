@@ -7,14 +7,22 @@
     </a>
     <ul class="nav nav-treeview">
         @can('saludmodulo-modulo')
-                <li class="nav-item">
-                    <a href="{{ route('saludmodulo') }}" class="nav-link">
-                        <i class="fas fa-ambulance nav-icon"></i>
-                        <p>Administración Salud</p>
-                    </a>
-                </li>
-            @endcan
-        </ul>
+            <li class="nav-item">
+                <a href="{{ route('saludmodulo') }}" class="nav-link">
+                    <i class="fas fa-ambulance nav-icon"></i>
+                    <p>Administración Salud</p>
+                </a>
+            </li>
+        @endcan
+        @can('vsrrdmod-moduloxx')
+            <li class="nav-item">
+                <a href="{{ route('vsrrdmod') }}" class="nav-link">
+                    <i class="fas fa-ambulance nav-icon"></i>
+                    <p>Administración Valoración psicosocial rrd</p>
+                </a>
+            </li>
+        @endcan
+    </ul>
 
 </li>
 <i class=""></i>
