@@ -53,7 +53,7 @@ trait CombosTrait
      * @return $comboxxx
      */
 
-     
+
     public function getTemacomboCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
@@ -137,7 +137,7 @@ trait CombosTrait
         return $comboxxx;
     }
 
-    
+
 
     public function getBarriosCT($dataxxxx)
     {
@@ -519,6 +519,32 @@ trait CombosTrait
     }
 
     /**
+     * Encontrar las dependencias del nnaj
+     *
+     * @param array $dataxxxx
+     * @param object $modeloxx
+     * @return array $respuest
+     */
+    public function getUpisNnajCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+
+        // // * encontrar las dependencia del nnaj
+        $dataxxxx['dataxxxx'] = SisDepen::join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
+            // * encontrar las upis activas del nnaj
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
+                $queryxxx->where('nnaj_upis.sis_esta_id', 1);
+            })
+            ->orWhere(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('sis_depens.id',  $dataxxxx['dependid']);
+            })
+            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
+    /**
      * Encontrar las áreas o contextos pedagógicos asignadas al usuario que se encuentra logueado
      *
      * @param array $dataxxxx
@@ -822,7 +848,7 @@ trait CombosTrait
         return $respuest;
     }
 
-     /**
+    /**
      * listado de municipios del departamento
      *
      * @param array $dataxxxx
