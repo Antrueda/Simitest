@@ -20,6 +20,7 @@ require_once('Individuales\Sicosocial\CuestionarioDast\web_cuestionariodast.php'
 require_once('Individuales/Salud/Medicina/web_medimodu.php');
 require_once('Individuales/Salud/Vacunas/web_vacunamodu.php');
 
+require_once('Individuales\Salud\ValaracionSicorrd\web_valaracionSicorrd.php');
 
 
 Route::group(['prefix' => 'ai'], function () {
