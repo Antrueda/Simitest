@@ -47,4 +47,8 @@ Route::group(['prefix' => 'resultados-puntaje'], function () use ($routexxx, $co
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+    Route::get('motivostseg', [
+        'uses' => $controll . 'getMotivosResultados',
+        'middleware' => ['permission:' . $routexxx . '-crearxxx']
+    ])->name($routexxx . '.motitseg');
 });

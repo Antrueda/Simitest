@@ -6,4 +6,14 @@
         });
     });
 
+    $('#sis_esta_id').change(function() {
+        f_motivos_usuario({
+            dataxxxx: {
+                estadoid: $(this).val(),
+            },
+            selected: '',
+            routexxx: "{{ route($todoxxxx['routxxxx'].'.motitseg')}}"
+        })
+    });
+
 </script>

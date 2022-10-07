@@ -48,7 +48,7 @@ trait AdmiAccionesParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "ACCIÓNES";
+        $this->opciones['tituloxx'] = "ACCIONES";
     }
 
     public function getBotones($dataxxxx)

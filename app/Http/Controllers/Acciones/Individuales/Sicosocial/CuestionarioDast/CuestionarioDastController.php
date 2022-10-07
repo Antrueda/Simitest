@@ -105,12 +105,12 @@ class CuestionarioDastController extends Controller
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->nnaj]);
             } else {
                 return redirect()
-                    ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                    ->route('cuesdast', [$modeloxx->sis_nnaj_id])
                     ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
             }
         } else {
             return redirect()
-                ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                ->route('cuesdast', [$modeloxx->sis_nnaj_id])
                 ->with('info', $puedexxx['msnxxxxx']);
         }
     }
