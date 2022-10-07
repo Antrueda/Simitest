@@ -99,7 +99,7 @@ class DastSeguimientoController extends Controller
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->dast]);
             } else {
                 return redirect()
-                    ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                    ->route('dastsegu', [$modeloxx->sis_nnaj_id])
                     ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
             }
         } else {

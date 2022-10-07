@@ -4,9 +4,10 @@ namespace App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\AdmiCuest
 
 use Illuminate\Http\Request;
 
+use App\Models\Usuario\Estusuario;
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastAccione;
-use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastPregunta;
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastPuntaje;
+use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastPregunta;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -106,6 +107,48 @@ trait AdmiDastListadosTrait
             ])
                 ->join('sis_estas', 'dast_preguntas.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function getMotivosAcciones(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2895
+                ])
+            );
+        }
+    }
+
+    public function getMotivosPreguntas(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2894
+                ])
+            );
+        }
+    }
+
+    public function getMotivosResultados(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2896
+                ])
+            );
         }
     }
 }

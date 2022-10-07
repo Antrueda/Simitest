@@ -50,4 +50,8 @@ Route::group(['prefix' => 'preguntas'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+    Route::get('motivostseg', [
+        'uses' => $controll . 'getMotivosPreguntas',
+        'middleware' => ['permission:' . $routexxx . '-crearxxx']
+    ])->name($routexxx . '.motitseg');
 });

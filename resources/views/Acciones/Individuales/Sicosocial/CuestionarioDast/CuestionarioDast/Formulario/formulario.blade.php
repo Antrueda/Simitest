@@ -71,7 +71,7 @@
     </div>
     <div class="p-2">
         <div>
-            <center><strong><p class="col-form-label-sm">RESULTADOS (interpretación)</p></strong></center>
+            <center><strong><p class="col-form-label-sm">RESULTADOS (INTERPRETACIÓN)</p></strong></center>
         </div>
         <div class="alert alert-warning" role="alert">
             Se otorga un puntaje de 1(uno) cuando la respuesta es SI (excepto por la pregunta 3, en la que se la da un puntaje de 1 a la respuesta "NO) y un puntaje de 0 (cero) cuando la respuesta es "NO".
