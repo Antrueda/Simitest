@@ -81,9 +81,6 @@ class VsiController extends Controller
     {
        
         $padrexxx = $padrexxx->fi_datos_basico;
-// if(Auth::user()->s_documento=='17496705'){
-//     ddd($padrexxx->SisNnaj->FiResidencia->direccion);
-// }
         $this->opciones['usuariox'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
         $this->opciones['tituhead'] = $padrexxx->nombre;

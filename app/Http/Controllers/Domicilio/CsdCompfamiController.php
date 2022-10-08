@@ -335,12 +335,9 @@ class CsdCompfamiController extends Controller
     public function edit(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
         $value = Session::get('csdver_' . Auth::id());
-        if (!$value) {
-            if (Auth::user()->s_documento!='17496705') {
+        if (!$value) { 
                 return redirect()
                 ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
-            }
-            
         }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {
