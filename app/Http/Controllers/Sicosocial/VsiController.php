@@ -79,9 +79,11 @@ class VsiController extends Controller
      */
     public function index(SisNnaj $padrexxx)
     {
-
+       
         $padrexxx = $padrexxx->fi_datos_basico;
-
+// if(Auth::user()->s_documento=='17496705'){
+//     ddd($padrexxx->SisNnaj->FiResidencia->direccion);
+// }
         $this->opciones['usuariox'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
         $this->opciones['tituhead'] = $padrexxx->nombre;
@@ -202,6 +204,7 @@ class VsiController extends Controller
      */
     public function create(SisNnaj $padrexxx)
     {
+        
         $padrexxx = $padrexxx->fi_datos_basico;
         $this->getBotones(['permisox' => 'crear', 'tituloxx' => 'GUARDAR VSI']);
         $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];

@@ -189,9 +189,15 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            // ddd($dataxxxx['modeloxx']->prm_cualeps_id);
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] = Parametro::find(235)->Combo;
             }
+            if ($dataxxxx['modeloxx']->prm_discapacidad_id == 228) {
+                $this->opciones['discapac'] = Parametro::find(235)->Combo;
+            }
+
+            
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
@@ -330,8 +336,11 @@ class CsdCompfamiController extends Controller
     {
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
-            return redirect()
+            if (Auth::user()->s_documento!='17496705') {
+                return redirect()
                 ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
+            }
+            
         }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {

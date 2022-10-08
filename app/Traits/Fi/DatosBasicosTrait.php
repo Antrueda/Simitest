@@ -113,10 +113,13 @@ trait DatosBasicosTrait
     public function setCfNnajCsd($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $document = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['requestx']->sis_nnaj_id)->first();
-
+            $document = FiDatosBasico::
+            where('sis_nnaj_id', $dataxxxx['requestx']->sis_nnaj_id)
+            ->join('nnaj_docus','fi_datos_basicos.id','=','nnaj_docus.fi_datos_basico_id')
+            ->first();
+            // buscar el numero de documento en la composición familiar de CSD
             $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['requestx']->csd_id)
-                ->where('s_documento', $dataxxxx['requestx']->s_documento)
+                ->where('s_documento', $document->s_documento)
                 ->first();
 
             if (!isset($compfami->id)) {

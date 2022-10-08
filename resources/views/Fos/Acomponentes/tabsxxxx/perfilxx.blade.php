@@ -33,11 +33,11 @@
             </li>
             <li class="list-group-item">
                 <b>DIRECCIÓN</b>
-                <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}</a>
+                <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->direccion : '' }}</a>
             </li>
             <li class="list-group-item">
                 <b>TELÉFONO</b>
-                <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}</a>
+                <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->telefonos : '' }}</a>
             </li>
             <li class="list-group-item">
                 <b>NOMBRE IDENTITARIO</b>
