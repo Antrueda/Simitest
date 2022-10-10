@@ -24,7 +24,7 @@ trait AdmiAccionesVistasTrait
     }
     public function view($dataxxxx)
     {
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACCIÓNES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], []], 2, 'VOLVER A ACCIONES', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         $estadoid = 1;
