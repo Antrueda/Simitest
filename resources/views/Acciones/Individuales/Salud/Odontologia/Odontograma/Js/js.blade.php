@@ -23,8 +23,29 @@
     // }
     // });
 
-
    
+    var tiposuperficie = function(selected, upixxxxx,padrexxx) {
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("vodontograma.tiposuper") }}',
+               campoxxx: 'tiposup_id',
+               mensajex: 'Exite un error al cargar los cursos'
+           }
+           f_comboGeneral(dataxxxx);
+       }
+
+       $('#diag_id').change(() => {
+            let upixxxxx = $('#diag_id').val();
+            let padrexxx = '{{ $todoxxxx["padrexxx"]->id }}';
+            let cabecera = true
+            tiposuperficie(0,upixxxxx);
+            
+        });
 
 
     var superficie = function(selected, upixxxxx,padrexxx) {
@@ -49,10 +70,31 @@
             superficie(0,upixxxxx);
             
         });
+
+
+        var diagnostico = function(selected, upixxxxx,padrexxx) {
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("vodontograma.diagnostico") }}',
+               campoxxx: 'diag_id',
+               mensajex: 'Exite un error al cargar los cursos'
+           }
+           f_comboGeneral(dataxxxx);
+       }
+
+       $('#diente').change(() => {
+            let upixxxxx = $('#diente').val();
+            let padrexxx = '{{ $todoxxxx["padrexxx"]->id }}';
+            let cabecera = true
+            diagnostico(0,upixxxxx);
+            
+        });
 });
-
-
-
 
 
 </script>

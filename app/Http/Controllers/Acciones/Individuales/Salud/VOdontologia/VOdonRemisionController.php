@@ -3,20 +3,23 @@
 namespace App\Http\Controllers\Acciones\Individuales\Salud\VOdontologia;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\Salud\VOdoexamenesCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesEditarRequest;
 
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\CrudTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\VistasTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\ListadosTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Remision\CrudTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Remision\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Remision\VistasTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Remision\ListadosTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Remision\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
-use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
-use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
 
-class VOdongramaController extends Controller
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonremite;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
+use Illuminate\Support\Facades\Auth;
+
+class VOdonRemisionController extends Controller
 {
     use ListadosTrait; // trait que arma las consultas para las datatables
     use CrudTrait; // trait donde se hace el crud de localidades
@@ -30,8 +33,8 @@ class VOdongramaController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'vodontograma';
-        $this->opciones['routxxxx'] = 'vodontograma';
+        $this->opciones['permisox'] = 'vodonremites';
+        $this->opciones['routxxxx'] = 'vodonremites';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -41,40 +44,19 @@ class VOdongramaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(VOdontologia $padrexxx)
-    {
-        $this->padrexxx = $padrexxx;
-        $this->opciones['tablinde']=false;
-        $this->opciones['padrexxx'] = $padrexxx;
-        $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
-        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-       
-        
-        return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary hidden']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
-        );
-    }
-
     public function create(VOdontologia $padrexxx)
     {
 
-        // $Noaplica=[1032,1040,1042,1047,1048,1058,1062,1071,1076];
-        // $test=[152,3,2,5,6,1042];
-        // $result = !empty(array_intersect($test, $Noaplica));
-        // if(!$result){
-        //     ddd($result);
-        // }
-
-
+        if($padrexxx->examenes){
+            return redirect()
+            ->route('vodonremites.editar', [$padrexxx->examenes->id]);
+        }
         $this->padrexxx = $padrexxx;
-        $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
-     //   ddd($padrexxx);
+
+        //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
 
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
@@ -82,53 +64,64 @@ class VOdongramaController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
-            $this->getBotones(['crear', [], 1, '', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['odontograma', 'formulario'],'padrexxx'=>$this->opciones['padrexxx']]
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(VOdontoantecentesCrearRequest $request,VOdontologia $padrexxx)
+    public function store(VOdoexamenesCrearRequest $request,VOdontologia $padrexxx)
     {//
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['odonto_id'=> $padrexxx->id]);
-        return $this->setOdograma([
+        foreach($request->diente as $key => $value){
+            $dientes =$value;
+            $diag=$request->diag_id[$key];
+            $test=VOdontograma::create(['diente' =>$dientes, 'diag_id' => $diag, 'odonto_id' => $padrexxx->id, 'sis_esta_id' =>1, 'user_crea_id' =>Auth::user()->id]);
+          //  ddd($test);
+        }
+
+
+   
+        return $this->setOdoExamenes([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
-            'infoxxxx' => 'Antecedentes creados con éxito',
+            'infoxxxx' => 'Examenes creados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(VOdontograma $modeloxx)
+    public function show(VOdonremite $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
+        
+        
+        
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
         $this->opciones['valoraci'] = $modeloxx;
         $this->padrexxx = $modeloxx->odontologia->nnaj;
+        
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        
-        $do=$this->getBotones(['leer', ['vodontologia.editar', [$modeloxx->odontologia]], 2, 'VOLVER A VALORACIÓN ODONTOLOGÍA', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
         return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
-    public function edit(VOdontograma $modeloxx)
+    public function edit(VOdonremite $modeloxx)
     {    
         $this->pestanix[2]['routexxx'] = '.editar';
         //ddd( $this->pestanix[2]['routexxx']);
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
         $this->opciones['valoraci'] = $modeloxx;
@@ -142,41 +135,17 @@ class VOdongramaController extends Controller
     }
 
 
-    public function update(VOdontoantecentesEditarRequest $request,  VOdontograma $modeloxx)
+    public function update(VOdontoantecentesEditarRequest $request,  VOdonremite $modeloxx)
     {
         $request->request->add(['odonto_id'=> $modeloxx->odontologia->id]);
         
-        return $this->setOdograma([
+        return $this->setOdoExamenes([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,
-            'infoxxxx' => 'Antecedentes editados con éxito',
+            'infoxxxx' => 'Examenes editados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
-    }
-
-    public function inactivate(VOdontograma $modeloxx)
-    {
-        $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
-        $this->opciones['padrexxx'] = $modeloxx->odontologia;
-        $this->opciones['valoraci'] = $modeloxx;
-        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
-        
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
-        //return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],$this->getBotones(['borrar', [], 1, 'INACTIVAR ASISTENTE', 'btn btn-sm btn-primary']),
-        return $this->destroy($modeloxx);
-            }
-
-
-    public function destroy(VOdontograma $modeloxx)
-    {
-        $modeloxx->delete();
-        return redirect()->back()
-            ->with('info', 'Diagnostico eliminado correctamente');
     }
 
 

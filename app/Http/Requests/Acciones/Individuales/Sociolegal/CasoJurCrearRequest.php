@@ -27,6 +27,8 @@ class CasoJurCrearRequest extends FormRequest
             'remiesp_id.required_if'=>'Seleccione la especialidad',
             'tipoc_id.required'=>'Indique si requiere certificado',
             'temac_id.required'=>'Seleccione el tipo de remisión Intrainstitucional',
+            'prm_rama_id.required'=>'¿El caso registra en rama Judicial?',
+            'estacaso.required'=>'Seleccione el estado del caso',
 
             
            
@@ -41,7 +43,7 @@ class CasoJurCrearRequest extends FormRequest
             'centro_id' => 'nullable',
             'censec_id' => 'nullable',
             'checkbox1' => 'nullable',
-            'prm_rama_id' => 'nullable',
+            'prm_rama_id' => 'required',
             'num_proceso' => 'nullable',
             'prm_juzgado' => 'nullable',
             'prm_solicita_id' => 'nullable',
@@ -52,7 +54,7 @@ class CasoJurCrearRequest extends FormRequest
             'correoapo' => 'nullable',
             'consultaca' => 'nullable',
             'asesoriaca' => 'nullable',
-            'estacaso' => 'nullable',
+            'estacaso' => 'required',
             
             
             
@@ -91,11 +93,10 @@ class CasoJurCrearRequest extends FormRequest
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $nnajxxxx = FiDatosBasico::where('sis_nnaj_id',$this->padrexxx->id)->first();
    
-            
-            //ddd($this->toArray());
+   
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
-            //ddd($edad);
+
                 
             if ($edad < 18) { //Mayor de edad
                 $this->_mensaje['prm_doc_id.required'] = 'Seleccione el tipo de documento del acompañante';

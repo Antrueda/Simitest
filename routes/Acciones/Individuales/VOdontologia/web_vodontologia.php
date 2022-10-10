@@ -60,4 +60,5 @@ Route::group(['prefix' => 'Odontologias'], function () use ($controll, $routxxxx
 require_once('web_vodonantece.php');
 require_once('web_vodonexamen.php');
 require_once('web_vodongrama.php');
-
+require_once('web_vodonremision.php');
+require_once('web_vodonhigiene.php');

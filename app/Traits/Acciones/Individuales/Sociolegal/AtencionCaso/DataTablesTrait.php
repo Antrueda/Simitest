@@ -54,7 +54,7 @@ trait DataTablesTrait
                             ['td' => 'TEMA DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO DE CASO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'SEGUIMIENTOS', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA SEGUMIENTO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA SEGUIMIENTO', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]

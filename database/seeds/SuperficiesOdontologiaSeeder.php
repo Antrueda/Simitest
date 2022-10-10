@@ -18,6 +18,7 @@ class SuperficiesOdontologiaSeeder extends Seeder
         TipoSuper::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRES SUPERFICIES', 'estusuario_id' => 49]); // 3
         TipoSuper::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUATRO SUPERFICIES', 'estusuario_id' => 49]); // 3
         TipoSuper::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TODAS', 'estusuario_id' => 49]); // 3
+        TipoSuper::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'N/A', 'estusuario_id' => 49]); // 3
 
         //1 SUPERFICIE
         Superficie::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'D', 'tiposu_id' => 1, 'estusuario_id' => 49]); // 1
@@ -81,6 +82,9 @@ class SuperficiesOdontologiaSeeder extends Seeder
         Superficie::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MODP', 'tiposu_id' => 4, 'estusuario_id' => 49]); // 1
         Superficie::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ODVL', 'tiposu_id' => 4, 'estusuario_id' => 49]); // 1
         Superficie::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ODPV', 'tiposu_id' => 4, 'estusuario_id' => 49]); // 1
+
+        //TODOS
+        Superficie::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'N/A', 'tiposu_id' => 5, 'estusuario_id' => 49]); // 1
 
 
     }
