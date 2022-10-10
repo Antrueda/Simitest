@@ -33,6 +33,7 @@ class Asissema extends Model
         'h_final',
         'prm_fecha_inicio',
         'prm_fecha_final',
+        'descripcion',
         'user_fun_id',
         'user_res_id',
         'sis_esta_id',
