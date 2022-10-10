@@ -14,7 +14,7 @@ class AddObservacionToAsissemasTable extends Migration
     public function up()
     {
         Schema::table('asissemas', function (Blueprint $table) {
-            $table->text('descripcion')->nullable()->comment('DESCRIPCION DE ASISTENCIA SEMANAL');
+            $table->string('descripcion',4000)->nullable()->comment('DESCRIPCION DE ASISTENCIA SEMANAL');
         });
     }
 

@@ -127,6 +127,7 @@ Route::get('ai/nnajs', function (Request $request) {
                 )
                 ->where('sis_nnajs.prm_escomfam_id', 227)
                 ->where('sis_depen_user.user_id', $request->userxxxx)
+                ->where('sis_depen_user.sis_esta_id', 1)
 
         )
 
