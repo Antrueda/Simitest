@@ -27,6 +27,8 @@ class CasoJurEditarRequest extends FormRequest
             'remiesp_id.required_if'=>'Seleccione la especialidad',
             'tipoc_id.required'=>'Indique si requiere certificado',
             'temac_id.required'=>'Seleccione el tipo de remisión Intrainstitucional',
+            'prm_rama_id.required'=>'¿El caso registra en rama Judicial?',
+            'estacaso.required'=>'Seleccione el estado del caso',
 
             
            
@@ -41,7 +43,7 @@ class CasoJurEditarRequest extends FormRequest
             'centro_id' => 'nullable',
             'censec_id' => 'nullable',
             'checkbox1' => 'nullable',
-            'prm_rama_id' => 'nullable',
+            'prm_rama_id' => 'required',
             'num_proceso' => 'nullable',
             'prm_juzgado' => 'nullable',
             'prm_solicita_id' => 'nullable',
@@ -52,7 +54,7 @@ class CasoJurEditarRequest extends FormRequest
             'correoapo' => 'nullable',
             'consultaca' => 'nullable',
             'asesoriaca' => 'nullable',
-            'estacaso' => 'nullable',
+            'estacaso' => 'required',
             
             
             
@@ -91,7 +93,7 @@ class CasoJurEditarRequest extends FormRequest
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $nnajxxxx = FiDatosBasico::where('sis_nnaj_id',$this->modeloxx->sis_nnaj_id)->first();
    
-            ddd($this->checki);
+            
             
             if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
