@@ -32,7 +32,7 @@ class VsiSaludEditarRequest extends FormRequest
             'prm_hijo_id' => 'required_if:prm_sexual_id,227',
             'prm_interrupcion_id' => 'required_if:prm_sexual_id,227',
             'medicamento' => 'required_if:prm_medicamento_id,227|max:120',
-            'descripcion' => 'required_if:prm_medicamento_id,227|max:120',
+            'descripcion' => 'required_if:prm_medicamento_id,227|max:4000',
             'edad' => 'required_if:prm_sexual_id,227|max:99',
             'embarazo' => 'required_if:prm_embarazo_id,227|max:99',
             'hijo' => 'required_if:prm_hijo_id,227|max:99',
@@ -67,6 +67,5 @@ class VsiSaludEditarRequest extends FormRequest
 
     public function validar()
     {
-
     }
 }
