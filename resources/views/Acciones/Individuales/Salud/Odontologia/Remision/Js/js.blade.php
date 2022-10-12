@@ -16,6 +16,29 @@
      $('tbody').append(html);
     });
 
+
+    (function($) {
+            $.fn.extend( {
+                limiter: function(limit, elem) {
+                    $(this).on("keyup focus", function() {
+                        setCount(this, elem);
+                    });
+                    function setCount(src, elem) {
+                        var chars = src.value.length;
+                        if (chars > limit) {
+                            src.value = src.value.substr(0, limit);
+                            chars = limit;
+                        }
+                        elem.html( chars+"/4000" );
+                    }
+                    setCount($(this)[0], elem);
+                }
+            });
+        })(jQuery);
+        var elem = $("#evolu");
+        $("#evolucion").limiter(4000, elem);
+        var elem = $("#observa");
+        $("#observacion").limiter(4000, elem);
 });
 $(document).on('click','#remove',function(){
             $(this).closest('tr').remove();

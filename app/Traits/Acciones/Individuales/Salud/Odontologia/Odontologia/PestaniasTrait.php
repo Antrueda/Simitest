@@ -21,6 +21,12 @@ trait PestaniasTrait
         [
             'permisox' => 'vodontograma', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
+        [
+            'permisox' => 'vodonhigiene', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
+        ],
+        [
+            'permisox' => 'vodonremites', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
+        ],
      
      
     ];
@@ -33,6 +39,8 @@ trait PestaniasTrait
         'vodonanteces' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'vodonexamens' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'vodontograma' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'vodonhigiene' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'vodonremites' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -87,6 +95,24 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'ODONTOGRAMA',
+            'tablaxxx' => 'sis_pais',
+            'checkxxx' => '',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['vodonhigiene'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'HIGIENE ORAL',
+            'tablaxxx' => 'sis_pais',
+            'checkxxx' => '',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['vodonremites'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'REMISIÓN',
             'tablaxxx' => 'sis_pais',
             'checkxxx' => '',
             'datablex' => [],

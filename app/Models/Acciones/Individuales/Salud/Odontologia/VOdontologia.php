@@ -37,6 +37,10 @@ class VOdontologia extends Model
         return $this->hasOne(VOdonremite::class, 'odonto_id');
     }
 
+    public function higiene(){
+        return $this->hasOne(VHigiene::class, 'odonto_id');
+    }
+
 
 
 
