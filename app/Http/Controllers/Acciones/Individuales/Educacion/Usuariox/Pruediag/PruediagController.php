@@ -55,10 +55,11 @@ class PruediagController extends Controller
     }
     public function index(SisNnaj $padrexxx)
     {
+    
         Session(['ver_' . Auth::id() => true]);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
 
-        $this->getDtPruediagIndex(['padrexxx' => $padrexxx->id]);
+        $this->getDtPruediagIndex(['padrexxx' => $padrexxx]);
         $this->getPrametros([$padrexxx->id]);
         $this->getPestanias([]);
 
@@ -112,6 +113,7 @@ class PruediagController extends Controller
      */
     public function show(EduPruediag $modeloxx)
     {
+        $this->matricul = $modeloxx->fiDatosBasico->sis_nnaj->iMatriculaNnajs()->first();
         Session::put('ver_' . Auth::id(), false);
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
@@ -137,11 +139,11 @@ class PruediagController extends Controller
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
         $this->dataxxxx = ['accionxx' => ['editarxx', 'verxxxxx']];
-        if (Auth::id() == $modeloxx->user_crea_id) {
+        // if (Auth::id() == $modeloxx->user_crea_id) {
             $this->dataxxxx = ['accionxx' => ['editarxx', 'formulario']];
             $botonxxx = ['accionxx' => 'editarxx', 'btnxxxxx' => 'b'];
             $this->getRespuesta($botonxxx);
-        }
+        // }
         return $this->view();
     }
 

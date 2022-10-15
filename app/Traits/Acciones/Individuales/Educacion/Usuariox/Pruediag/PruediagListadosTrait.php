@@ -86,7 +86,7 @@ trait PruediagListadosTrait
                         $queryxxx->where('eda_asignatus.sis_esta_id', 1);
                     }
                     $queryxxx->where('edu_pruediags.fi_datos_basico_id', $padrexxx->id);
-                    $queryxxx->where('sis_nnajs.prm_escomfam_id', 227);
+                    // $queryxxx->where('sis_nnajs.prm_escomfam_id', 227);
                 });
             return $this->getDt($dataxxxx, $request);
         }

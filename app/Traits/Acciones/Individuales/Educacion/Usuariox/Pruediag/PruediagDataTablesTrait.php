@@ -23,6 +23,7 @@ trait PruediagDataTablesTrait
     }
     public function getDtPruediagIndex($dataxxxx)
     {
+        
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'REGISTRAR PRUEBA DIAGNÓSTICA',
@@ -33,7 +34,7 @@ trait PruediagDataTablesTrait
                     $this->opciones['permisox'] . '-leerxxxx',
                 ],
                 'dataxxxx' => [],
-                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxx['padrexxx']]),
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxx['padrexxx']->fi_datos_basico->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -67,7 +68,7 @@ trait PruediagDataTablesTrait
                 'tablaxxx' => 'datatable',
                 'permnuev' => 'crearxxx',
                 'permisox' => $this->opciones['permisox'],
-                'parametr' => [$dataxxxx['padrexxx']],
+                'parametr' => [$dataxxxx['padrexxx']->id],
             ]
         ];
         $this->opciones['ruarchjs'][] =
