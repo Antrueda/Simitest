@@ -13,6 +13,7 @@ class Dast extends Model
         'fecha',
         'sis_depen_id',
         'prm_requiere_vespa',
+        'prm_aplico_vespa',
         'fecha_vespa',
         'accion_desarrolla',
         'prm_patron_con',

@@ -64,9 +64,17 @@ class DastSeguimientoController extends Controller
         ]);
         $this->opciones['puedetiempo'] = $puedexxx;
 
-        $this->opciones['parametr'] = [$padrexxx->id];
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR SEGUIMIENTO DAST', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
+        $puedoCrear = $this->verificarPuedoCrear($padrexxx);
+
+        if ($puedoCrear['puedo']) {
+            $this->opciones['parametr'] = [$padrexxx->id];
+            $this->getBotones(['crearxxx', [], 1, 'GUARDAR SEGUIMIENTO DAST', 'btn btn-sm btn-primary']);
+            return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
+        } else {
+            return redirect()
+                ->route('dastsegu', [$padrexxx->id])
+                ->with('info', $puedoCrear['meserror']);
+        }
     }
 
     public function store(SeguimientoDastCrearRequest $request, Dast $padrexxx)
@@ -99,12 +107,12 @@ class DastSeguimientoController extends Controller
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->dast]);
             } else {
                 return redirect()
-                    ->route('dastsegu', [$modeloxx->sis_nnaj_id])
+                    ->route('dastsegu', [$modeloxx->dast_id])
                     ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
             }
         } else {
             return redirect()
-                ->route('dastsegu', [$modeloxx->dast->id])
+                ->route('dastsegu', [$modeloxx->dast_id])
                 ->with('info', $puedexxx['msnxxxxx']);
         }
     }
@@ -146,6 +154,19 @@ class DastSeguimientoController extends Controller
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->dast])
             ->with('info', 'Seguimiento Cuestionario dast activado correctamente');
+    }
+
+    private function verificarPuedoCrear($padrexxx)
+    {
+        $ultimo_dast = Dast::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->orderBy('created_at', 'desc')->first();
+
+        if ($ultimo_dast->id == $padrexxx->id) {
+            $data['puedo'] = true;
+        } else {
+            $data['puedo'] = false;
+            $data['meserror'] = 'No puede crear el seguimiento al dast actual ya que existe uno mas actualizado.';
+        }
+        return $data;
     }
 
     private function verificarPuedoEditar($modeloxx)

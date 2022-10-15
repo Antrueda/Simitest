@@ -60,15 +60,39 @@
             $('#fecha_vespa_field')
                     .addClass('d-none');
             $('#fecha_vespa').attr('disabled', true);
+            $('#aplico_vespa_field')
+                    .addClass('d-none');
+            $('#prm_aplico_vespa').attr('disabled', true);
         }
         
         function f_vespa() {
             require = $("#prm_requiere_vespa");
             if (require.val()== '227') {
                 $('#fecha_vespa_field').removeClass('d-none');
-                $('#fecha_vespa').attr('disabled', false);
+                $('#fecha_vespa').attr('disabled', true);
+
+                $('#aplico_vespa_field').removeClass('d-none');
+                $('#prm_aplico_vespa').attr('disabled', false);
+            
             }else{
                 ocultarFields();
+                $('#fecha_vespa').val("");
+                $('#prm_aplico_vespa').val("");
+            }
+        }
+
+        f_aplico_vespa();
+        $('#prm_aplico_vespa').change(() => {
+            f_aplico_vespa();
+        });
+
+        function f_aplico_vespa() {
+            require = $("#prm_aplico_vespa");
+            if (require.val() == '227') {
+                $('#fecha_vespa').attr('disabled', false);
+            }else{
+                $('#fecha_vespa').attr('disabled', true);
+                $('#fecha_vespa').val("");
             }
         }
     });
