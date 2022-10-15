@@ -36,7 +36,7 @@
       </li>
       <li class="list-group-item">
         <b>TELÉFONO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->telefonos : '' }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}</a>
       </li>
       <li class="list-group-item">
         <b>NOMBRE IDENTITARIO</b>

@@ -79,9 +79,12 @@ Route::get('csd/nnajs', function (Request $request) {
 Route::get('ai/nnajs', function (Request $request) {
 
 
+if($request->userxxxx==2508){
+
+}
+
     if (!$request->ajax())
         return redirect('/');
-    print_r($request->data);
     return datatables()
 
         ->eloquent(
@@ -109,6 +112,7 @@ Route::get('ai/nnajs', function (Request $request) {
                 ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depen_user', 'nnaj_upis.sis_depen_id', '=', 'sis_depen_user.sis_depen_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->groupBy(
                     'fi_datos_basicos.id',
                     'tipodocumento.nombre',
@@ -128,7 +132,7 @@ Route::get('ai/nnajs', function (Request $request) {
                 ->where('sis_nnajs.prm_escomfam_id', 227)
                 ->where('sis_depen_user.user_id', $request->userxxxx)
                 ->where('sis_depen_user.sis_esta_id', 1)
-
+                ->where('nnaj_upis.sis_esta_id', 1)
         )
 
         ->addColumn('botones', 'Acciones/Individuales/botones')

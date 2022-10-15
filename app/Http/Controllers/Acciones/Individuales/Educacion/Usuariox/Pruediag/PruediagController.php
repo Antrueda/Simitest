@@ -57,7 +57,8 @@ class PruediagController extends Controller
     {
         Session(['ver_' . Auth::id() => true]);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        $this->getDtPruediagIndex(['padrexxx' => $this->opciones['usuariox']->id]);
+
+        $this->getDtPruediagIndex(['padrexxx' => $padrexxx->id]);
         $this->getPrametros([$padrexxx->id]);
         $this->getPestanias([]);
 
@@ -76,13 +77,15 @@ class PruediagController extends Controller
         $this->matricul = $padrexxx->iMatriculaNnajs()->first();
         if (is_null($this->matricul)) {
             $nnajxxxx = $padrexxx->fi_datos_basico;
-            $nnajxxxx = $nnajxxxx->s_primer_nombre
+            $nnajxxxy = $nnajxxxx->s_primer_nombre
                 . ' ' . $nnajxxxx->s_segundo_nombre
                 . ' ' . $nnajxxxx->s_primer_apellido
                 . ' ' . $nnajxxxx->s_segundo_apellido;
+
+                
             return redirect()
                 ->route('pruediag', $padrexxx->id)
-                ->with('info', 'Para realizar la prueba diagnóstica del nnaj: ' . $nnajxxxx);
+                ->with('info', 'Para realizar la prueba diagnóstica del nnaj: ' . $nnajxxxy);
         }
 
         $this->padrexxx = $padrexxx;

@@ -38,7 +38,7 @@ trait PruediagVistasTrait
         ;
     }
     public function view()
-    {
+    { 
         $this->getVista();
           $this->opciones['parametr'] = [$this->padrexxx->fi_datos_basico->id];
         // indica si se esta actualizando o viendo

@@ -25,10 +25,10 @@
         </div>
         <div class="row">
             <div class="col-md" style="text-transform:uppercase;">
-                DIRECCIÓN: {{ $dato->FiResidencia!= null ?$dato->FiResidencia->direccion : '' }}
+                DIRECCIÓN: {{ $dato->FiResidencia!= null ?$dato->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}
             </div>
             <div class="col-md">
-                TELÉFONO: {{ $dato->FiResidencia!= null ?$dato->FiResidencia->telefonos : '' }}
+                TELÉFONO: {{ $dato->FiResidencia!= null ?$dato->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}
             </div>
             <div class="col-md" style="text-transform:uppercase;">
                 NOMBRE IDENTITARIO: {{ $nnaj->nnaj_sexo->s_nombre_identitario }}

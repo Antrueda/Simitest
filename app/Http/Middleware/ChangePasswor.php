@@ -18,7 +18,7 @@ class ChangePasswor
                 ->with('error', 'Para continuar por favor debe actualizar su contraseña');
         } else
 
-        if ($actualxx > $cambioxx) { dd($usuario->password_change_at );
+        if ($actualxx > $cambioxx) {
             return  redirect()->route('contrase.cambiar', Auth::user()->id)
                 ->with('error', 'Para continuar por favor debe actualizar su contraseña');
         } elseif ($usuario->polidato_at == null) {

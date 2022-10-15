@@ -25,11 +25,11 @@
         <div class="row">
             <div class="col-md">
                 DIRECCIÓN:
-                {{$dato->FiResidencia!=null ? $dato->FiResidencia->direccion : '' }}
+                {{$dato->FiResidencia!=null ? $dato->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}
             </div>
             <div class="col-md">
                 TELÉFONO:
-                {{$dato->FiResidencia!=null ? $dato->FiResidencia->telefonos : '' }}
+                {{$dato->FiResidencia!=null ? $dato->FiResidencia->where('sis_esta_id', 1)->first()->telefonos : '' }}
             </div>
             <div class="col-md">
                 NOMBRE IDENTITARIO: {{ $nnaj->s_nombre_identitario }}

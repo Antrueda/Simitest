@@ -47,7 +47,7 @@ class CedulaNnajRule implements Rule
     {
         $objetoxx = NnajDocu::where('s_documento', $this->requestx->s_documento)->first();
         $this->respuest = true;
-        if ($objetoxx != null) {
+        if (!is_null($objetoxx)) {            
             $this->datobasi = $objetoxx->fi_datos_basico;
             $this->messagex = "La cédula: {$this->requestx->s_documento} ya existe y pertences al nnaj: " . $this->getNombre();
             $this->respuest = false;
@@ -106,7 +106,8 @@ class CedulaNnajRule implements Rule
             ->first();
         // verificar que la cédula ya la tenga otro nnaj
 
-        if ($compfami != null) {
+        if (!is_null($compfami)) { 
+            $this->getDocumentoExiste();
             $this->getRespustaCNR();
         } else {
             $this->respuest = true;
