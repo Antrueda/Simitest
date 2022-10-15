@@ -98,6 +98,7 @@ class PruediagController extends Controller
     }
     public function store(PruediagCrearRequest $request, SisNnaj $padrexxx)
     {
+      
         $this->requestx = $request;
         $request->request->add(['fi_datos_basico_id' => $padrexxx->fi_datos_basico->id]);
         return $this->setEduPruediag();
@@ -132,6 +133,7 @@ class PruediagController extends Controller
         $this->vercrear = true;
         $this->opciones['modeloxx'] = $modeloxx;
         $this->padrexxx = $modeloxx->fiDatosBasico->sis_nnaj;
+     
         $botonxxx = ['btnxxxxx' => 'a', 'tituloxx' => 'VOLVER A PRUEBAS DIAGNÓSTICAS', 'parametr' => [$this->padrexxx->id]];
         $this->getRespuesta($botonxxx);
         $this->dataxxxx = ['accionxx' => ['editarxx', 'verxxxxx']];
