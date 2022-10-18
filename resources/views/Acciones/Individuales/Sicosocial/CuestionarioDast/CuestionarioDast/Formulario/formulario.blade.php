@@ -92,6 +92,15 @@
             </div>
             @endif
         </div>
+        <div class="d-none form-group col-md-6" id="aplico_vespa_field">
+            {!! Form::label('prm_aplico_vespa', 'Se aplicó vespa:', ['class' => 'control-label']) !!}
+            {!! Form::select('prm_aplico_vespa',$todoxxxx['si_no'], null, ['name' => 'prm_aplico_vespa','required','class' => 'form-control form-control-sm']) !!}
+            @if($errors->has('prm_aplico_vespa'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_aplico_vespa') }}
+            </div>
+            @endif
+        </div>
         <div class="d-none form-group col-md-6" id="fecha_vespa_field">
             {!! Form::label('fecha_vespa', 'Fecha de aplicación del VESPA:', ['class' => 'control-label']) !!}
             <div class="datepicker date input-group p-0 shadow-sm">

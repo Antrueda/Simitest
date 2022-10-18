@@ -17,6 +17,7 @@ class CreateDasts extends Migration
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('prm_requiere_vespa')->unsigned()->comment('PARAMETRO REQUIERE APLICACION DEL VESPA');
+            $table->integer('prm_aplico_vespa')->nullable()->unsigned()->comment('PARAMETRO REQUIERE APLICO VESPA');
             $table->date('fecha_vespa')->nullable()->comment('FECHA APLICACION VESPA');
             $table->text('accion_desarrolla')->comment('TIPO DE ACCION A DESARROLLAR');
             $table->integer('prm_patron_con')->unsigned()->comment('PARAMETRO PATRON DE CONSUMO');
@@ -30,6 +31,7 @@ class CreateDasts extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('prm_requiere_vespa')->references('id')->on('parametros');
+            $table->foreign('prm_aplico_vespa')->references('id')->on('parametros');
             $table->foreign('prm_patron_con')->references('id')->on('parametros');
             $table->foreign('prm_diligencia')->references('id')->on('parametros');
             $table->foreign('user_fun_id')->references('id')->on('users');
@@ -41,7 +43,8 @@ class CreateDasts extends Migration
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
             $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
             $table->integer('prm_requiere_vespa')->unsigned()->comment('PARAMETRO REQUIERE APLICACION DEL VESPA');
-            $table->date('fecha_vespa')->comment('FECHA APLICACION VESPA');
+            $table->integer('prm_aplico_vespa')->nullable()->unsigned()->comment('PARAMETRO REQUIERE APLICO VESPA');
+            $table->date('fecha_vespa')->nullable()->comment('FECHA APLICACION VESPA');
             $table->text('accion_desarrolla')->comment('TIPO DE ACCION A DESARROLLAR');
             $table->integer('prm_patron_con')->unsigned()->comment('PARAMETRO PATRON DE CONSUMO');
             $table->text('obs_patron_con')->comment('OBSERVACION PATRON DE CONSUMO');

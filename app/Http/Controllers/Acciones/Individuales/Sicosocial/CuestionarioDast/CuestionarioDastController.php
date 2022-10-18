@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Combos\CombosTrait;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
@@ -155,7 +156,17 @@ class CuestionarioDastController extends Controller
 
     private function verificarPuedoCrear($padrexxx)
     {
-        $data['puedo'] = true;
+        $ultimo_dast = Dast::select([
+            'dasts.id',
+            DB::raw("(SELECT COUNT(*) FROM dast_seguimientos where dast_seguimientos.dast_id = dasts.id) AS seguimientos"),
+        ])->where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
+
+        if ($ultimo_dast->seguimientos > 0) {
+            $data['puedo'] = true;
+        } else {
+            $data['puedo'] = false;
+            $data['meserror'] = 'No puede crear el cuestionario DAST porque el ultimo cuestionario aún no tiene seguimientos.';
+        }
         return $data;
     }
 

@@ -129,7 +129,8 @@ trait DastListadosTrait
                 ->join('users', 'dasts.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'dasts.sis_esta_id', '=', 'sis_estas.id')
                 ->join('dast_resultados', 'dasts.id', '=', 'dast_resultados.dast_id')
-                ->where('dasts.sis_nnaj_id', $padrexxx->id);
+                ->where('dasts.sis_nnaj_id', $padrexxx->id)
+                ->orderBy('dasts.created_at', 'desc');
             return $this->getDtDast($dataxxxx, $request);
         }
     }
