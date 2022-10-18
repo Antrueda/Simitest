@@ -161,12 +161,17 @@ class CuestionarioDastController extends Controller
             DB::raw("(SELECT COUNT(*) FROM dast_seguimientos where dast_seguimientos.dast_id = dasts.id) AS seguimientos"),
         ])->where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
 
-        if ($ultimo_dast->seguimientos > 0) {
-            $data['puedo'] = true;
+        if ($ultimo_dast != null) {
+            if ($ultimo_dast->seguimientos > 0) {
+                $data['puedo'] = true;
+            } else {
+                $data['puedo'] = false;
+                $data['meserror'] = 'No puede crear el cuestionario DAST porque el ultimo cuestionario aún no tiene seguimientos.';
+            }
         } else {
-            $data['puedo'] = false;
-            $data['meserror'] = 'No puede crear el cuestionario DAST porque el ultimo cuestionario aún no tiene seguimientos.';
+            $data['puedo'] = true;
         }
+
         return $data;
     }
 
