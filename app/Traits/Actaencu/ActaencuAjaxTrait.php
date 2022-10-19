@@ -90,7 +90,7 @@ trait ActaencuAjaxTrait
                 $dataxxxx['temaxxxx'] = 396;
                 break;
             case 2930:
-                $dataxxxx['temaxxxx'] = 396;
+                $dataxxxx['temaxxxx'] = 474;
                 break;
             case 2931:
                 $dataxxxx['temaxxxx'] = 473;
