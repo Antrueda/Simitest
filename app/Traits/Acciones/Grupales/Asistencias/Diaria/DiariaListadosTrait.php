@@ -9,6 +9,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdNnajActividades;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -106,7 +107,7 @@ trait DiariaListadosTrait
                     'asd_tiactividads.nombre as tipo',
                     'asd_diarias.fechdili',
                     'sis_estas.s_estado',
-                    DB::raw("(SELECT COUNT(*) FROM asd_sis_nnajs where asd_sis_nnajs.asd_diaria_id = asd_diarias.id AND asd_sis_nnajs.deleted_at IS null) AS contado"),
+                    DB::raw("(SELECT COUNT(*) FROM asd_sis_nnajs where asd_sis_nnajs.asd_diaria_id = asd_diarias.id ) AS contado"),
                 ])
                     ->join('sis_depens', 'asd_diarias.sis_depen_id', '=', 'sis_depens.id')
                     ->join('sis_servicios', 'asd_diarias.sis_servicio_id', '=', 'sis_servicios.id')
@@ -121,7 +122,10 @@ trait DiariaListadosTrait
                     ->join('asd_actividads', 'asd_diarias.asd_actividad_id', '=', 'asd_actividads.id')
                     ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
                     ->join('sis_estas', 'asd_diarias.sis_esta_id', '=', 'sis_estas.id')
-                    ->where('asd_diarias.sis_depen_id', $request->my_extra_data['sisdepen']);
+                    ->where('asd_diarias.sis_depen_id', $request->my_extra_data['sisdepen'])
+                    ->orderBy('asd_diarias.id', 'asc')
+                    ;
+                
                 if ($request->my_extra_data['fecha_desde'] != "") {
                     $from = date($request->my_extra_data['fecha_desde']);
                     $to = date($request->my_extra_data['fecha_hasta']);
@@ -214,8 +218,15 @@ trait DiariaListadosTrait
                 ->where('nnaj_deses.sis_servicio_id', '<>', 8)
                 ->where('nnaj_deses.sis_servicio_id', '<>', 16)
                 ->where(function ($query) use ($padrexxx) {
-                    $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id)
-                        ->orWhere('asd_sis_nnajs.id', null);
+                    
+                    // if(!Auth::user()->s_documento=='17496705'){
+                        $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id);
+                        $query ->orWhere('asd_sis_nnajs.id', null);
+                    // }else {
+                    //     // echo 777;
+                    // }
+                    
+                    
                     //->where('asd_sis_nnajs.deleted_at','<>',$padrexxx->id);
                 });
 

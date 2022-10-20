@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsdNnajActividades extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
 
     protected $fillable = [

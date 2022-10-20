@@ -103,7 +103,7 @@ class AsdSisNnajController extends Controller
     {
 
         $count = AsdNnajActividades::where('asd_sis_nnajs_id', '=' , $modeloxx->id)
-            ->whereNull('deleted_at')
+            // ->whereNull('deleted_at')
             //->update(['deleted_at' => now()])
             ->get();
 
