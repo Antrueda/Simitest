@@ -91,6 +91,29 @@
         });
     }
 
+    var f_motivos_usuario = function(dataxxxx) {
+        $('#estusuarios_id').empty();
+        $.ajax({
+            url: dataxxxx.routexxx,
+            type: 'GET',
+            data: dataxxxx.dataxxxx,
+            dataType: 'json',
+            success: function(json) {
+                $.each(json, function(i, data) {
+                    var selected = '';
+                    if (data.valuexxx == dataxxxx.selected) {
+                        selected = 'selected';
+                    }
+                    $('#estusuarios_id').append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                });
+
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existiÃ³ un problema');
+            }
+        });
+    }
+
     var f_servicios = function(dataxxxx) {
         $('#prm_serv_id').empty();
         $.ajax({
