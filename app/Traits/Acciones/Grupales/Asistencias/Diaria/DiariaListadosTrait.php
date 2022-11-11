@@ -123,9 +123,8 @@ trait DiariaListadosTrait
                     ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
                     ->join('sis_estas', 'asd_diarias.sis_esta_id', '=', 'sis_estas.id')
                     ->where('asd_diarias.sis_depen_id', $request->my_extra_data['sisdepen'])
-                    ->orderBy('asd_diarias.id', 'asc')
-                    ;
-                
+                    ->orderBy('asd_diarias.id', 'asc');
+
                 if ($request->my_extra_data['fecha_desde'] != "") {
                     $from = date($request->my_extra_data['fecha_desde']);
                     $to = date($request->my_extra_data['fecha_hasta']);
@@ -138,9 +137,13 @@ trait DiariaListadosTrait
     }
 
     // los NNajs Que han sido agregados  a la planilla planilla de asistencia diaria 
-    public function getNnajsAgregados(Request $request, $padrexxx)
+    public function getNnajsAgregados(Request $request, AsdDiaria $padrexxx)
     {
         if ($request->ajax()) {
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->fechdili, 'upixxxxx' => $padrexxx->sis_depen_id, 'formular' => 3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             // $request->routexxx = ['nnajasdi', 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -164,7 +167,7 @@ trait DiariaListadosTrait
                 ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'asd_sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->where('asd_sis_nnajs.asd_diaria_id', $padrexxx);
+                ->where('asd_sis_nnajs.asd_diaria_id', $padrexxx->id);
 
             return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
@@ -185,6 +188,11 @@ trait DiariaListadosTrait
     public function getNnajsAgregar(Request $request, AsdDiaria $padrexxx)
     {
         if ($request->ajax()) {
+
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->fechdili, 'upixxxxx' => $padrexxx->sis_depen_id, 'formular' => 3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->padrexxx = $padrexxx;
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -218,15 +226,15 @@ trait DiariaListadosTrait
                 ->where('nnaj_deses.sis_servicio_id', '<>', 8)
                 ->where('nnaj_deses.sis_servicio_id', '<>', 16)
                 ->where(function ($query) use ($padrexxx) {
-                    
+
                     // if(!Auth::user()->s_documento=='17496705'){
-                        $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id);
-                        $query ->orWhere('asd_sis_nnajs.id', null);
+                    $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id);
+                    $query->orWhere('asd_sis_nnajs.id', null);
                     // }else {
                     //     // echo 777;
                     // }
-                    
-                    
+
+
                     //->where('asd_sis_nnajs.deleted_at','<>',$padrexxx->id);
                 });
 
@@ -238,10 +246,14 @@ trait DiariaListadosTrait
         }
     }
 
-    public function getNnajActividades(Request $request, $padrexxx)
+    public function getNnajActividades(Request $request, AsdSisNnaj $padrexxx)
     {
+        $asdiaria = $padrexxx->asdDiaria;
 
         if ($request->ajax()) {
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $asdiaria->fechdili, 'upixxxxx' => $asdiaria->sis_depen_id, 'formular' => 3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+
             $request->routexxx = ['nnajacti', 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -259,7 +271,7 @@ trait DiariaListadosTrait
                 ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
                 ->join('parametros as novedad', 'asd_nnaj_actividades.prm_novedadx_id', '=', 'novedad.id')
                 ->join('sis_estas', 'asd_nnaj_actividades.sis_esta_id', '=', 'sis_estas.id')
-                ->where('asd_nnaj_actividades.asd_sis_nnajs_id', $padrexxx);
+                ->where('asd_nnaj_actividades.asd_sis_nnajs_id', $padrexxx->id);
 
             return $this->getDt($dataxxxx, $request);
         }
