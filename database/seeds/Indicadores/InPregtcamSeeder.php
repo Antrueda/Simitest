@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeds\Indicadores;
+namespace database\seeds\Indicadores;
 
 use App\Models\Indicadores\Administ\InPregtcam;
 use Illuminate\Database\Seeder;

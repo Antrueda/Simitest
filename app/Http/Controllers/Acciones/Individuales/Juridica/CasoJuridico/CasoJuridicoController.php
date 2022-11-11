@@ -55,6 +55,11 @@ class CasoJuridicoController extends Controller
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        if($padrexxx->fi_datos_basico->nnaj_nacimi->Edad<29){
+            $this->opciones['vercrear'] = true;
+        }else{
+            $this->opciones['vercrear'] = false;
+        }
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
         
@@ -78,7 +83,7 @@ class CasoJuridicoController extends Controller
                  }
             }
         }
-        
+        $this->opciones['vercrear'] = false;
         $this->padrexxx = $padrexxx;
         $this->opciones['residenc'] = $padrexxx->FiResidencia;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
@@ -86,7 +91,8 @@ class CasoJuridicoController extends Controller
         $this->opciones['diagnost'] = '.listaxxy';
         $this->opciones['valoraci'] = $padrexxx;
         
-        $this->opciones['vercrear'] = false;
+
+        
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
@@ -127,6 +133,7 @@ class CasoJuridicoController extends Controller
         $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A ATENCIÓN CASO JURÍDICO', 'btn btn-sm btn-primary']);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA ATENCIÓN CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
@@ -135,8 +142,12 @@ class CasoJuridicoController extends Controller
 
     public function edit(CasoJur $modeloxx)
     {    
-        $this->opciones['cursosxx'] = Diagnostico::combo(true,false);
-        $this->opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+        if($modeloxx->user_crea_id!=Auth::user()->id){
+            return redirect()
+            ->route('acasojur', [$modeloxx->sis_nnaj_id])
+            ->with('info', 'No se puede editar este formulario');
+             }
+
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;

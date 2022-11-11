@@ -288,7 +288,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_rama_id', '¿El caso registra en rama Judicial?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_rama_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_rama_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_rama_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_rama_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
     @if($errors->has('prm_rama_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_rama_id') }}
@@ -306,7 +306,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('prm_juzgado', 'Juzgado que atiende el proceso', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_juzgado', $todoxxxx['juzgadox'], null, ['class' => $errors->first('prm_juzgado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_juzgado', $todoxxxx['juzgadox'], null, ['class' => $errors->first('prm_juzgado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_juzgado']) }}
     @if($errors->has('prm_juzgado'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_juzgado') }}

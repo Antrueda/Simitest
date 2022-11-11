@@ -7,7 +7,7 @@ use Database\Seeds\Indicadores\InIndilibaSeeder;
 use Database\Seeds\Indicadores\InLibagrupSeeder;
 use Database\Seeds\Indicadores\InPregtcamSeeder;
 use Database\Seeds\Permisos\ReportesSeeder;
-use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -91,20 +91,20 @@ class DatabaseSeeder extends Seeder
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);
         // * INDICADORES
-        $this->call(InIndicadorSeeder::class);
-        $this->call(InAreaindiSeeder::class);
-        $this->call(InLineaBasesSeeder::class);
-        $this->call(InIndilibaSeeder::class);
-        $this->call(InLibagrupSeeder::class);
-        $this->call(InPregtcamSeeder::class);
-        $this->call(InGrupreguSeeder::class);
+        // $this->call(InIndicadorSeeder::class);
+        // $this->call(InAreaindiSeeder::class);
+        // $this->call(InLineaBasesSeeder::class);
+        // $this->call(InIndilibaSeeder::class);
+        // $this->call(InLibagrupSeeder::class);
+        // $this->call(InPregtcamSeeder::class);
+        // $this->call(InGrupreguSeeder::class);
          // * FIN INDICADORES
         
-        $this->call(SisActividadsSeeder::class);
-        $this->call(SisMapaProcsSeeder::class);
-        $this->call(SisProcesosSeeder::class);
-        $this->call(MensajesSeeder::class);
-        $this->call(SisActividadProcesosSeeder::class);
+        // $this->call(SisActividadsSeeder::class);
+        // $this->call(SisMapaProcsSeeder::class);
+        // $this->call(SisProcesosSeeder::class);
+        // $this->call(MensajesSeeder::class);
+        // $this->call(SisActividadProcesosSeeder::class);
         // ya
         $this->call(SisNnajMilSeeder::class);
         $this->call(SisNnajDosMilSeeder::class);
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FiDatosBasicoOchoMilSeeder::class);
         $this->call(FiDatosBasicoNueveMilSeeder::class);
         $this->call(FiDatosBasicoDiezMilSeeder::class);
-//ya
+
         $this->call(NnajDocuMilSeeder::class);
         $this->call(NnajDocuDosMilSeeder::class);
         $this->call(NnajDocuTresMilSeeder::class);
@@ -140,7 +140,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajDocuOchoMilSeeder::class);
         $this->call(NnajDocuNueveMilSeeder::class);
         $this->call(NnajDocuDiezMilSeeder::class);
-// ya
+
         $this->call(NnajNacimiMilSeeder::class);
         $this->call(NnajNacimiDosMilSeeder::class);
         $this->call(NnajNacimiTresMilSeeder::class);
@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajNacimiOchoMilSeeder::class);
         $this->call(NnajNacimiNueveMilSeeder::class);
         $this->call(NnajNacimiDiezMilSeeder::class);
-//ya
+
         $this->call(NnajFiCsdMilSeeder::class);
         $this->call(NnajFiCsdDosMilSeeder::class);
         $this->call(NnajFiCsdTresMilSeeder::class);
@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajFiCsdSieteMilSeeder::class);
         $this->call(NnajFiCsdOchoMilSeeder::class);
         $this->call(NnajFiCsdNueveMilSeeder::class);
-//ya
+
         $this->call(NnajFocaliMilSeeder::class);
         $this->call(NnajFocaliDosMilSeeder::class);
         $this->call(NnajFocaliTresMilSeeder::class);
@@ -170,7 +170,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajFocaliSeisMilSeeder::class);
         $this->call(NnajFocaliSieteMilSeeder::class);
         $this->call(NnajFocaliOchoMilSeeder::class);
-        // ya
+       
         $this->call(NnajSexoMilSeeder::class);
         $this->call(NnajSexoDosMilSeeder::class);
         $this->call(NnajSexoTresMilSeeder::class);
@@ -180,7 +180,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajSexoSieteMilSeeder::class);
         $this->call(NnajSexoOchoMilSeeder::class);
         $this->call(NnajSexoNueveMilSeeder::class);
-// ya
+
         $this->call(NnajSitMilMilSeeder::class);
         $this->call(NnajSitMilDosMilSeeder::class);
         $this->call(NnajSitMilTresMilSeeder::class);
@@ -202,7 +202,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajUpiDiezMilSeeder::class);
         $this->call(NnajUpiOnceMilSeeder::class);
         $this->call(NnajUpiDoceMilSeeder::class);
-// ya
+
         $this->call(NnajDeseMilSeeder::class);
         $this->call(NnajDeseDosMilSeeder::class);
         $this->call(NnajDeseTresMilSeeder::class);
@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NnajDeseDiezMilSeeder::class);
         $this->call(NnajDeseOnceMilSeeder::class);
         $this->call(NnajDeseDoceMilSeeder::class);
-//ya
+
         $this->call(FiDiligenc1MilSeeder::class);
         $this->call(FiDiligenc2MilSeeder::class);
         $this->call(FiDiligenc3MilSeeder::class);
@@ -280,7 +280,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdGenIngresoSeeder::class); // Jorge
         $this->call(CsdBienvenidaSeeder::class); // Jorge
         $this->call(CsdBienvenidaMotivosSeeder::class); // Jorge
-        $this->call(SisFsoportesSeeder::class);
+     //   $this->call(SisFsoportesSeeder::class);
         $this->call(FosStsesSeeder::class);
         $this->call(FosTsesSeeder::class);
         $this->call(FosSeguimientosSeeder::class);

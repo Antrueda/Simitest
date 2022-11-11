@@ -14,7 +14,7 @@
     </div>
     <div class="col-sm-3">
       {{ Form::label('diag_id', 'Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('diag_id[]', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'diag_id', 'multiple','required']) }}
+      {{ Form::select('diag_id', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'diag_id','required']) }}
           @if($errors->has('diag_id'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('diag_id') }}
