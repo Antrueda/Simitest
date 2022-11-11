@@ -21,7 +21,7 @@ class AsdSisNnaj extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
-  
+
     ];
 
     public function prmNovedadx()
@@ -42,9 +42,13 @@ class AsdSisNnaj extends Model
         return $this->belongsTo(AsdNnajActividades::class);
     }
 
+    public function asdDiaria()
+    {
+        return $this->belongsTo(AsdDiaria::class, 'asd_diaria_id');
+    }
+
     public function calcularEdad($fecha)
     {
         return Carbon::parse($fecha)->age;
     }
-    
 }
