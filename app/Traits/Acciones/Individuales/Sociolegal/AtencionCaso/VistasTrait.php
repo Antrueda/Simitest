@@ -127,11 +127,13 @@ trait VistasTrait
                 $dataxxxx['modeloxx']->localidad_id = $dataxxxx['modeloxx']->sis_upzbarri->sis_localupz->sis_localidad_id;
                 $dataxxxx['modeloxx']->upz_id=$dataxxxx['modeloxx']->sis_upzbarri->sis_localupz_id;
             }
+            $dependid=$dataxxxx['modeloxx']->upi_id;
             $opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->localidad_id, false);
             $opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->upz_id, false);          
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['modeloxx']->sis_nnaj_id, 'dependid' => $dependid]);
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;

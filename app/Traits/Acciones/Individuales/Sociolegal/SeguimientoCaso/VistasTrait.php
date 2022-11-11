@@ -38,7 +38,11 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         
-        
+        if($opciones['usuariox']->prm_tipoblaci_id!=650){
+            $opciones['juridica'] = $opciones['padrexxx']->fi_justrests->fi_proceso_srpas;
+        }else{
+            $opciones['juridica'] = [235 => 'N/A'];
+        }     
         
         $dependid = 0;
         $opciones['fechcrea'] = '';

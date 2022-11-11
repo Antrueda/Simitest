@@ -29,6 +29,9 @@ class CasoJurCrearRequest extends FormRequest
             'temac_id.required'=>'Seleccione el tipo de remisión Intrainstitucional',
             'prm_rama_id.required'=>'¿El caso registra en rama Judicial?',
             'estacaso.required'=>'Seleccione el estado del caso',
+            'prm_sujeto.required'=>'Seleccione el tipo de sujeto',
+            'consultaca.required'=>'Digite consulta de caso',
+            'asesoriaca.required'=>'Digite asesoria de caso',
 
             
            
@@ -50,10 +53,10 @@ class CasoJurCrearRequest extends FormRequest
             'tipoc_id' => 'required',
             'temac_id' => 'required',
             'telfapo2' => 'nullable',
-            'prm_sujeto' => 'nullable',
+            'prm_sujeto' => 'required',
             'correoapo' => 'nullable',
-            'consultaca' => 'nullable',
-            'asesoriaca' => 'nullable',
+            'consultaca' => 'required',
+            'asesoriaca' => 'required',
             'estacaso' => 'required',
             
             

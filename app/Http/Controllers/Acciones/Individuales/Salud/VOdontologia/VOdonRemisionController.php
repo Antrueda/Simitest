@@ -47,9 +47,9 @@ class VOdonRemisionController extends Controller
     public function create(VOdontologia $padrexxx)
     {
 
-        if($padrexxx->examenes){
+        if($padrexxx->remision){
             return redirect()
-            ->route('vodonremites.editar', [$padrexxx->examenes->id]);
+            ->route('vodonremites.editar', [$padrexxx->remision->id]);
         }
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
@@ -76,16 +76,7 @@ class VOdonRemisionController extends Controller
     {//
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['odonto_id'=> $padrexxx->id]);
-        foreach($request->diente as $key => $value){
-            $dientes =$value;
-            $diag=$request->diag_id[$key];
-            $test=VOdontograma::create(['diente' =>$dientes, 'diag_id' => $diag, 'odonto_id' => $padrexxx->id, 'sis_esta_id' =>1, 'user_crea_id' =>Auth::user()->id]);
-          //  ddd($test);
-        }
-
-
-   
-        return $this->setOdoExamenes([
+        return $this->setOdoRemision([
             'requestx' => $request,//
             'modeloxx' => '',
             'padrexxx' => $padrexxx,
@@ -100,9 +91,6 @@ class VOdonRemisionController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        
-        
-        
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
         $this->opciones['valoraci'] = $modeloxx;
@@ -118,7 +106,7 @@ class VOdonRemisionController extends Controller
     public function edit(VOdonremite $modeloxx)
     {    
         $this->pestanix[2]['routexxx'] = '.editar';
-        //ddd( $this->pestanix[2]['routexxx']);
+        
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
@@ -139,7 +127,7 @@ class VOdonRemisionController extends Controller
     {
         $request->request->add(['odonto_id'=> $modeloxx->odontologia->id]);
         
-        return $this->setOdoExamenes([
+        return $this->setOdoRemision([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx->nnaj,

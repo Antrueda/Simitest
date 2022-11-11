@@ -35,7 +35,7 @@ trait DataTablesTrait
                     'titulist' => 'LISTA DE ATENCIONES CASO JURÍDICO',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'vercrear' => true,
+                    'vercrear' =>  $dataxxxx['vercrear'],
                     'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
                     'permtabl' => [
                        $this->opciones['permisox'] . '-leer',
@@ -79,7 +79,7 @@ trait DataTablesTrait
                 ],
                 [
                     'titunuev' => 'CREAR ATENCIÓN CASO JURÍDICO',
-                    'titulist' => 'LISTA DE ATENCIONES CASO JURÍDICO HISTORIAL SIMI 1.0',
+                    'titulist' => 'LISTA DE ATENCIONES CASO JURÍDICO HISTORIAL',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => false,

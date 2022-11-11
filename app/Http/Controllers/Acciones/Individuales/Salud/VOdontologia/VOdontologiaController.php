@@ -116,6 +116,25 @@ class VOdontologiaController extends Controller
             $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
             $this->pestanix[3]['checkxxx'] = 0;
         }
+        if($modeloxx->higiene){
+            $this->pestanix[3]['routexxx'] = '.ver';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
+            $this->pestanix[3]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[3]['routexxx'] = '.nuevo';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[3]['checkxxx'] = 0;
+        }
+        if($modeloxx->higiene){
+            $this->pestanix[3]['routexxx'] = '.ver';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
+            $this->pestanix[3]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[3]['routexxx'] = '.nuevo';
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[3]['checkxxx'] = 0;
+        }
+        
 
         
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
@@ -166,6 +185,25 @@ class VOdontologiaController extends Controller
             $this->pestanix[4]['routexxx'] = '.nuevo';
             $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
             $this->pestanix[4]['checkxxx'] = 0;
+        }
+        // if($modeloxx->higiene){
+        //     $this->pestanix[5]['routexxx'] = '.nuevo';
+        //     $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+        //     $this->pestanix[5]['checkxxx'] = 1;
+        // }else{
+        //     $this->pestanix[5]['routexxx'] = '.nuevo';
+        //     $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+        //     $this->pestanix[5]['checkxxx'] = 0;
+        // }
+        if($modeloxx->remision){
+            $this->pestanix[6]['routexxx'] = '.editar';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->remision->id];
+            $this->pestanix[6]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[6]['routexxx'] = '.nuevo';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[6]['checkxxx'] = 0;
+        
         }
       
         

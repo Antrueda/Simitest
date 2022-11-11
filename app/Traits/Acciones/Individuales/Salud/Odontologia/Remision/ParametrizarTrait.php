@@ -40,7 +40,7 @@ trait ParametrizarTrait
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Salud.Odontologia.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Examenes';
+        $this->opciones['carpetax'] = 'Remision';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
