@@ -50,12 +50,17 @@ class SeguimientoCasoJuridicoController extends Controller
      */
     public function index(CasoJur $padrexxx)
     {
-        $casoactual=SeguiJuridico::where('estadocaso',2856)->where('casojur_id',$padrexxx->id)->first();
-        
-        if($casoactual!=null){
+        $seguiactual=SeguiJuridico::where('estadocaso',2856)->where('casojur_id',$padrexxx->id)->orderBy('created_at','desc')->first();
+
+        //ddd($padrexxx->estacaso==2856||$seguiactual==nul
+        if($padrexxx->estacaso==2856){
             $this->opciones['vercrear'] = false;
         }else{
-            $this->opciones['vercrear'] = true;
+            if($seguiactual!=null){
+                $this->opciones['vercrear'] = false;
+            }else{
+                $this->opciones['vercrear'] = true;
+            }
         }
         $this->opciones['tablinde']=true;
         $this->opciones['padrexxx'] = $padrexxx;
