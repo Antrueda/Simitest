@@ -295,11 +295,13 @@ function soloNumeros(e) {
     function doc3(valor){
         if(valor == 227){
             document.getElementById("prm_juzgado").hidden=false;
+            document.getElementById("num_proceso").hidden=false;
 
             
             
     }else{
         document.getElementById("prm_juzgado").hidden=true;
+        document.getElementById("num_proceso").hidden=true;
 
         
         } 

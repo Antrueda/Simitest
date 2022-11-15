@@ -2,15 +2,18 @@
 
 namespace App\Http\Requests\Acciones\Individuales\Sociolegal;
 
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+
 use App\Models\fichaIngreso\FiDatosBasico;
-use Carbon\Carbon;
+use App\Rules\FechaMenor;
+use App\Rules\TiempoCargueRule;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CasoJurEditarRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
+    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -32,14 +35,17 @@ class CasoJurEditarRequest extends FormRequest
             'prm_sujeto.required'=>'Seleccione el tipo de sujeto',
             'consultaca.required'=>'Digite consulta de caso',
             'asesoriaca.required'=>'Digite asesoria de caso',
+            'num_proceso.required_if'=>'Digite el numero de proceso',
+            'prm_juzgado.required_if'=>'Seleccione el juzgado que atiende',
 
             
            
         
             ];
+            //            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
         $this->_reglasx = [
             'upi_id' => 'required',
-            'fecha' => 'required',
+            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'upiorigen_id' => 'required',
             'i_prm_ha_estado_pard_id' => 'required',
             'num_sim' => 'nullable',
@@ -47,8 +53,8 @@ class CasoJurEditarRequest extends FormRequest
             'censec_id' => 'nullable',
             'checkbox1' => 'nullable',
             'prm_rama_id' => 'required',
-            'num_proceso' => 'nullable',
-            'prm_juzgado' => 'nullable',
+            'num_proceso' => 'required_if:prm_rama_id,227',
+            'prm_juzgado' => 'required_if:prm_rama_id,227',
             'prm_solicita_id' => 'nullable',
             'tipoc_id' => 'required',
             'temac_id' => 'required',
@@ -88,6 +94,16 @@ class CasoJurEditarRequest extends FormRequest
      */
     public function rules()
     {
+
+        if ($this->fecha != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->fecha
+            ]);
+            $this->_reglasx['fecha'][] = new TiempoCargueRule([
+                'puedexxx' => $puedexxx
+            ]);
+        }
         $this->validar();
         return $this->_reglasx;    }
 
