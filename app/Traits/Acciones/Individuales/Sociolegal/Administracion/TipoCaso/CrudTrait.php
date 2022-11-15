@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\TipoCaso;
+namespace App\Traits\Acciones\CentroZonal\Administracion\AsignarCentro;
 
 
 use Illuminate\Support\Facades\Auth;

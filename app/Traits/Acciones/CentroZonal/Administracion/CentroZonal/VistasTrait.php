@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\TipoCaso;
+namespace Traits\Acciones\CentroZonal\Administracion\CentroZonal;
 
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Indicadores\Administ\Area;

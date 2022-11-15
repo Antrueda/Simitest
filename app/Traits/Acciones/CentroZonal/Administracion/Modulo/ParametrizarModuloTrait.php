@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\Modulo;
+namespace App\Traits\Acciones\CentroZonal\Administracion\Modulo;
 
 
 

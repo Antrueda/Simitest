@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\TemaCaso;
+namespace App\Traits\Acciones\CentroZonal\Administracion\CentroSecundario;
 
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Administ\Area;

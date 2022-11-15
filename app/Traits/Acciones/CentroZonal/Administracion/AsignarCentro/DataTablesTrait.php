@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\AsignarCaso;
+namespace App\Traits\Acciones\CentroZonal\Administracion\AsignarCentro;
 
 
 

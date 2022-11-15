@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\TemaCaso;
-
+namespace App\Traits\Acciones\CentroZonal\Administracion\CentroSecundario;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
