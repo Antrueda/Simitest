@@ -20,7 +20,7 @@
         </div>
         <div class="form-group col-md-3">
             {{ Form::label('segui_id', 'SEGUIMIENTO:', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('segui_id', $todoxxxx['tipsegui'], null, ['class' => $errors->first('segui_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
+            {{ Form::select('segui_id', $todoxxxx['seguimie'], null, ['class' => $errors->first('segui_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
             @if($errors->has('segui_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('segui_id') }}

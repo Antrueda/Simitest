@@ -8,11 +8,15 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
+use App\Models\Acciones\Individuales\SocialLegal\SeguimientoCaso;
+use App\Models\Acciones\Individuales\SocialLegal\TemaCaso;
+use App\Models\Acciones\Individuales\SocialLegal\TipoCaso;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Administ\Area;
 use App\Models\Sistema\SisEsta;
+use App\Models\Temacombo;
 use App\Models\Usuario\Estusuario;
 
 /**
@@ -35,8 +39,9 @@ trait VistasTrait
 
         $opciones = $this->getVista($opciones, $dataxxxx);
         $estadoid=1;
-         $opciones['seguixxx'] = Diagnostico::combo( true, false);
-         $opciones['tipsegui'] = Enfermedad::combo( true, false);
+         $opciones['seguixxx'] = TipoCaso::combo( true, false);
+         $opciones['tipsegui'] = TemaCaso::combo( true, false);
+         $opciones['seguimie'] = SeguimientoCaso::combo( true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
          

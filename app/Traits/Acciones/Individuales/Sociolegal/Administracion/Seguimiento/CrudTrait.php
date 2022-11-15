@@ -2,16 +2,10 @@
 
 namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\Seguimiento;
 
-
-use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
-use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
-use App\Models\fichaobservacion\FosTse;
+use App\Models\Acciones\Individuales\SocialLegal\SeguimientoCaso;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Models\Acciones\Individuales\SocialLegal\SeguimientoCaso;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

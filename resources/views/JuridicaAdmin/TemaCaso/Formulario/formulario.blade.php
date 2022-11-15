@@ -1,7 +1,7 @@
 <div class="form-group row">
     <div class="form-group col-md-6">
         {{ Form::label('nombre', 'Nombre:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control  is-invalid' : 'form-control', 'placeholder' => 'Enfermedad', 'maxlength' => '120', 'autofocus','style'=>'height: 28px','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+        {{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control  is-invalid' : 'form-control', 'placeholder' => 'Nombre de Tema', 'maxlength' => '120', 'autofocus','style'=>'height: 28px','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
         @if($errors->has('nombre'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('nombre') }}

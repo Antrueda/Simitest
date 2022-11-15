@@ -2,13 +2,10 @@
 
 namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\AsignarCaso;
 
-
-
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
-
+use App\Models\Acciones\Individuales\SocialLegal\AsociarCaso;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Models\Acciones\Individuales\SocialLegal\AsociarCaso;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
