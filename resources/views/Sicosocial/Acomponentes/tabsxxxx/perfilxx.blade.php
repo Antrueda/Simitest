@@ -31,8 +31,8 @@
         <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->prmSexo->nombre }}</a>
       </li>
       <li class="list-group-item">
-        <b>DIRECCIÓN</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->first()->direccion : '' }}</a>
+        <b>DIRECCIÓN </b>
+        <a class="float-right">{{ $todoxxxx['usuariox']->SisNnaj->FiResidencia!=null ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->direccion : '' }}</a>
       </li>
       <li class="list-group-item">
         <b>TELÉFONO</b>

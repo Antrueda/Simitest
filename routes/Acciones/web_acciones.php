@@ -17,11 +17,12 @@ require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.ph
 require_once('Individuales\Educacion\VEntrevista\web_ventrevista.php');
 require_once('Individuales\SocioLegal\web_acasojuridico.php');
 require_once('Individuales\VOdontologia\web_vodontologia.php');
+require_once('Individuales\Sicosocial\CuestionarioDast\web_cuestionariodast.php');
 
 
 
 Route::group(['prefix' => 'ai'], function () {
-  
+
   Route::get('', [
     'uses' => 'Acciones\Individuales\AIController@index',
     'middleware' => ['permission:aiindex-leer|aiindex-crear|aiindex-editar|aiindex-borrar']
@@ -32,10 +33,10 @@ Route::group(['prefix' => 'ai'], function () {
   ])->name('ai.ver');
 
   Route::get('listaxxx', [
-		'uses' => 'Acciones\Individuales\AIController@getListado',
-		'middleware' => ['permission:aiindex-leer|aiindex-crear|aiindex-editar|aibasico-borrar']
-    ])->name('ai.listaxxx');
-//require_once('Individuales/web_salidamayores.php');
+    'uses' => 'Acciones\Individuales\AIController@getListado',
+    'middleware' => ['permission:aiindex-leer|aiindex-crear|aiindex-editar|aibasico-borrar']
+  ])->name('ai.listaxxx');
+  //require_once('Individuales/web_salidamayores.php');
   require_once('Individuales/Educacion/web_matriculas.php');
   //require_once('Individuales/Educacion/web_matriculas.php');
 
@@ -45,10 +46,8 @@ Route::group(['prefix' => 'ai'], function () {
   require_once('Individuales/Mitigacion/web_vma.php');
   require_once('Individuales/Mitigacion/web_vspa.php');
   require_once('Individuales/Educacion/CuestionarioGustos/web_cuestionariogustos.php');
-
-  
 });
 
 Route::group(['prefix' => 'acciones'], function () {
-    require_once('Individuales/web_individu.php');
+  require_once('Individuales/web_individu.php');
 });

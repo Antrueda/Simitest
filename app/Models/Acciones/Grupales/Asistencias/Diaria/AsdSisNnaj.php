@@ -5,12 +5,13 @@ namespace App\Models\Acciones\Grupales\Asistencias\Diaria;
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsdSisNnaj extends Model
 {
-  //  use SoftDeletes;
+    // use SoftDeletes;
 
     //protected $table = 'asisdiar_sis_nnaj';
 
@@ -20,7 +21,7 @@ class AsdSisNnaj extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
-  
+
     ];
 
     public function prmNovedadx()
@@ -38,6 +39,16 @@ class AsdSisNnaj extends Model
 
     public function sisNnaj()
     {
-        return $this->belongsTo(SisNnaj::class);
+        return $this->belongsTo(AsdNnajActividades::class);
+    }
+
+    public function asdDiaria()
+    {
+        return $this->belongsTo(AsdDiaria::class, 'asd_diaria_id');
+    }
+
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
     }
 }

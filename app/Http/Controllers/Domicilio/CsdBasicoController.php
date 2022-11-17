@@ -120,6 +120,10 @@ class CsdBasicoController extends Controller
             if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 227) {
                 $this->opciones['sindocum'] = Parametro::find(235)->Combo;
             }
+            if ($dataxxxx['modeloxx']->prm_sexo_id == 21) {
+                $this->opciones['situdefi'] = Tema::combo(33, false, false);
+            }
+           
 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];

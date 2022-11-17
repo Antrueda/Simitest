@@ -131,9 +131,8 @@ class CsdCompfamiEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_documento'][4]=new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getNuevo',]);
+        $this->_reglasx['s_documento'][4]=new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getActualiza','registro'=>$this->segments()[3]]);
         return $this->_reglasx;
-
         
     }
     public function validar()
@@ -149,10 +148,10 @@ class CsdCompfamiEditarRequest extends FormRequest
             $this->_mensaje['prm_sisben_id.required'] = 'Seleccione porqué no tiene Sisben';
             $this->_reglasx['prm_sisben_id'] = 'required';
         }else{
-            $this->_mensaje['sisben.in'] = 'No cumple con el formato del sisben';
-            $this->_reglasx['sisben'] = 'required|in:A1,A2,A3,A4,A5,B1,B2,B3,B4,B5,B6,B7,
-            C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,
-            D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,D21';
+            // $this->_mensaje['sisben.in'] = 'No cumple con el formato del sisben';
+            // $this->_reglasx['sisben'] = 'required|in:A1,A2,A3,A4,A5,B1,B2,B3,B4,B5,B6,B7,
+            // C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,
+            // D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,D21';
         }
 
     }

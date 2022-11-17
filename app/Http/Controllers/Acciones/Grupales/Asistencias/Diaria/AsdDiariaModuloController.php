@@ -25,7 +25,7 @@ class DiariaModuloController extends Controller
     use DiariaParametrizarModuloTrait;
     use DiariaVistasModuloTrait;
 
-   
+
     public function __construct()
     {
         $this->opciones['permmidd'] = 'diariaxx';
@@ -37,7 +37,7 @@ class DiariaModuloController extends Controller
 
     public function index()
     {
-       $this->getPestanias([]);
+        $this->getPestanias([]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }
 }

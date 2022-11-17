@@ -32,7 +32,7 @@ class SisEntidadSalud extends Model
             }
 
         }
-
+// ddd($padrexxx);
         $entidadx=SisEntidadSalud::where(function($query) use($padrexxx){
             if($padrexxx!=''){
                 $query->where('i_prm_tentidad_id',$padrexxx);

@@ -30,6 +30,7 @@ class CsdBasicoCrearRequest extends FormRequest
             'prm_gsanguino_id.required' => 'Seleccione el grupo sanguíneo',
             'prm_factor_rh_id.required' => 'Seleccione el factor rh',
             'prm_situacion_militar_id.required_if' => 'Indique si tiene la situacion militar definida',
+            'prm_situacion_militar_id.exists' => 'Parámetro no existe',
             'prm_clase_libreta_id.required' => 'Indique la clase de la libreta militar',
             'prm_estado_civil_id.required' => 'Seleccione el estado civil',
             'prm_etnia_id.required' => 'Seleccione la etnia',

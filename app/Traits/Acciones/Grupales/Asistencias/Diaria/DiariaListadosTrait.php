@@ -9,6 +9,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdNnajActividades;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -48,6 +49,32 @@ trait DiariaListadosTrait
             ->toJson();
     }
 
+    public  function getAsistenciaNnajDt($queryxxx, $requestx)
+    {
+
+        return datatables()->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )->addColumn(
+                'edadxxxx',
+                function ($queryxxx) use ($requestx) {
+
+                    return $queryxxx->calcularEdad($queryxxx->d_nacimiento);
+                }
+            )
+            ->rawColumns(['botonexx'])
+            ->toJson();
+    }
+
     /**
      * encontrar la lisa de actas de encuentro
      */
@@ -80,7 +107,7 @@ trait DiariaListadosTrait
                     'asd_tiactividads.nombre as tipo',
                     'asd_diarias.fechdili',
                     'sis_estas.s_estado',
-                    DB::raw("(SELECT COUNT(*) FROM asd_sis_nnajs where asd_sis_nnajs.asd_diaria_id = asd_diarias.id) AS contado"),
+                    DB::raw("(SELECT COUNT(*) FROM asd_sis_nnajs where asd_sis_nnajs.asd_diaria_id = asd_diarias.id ) AS contado"),
                 ])
                     ->join('sis_depens', 'asd_diarias.sis_depen_id', '=', 'sis_depens.id')
                     ->join('sis_servicios', 'asd_diarias.sis_servicio_id', '=', 'sis_servicios.id')
@@ -95,24 +122,30 @@ trait DiariaListadosTrait
                     ->join('asd_actividads', 'asd_diarias.asd_actividad_id', '=', 'asd_actividads.id')
                     ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
                     ->join('sis_estas', 'asd_diarias.sis_esta_id', '=', 'sis_estas.id')
-                    ->where('asd_diarias.sis_depen_id',$request->my_extra_data['sisdepen']);
-                    if ($request->my_extra_data['fecha_desde'] != "") {
-                        $from = date($request->my_extra_data['fecha_desde']);
-                        $to = date($request->my_extra_data['fecha_hasta']);
-                        $dataxxxx = $dataxxxx->whereBetween('fechdili', [$from, $to]);
-                    }
+                    ->where('asd_diarias.sis_depen_id', $request->my_extra_data['sisdepen'])
+                    ->orderBy('asd_diarias.id', 'asc');
+
+                if ($request->my_extra_data['fecha_desde'] != "") {
+                    $from = date($request->my_extra_data['fecha_desde']);
+                    $to = date($request->my_extra_data['fecha_hasta']);
+                    $dataxxxx = $dataxxxx->whereBetween('fechdili', [$from, $to]);
+                }
             }
 
-                return $this->getDt($dataxxxx, $request);
+            return $this->getDt($dataxxxx, $request);
         }
     }
 
-// los NNajs Que han sido agregados  a la planilla planilla de asistencia diaria 
-    public function getNnajsAgregados(Request $request,$padrexxx)
+    // los NNajs Que han sido agregados  a la planilla planilla de asistencia diaria 
+    public function getNnajsAgregados(Request $request, AsdDiaria $padrexxx)
     {
         if ($request->ajax()) {
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->fechdili, 'upixxxxx' => $padrexxx->sis_depen_id, 'formular' => 3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
-           // $request->routexxx = ['nnajasdi', 'comboxxx'];
+            // $request->routexxx = ['nnajasdi', 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -122,6 +155,7 @@ trait DiariaListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_nacimis.d_nacimiento',
                 'asd_sis_nnajs.sis_esta_id',
                 'nnaj_docus.s_documento',
                 'asd_diarias.consecut',
@@ -130,10 +164,12 @@ trait DiariaListadosTrait
                 ->join('asd_diarias', 'asd_sis_nnajs.asd_diaria_id', '=', 'asd_diarias.id')
                 ->join('sis_nnajs', 'asd_sis_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+                ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'asd_sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-                ->where('asd_sis_nnajs.asd_diaria_id',$padrexxx);
-            return $this->getDt($dataxxxx, $request);
+                ->where('asd_sis_nnajs.asd_diaria_id', $padrexxx->id);
+
+            return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
@@ -148,12 +184,15 @@ trait DiariaListadosTrait
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return $respuest;
     }
-//agregar al nnajs
-    public function getNnajsAgregar(Request $request,AsdDiaria $padrexxx)
+    //agregar al nnajs
+    public function getNnajsAgregar(Request $request, AsdDiaria $padrexxx)
     {
-
-
         if ($request->ajax()) {
+
+            //validamos tiempos permiso por upi 
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $padrexxx->fechdili, 'upixxxxx' => $padrexxx->sis_depen_id, 'formular' => 3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->padrexxx = $padrexxx;
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -166,44 +205,55 @@ trait DiariaListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_nacimis.d_nacimiento',
                 'sis_nnajs.sis_esta_id',
                 'nnaj_docus.s_documento',
                 'sis_estas.s_estado',
             ])
-                ->leftJoin('asd_sis_nnajs', function($join) use ($padrexxx)
-                    {
-                        $join->on('sis_nnajs.id', '=', 'asd_sis_nnajs.sis_nnaj_id')
-                            ->where('asd_sis_nnajs.asd_diaria_id', '=', $padrexxx->id);
-                    })
+                ->leftJoin('asd_sis_nnajs', function ($join) use ($padrexxx) {
+                    $join->on('sis_nnajs.id', '=', 'asd_sis_nnajs.sis_nnaj_id')
+                        ->where('asd_sis_nnajs.asd_diaria_id', '=', $padrexxx->id);
+                })
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->leftJoin('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
-                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')//servicios
+                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id') //servicios
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->distinct()
-                ->where('sis_nnajs.sis_esta_id', 1)//activo
+                ->where('sis_nnajs.sis_esta_id', 1) //activo
                 ->where('nnaj_upis.sis_esta_id', 1)
                 ->where('nnaj_deses.sis_servicio_id', '<>', 8)
                 ->where('nnaj_deses.sis_servicio_id', '<>', 16)
-
-                //1488 //1468  // 1451
-
                 ->where(function ($query) use ($padrexxx) {
-                    $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id)
-                            ->orWhere('asd_sis_nnajs.id', null);
+
+                    // if(!Auth::user()->s_documento=='17496705'){
+                    $query->where('asd_sis_nnajs.asd_diaria_id', '<>', $padrexxx->id);
+                    $query->orWhere('asd_sis_nnajs.id', null);
+                    // }else {
+                    //     // echo 777;
+                    // }
+
+
+                    //->where('asd_sis_nnajs.deleted_at','<>',$padrexxx->id);
                 });
-                if ($padrexxx->dependencia->prm_recreativa_id != 227 && $padrexxx->sis_servicio_id != 6) {
-                    $dataxxxx = $dataxxxx->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
+
+            if ($padrexxx->dependencia->prm_recreativa_id != 227 && $padrexxx->sis_servicio_id != 6) {
+                $dataxxxx = $dataxxxx->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
                     ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
-                }
-           return $this->getDt($dataxxxx, $request);
+            }
+            return $this->getAsistenciaNnajDt($dataxxxx, $request);
         }
     }
 
-    public function getNnajActividades(Request $request,$padrexxx)
+    public function getNnajActividades(Request $request, AsdSisNnaj $padrexxx)
     {
-    
+        $asdiaria = $padrexxx->asdDiaria;
+
         if ($request->ajax()) {
+            $puedexxx = $this->getPuedeCargar(['estoyenx' => 2, 'fechregi' => $asdiaria->fechdili, 'upixxxxx' => $asdiaria->sis_depen_id, 'formular' => 3,]);
+            $request->puedexxx = [$puedexxx['tienperm']];
+
             $request->routexxx = ['nnajacti', 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -217,16 +267,13 @@ trait DiariaListadosTrait
                 'sis_estas.s_estado',
 
             ])
-            ->join('asd_actividads', 'asd_nnaj_actividades.asd_actividads_id', '=', 'asd_actividads.id')
-            ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
-            ->join('parametros as novedad', 'asd_nnaj_actividades.prm_novedadx_id', '=', 'novedad.id')
-            ->join('sis_estas', 'asd_nnaj_actividades.sis_esta_id', '=', 'sis_estas.id')
-            ->where('asd_nnaj_actividades.asd_sis_nnajs_id',$padrexxx);
+                ->join('asd_actividads', 'asd_nnaj_actividades.asd_actividads_id', '=', 'asd_actividads.id')
+                ->join('asd_tiactividads', 'asd_actividads.tipos_actividad_id', '=', 'asd_tiactividads.id')
+                ->join('parametros as novedad', 'asd_nnaj_actividades.prm_novedadx_id', '=', 'novedad.id')
+                ->join('sis_estas', 'asd_nnaj_actividades.sis_esta_id', '=', 'sis_estas.id')
+                ->where('asd_nnaj_actividades.asd_sis_nnajs_id', $padrexxx->id);
 
             return $this->getDt($dataxxxx, $request);
         }
     }
-
-
-
 }

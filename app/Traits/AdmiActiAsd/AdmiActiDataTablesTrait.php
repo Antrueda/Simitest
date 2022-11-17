@@ -108,7 +108,7 @@ trait AdmiActiDataTablesTrait
                     ['data' => 'nombre', 'name' => 'asd_actividads.nombre'],
                     ['data' => 'descripcion', 'name' => 'asd_actividads.descripcion'],
                     ['data' => 'tipo_actividad', 'name' => 'asd_tiactividads.nombre AS tipo_actividad'],
-                    ['data' => 'consectivo_item', 'name' => 'asd_tiactividads.consectivo_item'],
+                    ['data' => 'consectivo_item', 'name' => 'asd_actividads.consectivo_item'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
 
 

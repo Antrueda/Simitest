@@ -49,21 +49,10 @@ Route::group(['prefix' => 'nnajactividades'], function () use ($routexxx, $contr
         'uses' => $controll . 'show',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . '.verxxxxx');
-    Route::get('borrar/{modeloxx}', [
-        'uses' => $controll . 'inactivate',
-        'middleware' => ['permission:' . $routexxx . '-borrarxx']
-    ])->name($routexxx . '.borrarxx');
-    Route::put('borrar/{modeloxx}', [
+
+    Route::delete('borrar/{modeloxx}', [
         'uses' => $controll . 'destroy',
         'middleware' => ['permission:' . $routexxx . '-borrarxx']
     ])->name($routexxx . '.borrarxx');
-    Route::get('activate/{modeloxx}', [
-        'uses' => $controll . 'activate',
-        'middleware' => ['permission:' . $routexxx . '-activarx']
-    ])->name($routexxx . '.activarx');
-    Route::put('activate/{modeloxx}', [
-        'uses' => $controll . 'activar',
-        'middleware' => ['permission:' . $routexxx . '-activarx']
-    ])->name($routexxx . '.activarx');
-
+  
 });

@@ -165,8 +165,15 @@ class VEntrevistaController extends Controller
 
     public function edit(VEntrevista $modeloxx)
     {
-   
-         $this->contarHabilidades($modeloxx->nnaj);
+
+        $usuario = Auth::user()->id;
+        if($modeloxx->user_crea_id!=$usuario){
+            return redirect()
+            ->route('ventrevista', [$modeloxx->sis_nnaj_id])    
+            ->with('info', 'No puede editar este formulario');
+        }
+
+        $this->contarHabilidades($modeloxx->nnaj);
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->nnaj->id];

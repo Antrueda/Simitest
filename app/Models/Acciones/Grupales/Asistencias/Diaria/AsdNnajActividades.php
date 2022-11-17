@@ -6,11 +6,12 @@ use App\Models\User;
 use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\AdmiActiAsd\AsdActividad;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsdNnajActividades extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
 
     protected $fillable = [
@@ -41,6 +42,10 @@ class AsdNnajActividades extends Model
 
     public function asdSisNaj(){
         return $this->belongsTo(AsdSisNnaj::class,'asd_sis_nnajs_id');
+    }
+    public function calcularEdad($fecha)
+    {
+        return Carbon::parse($fecha)->age;
     }
   
 }

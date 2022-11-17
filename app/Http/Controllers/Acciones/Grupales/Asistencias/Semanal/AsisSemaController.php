@@ -52,38 +52,38 @@ class AsisSemaController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function asistencias(Request $request,Asissema $modeloxx)
+    public function asistencias(Request $request, Asissema $modeloxx)
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => $modeloxx->prm_fecha_inicio,
             'upixxxxx' => $modeloxx->sis_depen_id,
-            'formular'=>3,
-            ]);
+            'formular' => 3,
+        ]);
         if ($puedexxx['tienperm']) {
             if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
-                $this->pestania[0][5]='';
-                $this->pestania[2][5]='';
-                $this->pestania[1][5]='active';
-                return $this->viewasistencias(['modeloxx' => $modeloxx,'accionxx' => ['verxxxxx', 'indexasistencias'],'request'=>$request]);
-            }else{
+                $this->pestania[0][5] = '';
+                $this->pestania[2][5] = '';
+                $this->pestania[1][5] = 'active';
+                return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'indexasistencias'], 'request' => $request]);
+            } else {
                 return redirect()
-                ->route($this->opciones['routxxxx'].'.verxxxxx',$modeloxx->id)
-                ->with('error', 'No tiene permiso para tomar asistencia.');
+                    ->route($this->opciones['routxxxx'] . '.verxxxxx', $modeloxx->id)
+                    ->with('error', 'No tiene permiso para tomar asistencia.');
             }
         } else {
             return redirect()
-            ->route($this->opciones['routxxxx'].'.verxxxxx',$modeloxx->id)
-            ->with('error', $puedexxx['msnxxxxx']);
+                ->route($this->opciones['routxxxx'] . '.verxxxxx', $modeloxx->id)
+                ->with('error', $puedexxx['msnxxxxx']);
         }
     }
 
-    public function verasistencias(Request $request,Asissema $modeloxx)
+    public function verasistencias(Request $request, Asissema $modeloxx)
     {
-        $this->pestania[0][5]='';
-        $this->pestania[2][5]='active';
-        $this->pestania[1][5]='';
-        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verplanilla'],'request'=>$request]);
+        $this->pestania[0][5] = '';
+        $this->pestania[2][5] = 'active';
+        $this->pestania[1][5] = '';
+        return $this->viewasistencias(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'verplanilla'], 'request' => $request]);
     }
 
     public function create()
@@ -110,16 +110,16 @@ class AsisSemaController extends Controller
 
 
     public function edit(Asissema $modeloxx)
-    {  
+    {
         //validamos que pueda editar por usuario de creacion o responsable de upi o superadmin
         if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
-            $this->opciones['puedeeditar'] = (AsissemaMatricula::where('asissema_id',$modeloxx->id)->count() == 0)? true : false;
+            $this->opciones['puedeeditar'] = (AsissemaMatricula::where('asissema_id', $modeloxx->id)->count() == 0) ? true : false;
             $this->getBotones(['editarxx', [], 1, 'EDITAR ASISTENCIA SEMANAL', 'btn btn-sm btn-primary']);
             return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'editar'],]);
-        }else{
+        } else {
             return redirect()
-            ->route($this->opciones['routxxxx'])
-            ->with('error', 'Permiso denegado para editar esta Asistencia');
+                ->route($this->opciones['routxxxx'])
+                ->with('error', 'Permiso denegado para editar esta Asistencia');
         }
     }
 
@@ -129,8 +129,8 @@ class AsisSemaController extends Controller
             'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => $modeloxx->prm_fecha_inicio,
             'upixxxxx' => $modeloxx->sis_depen_id,
-            'formular'=>3,
-            ]);
+            'formular' => 3,
+        ]);
         if ($puedexxx['tienperm']) {
             return $this->setAsisSema([
                 'requestx' => $request,
@@ -140,8 +140,8 @@ class AsisSemaController extends Controller
             ]);
         } else {
             return redirect()
-            ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
-            ->with('error', $puedexxx['msnxxxxx']);
+                ->route($this->opciones['routxxxx'] . '.editarxx', $modeloxx->id)
+                ->with('error', $puedexxx['msnxxxxx']);
         }
     }
 
@@ -187,44 +187,43 @@ class AsisSemaController extends Controller
     }
 
     //validamos si el usuario login es responsable de upi actual
-    public function isResponsableThisUpi($modeloxx){
+    public function isResponsableThisUpi($modeloxx)
+    {
         $es_responsable = false;
         foreach ($modeloxx->upi->getDepeResponsUsua as $key => $responsable) {
-            $responsable = ($responsable->user_id == Auth::user()->id)? true : false;
+            $responsable = ($responsable->user_id == Auth::user()->id) ? true : false;
         }
         return $es_responsable;
     }
 
     //transitoria mientras se actualizan planillas ya creadas en produccion
-    public function  actualizarDias(Asissema $modeloxx){
+    public function  actualizarDias(Asissema $modeloxx)
+    {
 
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => $modeloxx->prm_fecha_inicio,
             'upixxxxx' => $modeloxx->sis_depen_id,
-            'formular'=>3,
-            ]);
+            'formular' => 3,
+        ]);
         if ($puedexxx['tienperm']) {
             if ($modeloxx->user_crea_id == Auth::user()->id || Auth::user()->roles->first()->id == 1 || $this->isResponsableThisUpi($modeloxx)) {
-                $diasGrupo=Parametro::select(['parametros.id as prm_dia_id'])->
-                join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->
-                where('grupo_dias.grupo_id',$modeloxx->prm_grupo_id)->get()->toArray();
-                
+                $diasGrupo = Parametro::select(['parametros.id as prm_dia_id'])->join('grupo_dias', 'parametros.id', '=', 'grupo_dias.prm_dia_id')->where('grupo_dias.grupo_id', $modeloxx->prm_grupo_id)->get()->toArray();
+
                 $modeloxx->diasGrupo()->sync($diasGrupo);
-        
+
                 return redirect()
-                ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
-                ->with('info', 'Actualizada con exito');
-            }else{
+                    ->route($this->opciones['routxxxx'] . '.editarxx', $modeloxx->id)
+                    ->with('info', 'Actualizada con exito');
+            } else {
                 return redirect()
-                ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
-                ->with('error', 'No tiene permiso.');
+                    ->route($this->opciones['routxxxx'] . '.editarxx', $modeloxx->id)
+                    ->with('error', 'No tiene permiso.');
             }
         } else {
             return redirect()
-            ->route($this->opciones['routxxxx'].'.editarxx',$modeloxx->id)
-            ->with('error', $puedexxx['msnxxxxx']);
+                ->route($this->opciones['routxxxx'] . '.editarxx', $modeloxx->id)
+                ->with('error', $puedexxx['msnxxxxx']);
         }
     }
-    
 }

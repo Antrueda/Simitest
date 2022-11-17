@@ -38,9 +38,9 @@ trait PruediagVistasTrait
         ;
     }
     public function view()
-    {
+    { 
         $this->getVista();
-          $this->opciones['parametr'] = [$this->padrexxx->fi_datos_basico->id];
+          $this->opciones['parametr'] = [$this->padrexxx->id];  
         // indica si se esta actualizando o viendo
         $gradoxxx =$this->matricul->iMatricula->grado->id;
         if (!is_null($this->opciones['modeloxx'])) {
@@ -63,6 +63,7 @@ trait PruediagVistasTrait
         $this->opciones['gradoxxx'] = $this->getGradoPruebaDiagnosticaCT(['gradoidx'=>$gradoxxx,'cabecera'=>false]);
 
         $this->getDtEdupresaIndex($this->vercrear);
+       
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

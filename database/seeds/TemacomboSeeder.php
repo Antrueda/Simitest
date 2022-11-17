@@ -469,6 +469,20 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'TIPO DE ATENCION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 457
     Temacombo::create(['nombre' => 'ESPECIALIZACION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 458
     Temacombo::create(['nombre' => 'TAMIZAJE', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 459
+    Temacombo::create(['nombre' => 'TIPO DE APOYO', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 460
+    Temacombo::create(['nombre' => 'ESPECIALIDAD AP', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 461
+    Temacombo::create(['nombre' => 'PRUEBAS DE TAMIZAJE', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 462
+    Temacombo::create(['nombre' => 'NOVEDAD/FALLECIMIENTO', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 463
+    Temacombo::create(['nombre' => 'TIPO FORMULACION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 464
+
+    Temacombo::create(['nombre' => 'PROMOCIÓN Y DETECCIÓN', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 465
+    Temacombo::create(['nombre' => 'CHARLA INDIVIDUAL', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 466
+    Temacombo::create(['nombre' => 'TRAMITES DE AFILIACION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 467
+    Temacombo::create(['nombre' => 'TRAMITE EPS', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 468
+
+    Temacombo::create(['nombre' => 'VSRRD FASE DE ACOMPAÑAMIENTO', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 469
+    Temacombo::create(['nombre' => 'VSRRD TIPO DE ACOMPAÑAMIENTO', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 470
+    Temacombo::create(['nombre' => 'VSRRD ACTIVACIÓN EMOCIONAL', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 471
 
   }
 }

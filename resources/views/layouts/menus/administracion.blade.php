@@ -52,5 +52,6 @@
         @include('layouts.menus.salud')
          @endcanany
         @include('layouts.menus.educacion')
+        @include('layouts.menus.sicosocial')
      </ul>
  </li>

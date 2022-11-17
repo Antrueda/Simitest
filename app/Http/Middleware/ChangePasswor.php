@@ -11,7 +11,9 @@ class ChangePasswor
     {
         $actualxx = strtotime(date("Y-m-d "));
         $cambioxx = strtotime($usuario->password_change_at);
+     
         if ($usuario->password_reset_at != null) { //la contraseña ha sido resetiada
+            
             return  redirect()->route('contrase.cambiar', Auth::user()->id)
                 ->with('error', 'Para continuar por favor debe actualizar su contraseña');
         } else

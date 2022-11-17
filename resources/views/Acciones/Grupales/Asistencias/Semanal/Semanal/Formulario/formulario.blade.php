@@ -146,7 +146,16 @@
             @endif
         </div>
     </div>
-  
+    <div class="col-md-12">
+        {{ Form::label('descripcion', 'OBSERVACIONES:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Observacion.', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'2','spellcheck'=>'true']) }}
+        <p id="contador_descripcion">0/4000</p>
+        @if($errors->has('descripcion'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('senias') }}
+        </div>
+        @endif
+    </div>
     <div class="form-group col-md-6">
         {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el registro:', ['class' => 'control-label']) !!}
         {!! Form::select('user_fun_id', $todoxxxx['funccont'], null, ['class' => 'form-control form-control-sm','required']) !!}

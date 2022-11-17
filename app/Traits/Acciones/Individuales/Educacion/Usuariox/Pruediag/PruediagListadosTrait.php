@@ -79,12 +79,14 @@ trait PruediagListadosTrait
                 ->join('eda_grados', 'edu_pruediags.eda_grado_id', '=', 'eda_grados.id')
                 ->join('users', 'edu_pruediags.persdili_id', '=', 'users.id')
                 ->join('sis_estas', 'edu_pruediags.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_nnajs','fi_datos_basicos.sis_nnaj_id','=','sis_nnajs.id')
                 ->where(function ($queryxxx) use ($padrexxx) {
                     $usuariox = Auth::user();
                     if (!$usuariox->hasRole([Role::find(1)->name])) {
                         $queryxxx->where('eda_asignatus.sis_esta_id', 1);
                     }
                     $queryxxx->where('edu_pruediags.fi_datos_basico_id', $padrexxx->id);
+                    // $queryxxx->where('sis_nnajs.prm_escomfam_id', 227);
                 });
             return $this->getDt($dataxxxx, $request);
         }

@@ -45,7 +45,7 @@ trait ActaencuAjaxTrait
         $dataxxxx = [
             'selected' => $request->selected,
             'ajaxxxxx' => true,
-            'cargosxx' => [23,50],
+            'cargosxx' => [23, 50],
             'usersele' => 0,
             'whereinx' => [$request->padrexxx]
         ];
@@ -88,6 +88,15 @@ trait ActaencuAjaxTrait
                 break;
             case 2647:
                 $dataxxxx['temaxxxx'] = 396;
+                break;
+            case 2930:
+                $dataxxxx['temaxxxx'] = 474;
+                break;
+            case 2931:
+                $dataxxxx['temaxxxx'] = 473;
+                break;
+            case 2932:
+                $dataxxxx['temaxxxx'] = 472;
                 break;
         }
         if ($dataxxxx['accionxx'] != 0)
@@ -135,14 +144,14 @@ trait ActaencuAjaxTrait
     {
         $dataxxxx = [
             'selected' => $request->selected,
-            'dependen'=>$request->padrexxx,
+            'dependen' => $request->padrexxx,
             'ajaxxxxx' => true,
             'cabecera' => true,
             'notinxxx' => 0,
             'rolxxxxx' => [],
         ];
 
-        
+
         $respuest = response()->json(User::userComboUpi($dataxxxx));
         return $respuest;
 
@@ -157,10 +166,10 @@ trait ActaencuAjaxTrait
 
             $dataxxxx = [
                 'funccont' => ['userr_doc',  []],
-             ];
+            ];
 
-            $dataxxxx['funccont'][1] = User::userComboArea(['cabecera' => true, 'ajaxxxxx' => true, 'areaxxxx' => $request->padrexxx, 'notinxxx' => 0, ]);
-         
+            $dataxxxx['funccont'][1] = User::userComboArea(['cabecera' => true, 'ajaxxxxx' => true, 'areaxxxx' => $request->padrexxx, 'notinxxx' => 0,]);
+
             return response()->json($dataxxxx);
         }
     }
@@ -180,7 +189,7 @@ trait ActaencuAjaxTrait
 
     public function getTipoviaAjax(Request $request)
     {
-        $dataxxxx=[
+        $dataxxxx = [
             'temaxxxx' => 62,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
@@ -188,12 +197,12 @@ trait ActaencuAjaxTrait
             'ajaxxxxx' => true,
             'selected' => $request->selected,
         ];
-        if($request->zonadire == 288 || $request->zonadire == 289){
-            $dataxxxx['inxxxxxx'] =[235];
-            $dataxxxx['cabecera'] =false;
-        }else {
-            $dataxxxx['notinxxx'] =[235];
-            $dataxxxx['cabecera'] =true;
+        if ($request->zonadire == 288 || $request->zonadire == 289) {
+            $dataxxxx['inxxxxxx'] = [235];
+            $dataxxxx['cabecera'] = false;
+        } else {
+            $dataxxxx['notinxxx'] = [235];
+            $dataxxxx['cabecera'] = true;
         }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);
@@ -201,7 +210,7 @@ trait ActaencuAjaxTrait
 
     public function getPerfilAjax(Request $request)
     {
-        $dataxxxx=[
+        $dataxxxx = [
             'temaxxxx' => 401,
             'campoxxx' => 'nombre',
             'orederby' => 'ASC',
@@ -209,12 +218,12 @@ trait ActaencuAjaxTrait
             'ajaxxxxx' => true,
             'selected' => $request->selected,
         ];
-        if($request->tipopobl == 650){
-            $dataxxxx['inxxxxxx'] =[2680];
-            $dataxxxx['cabecera'] =false;
-        }else {
-            $dataxxxx['notinxxx'] =[2680];
-            $dataxxxx['cabecera'] =true;
+        if ($request->tipopobl == 650) {
+            $dataxxxx['inxxxxxx'] = [2680];
+            $dataxxxx['cabecera'] = false;
+        } else {
+            $dataxxxx['notinxxx'] = [2680];
+            $dataxxxx['cabecera'] = true;
         }
         $respuest = $this->getTemacomboCT($dataxxxx)['comboxxx'];
         return response()->json($respuest);

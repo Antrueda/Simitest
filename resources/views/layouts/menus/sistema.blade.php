@@ -173,7 +173,7 @@
              </a>
          </li>
          @endcan
-         @if(Auth::user()->id == 1)
+         {{-- @if(Auth::user()->id == 1) --}}
          @can('ubicacio-modulo')
          <li class="nav-item">
              <a href="{{ route('ubicacio') }}" class="nav-link">
@@ -182,7 +182,7 @@
              </a>
          </li>
          @endcan
-         @endif
+         {{-- @endif --}}
 
          @can('textosadmin-modulo')
          <li class="nav-item">
