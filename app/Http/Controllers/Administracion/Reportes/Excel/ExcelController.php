@@ -316,17 +316,17 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = RolUsuario::get();
-        //$dataxxxx = GeUpi::wherenotin('id_upi',[13,6,12,19,20,233,10,245,1,2,8,7,3,5,4,140,212,21,16,14,27,9,18,17,45])->get();
+        $dataxxxx = Parametro::whereBetween('id',[2800,2872])->get();
+        // 
         foreach ($dataxxxx as $registro) {
-            echo "RolUsuario::create([
-                'role_id' => {$registro->role_id},
-                'model_id' => {$registro->model_id},
-                'model_type' =>  '{$registro->model_type}',
+            echo "Parametro::create([
+                'nombre' => {$registro->nombre},
                 'user_edita_id' => 1,
                 'user_crea_id' => 1,
                 'sis_esta_id' => 1,
-            ]); <br />";;
+                'created_at' => {$registro->created_at},
+                'updated_at' => {$registro->updated_at},
+            ]); // {$registro->id}, <br />";;
         }
     }
     //   RolUsuario::create(["role_id" => 9, "model_id" => 12, "model_type" => "App\Models\User", "user_crea_id" => 1, "user_edita_id" => 1, "sis_esta_id" => 1]);

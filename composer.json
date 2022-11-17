@@ -8,7 +8,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^7.2.5",
+    "php": "^7.2.5|^8.0",
     "appstract/laravel-bootstrap-components": "^1.1",
     "doctrine/dbal": "^3.3",
     "facade/ignition": "^2.0",
