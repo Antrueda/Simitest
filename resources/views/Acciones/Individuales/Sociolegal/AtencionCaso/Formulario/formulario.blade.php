@@ -381,7 +381,7 @@
     <div class="col-md-12">
         
         {{ Form::textarea('consultaca', null, ['class' => $errors->first('consultaca') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'consultaca', 'cols'=>'30','rows'=>'3',
-          'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+          'maxlength' => '4000', 'onkeyup' => 'jFavascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
         <span id="chars"></span>
         @if($errors->has('consultaca'))
         <div class="invalid-feedback d-block">
