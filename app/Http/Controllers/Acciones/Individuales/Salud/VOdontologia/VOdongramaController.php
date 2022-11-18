@@ -11,7 +11,7 @@ use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\CrudTrait;
 use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\ParametrizarTrait;
 use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\VistasTrait;
 use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\ListadosTrait;
-use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontograma\PestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\Odontologia\Odontologia\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
@@ -62,14 +62,52 @@ class VOdongramaController extends Controller
     public function create(VOdontologia $padrexxx)
     {
 
-        // $Noaplica=[1032,1040,1042,1047,1048,1058,1062,1071,1076];
-        // $test=[152,3,2,5,6,1042];
-        // $result = !empty(array_intersect($test, $Noaplica));
-        // if(!$result){
-        //     ddd($result);
-        // }
-
-
+        if($padrexxx->antecedentes){
+            $this->pestanix[2]['routexxx'] = '.editar';
+            $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->antecedentes->id];
+            $this->pestanix[2]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[2]['routexxx'] = '.nuevo';
+            $this->pestanix[2]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[2]['checkxxx'] = 0;
+        }
+        if($padrexxx->examenes){
+            $this->pestanix[3]['routexxx'] = '.editar';
+            $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->examenes->id];
+            $this->pestanix[3]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[3]['routexxx'] = '.nuevo';
+            $this->pestanix[3]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[3]['checkxxx'] = 0;
+        }
+        //ddd($padrexxx->odontograma);
+        if($padrexxx->odontograma){
+            $this->pestanix[4]['routexxx'] = '.nuevo';
+            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[4]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[4]['routexxx'] = '.nuevo';
+            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[4]['checkxxx'] = 0;
+        }
+         if($padrexxx->higiene){
+             $this->pestanix[5]['routexxx'] = '.nuevo';
+             $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
+             $this->pestanix[5]['checkxxx'] = 1;
+         }else{
+             $this->pestanix[5]['routexxx'] = '.nuevo';
+             $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
+             $this->pestanix[5]['checkxxx'] = 0;
+         }
+        if($padrexxx->remision){
+            $this->pestanix[6]['routexxx'] = '.editar';
+            $this->pestanix[6]['dataxxxx'] = [true, $padrexxx->remision->id];
+            $this->pestanix[6]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[6]['routexxx'] = '.nuevo';
+            $this->pestanix[6]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[6]['checkxxx'] = 0;
+        }
         $this->padrexxx = $padrexxx;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;

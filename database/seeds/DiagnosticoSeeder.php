@@ -1093,6 +1093,8 @@ class DiagnosticoSeeder extends Seeder
         Diagnostico::create(['id'=>1074, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SANO PARA SELLANTE', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1074
         Diagnostico::create(['id'=>1075, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SELLANTE', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1075
         Diagnostico::create(['id'=>1076, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'SIN ERUPCIONAR', 'codigo' =>'0','area_id'=>'2869','estusuario_id'=>49]); // 1076
+
+        
         Diagnostico::create(['id'=>1077, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTES SUPER NUMERARIOS', 'codigo' =>'K001','estusuario_id'=>49]); // 1077
         Diagnostico::create(['id'=>1078, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'DIENTES MOTEADOS ', 'codigo' =>'K003','estusuario_id'=>49]); // 1078
         Diagnostico::create(['id'=>1079, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'CARIES LIMITADA AL ESMALTE ', 'codigo' =>'K020','estusuario_id'=>49]); // 1079

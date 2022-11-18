@@ -402,5 +402,8 @@ class DatabaseSeeder extends Seeder
                 $this->call(CasoAdminSeeder::class); // Administracion caso juridico
                 
                 $this->call(DiagnosticoSeeder::class); // Diagnosticos
+                $this->call(SuperficiesOdontologiaSeeder::class); // Diagnosticos
+
+                
         }
 }

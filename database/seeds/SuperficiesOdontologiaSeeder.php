@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Models\Acciones\Individuales\Salud\Odontologia\Superficie;
 use App\Models\Acciones\Individuales\Salud\Odontologia\TipoSuper;
 use Illuminate\Database\Seeder;

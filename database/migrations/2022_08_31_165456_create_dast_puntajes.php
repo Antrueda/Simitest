@@ -16,7 +16,7 @@ class CreateDastPuntajes extends Migration
             $table->tinyInteger('minimo')->comment('MINIMO DE PUNTAJE PARA RESULTADO');
             $table->tinyInteger('superior')->comment('SUPERIOR DE PUNTAJE PARA RESULTADO');
             $table->string('grado_problema', 100)->comment('Grado de problema (por consumo de drogas)');
-            $table->integer('accion_id')->comment('RELACION CON DAST ACCION');
+            $table->integer('accion_id')->unsigned()->comment('RELACION CON DAST ACCION');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
             $table = CamposMagicos::magicos($table);
 
@@ -28,7 +28,7 @@ class CreateDastPuntajes extends Migration
             $table->tinyInteger('minimo')->comment('MINIMO DE PUNTAJE PARA RESULTADO');
             $table->tinyInteger('superior')->comment('SUPERIOR DE PUNTAJE PARA RESULTADO');
             $table->string('grado_problema', 100)->comment('Grado de problema (por consumo de drogas)');
-            $table->integer('accion_id')->comment('RELACION CON DAST ACCION');
+            $table->integer('accion_id')->unsigned()->comment('RELACION CON DAST ACCION');
             $table->integer('estusuarios_id')->comment('JUSTIFICACION DEL ESTADO');
             $table = CamposMagicos::h_magicos($table);
         });
