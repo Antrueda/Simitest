@@ -959,7 +959,6 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'COGNITIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2910
     Parametro::create(['nombre' => 'CONDUCTUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2911
 
-    Parametro::create([ 'nombre' => 'CONDUCTUAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '05-10-2022 11:47:59 PM', 'updated_at' => '05-10-2022 11:47:59 PM', ]); // 2911,
     Parametro::create([ 'nombre' => 'A. LOS DERECHOS DE LOS NIÑOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:50:37 PM', 'updated_at' => '15-10-2022 04:50:37 PM', ]); // 2912,
     Parametro::create([ 'nombre' => 'B. EL TERRITORIO CON MIS OJOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:54:49 PM', 'updated_at' => '15-10-2022 04:54:49 PM', ]); // 2913,
     Parametro::create([ 'nombre' => 'C. LA FAMILIA COMO ENTORNO PROTECTOR Y GARANTE DE DERECHOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:55:05 PM', 'updated_at' => '15-10-2022 04:55:05 PM', ]); // 2914,
@@ -987,6 +986,18 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create([ 'nombre' => 'REGISTRO ASISTENCIA COMITÉ, JUNTA, REUNIÓN, CAPACITACIÓN Y/O ACTIVIDADES DE BIENESTAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '03-11-2022 03:27:53 PM', 'updated_at' => '03-11-2022 03:27:53 PM', ]); // 2936,
     Parametro::create([ 'nombre' => 'ACUERDO DE CORRESPONSABILIDAD CONVENIO FDL FONTIBÓN N° 331/2022', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '10-11-2022 10:53:11 AM', 'updated_at' => '10-11-2022 10:53:11 AM', ]); // 2937,
     Parametro::create([ 'nombre' => 'CASO JURÍDICO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2938,
+
+    Parametro::create([ 'nombre' => 'MAXILOFACIAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2939,
+    Parametro::create([ 'nombre' => 'PERIODONCIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2940,
+    Parametro::create([ 'nombre' => 'ESTOMATOLOGÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2941,
+    Parametro::create([ 'nombre' => 'ORTODONCIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2942,
+    Parametro::create([ 'nombre' => 'ODONTOPEDIATRIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2943,
+    Parametro::create([ 'nombre' => 'ODONTOLOGÍA EPS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2944,
+
+
+
+
+
 
 
 

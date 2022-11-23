@@ -5,7 +5,7 @@
   
     <div class="col-sm-2">
       {{ Form::label('tipodiag', 'Nombre Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('tipodiag', $todoxxxx['estadoxx'],null, ['class' => $errors->first('tipodiag') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder'=>'Seleccione','required']) }}
+      {{ Form::select('tipodiag', $todoxxxx['estadoxx'],null, ['class' => $errors->first('tipodiag') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder'=>'Seleccione',]) }}
       @if($errors->has('tipodiag'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('tipodiag') }}
@@ -14,7 +14,7 @@
     </div>
     <div class="col-sm-3">
       {{ Form::label('diag_id', 'Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('diag_id', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'diag_id','required']) }}
+      {{ Form::select('diag_id', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'diag_id',]) }}
           @if($errors->has('diag_id'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('diag_id') }}
@@ -23,7 +23,7 @@
     </div>
     <div class="col-sm-2">
       {{ Form::label('codigo', 'Codigo', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('codigo',null, ['class' => $errors->first('codigo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
+      {{ Form::text('codigo',null, ['class' => $errors->first('codigo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',]) }}
           @if($errors->has('codigo'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('codigo') }}

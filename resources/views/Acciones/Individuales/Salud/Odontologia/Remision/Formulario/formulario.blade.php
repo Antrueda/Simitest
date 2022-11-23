@@ -1,4 +1,5 @@
-<hr style="border:3px;">
+<hr>
+
 @include($todoxxxx['rutacarp'].'Remision.Formulario.agregar')
 
 <hr>
@@ -17,9 +18,12 @@
             </div>
         @endif
         </div>
-    <div class="col-sm-2">
-        {{ Form::label('remigen_id', 'Tipo de Remisión', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('remigen_id', $todoxxxx['condicio'],null, ['class' => $errors->first('remigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder'=>'Seleccione','required']) }}
+      </div>
+      <hr>
+<div class="row">
+    <div class="col-sm-3">
+        {{ Form::label('remigen_id', 'Remisión Intrainstitucional', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('remigen_id', $todoxxxx['areaxxxx'],null, ['class' => $errors->first('remigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
         @if($errors->has('remigen_id'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('remigen_id') }}
@@ -27,17 +31,17 @@
         @endif
       </div>
       <div class="col-sm-3">
-        {{ Form::label('remisal_id', 'Remisión Intrainstitucional', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('remisal_id', $todoxxxx['condicio'],null, ['class' => $errors->first('remisal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'remisal_id','required']) }}
+        {{ Form::label('remisal_id', 'Especialidad', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('remisal_id', $todoxxxx['remision'],null, ['class' => $errors->first('remisal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'remisal_id','required']) }}
             @if($errors->has('remisal_id'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('remisal_id') }}
               </div>
            @endif
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         {{ Form::label('remiint_id', 'Remisión Interinstitucioanl', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('remiint_id', $todoxxxx['condicio'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
+        {{ Form::select('remiint_id', $todoxxxx['intersti'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
             @if($errors->has('remiint_id'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('remiint_id') }}
@@ -54,9 +58,9 @@
             </div>
         @endif
         </div>
-       <div class="col-sm-2">
-        {{ Form::label('user_id', 'Superficie', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('user_id', $todoxxxx['condicio'],null, ['class' => $errors->first('user_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
+       <div class="col-sm-12">
+        {{ Form::label('user_id', 'Funcionario y/o contratista', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('user_id', $todoxxxx['usuarioz'],null, ['class' => $errors->first('user_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
             @if($errors->has('user_id'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('user_id') }}

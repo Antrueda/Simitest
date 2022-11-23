@@ -18,7 +18,7 @@ class VOdonremite extends Model
     }
 
     public function remision(){
-        return $this->belongsTo(Remision::class, 'remiint_id');
+        return $this->belongsTo(Remision::class, 'remisal_id');
     }
 
 

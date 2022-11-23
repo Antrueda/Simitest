@@ -209,4 +209,27 @@ class Area extends Model
 
         return $comboxxx;
     }
+
+    public static function comboIn($cabecera, $ajaxxxxx,$inxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            $comboxxx = ['' => 'Seleccione'];
+        }
+
+        $areaxxxx = Area::whereIn('id', $inxxxxx)->where('sis_esta_id',1)->get();
+        
+        
+
+
+        foreach ($areaxxxx as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+            } else {
+                $comboxxx[$registro->id] = $registro->nombre;
+            }
+        }
+
+        return $comboxxx;
+    }
 }

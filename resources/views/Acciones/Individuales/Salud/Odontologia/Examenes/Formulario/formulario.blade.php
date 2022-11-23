@@ -116,7 +116,7 @@
         </div>
 </div>
 
-<table class="table">
+{{-- <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">DIENTE</th>
@@ -138,7 +138,7 @@
     </tbody>
   </table>
 
-    
+     --}}
 
 <hr>
 <br>

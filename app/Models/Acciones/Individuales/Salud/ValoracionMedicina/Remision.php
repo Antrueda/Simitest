@@ -47,4 +47,38 @@ class Remision extends Model
         }
         return $comboxxx;
     }
+
+
+    public static function comboIn($cabecera, $ajaxxxxx,$inxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = Remision::select(['id as valuexxx', 'nombre as optionxx'])
+            ->whereIn('id', $inxxxxx)
+            ->where('sis_esta_id', '1')
+            ->orderBy('nombre', 'desc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
 }

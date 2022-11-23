@@ -18,6 +18,7 @@ class RemisionSeeder extends Seeder
          Remision::create(['id'=>3, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ODONTOLOGÍA', 'estusuario_id'=>49]); // 3
         Remision::create(['id'=>4, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'REDUCCIÓN DE RIESGOS Y DAÑOS', 'estusuario_id'=>49]); // 4
         Remision::create(['id'=>5, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'NINGUNO', 'estusuario_id'=>49]); // 5
+        Remision::create(['id'=>6, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'MEDICINA GENERAL', 'estusuario_id'=>49]); // 5
      
      
 
@@ -27,3 +28,4 @@ class RemisionSeeder extends Seeder
 
     }     
 }
+

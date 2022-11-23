@@ -25,17 +25,16 @@ class VOdontograma extends Model
         
         $dataxxxx['user_edita_id'] = Auth::user()->id;
         $dataxxxx['user_crea_id'] = Auth::user()->id;
-        foreach($dataxxxx['diag_id'] as $value){
-          $diag_id =$value;
+
           $test=VOdontograma::create(['diente' =>$dataxxxx['diente'], 
-          'diag_id' => $diag_id, 
+          'diag_id' => $dataxxxx['diag_id'], 
           'odonto_id' => $dataxxxx['odonto_id'], 
           'super_id' => $dataxxxx['super_id'], 
           'tiposup_id' => $dataxxxx['tiposup_id'], 
           'sis_esta_id' =>1,
            'user_crea_id' =>Auth::user()->id]);
-        //  ddd($test);
-      }
+  
+      
 
 
 
