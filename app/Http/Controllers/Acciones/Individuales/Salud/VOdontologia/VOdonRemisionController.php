@@ -29,8 +29,7 @@ class VOdonRemisionController extends Controller
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use CombosTrait; //
 
-    
-
+ 
     public function __construct()
     {
         

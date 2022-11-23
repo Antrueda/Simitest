@@ -2,7 +2,9 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Odontologia\Antecedentes;
 
-
+use App\Models\Acciones\Individuales\Salud\Medicina\Compuesto;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonantece;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
@@ -40,14 +42,25 @@ trait VistasTrait
         $dependid = 0;
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
-        $opciones['condicio'] = Tema::comboNotIn(23, true, false,[2503]);        
+        $opciones['odontolo'] = VOdontologia::where('sis_nnaj_id',$opciones['usuariox']->sis_nnaj_id)->first();
+        $opciones['antecede'] = $opciones['odontolo']->antecedentes;
+        $opciones['alergiax'] = Tema::comboAsc(476, true, false);  
+        $opciones['medicame'] = Compuesto::combo(false, false);  
+        $opciones['diagnost'] = Diagnostico::comboIn(false,false,[1,2,3,4,5,6]);
+        
+//        ddd($opciones['antecede']);
+        if($opciones['antecede']!=null){
+                $dataxxxx['modeloxx']=$opciones['antecede'];
+        
+         }
+        // 
+
         
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
-            $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;

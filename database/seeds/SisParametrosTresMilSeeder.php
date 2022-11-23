@@ -993,6 +993,10 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create([ 'nombre' => 'ORTODONCIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2942,
     Parametro::create([ 'nombre' => 'ODONTOPEDIATRIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2943,
     Parametro::create([ 'nombre' => 'ODONTOLOGÍA EPS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2944,
+    
+    Parametro::create([ 'nombre' => 'ANTIBIÓTICOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2945,
+    Parametro::create([ 'nombre' => 'ANALGÉSICOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2946,
+    Parametro::create([ 'nombre' => 'CORTICOIDES', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM', ]); // 2947,
 
 
 

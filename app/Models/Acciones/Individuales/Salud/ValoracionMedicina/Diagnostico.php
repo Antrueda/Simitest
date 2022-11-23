@@ -48,4 +48,38 @@ class Diagnostico extends Model
         }
         return $comboxxx;
     }
+
+
+    public static function comboIn($cabecera, $ajaxxxxx,$inxxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = Diagnostico::select(['id as valuexxx', 'nombre as optionxx'])
+            ->whereIn('id', $inxxxxxx)
+            ->where('sis_esta_id', '1')
+            ->orderBy('nombre', 'asc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
 }

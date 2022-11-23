@@ -23,7 +23,8 @@ class CreateVOdonantecesTable extends Migration
             $table->foreign('trata_id')->references('id')->on('parametros');
             $table->integer('alergia_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('alergia_id')->references('id')->on('parametros');
-            $table->string('cualtxt',30)->nullable()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
+            $table->integer('coaler_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
+            $table->foreign('coaler_id')->references('id')->on('parametros');
             $table->integer('sangra_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('sangra_id')->references('id')->on('parametros');
             $table->integer('anemia_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
@@ -42,7 +43,6 @@ class CreateVOdonantecesTable extends Migration
             $table->foreign('muerde_id')->references('id')->on('parametros');
             $table->integer('enfactu_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('enfactu_id')->references('id')->on('parametros');
-            $table->string('actutxt',60)->nullable()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->integer('hepati_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('hepati_id')->references('id')->on('parametros');
             $table->integer('tens_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
@@ -59,8 +59,6 @@ class CreateVOdonantecesTable extends Migration
             $table->foreign('ulcer_id')->references('id')->on('parametros');
             $table->integer('toma_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('toma_id')->references('id')->on('parametros');
-            $table->integer('medic_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('medic_id')->references('id')->on('compuestos');
             $table->integer('limit_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('limit_id')->references('id')->on('parametros');
             $table->integer('apret_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');

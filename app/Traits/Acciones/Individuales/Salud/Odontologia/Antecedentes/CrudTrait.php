@@ -31,6 +31,22 @@ trait CrudTrait
                 $dataxxxx['modeloxx'] = VOdonantece::create($dataxxxx['requestx']->all());
             }
             
+            $dataxxxx['modeloxx']->medicamento()->detach();
+            
+            if($dataxxxx['requestx']->medicamento){
+                foreach ($dataxxxx['requestx']->medicamento as $d) {
+                    $dataxxxx['modeloxx']->medicamento()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'sis_esta_id'=>1,'antece_id'=>$dataxxxx['modeloxx']->id]);
+             
+                }
+            }
+            $dataxxxx['modeloxx']->diagnostico()->detach();
+            if($dataxxxx['requestx']->diagnostico){
+                foreach ($dataxxxx['requestx']->diagnostico as $d) {
+                    $dataxxxx['modeloxx']->diagnostico()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'sis_esta_id'=>1,'antece_id'=>$dataxxxx['modeloxx']->id]);
+             
+                }
+            }
+            
             return $dataxxxx['modeloxx'];
         }, 5);
         return redirect()

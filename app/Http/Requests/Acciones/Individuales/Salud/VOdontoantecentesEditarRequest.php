@@ -41,6 +41,9 @@ class VOdontoantecentesEditarRequest extends FormRequest
             'respir_id.required'=>'Respiración bucal',
             'pato_id.required'=>'Patología de Tiroides',
             'tuber_id.required'=>'Tuberculosis',
+            'diagnostico.required_if'=>'Seleccione la enfermedad actual',
+            'medicamento.required_if'=>'Seleccione los medicamentos que toma',
+            'coaler_id.required_if'=>'Seleccione el tipo de medicamento',
             
             
            
@@ -55,19 +58,14 @@ class VOdontoantecentesEditarRequest extends FormRequest
             'gestia_id' => 'required',
             'fuma_id' => 'required',
             'herpes_id' => 'required',
-            
             'cardio_id' => 'required',
-            'actutxt' => 'nullable',
-            'cualtxt' => 'nullable',
-            'medic_id' => 'nullable',
             'vih_id' => 'required',
             'enfactu_id' => 'required',
             'tens_id' => 'required',
             'muerde_id' => 'required',
             'hepati_id' => 'required',
-            'asma_id' => 'nullable',
-            'apret_id' => 'nullable',
-            'medic_id' => 'nullable',
+            'asma_id' => 'required',
+            'apret_id' => 'required',
             'fieb_id' => 'required',
             'diabe_id' => 'required',
             'toma_id' => 'required',
@@ -76,7 +74,10 @@ class VOdontoantecentesEditarRequest extends FormRequest
             'resta_id' => 'required',
             'respir_id' => 'required',
             'pato_id' => 'required',
-            
+
+            'diagnostico' => 'required_if:enfactu_id,227',
+            'medicamento' => 'required_if:toma_id,227',
+            'coaler_id' => 'required_if:alergia_id,227',
             
            
          
