@@ -2,10 +2,10 @@
 
 namespace App\Traits\Acciones\Individuales\Sociolegal\Administracion\TipoCaso;
 
-
+use App\Models\Acciones\Individuales\SocialLegal\TipoCaso;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Models\Acciones\Individuales\SocialLegal\TipoCaso;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
