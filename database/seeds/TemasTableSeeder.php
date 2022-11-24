@@ -426,6 +426,12 @@ class TemasTableSeeder extends Seeder
         Tema::create(['nombre' => 'FORMULARIO ENFERMERIA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 410
         Tema::create(['nombre' => 'FORMULARIO VALORACION RRD', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 411
 
+        Tema::create(['nombre' => 'CIA- PREVENCIÓN DE LA VIOLENCIA INTRAFAMILIAR Y LA VIOLENCIA SEXUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 412
+
+        Tema::create(['nombre' => 'REMISION ODONTOLOGICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 413
+
+        Tema::create(['nombre' => 'TIPO MEDICAMENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 414
+
 
     }
 }

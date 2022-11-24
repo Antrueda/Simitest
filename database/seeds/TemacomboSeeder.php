@@ -484,5 +484,13 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'VSRRD TIPO DE ACOMPAÑAMIENTO', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 470
     Temacombo::create(['nombre' => 'VSRRD ACTIVACIÓN EMOCIONAL', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 471
 
+
+    Temacombo::create(['nombre' => 'CIA- FORTALECIMIENTO DE ORGANIZACIONES JUVENILES', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 472
+    Temacombo::create(['nombre' => 'CIA- FORTALECIMIENTO DE VÍNCULOS FAMILIARES', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 473
+    Temacombo::create(['nombre' => 'CIA- PREVENCIÓN DE LA VIOLENCIA INTRAFAMILIAR Y LA VIOLENCIA SEXUAL', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 474
+    Temacombo::create(['nombre' => 'REMISION ODONTOLOGICA', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 475
+    Temacombo::create(['nombre' => 'TIPO MEDICAMENTO', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 476
+
+
   }
 }
