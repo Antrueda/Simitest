@@ -57,10 +57,10 @@ Route::group(['prefix' => 'TipoCaso'], function () use($controll,$routxxxx){
 		'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
-    Route::get('motivostseg', [
+    Route::get('motivosstse', [
 	    'uses' => $controll.'Controller@getMotivosts',
 	    'middleware' => ['permission:'.$routxxxx.'-leer']
-    ])->name($routxxxx.'.motitseg');
+    ])->name($routxxxx.'.motivosstse');
 });
 
 Route::group(['prefix' => 'resnnajsfos'], function () use ($controll, $routexxx) {
