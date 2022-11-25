@@ -139,7 +139,7 @@ trait ListadosTrait
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2482
+                    'formular' => 2938
                 ])
             );
         }
@@ -152,7 +152,7 @@ trait ListadosTrait
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2483
+                    'formular' => 2938
                 ])
             );
         }

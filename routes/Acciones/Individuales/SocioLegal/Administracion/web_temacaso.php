@@ -34,7 +34,7 @@ Route::group(['prefix' => 'Atemacaso'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.ver');
 
-    Route::get('motivosstse', [
+    Route::get('motistse', [
 	    'uses' => $controll.'Controller@getMotivos',
 	    'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.motistse');
