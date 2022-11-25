@@ -43,13 +43,40 @@ trait VistasTrait
         $opciones['condicio'] = Tema::comboNotIn(23, true, false,[2503]);        
         $opciones['superfic'] = TipoSuper::combo( true, false);    
         $opciones['dientesx'] = [];
-        for ($i = 11; $i <= 85; $i++) {
+        for ($i = 11; $i <= 18; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+
+        for ($i = 21; $i <= 28; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+
+        for ($i = 31; $i <= 38; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+
+        for ($i = 41; $i <= 48; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+
+        for ($i = 51; $i <= 55; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+
+        for ($i = 61; $i <= 65; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+
+        for ($i = 71; $i <= 75; $i++) {
+            $opciones['dientesx'][$i] = $i;
+        }
+
+        for ($i = 81; $i <= 85; $i++) {
             $opciones['dientesx'][$i] = $i;
         }
 
 
-
-        $opciones['diagnost'] = Diagnostico::combo(false,false);
+        $opciones['diagnost'] = [''=>'Seleccione'];   
 
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo

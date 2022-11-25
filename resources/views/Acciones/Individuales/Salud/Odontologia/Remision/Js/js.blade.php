@@ -4,18 +4,56 @@
       language: "es"
     });
     
-    $('#add_btn').on('click',function(){
-     var html='';
-     html+='<tr>';
-     html+='<td>{{Form::select('diente[]', $todoxxxx['dientesx'],null, ['class' =>'form-control form-control-sm','placeholder'=>'Seleccione']) }}</td>';
-     html+='<td>Mark</td>';
-     html+='<td>DOM</td>';
-     html+=' <td>{{ Form::select('diag_id[]', $todoxxxx['diagnost'],null, ['class' => "form-control select2 form-control-sm"]) }}</td>';
-     html+='<td><button type="button" class="btn btn-primary" id="remove"><i class="fas fa-minus"></i></button></td>';
-     html+='</tr>';
-     $('tbody').append(html);
-    });
 
+    var diagnostico = function(selected, upixxxxx,padrexxx) {
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("vodonremites.diagnostico") }}',
+               campoxxx: 'diag_id',
+               mensajex: 'Exite un error al cargar los cursos'
+           }
+           f_comboGeneral(dataxxxx);
+       }
+
+       $('#tipodiag').change(() => {
+            let upixxxxx = $('#tipodiag').val();
+            let padrexxx = '{{ $todoxxxx["padrexxx"]->id }}';
+            let cabecera = true
+            diagnostico(0,upixxxxx);
+            
+        });
+
+        var f_ajaxresp=function(dataxxxx,pselecte){
+                    $.ajax({
+                        url : "{{route('vdiagnosti.codigo')}}",
+                        data : dataxxxx,
+                        type : 'GET',
+                        dataType :'json',
+                        success : function(json) {
+                            $('#codigo' ).val(json.codigo);
+                            },
+                        error : function(xhr, status) {
+                            alert('Disculpe, no se encontraron datos de diagnostico');
+                        },
+                    });
+                }
+
+        $('#diag_id').change(function() {
+        f_ajaxresp({dataxxxx:$(this).val()})
+        });
+        @if(old('diag_id') != null)
+        f_ajaxresp({
+                dataxxxx: {
+                    valuexxx: "{{old('codigo')}}",
+                    campoxxx: 'codigo',
+                    padrexxx: '{{old("diag_id")}}'
+            }});
+        @endif
 
     (function($) {
             $.fn.extend( {

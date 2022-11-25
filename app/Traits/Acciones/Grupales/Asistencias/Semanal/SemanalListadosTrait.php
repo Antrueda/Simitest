@@ -370,6 +370,8 @@ trait SemanalListadosTrait
                         $query->where('asisema_matriculas.asissema_id', '<>', $padrexxx->id)
                             ->orWhere('asisema_matriculas.id', null);
                     })
+                    ->where('matricula_cursos.upi_id', $padrexxx->sis_depen_id)
+                    ->where('matricula_cursos.serv_id', $padrexxx->sis_servicio_id)
                     ->where('matricula_cursos.prm_grupo', $padrexxx->prm_grupo_id)
                     ->where('matricula_cursos.curso_id', $padrexxx->curso_id)
                     ->where('matricula_cursos.sis_esta_id', 1)

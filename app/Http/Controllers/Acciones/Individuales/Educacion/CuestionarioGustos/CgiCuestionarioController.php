@@ -41,21 +41,20 @@ class CgiCuestionarioController extends Controller
         $this->middleware($this->getMware());
         $this->opciones['conthabi'] = [];
 
-        $this->pestania2[0][4]=true;
+        $this->pestania2[0][4] = true;
         $this->pestania2[0][5] = 'active';
-        
     }
 
     public function index(SisNnaj $padrexxx)
     {
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        $this->pestania[0][2]=$padrexxx->id;
-        $this->pestania2[0][2]=$padrexxx->id;
+        $this->pestania[0][2] = $padrexxx->id;
+        $this->pestania2[0][2] = $padrexxx->id;
 
-         //activar el resto de formularios
-         $this->activarPestanias($padrexxx->id);
-       
+        //activar el resto de formularios
+        $this->activarPestanias($padrexxx->id);
+
         $this->getPestanias([]);
         $this->getTablas($padrexxx->id, $puedoCrear['puedo']);
         return view($this->opciones['rutacarp'] . 'CuestionarioGustos.pestanias', ['todoxxxx' => $this->opciones]);
@@ -94,10 +93,10 @@ class CgiCuestionarioController extends Controller
     }
     public function show(CgihCuestionario $modeloxx)
     {
-    
-              $this->contarHabilidades($modeloxx);
-              $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-              return $this->viewVer(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
+
+        $this->contarHabilidades($modeloxx);
+        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
+        return $this->viewVer(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
     public function edit(CgihCuestionario $modeloxx)
@@ -113,7 +112,6 @@ class CgiCuestionarioController extends Controller
                 $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
                 $this->getBotones(['editarxx', [], 1, 'GUARDAR CUESTIONARIO DE GUSTOS', 'btn btn-sm btn-primary']);
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->nnaj]);
-        
             } else {
                 return redirect()
                     ->route('cgicuest', [$modeloxx->sis_nnaj_id])
@@ -127,7 +125,7 @@ class CgiCuestionarioController extends Controller
     }
     public function update(CgihCuestionarioCrearRequest $request, CgihCuestionario $modeloxx)
     {
-        
+
         return $this->setCghiCuestionario([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -172,10 +170,12 @@ class CgiCuestionarioController extends Controller
     {
         $date = new DateTime();
         $data = [];
+
         if ($padrexxx->fi_datos_basico->nnaj_nacimi->Edad >= 14 && $padrexxx->fi_datos_basico->nnaj_nacimi->Edad < 29) {
             $data['puedo'] = true;
 
             $ultimoperfil = CgihCuestionario::where('sis_esta_id', 1)->where('sis_nnaj_id', $padrexxx->id)->orderBy('created_at', 'desc')->first();
+            // * verificar que el NNAJ se le pueda aplicar el cuestionario
             if ($ultimoperfil != null) {
                 $fecha1 = new DateTime($ultimoperfil->fecha);
                 $diff = $date->diff($fecha1);
@@ -183,18 +183,9 @@ class CgiCuestionarioController extends Controller
             } else {
                 $days = 366;
             }
+
             if ($days > 365) {
                 $data['puedo'] = true;
-
-               $matricul =$padrexxx->Matricula;
-               $matriculaCurso=MatriculaCurso::where('sis_esta_id',1)->where('sis_nnaj_id',$padrexxx->id)->orderBy('created_at','desc')->first();
-            
-                  if ($matricul != "" && $matricul >= 1 || $matriculaCurso != null) {
-                         $data['puedo'] = true;
-                     }else{
-                       $data['puedo'] = false;
-                         $data['meserror']='Nnaj no tiene  matricula talleres activa .';
-                     }
             } else {
                 $hoy = $date;
                 $data['puedo'] = false;
@@ -221,7 +212,7 @@ class CgiCuestionarioController extends Controller
     }
 
     public function contarHabilidades($modeloxx)
-    {//suma las letras
+    { //suma las letras
         $itemsxxx = [];
         foreach ($modeloxx->habilidades as $key => $value) {
             $cursoxxx = $value->curso->s_cursos;
@@ -232,9 +223,9 @@ class CgiCuestionarioController extends Controller
                 $itemsxxx[$letraxxx][0] += 1;
             }
         }
-        
+
         $this->opciones['conthabi'] = $itemsxxx;
-        arsort( $this->opciones['conthabi']);
+        arsort($this->opciones['conthabi']);
     }
 
     public function getUpisNnajUsuarioCT($dataxxxx)
@@ -283,5 +274,4 @@ class CgiCuestionarioController extends Controller
         }
         return $comboxxx;
     }
-
 }

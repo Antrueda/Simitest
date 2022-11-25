@@ -40,11 +40,16 @@
   </div>
   @endif
   <div id="cual_div">
-    {{ Form::label('cualtxt', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('cualtxt', null, ['class' => $errors->first('cualtxt') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('cualtxt'))
+    {{ Form::label('coaler_id', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
+    @if($todoxxxx['antecede']==null)
+        {{ Form::select('coaler_id', $todoxxxx['alergiax'],null, ['class' => $errors->first('coaler_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }} 
+    @else
+    {{ Form::select('coaler_id', $todoxxxx['alergiax'], $todoxxxx['antecede']->coaler_id, ['class' => $errors->first('coaler_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @endif
+
+    @if($errors->has('coaler_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('cualtxt') }}
+      {{ $errors->first('coaler_id') }}
     </div>
  @endif
   </div>
@@ -220,16 +225,16 @@
 </div>
 
 <div class="col-md-3">
-  {{ Form::label('enfactu_id', 'Enfermerdad actual: cual?', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::label('enfactu_id', 'Enfermerdad actual', ['class' => 'control-label col-form-label-sm']) }}
   <div class="form-check">
       <label class="form-check-label">
-          <input type="radio" class="form-check-input"
+          <input type="radio" class="form-check-input" onchange = "doc2(this.value);"
           name="enfactu_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->enfactu_id == 227) ? 'checked' : ''; ?> value="227" {{ old("enfactu_id") == '227' ? 'checked' : '' }}>SI
       </label>
   </div>
   <div class="form-check disabled">
       <label class="form-check-label">
-          <input type="radio" class="form-check-input {{$errors->first('enfactu_id') ? ' is-invalid' : ''}}"
+          <input type="radio" class="form-check-input {{$errors->first('enfactu_id') ? ' is-invalid' : ''}}" onchange = "doc2(this.value);"
           name="enfactu_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->enfactu_id == 228) ? 'checked' : ''; ?> value="228" {{ old("enfactu_id") == '228' ? 'checked' : '' }}>NO
       </label>
   </div>
@@ -238,6 +243,19 @@
       {{ $errors->first('enfactu_id') }}
   </div>
   @endif
+  <div id="diag_div">
+    {{ Form::label('diagnostico', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
+    @if($todoxxxx['antecede']==null)
+        {{ Form::select('diagnostico[]', $todoxxxx['diagnost'],null, ['class' => $errors->first('diagnostico') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'diagnostico']) }} 
+    @else
+        {{ Form::select('diagnostico[]', $todoxxxx['diagnost'], $todoxxxx['antecede']->diagnostico, ['class' => $errors->first('diagnostico') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'diagnostico']) }}
+    @endif
+    @if($errors->has('diagnostico'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('diagnostico') }}
+    </div>
+ @endif
+  </div>
 </div>
 
 
@@ -392,28 +410,6 @@
   {{ Form::label('toma_id', '¿Toma algun Medicamento?', ['class' => 'control-label col-form-label-sm']) }}
   <div class="form-check">
       <label class="form-check-label">
-          <input type="radio" class="form-check-input"
-          name="toma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->toma_id == 227) ? 'checked' : ''; ?> value="227" {{ old("toma_id") == '227' ? 'checked' : '' }}>SI
-      </label>
-  </div>
-  <div class="form-check disabled">
-      <label class="form-check-label">
-          <input type="radio" class="form-check-input {{$errors->first('toma_id') ? ' is-invalid' : ''}}"
-          name="toma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->toma_id == 228) ? 'checked' : ''; ?> value="228" {{ old("toma_id") == '228' ? 'checked' : '' }}>NO
-      </label>
-  </div>
-  @if($errors->has('toma_id'))
-  <div class="invalid-feedback d-block">
-      {{ $errors->first('toma_id') }}
-  </div>
-  @endif
-</div>
-
-
-<div class="col-md-3">
-  {{ Form::label('toma_id', '¿Toma algun Medicamento?', ['class' => 'control-label col-form-label-sm']) }}
-  <div class="form-check">
-      <label class="form-check-label">
           <input type="radio" class="form-check-input" onchange = "doc1(this.value);"
           name="toma_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->toma_id == 227) ? 'checked' : ''; ?> value="227" {{ old("toma_id") == '227' ? 'checked' : '' }}>SI
       </label>
@@ -430,11 +426,15 @@
   </div>
   @endif
   <div id="medic_div">
-    {{ Form::label('medic_id', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('medic_id', $todoxxxx['condicio'],null, ['class' => $errors->first('medic_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-    @if($errors->has('medic_id'))
+    {{ Form::label('medicamento', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
+    @if($todoxxxx['antecede']==null)
+    {{ Form::select('medicamento[]', $todoxxxx['medicame'],null, ['class' => $errors->first('medicamento') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'medicamento']) }} 
+    @else
+        {{ Form::select('medicamento[]', $todoxxxx['medicame'], $todoxxxx['antecede']->medicamento, ['class' => $errors->first('medicamento') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'medicamento']) }}
+    @endif
+    @if($errors->has('medicamento'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('medic_id') }}
+      {{ $errors->first('medicamento') }}
     </div>
  @endif
   </div>

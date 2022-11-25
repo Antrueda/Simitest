@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisDepeUsua;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\GestionTiempos\ManageTimeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class AIController extends Controller
 {
@@ -24,6 +28,12 @@ class AIController extends Controller
 
     public function index()
     {
+        if(Auth::user()->s_documento=='17496705'){
+
+
+        }
+        
+        // 
         $this->getPuedeCargar([
             'estoyenx' => 1,
             'fechregi' => '2021-06-01',

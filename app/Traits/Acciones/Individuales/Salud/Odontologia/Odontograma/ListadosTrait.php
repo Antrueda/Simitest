@@ -59,13 +59,13 @@ trait ListadosTrait
                 'consulta.nombre as consulta',
                 'valoracion.nombre as valoracion',
                 'sis_estas.s_estado',
-                //'cargue.name as cargue',
+                'cargue.name as cargue',
                 'v_odontologias.sis_esta_id',
                 ])
                 ->join('sis_estas', 'v_odontologias.sis_esta_id', '=', 'sis_estas.id')
                 ->join('parametros as consulta', 'v_odontologias.consulta_id', '=', 'consulta.id')
                 ->join('parametros as valoracion', 'v_odontologias.valora_id', '=', 'valoracion.id')
-             //   ->join('users as cargue', 'v_odontologias.user_id', '=', 'cargue.id')
+                ->join('users as cargue', 'v_odontologias.user_id', '=', 'cargue.id')
                 ->where('v_odontologias.sis_esta_id', 1)
                 ->where('v_odontologias.sis_nnaj_id',$padrexxx->id);
                 
@@ -217,10 +217,13 @@ trait ListadosTrait
 
         $Noaplica=[1032,1040,1042,1047,1048,1058,1062,1071,1076];
         $todasxxx=[1039,1043,1045,1057,1059,1060,1061];
-        $result = !empty(array_intersect($request->upixxxxx, $Noaplica));
-        $todas =  !empty(array_intersect($request->upixxxxx, $todasxxx));
-
-        if($result){
+        $unaxxxxx=[1034,1046,1050,1056,1073,1074,1075];
+        $listaxxx=[1031,1033,1035,1036,1037,1038,1041,1044,1049,1051,1052,1053,1054,1055,1063,1064,1065,1066,1067,1068,1069,1070,1072];
+        $result = 
+        $todas =  !empty(in_array($request->upixxxxx, $todasxxx));
+        
+        switch (true) {
+            case !empty(in_array($request->upixxxxx, $Noaplica)):
         $dataxxxx = [
             'cabecera' => true,
             'ajaxxxxx' => true,
@@ -230,8 +233,8 @@ trait ListadosTrait
             'orderxxx' => 'ASC',
             'diagnost' => $request->upixxxxx,
         ];
-         }else{
-            if($todas){
+     break;
+     case !empty(in_array($request->upixxxxx, $todasxxx)):
                 $dataxxxx = [
                     'cabecera' => true,
                     'ajaxxxxx' => true,
@@ -241,18 +244,31 @@ trait ListadosTrait
                     'orderxxx' => 'ASC',
                     'diagnost' => $request->upixxxxx,
                 ];
-         }else{
+        break;
+        case !empty(in_array($request->upixxxxx, $unaxxxxx)):
                 $dataxxxx = [
                     'cabecera' => true,
                     'ajaxxxxx' => true,
                     'padrexxx' => true,
-                    'inxxxxxx' => [1,2,3,4,5],
+                    'inxxxxxx' => [1],
                     'selected' => $request->selected,
                     'orderxxx' => 'ASC',
                     'diagnost' => $request->upixxxxx,
                 ];
-             }
-        }
+        break;  
+                case !empty(in_array($request->upixxxxx, $listaxxx)):
+                    $dataxxxx = [
+                        'cabecera' => true,
+                        'ajaxxxxx' => true,
+                        'padrexxx' => true,
+                        'inxxxxxx' => [1,2,3,4,5],
+                        'selected' => $request->selected,
+                        'orderxxx' => 'ASC',
+                        'diagnost' => $request->upixxxxx,
+                    ];
+                    break;     
+                 }
+ 
         $dataxxxx['cabecera'] = $request->cabecera;
 
         $respuest = response()->json($this->getTiposuperficieTp($dataxxxx));

@@ -23,7 +23,28 @@
     // }
     // });
 
+    var diagnostico = function(selected, upixxxxx,padrexxx) {
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("vodonhigiene.diagnostico") }}',
+               campoxxx: 'diag_id',
+               mensajex: 'Exite un error al cargar los cursos'
+           }
+           f_comboGeneral(dataxxxx);
+       }
 
+       $('#diente').change(() => {
+            let upixxxxx = $('#diente').val();
+            let padrexxx = '{{ $todoxxxx["padrexxx"]->id }}';
+            let cabecera = true
+            diagnostico(0,upixxxxx);
+            
+        });
    
 
 
@@ -36,7 +57,7 @@
                    cabecera: true,
                    selected: [selected]
                },
-               urlxxxxx: '{{ route("vodontograma.superficie") }}',
+               urlxxxxx: '{{ route("vodonhigiene.superficie") }}',
                campoxxx: 'super_id',
                mensajex: 'Exite un error al cargar los cursos'
            }

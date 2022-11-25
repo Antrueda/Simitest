@@ -26,7 +26,7 @@ class CsdConclusionesController extends Controller
 
     public function __construct()
     {
-        $this->opciones['botoform']=[];
+        $this->opciones['botoform'] = [];
         $this->opciones['permisox'] = 'csdconclusiones';
         $this->opciones['routxxxx'] = 'csdconclusiones';
         $this->opciones['rutacarp'] = 'Csd.';
@@ -59,6 +59,20 @@ class CsdConclusionesController extends Controller
         $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['padrexxx']->csd_id)
             ->where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             ->first();
+        if (is_null($compfami)) {
+            $document=$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento;
+            $nombresx=$dataxxxx['padrexxx']->csd->CsdDatosBasico;
+            $nombresx=$nombresx->s_primer_nombre .' '.$nombresx->s_segundo_nombre .' '.$nombresx->s_primer_apellido .' '.$nombresx->s_segundo_apellido;
+            // if (Auth::user()->s_documento == '1070010061') {
+            //     dd( $nombresx);
+            // }
+            return redirect()
+                ->route('csdcomfamiliar.nuevo', [$dataxxxx['padrexxx']->id])
+                ->with('info1', "La persona: $nombresx con documento de identidad: $document no se encuentra en la composición familiar, 
+                para continuar con las observaciones primero se debe agregar");
+        }
+        // if (Auth::user()->s_documento == '1070010061') {
+       
         $this->opciones['familiax'] = Parametro::find($compfami->prm_parentezco_id)->combo;
         $nombrexx = $dataxxxx['padrexxx']->csd->CsdDatosBasico;
         $nombrexx =
@@ -143,11 +157,11 @@ class CsdConclusionesController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
     {
-        
+
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
             return redirect()
-                ->route($this->opciones['permisox'].'.ver', [$padrexxx->id,$modeloxx->id]);
+                ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
         }
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (Auth::user()->id == $padrexxx->user_crea_id || User::userAdmin()) {

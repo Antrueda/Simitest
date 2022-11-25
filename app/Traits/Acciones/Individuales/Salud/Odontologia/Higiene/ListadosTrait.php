@@ -8,6 +8,7 @@ use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\Superficie;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VHigiene;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
@@ -83,20 +84,20 @@ trait ListadosTrait
              $request->botonesx = $this->opciones['rutacarp'] .
                  $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  VOdontograma::select([
-                'v_odontogramas.id',
-                'v_odontogramas.diente',
+            $dataxxxx =  VHigiene::select([
+                'v_higienes.id',
+                'v_higienes.diente',
                 'super.nombre as super',
                 'diag.nombre as diag',
                 'sis_estas.s_estado',
-                'v_odontogramas.sis_esta_id',
+                'v_higienes.sis_esta_id',
                 ])
-                ->join('v_odontologias', 'v_odontogramas.odonto_id', '=', 'v_odontologias.id')
-                ->join('sis_estas', 'v_odontogramas.sis_esta_id', '=', 'sis_estas.id')
-                ->join('diagnosticos as diag', 'v_odontogramas.diag_id', '=', 'diag.id')
-                ->join('superficies as super', 'v_odontogramas.super_id', '=', 'super.id')
-                ->where('v_odontogramas.sis_esta_id', 1)
-                ->where('v_odontogramas.odonto_id',$padrexxx->id);
+                ->join('v_odontologias', 'v_higienes.odonto_id', '=', 'v_odontologias.id')
+                ->join('sis_estas', 'v_higienes.sis_esta_id', '=', 'sis_estas.id')
+                ->join('diagnosticos as diag', 'v_higienes.diag_id', '=', 'diag.id')
+                ->join('superficies as super', 'v_higienes.super_id', '=', 'super.id')
+                ->where('v_higienes.sis_esta_id', 1)
+                ->where('v_higienes.odonto_id',$padrexxx->id);
                 
 
             return $this->getDtMedicina($dataxxxx, $request);
@@ -152,6 +153,43 @@ trait ListadosTrait
         return $respuest;
     }
 
+    public function getDiagnosticoTp($dataxxxx)
+    {
+        $higiene =[1067,397,398,1045,1036];
+        $diente =VHigiene::select([
+            'v_higienes.diag_id',
+            ])
+            ->where('v_higienes.sis_esta_id', 1)
+            ->where('v_higienes.diente', $dataxxxx['tipocurs'])
+            ->where('v_higienes.odonto_id',$dataxxxx['padrexxx'])->get();
+
+        $dataxxxx['dataxxxx'] = Diagnostico::select(['diagnosticos.id as valuexxx', 'diagnosticos.nombre as optionxx'])
+            ->whereNotIn('diagnosticos.id', $diente)
+            ->whereIn('diagnosticos.id',$higiene)
+            ->where('diagnosticos.sis_esta_id', 1)
+            ->orderBy('diagnosticos.nombre', 'asc')
+            ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+
+    public function getDiagnostico(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'padrexxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'tipocurs' => $request->upixxxxx,
+            
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getDiagnosticoTp($dataxxxx));
+        return $respuest;
+    }
 
     public function getCodigo(Request $request)
     {

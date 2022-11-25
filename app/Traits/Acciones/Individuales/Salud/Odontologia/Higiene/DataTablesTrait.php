@@ -97,7 +97,7 @@ trait DataTablesTrait
                 ],
                 'columnsx' => [
                     
-                    ['data' => 'diente', 'name' => 'v_odontogramas.diente'],
+                    ['data' => 'diente', 'name' => 'v_higienes.diente'],
                     ['data' => 'super', 'name' => 'super.nombre as super'],
                     ['data' => 'diag', 'name' => 'diag.nombre as diag'],
                     ['data' => 'botonexx', 'name' => 'botonexx'],

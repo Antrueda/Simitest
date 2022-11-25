@@ -79,42 +79,65 @@ Route::get('csd/nnajs', function (Request $request) {
 Route::get('ai/nnajs', function (Request $request) {
 
 
+if($request->userxxxx==2508){
+
+}
+
     if (!$request->ajax())
         return redirect('/');
-        return datatables()
-        ->eloquent(FiDatosBasico::select(
-            'tipodocumento.nombre as tipodocumento',
-            'nnaj_docus.s_documento',
-            'fi_datos_basicos.s_primer_nombre',
-            'fi_datos_basicos.s_segundo_nombre',
-            'fi_datos_basicos.s_primer_apellido',
-            'fi_datos_basicos.s_segundo_apellido',
-            'nnaj_sexos.s_nombre_identitario',
-            'nnaj_nacimis.d_nacimiento',
-            'sexos.nombre as sexos',
-            'fi_datos_basicos.s_apodo',
-            'fi_datos_basicos.id',
-            'fi_datos_basicos.sis_nnaj_id',
-            'fi_datos_basicos.sis_esta_id'
-        )
-            ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-            ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
-            ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
+    return datatables()
 
-            ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
-            ->where('sis_nnajs.prm_escomfam_id',227)
-
-            //->groupBy('fi_datos_basicos.id')
-
-            //->where('fi_datos_basicos.sis_nnaj_id',1)
-
+        ->eloquent(
+            FiDatosBasico::select(
+                'tipodocumento.nombre as tipodocumento',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'nnaj_sexos.s_nombre_identitario',
+                'nnaj_nacimis.d_nacimiento',
+                'sexos.nombre as sexos',
+                'fi_datos_basicos.s_apodo',
+                'fi_datos_basicos.id',
+                'fi_datos_basicos.sis_nnaj_id',
+                'fi_datos_basicos.sis_esta_id'
             )
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+                ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
+                ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
+
+                ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('sis_depen_user', 'nnaj_upis.sis_depen_id', '=', 'sis_depen_user.sis_depen_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+                ->groupBy(
+                    'fi_datos_basicos.id',
+                    'tipodocumento.nombre',
+                    'nnaj_docus.s_documento',
+                    'fi_datos_basicos.s_primer_nombre',
+                    'fi_datos_basicos.s_segundo_nombre',
+                    'fi_datos_basicos.s_primer_apellido',
+                    'fi_datos_basicos.s_segundo_apellido',
+                    'nnaj_sexos.s_nombre_identitario',
+                    'nnaj_nacimis.d_nacimiento',
+                    'sexos.nombre',
+                    'fi_datos_basicos.s_apodo',
+
+                    'fi_datos_basicos.sis_nnaj_id',
+                    'fi_datos_basicos.sis_esta_id'
+                )
+                ->where('sis_nnajs.prm_escomfam_id', 227)
+                ->where('sis_depen_user.user_id', $request->userxxxx)
+                ->where('sis_depen_user.sis_esta_id', 1)
+                ->where('nnaj_upis.sis_esta_id', 1)
+        )
 
         ->addColumn('botones', 'Acciones/Individuales/botones')
         ->addColumn('upiservicio', 'Acciones/Individuales/upiservicio')
-        ->rawColumns(['botones','upiservicio'])
+        ->rawColumns(['botones', 'upiservicio'])
         ->toJson();
 });
 
@@ -175,21 +198,21 @@ Route::get('is/nnajs', function (Request $request) {
     return datatables()
         ->eloquent(
             FiDatosBasico::select(
-            'nnaj_docus.s_documento',
-            'fi_datos_basicos.s_primer_nombre',
-            'fi_datos_basicos.s_segundo_nombre',
-            'fi_datos_basicos.s_primer_apellido',
-            'fi_datos_basicos.s_segundo_apellido',
-            'fi_datos_basicos.s_apodo',
-            'nnaj_sexos.s_nombre_identitario',
-            'fi_datos_basicos.id',
-            'fi_datos_basicos.sis_nnaj_id',
-            'fi_datos_basicos.sis_esta_id'
-        )
-            ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'fi_datos_basicos.s_apodo',
+                'nnaj_sexos.s_nombre_identitario',
+                'fi_datos_basicos.id',
+                'fi_datos_basicos.sis_nnaj_id',
+                'fi_datos_basicos.sis_esta_id'
             )
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+
+        )
         ->addColumn('btns', 'intervencion/botones')
         ->rawColumns(['btns'])
         ->toJson();
@@ -270,22 +293,22 @@ Route::get('fi/familiar/estrategia', function (Request $request) {
     if (!$request->ajax())
         return redirect('/');
 
-        $estrategia = [];
-        switch ($request->estrateg) {
-            case 650:
-                $estrategia =  Parametro::find(235)->Combo;
-                break;
-            case 651:
-                $estrategia =  Parametro::find(651)->Combo;
-                break;
-            case 445:
-                $estrategia =  Parametro::find(445)->Combo;
-                break;
-            default:
-                $estrategia =  Parametro::find(2503)->Combo;
-                break;
-        }
-        return response()->json($estrategia);
+    $estrategia = [];
+    switch ($request->estrateg) {
+        case 650:
+            $estrategia =  Parametro::find(235)->Combo;
+            break;
+        case 651:
+            $estrategia =  Parametro::find(651)->Combo;
+            break;
+        case 445:
+            $estrategia =  Parametro::find(445)->Combo;
+            break;
+        default:
+            $estrategia =  Parametro::find(2503)->Combo;
+            break;
+    }
+    return response()->json($estrategia);
 });
 
 
@@ -305,4 +328,3 @@ Route::get('intsubarea/listar/{area}', 'Administracion\Intervencion\SubareaAjust
 // Route::get('fi/familiar/upz/{id}', 'FichaIngreso\\FiFamBeneficiario@upz') ;
 // Route::get('fi/familiar/barrio/{id}', 'FichaIngreso\\FiFamBeneficiario@barrio') ;
 // Route::get('fi/familiar/etnia/{id}', 'FichaIngreso\\FiFamBeneficiario@pobletnia') ;
-

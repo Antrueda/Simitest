@@ -58,7 +58,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['discapac'] = Tema::comboAsc(24, true, false);
         $this->opciones['educacio'] = Tema::comboAsc(153, true, false);
         $this->opciones['estadciv'] = Tema::comboAsc(19, true, false);
-        $this->opciones['parentes'] = Tema::comboAsc(66, true, false);
+        // $this->opciones['parentes'] = Tema::comboAsc(66, true, false);
         $this->opciones['grupoetn'] = Tema::comboAsc(20, true, false);
         $this->opciones['ocupacio'] = Tema::comboAsc(294, true, false);
         $this->opciones['vinculax'] = Tema::comboAsc(287, true, false);
@@ -189,9 +189,15 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            // ddd($dataxxxx['modeloxx']->prm_cualeps_id);
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] = Parametro::find(235)->Combo;
             }
+            if ($dataxxxx['modeloxx']->prm_discapacidad_id == 228) {
+                $this->opciones['discapac'] = Parametro::find(235)->Combo;
+            }
+
+            
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
@@ -329,8 +335,8 @@ class CsdCompfamiController extends Controller
     public function edit(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
         $value = Session::get('csdver_' . Auth::id());
-        if (!$value) {
-            return redirect()
+        if (!$value) { 
+                return redirect()
                 ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
         }
         $this->opciones['csdxxxxx'] = $padrexxx;

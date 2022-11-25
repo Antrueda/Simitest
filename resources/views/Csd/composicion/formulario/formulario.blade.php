@@ -1,5 +1,9 @@
+@if(session()->has('info1'))
+<div class="alert alert-danger" role="alert">
+  {{session('info1')}}
+</div>
+@endif
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('s_primer_apellido', '7.1 1er. Apellido', ['class' => 'control-label']) }}

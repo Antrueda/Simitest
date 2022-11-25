@@ -474,6 +474,23 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'PRUEBAS DE TAMIZAJE', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 462
     Temacombo::create(['nombre' => 'NOVEDAD/FALLECIMIENTO', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 463
     Temacombo::create(['nombre' => 'TIPO FORMULACION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 464
-    
+
+    Temacombo::create(['nombre' => 'PROMOCIÓN Y DETECCIÓN', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 465
+    Temacombo::create(['nombre' => 'CHARLA INDIVIDUAL', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 466
+    Temacombo::create(['nombre' => 'TRAMITES DE AFILIACION', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 467
+    Temacombo::create(['nombre' => 'TRAMITE EPS', 'tema_id' => '410', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 468
+
+    Temacombo::create(['nombre' => 'VSRRD FASE DE ACOMPAÑAMIENTO', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 469
+    Temacombo::create(['nombre' => 'VSRRD TIPO DE ACOMPAÑAMIENTO', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 470
+    Temacombo::create(['nombre' => 'VSRRD ACTIVACIÓN EMOCIONAL', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 471
+
+
+    Temacombo::create(['nombre' => 'CIA- FORTALECIMIENTO DE ORGANIZACIONES JUVENILES', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 472
+    Temacombo::create(['nombre' => 'CIA- FORTALECIMIENTO DE VÍNCULOS FAMILIARES', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 473
+    Temacombo::create(['nombre' => 'CIA- PREVENCIÓN DE LA VIOLENCIA INTRAFAMILIAR Y LA VIOLENCIA SEXUAL', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 474
+    Temacombo::create(['nombre' => 'REMISION ODONTOLOGICA', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 475
+    Temacombo::create(['nombre' => 'TIPO MEDICAMENTO', 'tema_id' => '411', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 476
+
+
   }
 }

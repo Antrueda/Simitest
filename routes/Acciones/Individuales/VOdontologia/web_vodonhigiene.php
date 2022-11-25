@@ -55,6 +55,10 @@ Route::group(['prefix' => 'Higiene'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-crear']
 	])->name($routxxxx . '.superficie');
 
+    Route::get('diagnostico', [
+        'uses' => $controll . 'Controller@getDiagnostico',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.diagnostico');
 
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@destroy',

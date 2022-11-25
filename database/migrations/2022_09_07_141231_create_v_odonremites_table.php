@@ -19,11 +19,11 @@ class CreateVOdonremitesTable extends Migration
             $table->integer('odonto_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('odonto_id')->references('id')->on('v_odontologias');
             $table->integer('remigen_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->foreign('remigen_id')->references('id')->on('parametros');
+            $table->foreign('remigen_id')->references('id')->on('areas');
             $table->integer('remisal_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->foreign('remisal_id')->references('id')->on('parametros');
+            $table->foreign('remisal_id')->references('id')->on('remisions');
             $table->integer('remiint_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->foreign('remiint_id')->references('id')->on('remisions');
+            $table->foreign('remiint_id')->references('id')->on('parametros');
             $table->longText('observacion',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->longText('evolucion',4000)->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('user_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
