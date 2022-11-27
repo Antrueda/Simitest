@@ -46,7 +46,7 @@ trait CsdTrait
 
                     $requestx->puedexxx = $this->getPuedeCargar([
                         'estoyenx' => 1,
-                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                        'fechregi' => explode(' ', $queryxxx->created_at)[0]
                     ]);
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
@@ -68,6 +68,57 @@ trait CsdTrait
             ->toJson();
     }
 
+    public  function getDttbComfami($queryxxx, $requestx)
+    {
+
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+
+                    $requestx->puedexxx = $this->getPuedeCargar([
+                        'estoyenx' => 1,
+                        'fechregi' => explode(' ', $queryxxx->created_at)[0]
+                    ]);
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+
+            ->addColumn(
+                'created_at',
+                function ($queryxxx) use ($requestx) {
+                    $fechaxxx=explode('T',$queryxxx->created_at);
+                    return $fechaxxx[0] ;
+                }
+
+            )
+            ->addColumn(
+                'updated_at',
+                function ($queryxxx) use ($requestx) {
+                    $fechaxxx=explode('T',$queryxxx->updated_at);
+                    return $fechaxxx[0] ;
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+
     public  function getDtAportantesCT($queryxxx, $requestx)
     {
         return datatables()
@@ -77,7 +128,7 @@ trait CsdTrait
                 function ($queryxxx) use ($requestx) {
                     $requestx->puedexxx = $this->getPuedeCargar([
                         'estoyenx' => 1,
-                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                        'fechregi' => explode(' ', $queryxxx->created_at)[0]
                     ]);
 
                     return  view($requestx->botonesx, [
@@ -249,29 +300,36 @@ trait CsdTrait
             'csd_com_familiars.s_segundo_apellido',
             'csd_com_familiars.sis_esta_id',
             'csd_com_familiars.created_at',
+            'usercrea.name as usercrea',
+
+            'csd_com_familiars.updated_at',
+            'useredit.name as useredit',
             'sis_estas.s_estado'
         ])
-        ->join('csds', 'csd_com_familiars.csd_id', '=', 'csds.id')
+            ->join('csds', 'csd_com_familiars.csd_id', '=', 'csds.id')
+            ->join('users usercrea', 'csd_com_familiars.user_crea_id', '=', 'usercrea.id')
+            ->join('users useredit', 'csd_com_familiars.user_edita_id', '=', 'useredit.id')
             ->join('sis_estas', 'csd_com_familiars.sis_esta_id', '=', 'sis_estas.id')
             ->where(function ($queryxxx) use ($request) {
-                $usuariox=Auth::user();
+                $usuariox = Auth::user();
                 if (!$usuariox->hasRole([Role::find(1)->name])) {
                     $queryxxx->where('csd_com_familiars.sis_esta_id', 1);
                 }
                 $queryxxx->where('csd_com_familiars.csd_id', $request->padrexxx);
             });
-        return $this->getDtAccionesCT($dataxxxx, $request);
+        return $this->getDttbComfami($dataxxxx, $request);
     }
 
     public function getTodoComFami($request)
     {
-
-        // $notinxxx = CsdComFamiliar::select('nnaj_docus.s_documento')
-        //     ->join('nnaj_docus', 'csd_com_familiars.s_documento', '=', 'nnaj_docus.s_documento')
-        //     ->join('fi_datos_basicos', 'nnaj_docus.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
-        //     ->where('csd_id', $request->csdxxxxx)
-            // ->groupBy('sis_nnaj_id')
-            // ->get();
+      
+      
+        $notinxxx = CsdComFamiliar::select('nnaj_docus.s_documento')
+            ->join('nnaj_docus', 'csd_com_familiars.s_documento', '=', 'nnaj_docus.s_documento')
+            ->join('fi_datos_basicos', 'nnaj_docus.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
+            ->where('csd_id', $request->csdxxxxx)
+        ->groupBy('nnaj_docus.s_documento')
+        ->get();
         $dataxxxx =  SisNnaj::select([
             'sis_nnajs.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -290,10 +348,11 @@ trait CsdTrait
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
             ->join('fi_compfamis', 'fi_datos_basicos.sis_nnaj_id', '=', 'fi_compfamis.sis_nnaj_id')
             // FiCompfami
-            ->leftJoin('csd_com_familiars','nnaj_docus.s_documento','=','csd_com_familiars.s_documento')
-            ->where('csd_com_familiars.s_documento',null)
-            // ->whereNotIn('nnaj_docus.s_documento', $notinxxx)
-            ;
+            // ->leftJoin('csd_com_familiars', 'nnaj_docus.s_documento', '=', 'csd_com_familiars.s_documento')
+            // ->where('csd_com_familiars.s_documento', null)
+            // ->where('csd_com_familiars.csd_id', $request->padrexxx->csd_id)
+            ->whereNotIn('nnaj_docus.s_documento', $notinxxx)
+        ;
         return $this->getDtAccionesCT($dataxxxx, $request);
     }
 
@@ -495,7 +554,7 @@ trait CsdTrait
             ->join('csds', 'csd_sis_nnaj.csd_id', '=', 'csds.id')
             ->join('sis_estas', 'csds.sis_esta_id', '=', 'sis_estas.id')
             ->where(function ($queryxxx) use ($request) {
-                $usuariox=Auth::user();
+                $usuariox = Auth::user();
                 if (!$usuariox->hasRole([Role::find(1)->name])) {
                     $queryxxx->where('csd_sis_nnaj.sis_esta_id', 1);
                 }
@@ -638,11 +697,11 @@ trait CsdTrait
     public function getTodoComFamilia($request)
     {
         $dataxxxx =  FiCompfami::select([
-            
+
             'fi_compfamis.id',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
-     
+
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
@@ -651,7 +710,7 @@ trait CsdTrait
             'nnaj_nacimis.d_nacimiento',
             'fi_compfamis.created_at',
             'sis_estas.s_estado',
-            
+
 
         ])
             ->join('fi_datos_basicos', 'fi_compfamis.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
@@ -677,7 +736,7 @@ trait CsdTrait
                 'departam' => ['sis_departam_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
             ];
-         
+
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
@@ -687,7 +746,7 @@ trait CsdTrait
                 $dataxxxx['departam'][2] = $expedici->sis_departam_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
-                $parentes=FiCompfami::where('sis_nnaj_id', $request->padrexxx)->get();
+                $parentes = FiCompfami::where('sis_nnaj_id', $request->padrexxx)->get();
                 $dataxxxx['parentes'][1] = $parentes->first()->Parentesco;
             }
 

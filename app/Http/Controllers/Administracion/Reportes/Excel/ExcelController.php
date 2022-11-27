@@ -316,16 +316,16 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = Parametro::whereBetween('id',[2800,2872])->get();
+        $dataxxxx = Parametro::whereBetween('id',[2911,2938])->get();
         // 
         foreach ($dataxxxx as $registro) {
             echo "Parametro::create([
-                'nombre' => {$registro->nombre},
+                'nombre' => '{$registro->nombre}',
                 'user_edita_id' => 1,
                 'user_crea_id' => 1,
                 'sis_esta_id' => 1,
-                'created_at' => {$registro->created_at},
-                'updated_at' => {$registro->updated_at},
+                'created_at' => '{$registro->created_at}',
+                'updated_at' => '{$registro->updated_at}',
             ]); // {$registro->id}, <br />";;
         }
     }

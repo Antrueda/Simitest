@@ -105,7 +105,7 @@ class CsdCompfamiCrearRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_documento'][4]=new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getNuevo',]);
+        $this->_reglasx['s_documento'][4]=new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getNuevo','segments'=>$this->segments()]);
         return $this->_reglasx;
 
         

@@ -118,6 +118,10 @@ class CsdCompfamiController extends Controller
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA Y HORA CREA REGISTRO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'USUARIO CREA REGISTRO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA Y HORA EDITA REGISTRO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'USUARIO CREA EDITA REGISTRO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
                 ],
@@ -129,7 +133,13 @@ class CsdCompfamiController extends Controller
                     ['data' => 's_primer_apellido', 'name' => 'csd_com_familiars.s_primer_apellido'],
                     ['data' => 's_segundo_apellido', 'name' => 'csd_com_familiars.s_segundo_apellido'],
                     ['data' => 's_documento', 'name' => 'csd_com_familiars.s_documento'],
+                    ['data' => 'created_at', 'name' => 'csd_com_familiars.created_at'],
+                    ['data' => 'usercrea', 'name' => 'usercrea.name as usercrea'],
+                    ['data' => 'updated_at', 'name' => 'csd_com_familiars.updated_at'],
+                    ['data' => 'useredit', 'name' => 'useredit.name as useredit'],
+
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+
                 ],
                 'contviol' => [
                     'observaciones',
@@ -197,7 +207,7 @@ class CsdCompfamiController extends Controller
                 $this->opciones['discapac'] = Parametro::find(235)->Combo;
             }
 
-            
+
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
@@ -222,7 +232,7 @@ class CsdCompfamiController extends Controller
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', []),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', [$this->opciones['csdxxxxx']->id]),
                 'cabecera' => [
                     [
                         // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -257,14 +267,18 @@ class CsdCompfamiController extends Controller
     // public function getListodo(Request $request, CsdSisNnaj $padrexxx)
     public function getListodo(Request $request, CsdSisNnaj $padrexxx)
     {
+
         if ($request->ajax()) {
             // $request->padrexxx = $padrexxx->sis_nnaj_id;
-            $request->datobasi = $padrexxx->id;
-            $request->csdxxxxx = $padrexxx->csd_id;
-            $request->routexxx = [$this->opciones['routxxxx']];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.todoxxxx';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->request->add([
+                'padrexxx' => $padrexxx,
+                'datobasi' => $padrexxx->id,
+                'csdxxxxx' => $padrexxx->csd_id,
+                'routexxx' => [$this->opciones['routxxxx']],
+                'botonesx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Botones.todoxxxx',
+                'estadoxx' => 'layouts.components.botones.estadosx'
+            ]);
+
             return $this->getTodoComFami($request);
         }
     }
@@ -288,7 +302,6 @@ class CsdCompfamiController extends Controller
 
     private function grabar($dataxxxx)
     {
-
         $dataxxxx['requestx']->request->add(['tipoacci' => 4]);
         $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 235]);
         $usuariox = $this->getTransaccion($dataxxxx);
@@ -307,6 +320,7 @@ class CsdCompfamiController extends Controller
      */
     public function store(CsdCompfamiCrearRequest $request, CsdSisNnaj $padrexxx)
     {
+
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
@@ -335,8 +349,8 @@ class CsdCompfamiController extends Controller
     public function edit(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
         $value = Session::get('csdver_' . Auth::id());
-        if (!$value) { 
-                return redirect()
+        if (!$value) {
+            return redirect()
                 ->route($this->opciones['permisox'] . '.ver', [$padrexxx->id, $modeloxx->id]);
         }
         $this->opciones['csdxxxxx'] = $padrexxx;

@@ -17,7 +17,7 @@ class CreateCsdComFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->integer('csd_id')->unsigned()->comment('CONSULTA SOCIAL EN DOMICILIO A LA QUE PERTENECE LA COMPOSICION FAMILIAR');
             $table->string('s_primer_apellido')->comment('CAMPO PRIMER APELLIDO');
             $table->string('s_segundo_apellido')->nullable()->comment('CAMPO SEGUNDO APELLIDO');
             $table->string('s_primer_nombre')->comment('CAMPO PRIMER NOMBRE');
@@ -89,6 +89,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->foreign('prm_estudia_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->unique(['s_documento', 'csd_id'],'csd_doc_un1');
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE IDENTIFICACIÓN Y CARACTERIZACIÓN DE LOS FAMILIARES UNA PERSONA ENTREVISTADA, SECCION 7 COMPOSICION FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
     }

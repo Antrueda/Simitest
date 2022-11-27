@@ -8,7 +8,7 @@ Route::group(['prefix' => '{padrexxx}/{csdxxxxx}/listcomp'], function () use($ro
 	])->name($routexxx.'.listaxxx');
 });
 
-Route::group(['prefix' => 'listcomposicionfami'], function () use($routexxx,$controll){
+Route::group(['prefix' => '{padrexxx}/listcomposicionfami'], function () use($routexxx,$controll){
 	
     Route::get('listodox', [
 		'uses' => $controll.'Controller@getListodo',
