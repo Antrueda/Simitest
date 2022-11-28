@@ -1110,6 +1110,8 @@ class DiagnosticoSeeder extends Seeder
         Diagnostico::create(['id'=>1089, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'PERIODONTITIS CRONICA ', 'codigo' =>'K053','estusuario_id'=>49]); // 1089
         Diagnostico::create(['id'=>1090, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'RETRACCION GINGIVAL', 'codigo' =>'K060','estusuario_id'=>49]); // 1090
         Diagnostico::create(['id'=>1091, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'TRASTORNO DE LOS DIENTES Y DE SUS ESTRUCTURAS DE SOSTEN, NO ESPECIFICADO', 'codigo' =>'K089','estusuario_id'=>49]); // 1091
+        Diagnostico::create(['id'=>1092, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'RAIZ DENTAL RETENIDA ', 'codigo' =>'K083','area_id'=>'2869','estusuario_id'=>49]); // 1091
+        Diagnostico::create(['id'=>1093, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' =>'ALVEOLITIS DEL MAXILAR', 'codigo' =>'K103','area_id'=>'2869','estusuario_id'=>49]); // 1091
 
         
 

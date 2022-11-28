@@ -41,7 +41,7 @@ trait VistasTrait
         $dependid = 0;
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
-        $opciones['condicio'] = Tema::comboNotIn(23, true, false,[2503]);        
+        $opciones['condicio'] = Tema::comboNotIn(479, true, false,[2503]);        
         $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $opciones['diagnost'] = Diagnostico::combo(true,false);
         $opciones['areaxxxx'] = Area::comboIn(true, false,[5]);

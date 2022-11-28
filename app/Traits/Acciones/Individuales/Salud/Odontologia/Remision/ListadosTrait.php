@@ -112,9 +112,14 @@ trait ListadosTrait
 
     public function getDiagnostico(Request $request)
     {
+        //2681 prevencion
+        //2971 OPERATORIO
+        //1256 Endodoncia 
+        //2940 Periodoncia
+        //1356 Cirugia
 
         switch (true) {
-            case ($request->upixxxxx == 1160):
+            case ($request->upixxxxx == 2681):
                 $dataxxxx = [
                     'cabecera' => true,
                     'ajaxxxxx' => true,
@@ -125,7 +130,7 @@ trait ListadosTrait
                     'diagnost' => $request->upixxxxx,
                 ];
                 break;
-            case ($request->upixxxxx == 1161):
+            case ($request->upixxxxx == 2971):
                 $dataxxxx = [
                     'cabecera' => true,
                     'ajaxxxxx' => true,
@@ -136,7 +141,7 @@ trait ListadosTrait
                     'diagnost' => $request->upixxxxx,
                 ];
                 break;
-            case ($request->upixxxxx == 1159):
+            case ($request->upixxxxx == 1256):
                 $dataxxxx = [
                     'cabecera' => true,
                     'ajaxxxxx' => true,
@@ -147,24 +152,24 @@ trait ListadosTrait
                     'diagnost' => $request->upixxxxx,
                 ];
                 break;
-            case ($request->upixxxxx == 1160):
+            case ($request->upixxxxx == 2940):
                 $dataxxxx = [
                     'cabecera' => true,
                     'ajaxxxxx' => true,
                     'padrexxx' => true,
-                    'inxxxxxx' => [1, 2, 3, 4, 5],
+                    'inxxxxxx' => [397, 398, 1088, 1089, 1090,1091],
                     'selected' => $request->selected,
                     'orderxxx' => 'ASC',
                     'diagnost' => $request->upixxxxx,
                 ];
                 break;
 
-            case ($request->upixxxxx == 1160):
+            case ($request->upixxxxx == 1356):
                 $dataxxxx = [
                     'cabecera' => true,
                     'ajaxxxxx' => true,
                     'padrexxx' => true,
-                    'inxxxxxx' => [1, 2, 3, 4, 5],
+                    'inxxxxxx' => [1092, 1093],
                     'selected' => $request->selected,
                     'orderxxx' => 'ASC',
                     'diagnost' => $request->upixxxxx,
