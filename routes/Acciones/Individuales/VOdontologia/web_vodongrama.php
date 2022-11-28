@@ -20,7 +20,7 @@ Route::group(['prefix' => '{padrexxx}/Odongrama'], function () use ($controll, $
     ])->name($routxxxx . '.listaxxz');
 
     Route::get('quitar', [
-        'uses' => $controll . 'Controller@getQuitar',
+        'uses' => $controll . 'Controller@quitar',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.quitar');
 

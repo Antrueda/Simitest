@@ -8,6 +8,8 @@ use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontoantecentesEditarRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdoRemisionCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdoRemisionEditarRequest;
+use App\Models\Acciones\Individuales\Salud\Odontologia\OdonDiag;
+use App\Models\Acciones\Individuales\Salud\Odontologia\VHenfermedad;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Traits\Acciones\Individuales\Salud\Odontologia\Remision\CrudTrait;
 use App\Traits\Acciones\Individuales\Salud\Odontologia\Remision\ParametrizarTrait;
@@ -19,6 +21,7 @@ use App\Traits\Combos\CombosTrait;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdonremite;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontograma;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class VOdonRemisionController extends Controller
 {
@@ -236,6 +239,8 @@ class VOdonRemisionController extends Controller
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
+        //$modeloxx = VHenfermedad::where('id',1)->first();
+     //   ddd($modeloxx);
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
@@ -261,6 +266,42 @@ class VOdonRemisionController extends Controller
             'infoxxxx' => 'Remisión editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
+    }
+
+    public function inactivate(OdonDiag $modeloxx)
+    {
+        
+        $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->odontologia;
+        $this->opciones['valoraci'] = $modeloxx;
+        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
+        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
+        
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+                //return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],$this->getBotones(['borrar', [], 1, 'INACTIVAR ASISTENTE', 'btn btn-sm btn-primary']),
+        return $this->destroy($modeloxx);
+            }
+
+
+    public function destroy(OdonDiag $modeloxx)
+    {
+        $modeloxx->delete();
+        return redirect()->back()
+            ->with('info', 'Diagnostico eliminado correctamente');
+    }
+
+    public function quitar(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            $dataxxxx = $request->all();
+            $modeloxx = OdonDiag::where('id',$dataxxxx['id'])->first();
+            $modeloxx->delete();
+            return response()->json($respuest);
+        }
+      
     }
 
 

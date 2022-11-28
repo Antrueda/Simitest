@@ -1,5 +1,4 @@
+
 @if($requestx->puedinac)
-<a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">ELIMINAR</a>
+<a class="btn btn-sm btn-danger" id="{{$queryxxx->id}}"  name="{{$queryxxx->id}}" onclick="deleteRecord(this.id,this)" data-token="{{ csrf_token() }}" style="color: white;">ELIMINAR</a>
 @endif
-
-

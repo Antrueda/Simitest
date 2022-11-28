@@ -46,7 +46,7 @@ Route::group(['prefix' => 'Higiene'], function () use ($controll, $routxxxx) {
     ])->name($routxxxx . '.agregar');
 
     Route::get('quitar', [
-        'uses' => $controll . 'Controller@getQuitar',
+        'uses' => $controll . 'Controller@Quitar',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.quitar');
 

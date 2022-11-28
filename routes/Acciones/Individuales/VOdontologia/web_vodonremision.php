@@ -61,6 +61,12 @@ Route::group(['prefix' => 'Remisions'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
 
+
+    Route::get('quitar/{modeloxx}', [
+        'uses' => $controll . 'Controller@quitar',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.quitar');
+
     Route::get('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activate',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
