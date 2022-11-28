@@ -110,5 +110,23 @@ $('#quitar').on('click',function() {
     $('#diag_id').val([]);
 });
 } );
+
+
+function deleteRecord(queryxxx,row_index) {
+$.ajax({
+        url : "{{route('vodonremites.quitar',$todoxxxx["parametr"])}}",
+        type: 'get',
+        data: {
+              "id": queryxxx,
+              },
+        success: function ()
+             {
+             toastr.success('Diagnostico eliminado');
+              var i = row_index.parentNode.parentNode.rowIndex;
+              document.getElementById("datatable").deleteRow(i);
+              {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+            }
+     });  
+}
 </script>
 

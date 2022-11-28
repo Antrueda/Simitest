@@ -114,14 +114,16 @@ trait ListadosTrait
         }
     }
 
-    public function getQuitar(Request $request, VOdontologia $padrexxx)
+    public function quitar(Request $request)
     {
         if ($request->ajax()) {
             $respuest = [];
             $dataxxxx = $request->all();
-            VOdontograma::delete($dataxxxx,'');
+            $modeloxx = VOdontograma::where('id',$dataxxxx['id'])->first();
+            $modeloxx->delete();
             return response()->json($respuest);
         }
+      
     }
 
     public function getSuperficieTp($dataxxxx)

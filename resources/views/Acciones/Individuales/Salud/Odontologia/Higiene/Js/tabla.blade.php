@@ -33,12 +33,12 @@ $(document).ready(function() {
         var agregar=function(dataxxxx){
             
                     $.ajax({
-                        url : "{{route('vodontograma.agregar')}}",
+                        url : "{{route('vodonhigiene.agregar')}}",
                         data : dataxxxx,
                         type : 'GET',
                         dataType :'json',
                         success: function(json) {
-                            toastr.success('Asistente agregado con éxito');
+                            toastr.success('Diagnostico agregado con éxito');
                             {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
 
                             },
@@ -74,6 +74,24 @@ $(document).ready(function() {
 
 
 } );
+
+
+function deleteRecord(queryxxx,row_index) {
+$.ajax({
+        url : "{{route('vodonhigiene.quitar',$todoxxxx["parametr"])}}",
+        type: 'get',
+        data: {
+              "id": queryxxx,
+              },
+        success: function ()
+             {
+             toastr.success('Diagnostico eliminado');
+              var i = row_index.parentNode.parentNode.rowIndex;
+              document.getElementById("datatable").deleteRow(i);
+              {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+            }
+     });  
+}
 </script>
 
 

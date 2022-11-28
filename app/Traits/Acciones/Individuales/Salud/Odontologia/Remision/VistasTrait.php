@@ -42,7 +42,7 @@ trait VistasTrait
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
         $opciones['condicio'] = Tema::comboNotIn(479, true, false,[2503]);        
-        $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
+        $opciones['estadoxx'] = Tema::comboAsc(479,true, false);
         $opciones['diagnost'] = Diagnostico::combo(true,false);
         $opciones['areaxxxx'] = Area::comboIn(true, false,[5]);
         $opciones['remision'] = Remision::comboIn(true, false,[2,6]);
