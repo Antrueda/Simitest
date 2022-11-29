@@ -110,7 +110,7 @@ class DireccionamientoController extends Controller
                 ->route($this->opciones['routxxxx'] )
                 ->with('info', 'No tiene permiso para editar este direccionamiento o referenciación');
             }
-      }
+        }
 
         if( $modeloxx->sis_nnaj_id!=null){
         $this->opciones['padrexxx'] = $modeloxx->sis_nnaj_id;
