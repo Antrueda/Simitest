@@ -17,10 +17,12 @@ use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Acciones\SalidaTrait;
+use App\Traits\Combos\CombosTrait;
 
 class AIEvasionController extends Controller
 {
     use SalidaTrait;
+    use CombosTrait;
     private $opciones;
 
     public function __construct()
@@ -171,6 +173,7 @@ class AIEvasionController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['usuarios'] = User::getUsuario(false, false);
 
+        $usuarioz=null;
         $departam=0;
 
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal->sis_depen;
@@ -210,6 +213,8 @@ class AIEvasionController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
+            $usuarioz=$dataxxxx['modeloxx']->user_doc2_id;
+            $this->opciones['usuarios'] = User::getUsuario(false, false, $usuarioz);
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
