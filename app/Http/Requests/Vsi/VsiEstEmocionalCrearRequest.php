@@ -65,7 +65,7 @@ class VsiEstEmocionalCrearRequest extends FormRequest
             'dia_ultimo' => 'nullable|min:0|max:99',
             'mes_ultimo' => 'nullable|min:0|max:99',
             'ano_ultimo' => 'nullable|min:0|max:99',
-            'descripcion_motivo' => 'required|max:4000',
+            'descripcion_motivo' => 'nullable|max:4000',
             'prm_lesiva_id' => 'required',
             'descripcion_lesiva' => 'required_if:prm_lesiva_id,227|max:4000',
             'prm_sueno_id' => 'required|exists:parametros,id',
@@ -81,7 +81,7 @@ class VsiEstEmocionalCrearRequest extends FormRequest
             'adecuados' => 'required|array',
             'dificultades' => 'required|array',
             'estresantes' => 'required_if:prm_estresante_id,227|array',
-            'motivos' => 'required',
+            'motivos' => 'nullable',
             'lesivas' => 'required_if:prm_lesiva_id,227|array',
         ];
     }
