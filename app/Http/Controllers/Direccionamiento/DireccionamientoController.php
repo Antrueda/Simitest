@@ -101,14 +101,11 @@ class DireccionamientoController extends Controller
     {
 
         if($modeloxx->user_crea_id!=Auth::user()->id){
+            if(Auth::user()->roles->first()->id!=1){
             return redirect()
             ->route($this->opciones['routxxxx'] )
             ->with('info', 'No tiene permiso para editar este direccionamiento o referenciación');
-        }else{
-            if(Auth::user()->roles->first()->id!=1){
-                return redirect()
-                ->route($this->opciones['routxxxx'] )
-                ->with('info', 'No tiene permiso para editar este direccionamiento o referenciación');
+        
             }
         }
 
