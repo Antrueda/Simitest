@@ -85,6 +85,24 @@
             f_certificados();
         });
         
+        //factores de riesgo por entorno valido que si selcciona la opcion ninguna de los anteriores quede en null el resto
+        @foreach ($todoxxxx['entornos'] as $key => $entorno)
+            $('.entorno_{{$entorno->id}}[id="factor_6"]').change(() => {
+                let ninguna = $('.entorno_{{$entorno->id}}[id="factor_6"]').val();
+                if (ninguna != "") {
+                    $('.entorno_{{$entorno->id}}').each(function(){
+                        if ($(this).attr('id') != 'factor_6') {
+                            $(this).val("");
+                        } 
+                    });
+                }
+            });
+
+            $('.entorno_{{$entorno->id}}[id!="factor_6"]').change(() => {
+                $('.entorno_{{$entorno->id}}[id="factor_6"]').val("")
+            });
+        @endforeach
+       
 
         $('.select2-container').css('width', '100%');
     });

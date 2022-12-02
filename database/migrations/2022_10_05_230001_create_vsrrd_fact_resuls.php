@@ -12,13 +12,12 @@ class CreateVsrrdFactResuls extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->integer('vsrrd_id')->unsigned()->comment('VALORACION RDD');
-            $table->integer('vsrrd_entorno_id')->unsigned()->comment('RELACION ENTORNO');
-            $table->integer('respuesta')->unsigned()->comment('RELACION A FACTOR');
+            $table->integer('vsrrd_entor_fact_id')->unsigned()->comment('RELACION ENTORNO FACTOR');
+            $table->tinyInteger('escala')->unsigned()->comment('respuesta');
             $table->timestamps();
 
             $table->foreign('vsrrd_id')->references('id')->on('vsrrds');
-            $table->foreign('vsrrd_entorno_id')->references('id')->on('vsrrd_entornos');
-            $table->foreign('respuesta')->references('id')->on('vsrrd_factores');
+            $table->foreign('vsrrd_entor_fact_id')->references('id')->on('vsrrd_entor_factors');
         });
     }
 

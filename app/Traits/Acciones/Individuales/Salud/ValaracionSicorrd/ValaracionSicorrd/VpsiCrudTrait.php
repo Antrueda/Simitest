@@ -47,7 +47,9 @@ trait VpsiCrudTrait
 
                 $factores = [];
                 foreach ($dataxxxx['requestx']->entorno_factores as $key => $item) {
-                    array_push($factores, ['vsrrd_entorno_id' => $key, 'respuesta' => $item]);
+                    if ($item != null) {
+                        array_push($factores, ['vsrrd_entor_fact_id' => $key, 'escala' => $item]);
+                    }
                 }
                 $dataxxxx['modeloxx']->resultFactores()->detach();
                 $dataxxxx['modeloxx']->resultFactores()->sync($factores);
@@ -89,7 +91,7 @@ trait VpsiCrudTrait
 
                 $factores = [];
                 foreach ($dataxxxx['requestx']->entorno_factores as $key => $item) {
-                    array_push($factores, ['vsrrd_entorno_id' => $key, 'respuesta' => $item]);
+                    array_push($factores, ['vsrrd_entor_fact_id' => $key, 'escala' => $item]);
                 }
                 $dataxxxx['modeloxx']->resultFactores()->sync($factores);
 
