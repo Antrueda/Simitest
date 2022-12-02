@@ -28,7 +28,7 @@ trait VpsiDataTablesTrait
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'Crear valoración psicosocial RRD',
+                'titunuev' => 'CREAR VALORACIÓN PSICOSOCIAL RRD',
                 'titulist' => 'LISTA DE VALORACIÓN PSICOSOCIAL RRD',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,

@@ -46,12 +46,12 @@ class Vsrrd extends Model
 
     public function resultFactores()
     {
-        return $this->belongsToMany(VsrrdEntorno::class, 'vsrrd_fact_resuls', 'vsrrd_id', 'vsrrd_entorno_id');
+        return $this->belongsToMany(VsrrdEntorFactor::class, 'vsrrd_fact_resuls', 'vsrrd_id', 'vsrrd_entor_fact_id');
     }
 
     public function resultFactoresPrivot()
     {
-        return $this->belongsToMany(VsrrdEntorno::class, 'vsrrd_fact_resuls', 'vsrrd_id', 'vsrrd_entorno_id')->withPivot('respuesta');
+        return $this->belongsToMany(VsrrdEntorFactor::class, 'vsrrd_fact_resuls', 'vsrrd_id', 'vsrrd_entor_fact_id')->withPivot('escala');
     }
 
     public function resultEntornosep()

@@ -61,7 +61,7 @@
         <div class="form-group col-md-6">
             {!! Form::label('sis_atenc_id', 'Tipo de valoración: ', ['class' => 'control-label text-uppercase']) !!}
             <div class="form-control form-control-sm">
-                valoración Inicial
+                VALORACIÓN INICIAL
             </div>
         </div>
         <div class="form-group col-md-6">
@@ -186,24 +186,41 @@
                 <thead>
                 <tr class="bg-secondary text-white">
                     <th scope="col">ENTORNO</th>
-                    <th scope="col" width="450">ESCALA FACTOR</th>
+                    <th scope="col" width="450">FACTOR</th>
+                    <th scope="col" width="180">ESCALA</th>
                 </tr>
                 </thead>
                 <tbody>             
                     @foreach ($todoxxxx['entornos'] as $key => $entorno)
                         <tr>
-                            <td>
+                            @php
+                            $escala = array();
+                            $escala[''] ='SELECCIONE';
+                            $totalF = count($entorno->factores);
+                            for ($i=1; $i < $totalF; $i++) { 
+                                $escala[$i] =$i;
+                            }
+                            @endphp
+                            <td rowspan="{{$totalF+1}}">
                                 {!! Form::label('entorno'.($key+1),$entorno->id.'. '.$entorno->nombre, ['class' => 'fw-bold']) !!}
                             </td>
-                            <td >        
-                                {!! Form::select('input_entorno', $entorno->armarValueEntorno($entorno->factores),
-                                                    old('entorno_factores.'.($entorno->id),
-                                                    isset($todoxxxx['actual_rfactores'][($entorno->id)]) ? $todoxxxx['actual_rfactores'][($entorno->id)] : ''), 
-                                                ['name'=> 'entorno_factores['.($entorno->id).']',
-                                                'id'=>'entorno'.($key+1),
-                                                'class' => 'form-control form-control-sm','required',
-                                                ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
-                            </td>
+                            @foreach ($entorno->factores as $factor)
+                                <tr>
+
+                                    <td>
+                                        {{$factor->factor->nombre}}
+                                    </td>
+                                    <td >        
+                                        {!! Form::select('input_entorno',$escala,
+                                                            old('entorno_factores.'.($factor->id),
+                                                            isset($todoxxxx['actual_rfactores'][($factor->id)]) ? $todoxxxx['actual_rfactores'][($factor->id)] : ''), 
+                                                        ['name'=> 'entorno_factores['.($factor->id).']',
+                                                        'id'=>'factor_'.($factor->factor->id),
+                                                        'class' => 'form-control form-control-sm entorno_'.($key+1),
+                                                        ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tr>                        
                     @endforeach
                 </tbody>

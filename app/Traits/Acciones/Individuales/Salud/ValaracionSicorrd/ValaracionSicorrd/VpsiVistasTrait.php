@@ -60,7 +60,7 @@ trait VpsiVistasTrait
             $this->opciones['actual_sintomas'] = $respuestas;
 
             foreach ($data['result_factores_privot'] as $item) {
-                $resuls_factores[$item['pivot']['vsrrd_entorno_id']] = $item['pivot']['respuesta'];
+                $resuls_factores[$item['pivot']['vsrrd_entor_fact_id']] = $item['pivot']['escala'];
             }
             $this->opciones['actual_rfactores'] = $resuls_factores;
 
