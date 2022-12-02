@@ -24,7 +24,7 @@ Route::group(['prefix' => 'ai/salud/{padrexxx}/LAB-RRD'], function () use ($cont
 	])->name($routxxxx . '.crearxxx');
 });
 
-Route::group(['prefix' => 'dast'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'ai/salud/LAB-RRD'], function () use ($controll, $routxxxx) {
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll . 'Controller@edit',
 		'middleware' => ['permission:' . $routxxxx . '-editarxx']

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\Educacion\PerfilVocacional;
+namespace App\Models\Acciones\Individuales\Salud\Labrrd;
 
 use App\Models\User;
+use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +14,13 @@ class Labrrd extends Model
 {
     protected $fillable = [
         'sis_nnaj_id',
-        'fecha',
-        'sis_depen_id',
-        'observaciones',
-        'concepto',
+        'fechdili',
+        'sis_origen_id',
+        'sis_atenc_id',
+        'prm_faseacomp',
+        'observacion',
+        'num_sesion',
+        'lugar_externo',
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
@@ -28,53 +32,26 @@ class Labrrd extends Model
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 
-    public function dependencia()
+    public function upiOrigen()
     {
-        return $this->belongsTo(SisDepen::class, 'sis_depen_id');
+        return $this->belongsTo(SisDepen::class, 'sis_origen_id');
     }
 
-    public function actividades()
+    public function gustos_intereses()
     {
-        return $this->belongsToMany(PvfActividade::class, 'pvf_perfil_activis', 'pvf_perfil_voca_id', 'pvf_actividad_id');
+        return $this->belongsToMany(Parametro::class, 'labrrd_gustos', 'labrrd_id', 'prm_gusto_id');
     }
 
-    public function getActividades()
+    public function habilidades()
     {
-        $actividadesarray = [];
-        foreach ($this->actividades->toArray() as $ey => $value) {
-            $actividadesarray[] = $value['id'];
-        }
-        return $actividadesarray;
+        return $this->belongsToMany(Parametro::class, 'labrrd_habilidades', 'labrrd_id', 'prm_habilidad_id');
     }
 
-    public function areasCountActividades()
-    {
-        $sumaactivis = 0;
+    // public function actividades()
+    // {
+    //     return $this->belongsToMany(PvfActividade::class, 'pvf_perfil_activis', 'pvf_perfil_voca_id', 'pvf_actividad_id');
+    // }
 
-        $data['perfilactividades'] =  PvfArea::select([
-            'pvf_areas.id',
-            'pvf_areas.nombre',
-            'pvf_areas.descripcion',
-            DB::raw("(SELECT COUNT(*) FROM pvf_actividades left join pvf_perfil_activis on pvf_perfil_activis.pvf_actividad_id = pvf_actividades.id
-                    WHERE pvf_actividades.area_id = pvf_areas.id 
-                    AND pvf_perfil_activis.pvf_perfil_voca_id = '" . $this->id . "') AS actividadesarea"),
-        ])
-            ->where('pvf_areas.sis_esta_id', 1)
-            ->orWhere(DB::raw("(SELECT COUNT(*) FROM pvf_actividades left join pvf_perfil_activis on pvf_perfil_activis.pvf_actividad_id = pvf_actividades.id
-                WHERE pvf_actividades.area_id = pvf_areas.id 
-                AND pvf_perfil_activis.pvf_perfil_voca_id = '" . $this->id . "')"), '>', 0)
-            ->orderBy('actividadesarea', 'DESC')
-            ->get();
-
-
-        foreach ($data['perfilactividades'] as $key => $value) {
-            $sumaactivis = $sumaactivis + $value->actividadesarea;
-        }
-
-        $data['tatalactividades'] = $sumaactivis;
-
-        return $data;
-    }
     public function funcionario()
     {
         return $this->belongsTo(User::class, 'user_fun_id');

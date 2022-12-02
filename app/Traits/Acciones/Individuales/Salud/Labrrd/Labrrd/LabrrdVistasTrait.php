@@ -54,17 +54,7 @@ trait LabrrdVistasTrait
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            if ($this->opciones['accionxx'] == 'verxxxxx') {
-                $data = Dast::select('id')->with('resultado', 'respuestasPrivot')->where('id', $dataxxxx['modeloxx']->id)->first()->toArray();
-                $this->opciones['actual_respuestas'] = $data;
-            } else {
-                $data = Dast::select('id')->with('respuestasPrivot:id')->where('id', $dataxxxx['modeloxx']->id)->first()->toArray();
-                $respuestas = [];
-                foreach ($data['respuestas_privot'] as $value) {
-                    $respuestas[$value['pivot']['dast_pregunta_id']] = $value['pivot']['respuesta'];
-                }
-                $this->opciones['actual_respuestas'] = $respuestas;
-            }
+
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $dependid = $dataxxxx['modeloxx']->sis_atenc_id;
             $depenorigid = $dataxxxx['modeloxx']->sis_origen_id;
@@ -74,7 +64,7 @@ trait LabrrdVistasTrait
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
-            $this->getBotones(['crearxxx', ['dastsegu', [$dataxxxx['modeloxx']->id]], 2, 'SEGUIMIENTOS', 'btn btn-sm btn-primary']);
+            // $this->getBotones(['crearxxx', ['dastsegu', [$dataxxxx['modeloxx']->id]], 2, 'SEGUIMIENTOS', 'btn btn-sm btn-primary']);
         }
 
         if ($dataxxxx['modeloxx'] != '') {

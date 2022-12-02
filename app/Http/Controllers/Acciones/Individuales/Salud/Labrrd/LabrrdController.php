@@ -19,6 +19,7 @@ use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdPestaniasTrait;
 use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdDataTablesTrait;
 use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdParametrizarTrait;
 use App\Http\Requests\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDastCrearRequest;
+use App\Models\Acciones\Individuales\Salud\Labrrd\Labrrd;
 
 class LabrrdController extends Controller
 {
@@ -78,6 +79,7 @@ class LabrrdController extends Controller
 
     public function store(LabrrdCrearRequest $request, SisNnaj $padrexxx)
     {
+        $request->request->add(['num_sesion' => 1]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
         return $this->setLabrrd([
@@ -88,12 +90,12 @@ class LabrrdController extends Controller
         ]);
     }
 
-    public function show(Dast $modeloxx)
+    public function show(Labrrd $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'show'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
-    public function edit(Dast $modeloxx)
+    public function edit(Labrrd $modeloxx)
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
@@ -117,12 +119,12 @@ class LabrrdController extends Controller
         }
     }
 
-    public function update(CuestionarioDastCrearRequest $request,  Dast $modeloxx)
+    public function update(LabrrdCrearRequest $request,  Labrrd $modeloxx)
     {
-        return $this->setCuestionarioDast([
+        return $this->setLabrrd([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Cuestionario dast editado con éxito',
+            'infoxxxx' => 'VALORACIÓN (LAB- RRD) editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }

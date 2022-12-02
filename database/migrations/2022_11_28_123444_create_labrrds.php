@@ -19,6 +19,7 @@ class CreateLabrrds extends Migration
             $table->integer('sis_atenc_id')->unsigned()->comment('UPI ATENCION');
             $table->integer('prm_faseacomp')->unsigned()->comment('FASE DE ACOMPANAMIENTO');
             $table->text('observacion')->comment('OBSERVACIONES');
+            $table->string('lugar_externo', 120)->nullable()->comment('LUGAR EXPACIO EXTERNO');
             $table->tinyInteger('num_sesion')->comment('NUMERO DE SESION');
             $table->integer('user_fun_id')->unsigned()->comment('FUNCIONARIO/CONTRATISTA');
             $table = CamposMagicos::magicos($table);

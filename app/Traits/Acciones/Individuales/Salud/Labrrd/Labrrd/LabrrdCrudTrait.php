@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd;
 
+use App\Models\Acciones\Individuales\Salud\Labrrd\Labrrd;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
@@ -22,7 +23,6 @@ trait LabrrdCrudTrait
      */
     public function setLabrrd($dataxxxx)
     {
-        dd($dataxxxx['requestx']);
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
@@ -60,43 +60,24 @@ trait LabrrdCrudTrait
                 ]);
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = Dast::create([
+
+                $dataxxxx['modeloxx'] = Labrrd::create([
                     'sis_nnaj_id' => $dataxxxx['requestx']->sis_nnaj_id,
-                    'fecha' => $dataxxxx['requestx']->fecha,
-                    'sis_depen_id' => $dataxxxx['requestx']->sis_depen_id,
-                    'prm_requiere_vespa' => $dataxxxx['requestx']->prm_requiere_vespa,
-                    'fecha_vespa' => $dataxxxx['requestx']->fecha_vespa,
-                    'accion_desarrolla' => $dataxxxx['requestx']->accion_desarrolla,
-                    'prm_patron_con' => $dataxxxx['requestx']->prm_patron_con,
-                    'obs_patron_con' => $dataxxxx['requestx']->obs_patron_con,
-                    'accion_curso' => $dataxxxx['requestx']->accion_curso,
+                    'fechdili' => $dataxxxx['requestx']->fechdili,
+                    'sis_origen_id' => $dataxxxx['requestx']->sis_origen_id,
+                    'sis_atenc_id' => $dataxxxx['requestx']->sis_atenc_id,
+                    'prm_faseacomp' => $dataxxxx['requestx']->prm_faseacomp,
                     'observacion' => $dataxxxx['requestx']->observacion,
-                    'prm_diligencia' => $dataxxxx['requestx']->prm_diligencia,
                     'user_fun_id' => $dataxxxx['requestx']->user_fun_id,
                     'user_crea_id' => $dataxxxx['requestx']->user_crea_id,
                     'user_edita_id' => $dataxxxx['requestx']->user_edita_id,
                     'sis_esta_id' => $dataxxxx['requestx']->sis_esta_id,
+                    'lugar_externo' => $dataxxxx['requestx']->lugar_externo,
+                    'num_sesion' => $dataxxxx['requestx']->num_sesion,
                 ]);
 
-                $data = [];
-                foreach ($dataxxxx['requestx']->respuestas as $key => $item) {
-                    array_push($data, ['dast_pregunta_id' => $key, 'respuesta' => $item]);
-                }
-                $dataxxxx['modeloxx']->respuestas()->sync($data);
-
-                $puntaje = DastPuntaje::select('dast_puntajes.id', 'dast_puntajes.minimo', 'dast_puntajes.superior', 'dast_puntajes.grado_problema', 'dast_puntajes.accion_id', 'dast_acciones.nombre')
-                    ->join('dast_acciones', 'dast_puntajes.accion_id', '=', 'dast_acciones.id')
-                    ->where('dast_puntajes.id', $dataxxxx['requestx']->resultado_id)->first();
-                DastResultado::create([
-                    'dast_id' => $dataxxxx['modeloxx']->id,
-                    'resultado' => $dataxxxx['requestx']->resultado,
-                    'valores' => $puntaje->minimo . ' a ' . $puntaje->superior,
-                    'grado_problema' => $puntaje->grado_problema,
-                    'accion' => $puntaje->nombre,
-                    'user_crea_id' => $dataxxxx['requestx']->user_crea_id,
-                    'user_edita_id' => $dataxxxx['requestx']->user_edita_id,
-                    'sis_esta_id' => $dataxxxx['requestx']->sis_esta_id,
-                ]);
+                $dataxxxx['modeloxx']->gustos_intereses()->sync($dataxxxx['requestx']->gustos_intereses);
+                $dataxxxx['modeloxx']->habilidades()->sync($dataxxxx['requestx']->habilidades);
             }
             return $dataxxxx['modeloxx'];
         }, 5);
