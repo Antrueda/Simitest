@@ -91,7 +91,9 @@ trait VpsiCrudTrait
 
                 $factores = [];
                 foreach ($dataxxxx['requestx']->entorno_factores as $key => $item) {
-                    array_push($factores, ['vsrrd_entor_fact_id' => $key, 'escala' => $item]);
+                    if ($item != null) {
+                        array_push($factores, ['vsrrd_entor_fact_id' => $key, 'escala' => $item]);
+                    }
                 }
                 $dataxxxx['modeloxx']->resultFactores()->sync($factores);
 
