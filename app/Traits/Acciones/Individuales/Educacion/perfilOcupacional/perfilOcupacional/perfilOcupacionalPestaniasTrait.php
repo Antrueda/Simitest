@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional;
+namespace App\Traits\Acciones\Individuales\Educacion\PerfilOcupacional\PerfilOcupacional;
 
 
-trait perfilOcupacionalPestaniasTrait
+trait PerfilOcupacionalPestaniasTrait
 {
     public $pestania = [
         ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
