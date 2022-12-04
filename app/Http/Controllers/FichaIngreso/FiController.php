@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
+use App\Models\Permissionext;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepartam;
 use App\Models\sistema\SisMunicipio;
@@ -53,6 +54,7 @@ class FiController extends Controller
 
     public function indexComponetefami()
     {
+        
         $this->opciones['slotxxxx'] = 'compnnaj';
         $this->getCompnnajFDT([
             'vercrear' => false,

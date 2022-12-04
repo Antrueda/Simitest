@@ -46,6 +46,12 @@ class NnajUpi extends Model
     {
         return $this->belongsTo(SisDepen::class, 'sis_depen_id');
     }
+
+    // funcionando con el estandar *Jose*
+    public function sisDepen()
+    {
+        return $this->belongsTo(SisDepen::class, 'sis_depen_id');
+    }
     public static function getDependenciasNnajUsuario($cabecera, $ajaxxxxx, $padrexxx)
     {
         $comboxxx = [];
@@ -119,7 +125,7 @@ class NnajUpi extends Model
             if (!is_null($objetoxx)) {
                 // * Saber si el nnaj ya tiene la upi que se le está actualizando
                 $upiexist = NnajUpi::where('sis_nnaj_id', $datobasi->sis_nnaj_id)
-                ->where('sis_depen_id', $dataxxxx['sis_depen_id'])
+                    ->where('sis_depen_id', $dataxxxx['sis_depen_id'])
                     ->where('prm_principa_id', 228)
                     ->first();
                 // * tiene la upi que se le está actualizando
@@ -131,11 +137,10 @@ class NnajUpi extends Model
                     $dataxxxx['prm_principa_id'] = 228;
                     $objetoxx->update($dataxxxx);
                     // * Asignar la nueva upi
-                    $objetoxx=$upiexist;
-                }else {
+                    $objetoxx = $upiexist;
+                } else {
                     $objetoxx->update($dataxxxx);
                 }
-                
             } else {
                 $dataxxxx['sis_nnaj_id'] = $datobasi->sis_nnaj_id;
                 $dataxxxx['sis_esta_id'] = 1;

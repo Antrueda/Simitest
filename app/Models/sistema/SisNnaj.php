@@ -52,6 +52,12 @@ class SisNnaj extends Model
         return $this->hasOne(FiDatosBasico::class, 'sis_nnaj_id');
     }
 
+    public function fiDatosBasico()
+    {
+        return $this->hasOne(FiDatosBasico::class, 'sis_nnaj_id');
+    }
+
+
     public function FiBienvenida()
     {
         return $this->hasMany(FiBienvenida::class, 'sis_nnaj_id');
