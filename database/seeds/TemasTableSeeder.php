@@ -433,6 +433,9 @@ class TemasTableSeeder extends Seeder
         Tema::create(['nombre' => 'TIPO MEDICAMENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 414
         Tema::create(['nombre' => 'FORMULARIO VALORACIÓN (LAB- RRD)', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 415
 
+        Tema::create(['nombre' => 'NOMBRE DIAGNOSTICO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 416
+        Tema::create(['nombre' => 'TIPO CONSULTA ODONTOLOGICA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 417
+
 
     }
 }
