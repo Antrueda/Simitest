@@ -41,6 +41,8 @@ trait VistasTrait
         $dependid = 0;
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
+        $opciones['usuarioc'] = '';
+        $opciones['usuarioe'] = '';
         $opciones['condicio'] = Tema::comboNotIn(479, true, false,[2503]);        
         $opciones['estadoxx'] = Tema::comboAsc(479,true, false);
         $opciones['diagnost'] = Diagnostico::combo(true,false);
@@ -59,6 +61,8 @@ trait VistasTrait
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $usuarioz=$dataxxxx['modeloxx']->user_id;
+            $opciones['usuarioc'] = $dataxxxx['modeloxx']->creador->name;
+            $opciones['usuarioe'] = $dataxxxx['modeloxx']->modifico->name;
         }
         $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
         $opciones['tablinde']=false;

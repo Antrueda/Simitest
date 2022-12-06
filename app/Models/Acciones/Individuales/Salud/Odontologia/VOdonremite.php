@@ -2,6 +2,8 @@
 
 namespace App\Models\Acciones\Individuales\Salud\Odontologia;
 
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class VOdonremite extends Model
@@ -19,6 +21,13 @@ class VOdonremite extends Model
 
     public function remision(){
         return $this->belongsTo(Remision::class, 'remisal_id');
+    }
+
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function modifico(){
+        return $this->belongsTo(User::class, 'user_edita_id');
     }
 
 

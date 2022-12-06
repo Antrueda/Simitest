@@ -75,7 +75,7 @@ trait PestaniasTrait
         $pestania['vodonanteces'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ANTECEDENTES',
+            'tituloxx' => 'ANTECEDENTES MÉDICOS',
             'tablaxxx' => 'sis_pais',
             'checkxxx' => '',
             'datablex' => [],
@@ -84,7 +84,7 @@ trait PestaniasTrait
         $pestania['vodonexamens'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'EXAMENES',
+            'tituloxx' => 'EXAMEN ESTOMATOLÓGICO',
             'tablaxxx' => 'sis_pais',
             'checkxxx' => '',
             'datablex' => [],
@@ -103,7 +103,7 @@ trait PestaniasTrait
         $pestania['vodonhigiene'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'HIGIENE ORAL',
+            'tituloxx' => 'REGISTRO INDICE DE PLACA SINLESS Y LÖE MODIFICADO',
             'tablaxxx' => 'sis_pais',
             'checkxxx' => '',
             'datablex' => [],

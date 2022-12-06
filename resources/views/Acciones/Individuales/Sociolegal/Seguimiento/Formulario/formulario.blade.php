@@ -78,7 +78,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('tipoc_id', 'Tipo de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('tipoc_id', $todoxxxx['tipocaso'], $todoxxxx['padrexxx']->tipoc_id, ['class' => $errors->first('tipoc_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('tipoc_id', $todoxxxx['tipocaso'], $todoxxxx['padrexxx']->tipoc_id, ['class' => $errors->first('tipoc_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
     @if($errors->has('tipoc_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('tipoc_id') }}
@@ -87,7 +87,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('temac_id', 'Tema de Caso Jurídico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('temac_id', $todoxxxx['temacaso'], $todoxxxx['padrexxx']->temac_id, ['class' => $errors->first('temac_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('temac_id', $todoxxxx['temacaso'], $todoxxxx['padrexxx']->temac_id, ['class' => $errors->first('temac_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
     @if($errors->has('temac_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('temac_id') }}
@@ -107,7 +107,7 @@
 
   <div class="col-md-3">
     {{ Form::label('prm_sujeto', 'Tipo de Sujeto', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_sujeto', $todoxxxx['sujetoxx'], $todoxxxx['padrexxx']->prm_sujeto, ['class' => $errors->first('prm_sujeto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_sujeto', $todoxxxx['sujetoxx'], $todoxxxx['padrexxx']->prm_sujeto, ['class' => $errors->first('prm_sujeto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'readonly']) }}
     @if($errors->has('prm_sujeto'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_sujeto') }}

@@ -19,6 +19,8 @@ class SeguimientoJuriEditarRequest extends FormRequest
             'i_prm_ha_estado_pard_id.required'=>'Seleccione la tipo de consulta',
             'tipoc_id.required'=>'Indique si requiere certificado',
             'temac_id.required'=>'Seleccione el tipo de remisión Intrainstitucional',
+            'estadocaso.required'=>'Seleccione el estado del caso',
+            'segui_id.required'=>'Seleccione el Tipo de Seguimiento Realizado',
 
             
            
@@ -34,8 +36,8 @@ class SeguimientoJuriEditarRequest extends FormRequest
             'tipoc_id' => 'required',
             'temac_id' => 'required',
             'prm_sujeto' => 'nullable',
-            'estadocaso' => 'nullable',
-            
+            'estadocaso' => 'required',
+            'segui_id'=> 'required',
             
             
            
