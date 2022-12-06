@@ -20,7 +20,7 @@
        @endif
   </div>
    <div class="col-md-4">
-    {{ Form::label('consulta_id', 'Tipo de Consulta', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('consulta_id', 'Clase de Consulta', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('consulta_id', $todoxxxx['consulta'],null, ['class' => $errors->first('consulta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('consulta_id'))
           <div class="invalid-feedback d-block">
@@ -29,7 +29,7 @@
        @endif
   </div>
   <div class="col-md-4">
-    {{ Form::label('valora_id', 'Modalidad de Consulta', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('valora_id', 'Tipo De Valoración', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('valora_id', $todoxxxx['modalxxx'],null, ['class' => $errors->first('valora_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('valora_id'))
           <div class="invalid-feedback d-block">
