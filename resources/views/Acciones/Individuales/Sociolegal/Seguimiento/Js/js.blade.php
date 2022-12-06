@@ -271,10 +271,6 @@
 
 
 
-<<<<<<< HEAD
-init_contadorTa("descripcion", "descripcioncont", 4000);
-=======
->>>>>>> jorge
 
 
 
