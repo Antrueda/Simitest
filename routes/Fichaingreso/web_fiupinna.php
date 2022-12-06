@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 $routexxx = 'fiupinna';
 $controll = 'FichaIngreso\FiUpinnajController@';
-Route::group(['prefix' => 'fiupinnaj'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'nnajs'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'index',
         'middleware' => [
@@ -20,7 +20,7 @@ Route::group(['prefix' => 'fiupinnaj'], function () use ($routexxx, $controll) {
         'middleware' => ['permission:' . $routexxx . '-listnnaj']
     ])->name($routexxx . '.listnnaj');
 
-       Route::get('inactivar/{modeloxx}', [
+    Route::get('inactivar/{modeloxx}', [
         'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-inactiva']
     ])->name($routexxx . '.inactiva');
@@ -39,23 +39,23 @@ Route::group(['prefix' => 'fiupinnaj'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
     ])->name($routexxx . '.activarx');
+
+    Route::group(['prefix' => '{nnajxxxx}/upis'], function () use ($routexxx, $controll) {
+        Route::get('', [
+            'uses' => $controll . 'indexUpisnnaj',
+            'middleware' => [
+                'permission:' .
+                    $routexxx . '-listaxxx|' .
+                    $routexxx . '-borrarxx|' .
+                    $routexxx . '-activarx|'
+            ]
+        ])->name($routexxx . '.upisnnaj');
+
+        Route::get('listaxxx', [
+            'uses' => $controll . 'getNnajUpi',
+            'middleware' => ['permission:' . $routexxx . '-listaxxx']
+        ])->name($routexxx . '.listaxxx');
+    });
+
 });
-
-
-
-Route::group(['prefix' => '{nnajxxxx}/fiupinnaj'], function () use ($routexxx, $controll) {
-    Route::get('upisnnaj', [
-        'uses' => $controll . 'indexUpisnnaj',
-        'middleware' => [
-            'permission:' .
-                $routexxx . '-listaxxx|' .
-                $routexxx . '-borrarxx|' .
-                $routexxx . '-activarx|'
-        ]
-    ])->name($routexxx.'.upisnnaj');
-
-    Route::get('listaxxx', [
-        'uses' => $controll . 'getNnajUpi',
-        'middleware' => ['permission:' . $routexxx . '-listaxxx']
-    ])->name($routexxx . '.listaxxx');
-});
+ include_once('web_nnajdese.php'); 

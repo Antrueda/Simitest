@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Traits\Fi\Upinnajx;
+namespace App\Traits\Fi\Nnajdese;
 
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajUpi;
+use App\Models\sistema\SisServicio;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait UpinnajxListadoTrait
+trait NnajdeseListadoTrait
 {
 
     public  function getDttb($queryxxx, $requestx)
@@ -41,25 +43,24 @@ trait UpinnajxListadoTrait
     }
 
 
-    public function getNnajUpi(Request $request, $nnajxxxx)
+    public function getNnajUpi(Request $request, $nnajupix)
     {
-        $request->routexxx = [$this->opciones['permisox'],'nnajdese'];
+        $request->routexxx = [$this->opciones['permisox']];
         $request->botonesx = $this->opciones['rutacarp'] .
             $this->opciones['carpetax'] . '.Botones.inactiva';
         $request->upiservicio = $this->opciones['rutacarp'] .
             $request->estadoxx = 'layouts.components.botones.estadosx';
-
-
-        $dataxxxx =  NnajUpi::select([
-            'nnaj_upis.id',
-            'sis_depens.nombre',
-            'nnaj_upis.sis_esta_id',
-            'nnaj_upis.prm_principa_id',
+        
+        $dataxxxx =  NnajDese::select([
+            'nnaj_deses.id',
+            'sis_servicios.s_servicio',
+            'nnaj_deses.sis_esta_id',
+            'nnaj_deses.prm_principa_id',
             'sis_estas.s_estado',
         ])
-            ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_estas', 'nnaj_upis.sis_esta_id', '=', 'sis_estas.id')
-            ->where('nnaj_upis.sis_nnaj_id', $nnajxxxx);
+            ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
+            ->join('sis_estas', 'nnaj_deses.sis_esta_id', '=', 'sis_estas.id')
+            ->where('nnaj_deses.nnaj_upi_id', $nnajupix);
         return $this->getDttb($dataxxxx, $request);
     }
 

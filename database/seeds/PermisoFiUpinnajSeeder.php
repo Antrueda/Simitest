@@ -48,5 +48,34 @@ class PermisoFiUpinnajSeeder extends Seeder
             'user_edita_id' => 1,
             'sis_esta_id' => 1
         ]);
+
+// PERMISOS PARA LOS SERVICIOS
+
+        Permission::create([
+            'name' => 'nnajdese-listaxxx',
+            'descripcion' => 'Permiso que pemite mostrar la lista de los servicios que tiene asociados la dependencia',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
+        ]);
+        
+        Permission::create([
+            'name' => 'nnajdese-activarx',
+            'descripcion' => 'Permiso que permite ativar los servicios que tiene asociados la dependencia',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => 'nnajdese-inactiva',
+            'descripcion' => 'Permiso que permite inactivar los servicios que tiene asociados la dependencia',
+            'sis_pestania_id' => 1,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
+        ]);
     }
 }
