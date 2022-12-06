@@ -67,7 +67,7 @@ $(document).ready(function() {
             $('#diente').val('');
             $('#super_id').val('');
             $('#tiposup_id').val('');
-            $('#diag_id').val([]);
+            $("#diag_id").val(0).select2();
         });
                         
 

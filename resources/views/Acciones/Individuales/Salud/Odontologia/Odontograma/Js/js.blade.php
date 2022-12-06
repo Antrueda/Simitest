@@ -1,7 +1,8 @@
 <script>
   $(document).ready(function(){
     $('#diag_id').select2({
-      language: "es"
+      language: "es",
+      theme: "classic",
     });
 
 
