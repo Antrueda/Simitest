@@ -359,7 +359,7 @@
 <div class="row">
 <div class="col-md-12">
   {{ Form::label('correoapo', 'Correo electrónico del apoderado', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::text('correoapo', null, ['class' => $errors->first('correoapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'minlength' => '100', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
+  {{ Form::email('correoapo', null, ['class' => $errors->first('correoapo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'cols'=>'30','rows'=>'3', 'minlength' => '100', 'maxlength' => '500','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
   @if($errors->has('correoapo'))
   <div class="invalid-feedback d-block">
     {{ $errors->first('correoapo') }}

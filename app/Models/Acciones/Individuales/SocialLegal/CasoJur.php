@@ -42,7 +42,7 @@ class CasoJur extends Model
     }
 
     public function creador(){
-        return $this->belongsTo(User::class, 'user_crea_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function modifico(){
         return $this->belongsTo(User::class, 'user_edita_id');

@@ -225,7 +225,7 @@
 </div>
 
 <div class="col-md-3">
-  {{ Form::label('enfactu_id', 'Enfermerdad actual', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::label('enfactu_id', 'Enfermedad actual', ['class' => 'control-label col-form-label-sm']) }}
   <div class="form-check">
       <label class="form-check-label">
           <input type="radio" class="form-check-input" onchange = "doc2(this.value);"

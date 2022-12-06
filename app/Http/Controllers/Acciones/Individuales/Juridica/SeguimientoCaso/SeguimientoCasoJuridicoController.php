@@ -121,7 +121,8 @@ class SeguimientoCasoJuridicoController extends Controller
         $this->opciones['tablinde']=false;
         $this->padrexxx = $modeloxx->casojur;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->casojur]], 2, 'CREAR NUEVO SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
+        $do= $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->casojur]], 2, 'VOLVER A SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
@@ -130,19 +131,28 @@ class SeguimientoCasoJuridicoController extends Controller
 
     public function edit(SeguiJuridico $modeloxx)
     {    
-
+        if($modeloxx->user_crea_id!=Auth::user()->id){
+            return redirect()
+            ->route('seguimjur', [$modeloxx->casojur_id])
+            ->with('info', 'No se puede editar este formulario');
+         }
+        $casoactual=SeguiJuridico::where('estadocaso',2856)->where('casojur_id',$modeloxx->casojur_id)->first();
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->casojur->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->casojur->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->casojur->id];
         $this->opciones['usuariox'] = $modeloxx->casojur->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->casojur;
-        $this->opciones['juridica'] = $modeloxx->casojur->nnaj->fi_justrests->fi_proceso_srpas;
+
         $this->padrexxx = $modeloxx->casojur;
         $this->opciones['tablinde']=false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->casojur]], 2, 'VOLVER A SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->casojur]], 2, 'CREAR NUEVA SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary'])
+        
+        if($casoactual==null){
+            $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->casojur]], 2, 'CREAR NUEVO SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
+        }
+        
+        return $this->view(  $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->casojur]
         );

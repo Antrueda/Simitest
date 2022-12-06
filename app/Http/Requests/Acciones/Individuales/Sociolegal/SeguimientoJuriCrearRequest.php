@@ -17,9 +17,10 @@ class SeguimientoJuriCrearRequest extends FormRequest
             'upi_id.required'=>'Seleccione la UPI de atención',
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
             'i_prm_ha_estado_pard_id.required'=>'Seleccione la tipo de consulta',
-            'tipoc_id.required'=>'Seleccione el tipo de caso',
-            'temac_id.required'=>'Seleccione el tema del caso',
-            'descripcion.required'=>'Se necesita una descripción del seguimiento',
+            'tipoc_id.required'=>'Indique si requiere certificado',
+            'temac_id.required'=>'Seleccione el tipo de remisión Intrainstitucional',
+            'estadocaso.required'=>'Seleccione el estado del caso',
+            'segui_id.required'=>'Seleccione el Tipo de Seguimiento Realizado',
 
             
            
@@ -35,9 +36,8 @@ class SeguimientoJuriCrearRequest extends FormRequest
             'tipoc_id' => 'required',
             'temac_id' => 'required',
             'prm_sujeto' => 'nullable',
-            'estadocaso' => 'nullable',
-            'descripcion' => 'required',
-            
+            'estadocaso' => 'required',
+            'segui_id'=> 'required',
             
             
             

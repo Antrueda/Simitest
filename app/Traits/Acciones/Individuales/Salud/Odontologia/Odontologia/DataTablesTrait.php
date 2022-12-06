@@ -29,7 +29,7 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'CREAR VALORACIÓN ODONTOLOGICAS',
+                    'titunuev' => 'CREAR VALORACIÓN ODONTOLÓGICA',
                     'titulist' => 'LISTA DE VALORACIONES ODONTOLOGICAS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',

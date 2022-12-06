@@ -269,8 +269,7 @@ function soloNumeros(e) {
         document.getElementById("zonal_id").hidden=true;
         document.getElementById("bogota_id").hidden=true;
         
-        } 
-  
+        }  
     } 
     function doc1(valor){
         if(valor == 5 ||valor == 15 ){
@@ -307,15 +306,13 @@ function soloNumeros(e) {
         } 
   
     } 
-        
-
 
     function carga() {
         doc(document.getElementById('i_prm_ha_estado_pard_id').value);
         doc1(document.getElementById('centro_id').value);
         doc2(document.getElementById('prm_solicita_id').value);
-        
-    }
+        doc3(document.getElementById('prm_rama_id').value);
+     }
     window.onload=carga;
 
     $( window ).on( "load", function() {
