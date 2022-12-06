@@ -33,7 +33,7 @@ class GestMatrAcademiaController extends Controller
     {
         $this->opciones['permisox'] = 'gestmaca';
         $this->opciones['routxxxx'] = 'gestmaca';
-        $this->pestania[0][5]='active';
+        $this->pestania[0][5] = 'active';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -42,8 +42,8 @@ class GestMatrAcademiaController extends Controller
     {
         $this->getPestanias([]);
         $this->getTablas();
-        
-        $this->opciones['ruarchjs'][] = 
+
+        $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -54,14 +54,14 @@ class GestMatrAcademiaController extends Controller
         $this->getBotones(['crearxxx', [], 1, 'GUARDAR GESTIÓN MATRÍCULA', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $modeloxx]);
     }
-    public function store(IEstadoMatriculaCrearRequest $request,IMatriculaNnaj $padrexx)
+    public function store(IEstadoMatriculaCrearRequest $request, IMatriculaNnaj $padrexx)
     {
         $request->request->add(['imatrinnaj_id' => $padrexx->id]);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => '',
-            'padrexx'=>$padrexx,
+            'padrexx' => $padrexx,
             'infoxxxx' =>       'Estado de matrícula creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
@@ -70,25 +70,25 @@ class GestMatrAcademiaController extends Controller
 
     public function show(IEstadoMs $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'ver'],'padrexxx' => $modeloxx->imatrinnaj_id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'ver'], 'padrexxx' => $modeloxx->imatrinnaj_id]);
     }
 
 
     public function edit(IEstadoMs $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, 'EDITAR ESTADO MATRÍCULA', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'],'padrexxx' => $modeloxx->imatrinnaj_id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->imatrinnaj_id]);
     }
 
 
-    public function update(IEstadoMatriculaCrearRequest $request,IEstadoMs $modeloxx)
+    public function update(IEstadoMatriculaCrearRequest $request, IEstadoMs $modeloxx)
     {
         $padrexx = IMatriculaNnaj::find($modeloxx->imatrinnaj_id);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->setImatriculaEstado([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'padrexx'=>$padrexx,
+            'padrexx' => $padrexx,
             'infoxxxx' => 'Estado de matrícula editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
@@ -104,7 +104,7 @@ class GestMatrAcademiaController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'].'.trasladoexitoso', [$modeloxx->id])
+            ->route($this->opciones['permisox'] . '.trasladoexitoso', [$modeloxx->id])
             ->with('info', 'Matricula Nnaj inactivada correctamente');
     }
 
@@ -113,5 +113,4 @@ class GestMatrAcademiaController extends Controller
         $this->getBotones(['leerxxxx', ['imatricula', []], 2, 'IR A MATRÍCULA ACADEMIA', 'btn btn-sm btn-primary']);
         return $this->viewTraslado(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'trasladoExitoso']]);
     }
-    
 }

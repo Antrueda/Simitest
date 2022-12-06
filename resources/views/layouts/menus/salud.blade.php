@@ -19,6 +19,11 @@
                 <a href="{{ route('vsrrdmod') }}" class="nav-link">
                     <i class="fas fa-ambulance nav-icon"></i>
                     <p>Administración Valoración psicosocial rrd</p>
+        @can('labrrdmo-moduloxx')
+            <li class="nav-item">
+                <a href="{{ route('labrrdmo') }}" class="nav-link">
+                    <i class="fas fa-ambulance nav-icon"></i>
+                    <p>Administración (LAB- RRD)</p>
                 </a>
             </li>
         @endcan
