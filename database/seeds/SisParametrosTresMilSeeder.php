@@ -1023,6 +1023,10 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'CREAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2968,
     Parametro::create(['nombre' => 'ARGUMENTAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2969,
     Parametro::create(['nombre' => 'EVALUAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2970,
+    Parametro::create(['nombre' => 'OPERATORIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2971,
+    Parametro::create(['nombre' => 'PPT', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2972,
+    Parametro::create(['nombre' => 'ODONTOLOGÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2973,
+    Parametro::create(['nombre' => 'CONTROL O SEGUIMIENTO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2974,
 
 
 
