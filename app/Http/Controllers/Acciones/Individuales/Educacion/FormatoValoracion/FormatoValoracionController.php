@@ -5,8 +5,13 @@ namespace app\Http\Controllers\Acciones\Individuales\Educacion\FormatoValoracion
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\FormatoValoracionCrearRequest;
 use App\Http\Requests\Acciones\Individuales\FormatoValoracionEditarRequest;
+use App\Http\Requests\Acciones\Individuales\MatriculaCursoCrearRequest;
+use App\Http\Requests\Acciones\Individuales\MatriculaCursoEditarRequest;
+use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\ValoraComp;
+use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\sistema\SisNnaj;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\CrudTrait;
 use App\Traits\Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion\ParametrizarTrait;
