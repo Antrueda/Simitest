@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Acciones\Individuales\Educacion\FormatoValoracion;
+namespace App\Http\Controllers\Acciones\Individuales\Educacion\FormatoValoracion;
 
 use App\Http\Controllers\Controller;
 
