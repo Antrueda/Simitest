@@ -39,18 +39,18 @@
          @canany(['direcadmin-modulo'])
             @include('layouts.menus.direccionamiento')
         @endcanany
-        <!-- @canany(['matriculaadmin-modulo'])
+        {{-- @canany(['matriculaadmin-modulo'])
             @include('layouts.menus.matricula')
-        @endcanany -->
+        @endcanany  --}}
         @canany(['cuestionarioadmin-moduloxx'])
             @include('layouts.menus.admincuestionario')
         @endcanany
         @canany(['casomodulo-modulo'])
-        @include('layouts.menus.juridica')
+            @include('layouts.menus.juridica')
         @endcanany
         @canany(['saludmodulo-modulo'])
-        @include('layouts.menus.salud')
-         @endcanany
+            @include('layouts.menus.salud')
+        @endcanany
         @include('layouts.menus.educacion')
         @include('layouts.menus.sicosocial')
      </ul>
