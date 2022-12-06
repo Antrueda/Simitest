@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Controllers\Acciones\Individuales\Salud\Labrrd;
+namespace App\Http\Controllers\Acciones\Individuales\Salud\Labrrd;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -9,31 +9,31 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
-use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
-use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\DastSeguimiento;
-use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastCrudTrait;
-use App\Http\Requests\Acciones\Individuales\Sicosocial\CuestionarioDast\SeguimientoDastCrearRequest;
-use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastListadosTrait;
-use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastPestaniasTrait;
-use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDast\DastDataTablesTrait;
-use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\SeguimientoDast\SeguimientoDastVistasTrait;
-use App\Traits\Acciones\Individuales\Sicosocial\CuestionarioDast\SeguimientoDast\SeguimientoDastParametrizarTrait;
+use App\Models\Acciones\Individuales\Salud\Labrrd\Labrrd;
+use App\Models\Acciones\Individuales\Salud\Labrrd\LabrrdSeg;
+use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdCrudTrait;
+use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdListadosTrait;
+use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdPestaniasTrait;
+use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdDataTablesTrait;
+use App\Http\Requests\Acciones\Individuales\Salud\Labrrd\SeguimientoLabrrdCrearRequest;
+use App\Traits\Acciones\Individuales\Salud\Labrrd\SeguimientoLabrrd\SeguimientoLabrrdVistasTrait;
+use App\Traits\Acciones\Individuales\Salud\Labrrd\SeguimientoLabrrd\SeguimientoLabrrdParametrizarTrait;
 
 class LabrrdSeguimientoController extends Controller
 {
-    use SeguimientoDastParametrizarTrait; // trait donde se inicializan las opciones de configuracion
-    use DastPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
-    use DastListadosTrait; // trait que arma las consultas para las datatables
-    use DastCrudTrait; // trait donde se hace el crud de localidades
-    use DastDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
-    use SeguimientoDastVistasTrait; // trait que arma la logica para lo metodos: crud
+    use SeguimientoLabrrdParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use LabrrdPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use LabrrdListadosTrait; // trait que arma las consultas para las datatables
+    use LabrrdCrudTrait; // trait donde se hace el crud de localidades
+    use LabrrdDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    use SeguimientoLabrrdVistasTrait; // trait que arma la logica para lo metodos: crud
     use ManageTimeTrait;
     use CombosTrait;
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'dastsegu';
-        $this->opciones['routxxxx'] = 'dastsegu';
+        $this->opciones['permisox'] = 'labrrseg';
+        $this->opciones['routxxxx'] = 'labrrseg';
         $this->getOpciones();
         $this->middleware($this->getMware());
 
@@ -41,7 +41,7 @@ class LabrrdSeguimientoController extends Controller
         $this->pestania2[1][5] = 'active';
     }
 
-    public function index(Dast $padrexxx)
+    public function index(Labrrd $padrexxx)
     {
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         //activar pestanias 
@@ -51,12 +51,12 @@ class LabrrdSeguimientoController extends Controller
 
         $this->getPestanias([]);
         $this->getTablasSeguimientos($padrexxx->id);
-        $this->getBotones(['leerxxxx', ['cuesdast.verxxxxx', [$padrexxx->id]], 2, 'VOLVER AL CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', ['labrrdvs.verxxxxx', [$padrexxx->id]], 2, 'VOLVER A VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
 
-        return view($this->opciones['rutacarp'] . 'CuestionarioDast.pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'SeguimientoLabrrd.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function create(Dast $padrexxx)
+    public function create(Labrrd $padrexxx)
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
@@ -65,87 +65,87 @@ class LabrrdSeguimientoController extends Controller
         $this->opciones['puedetiempo'] = $puedexxx;
 
         $this->opciones['parametr'] = [$padrexxx->id];
-        $this->getBotones(['crearxxx', [], 1, 'GUARDAR SEGUIMIENTO DAST', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [], 1, 'GUARDAR SEGUIMIENTO VALORACIÓN (LAB- RRD', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    public function store(SeguimientoDastCrearRequest $request, Dast $padrexxx)
+    public function store(SeguimientoLabrrdCrearRequest $request, Labrrd $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        $request->request->add(['dast_id' => $padrexxx->id]);
-        return $this->setSeguimientoDast([
+        $request->request->add(['labrrd_id' => $padrexxx->id]);
+
+        return $this->setSeguimientoLabrrd([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Seguimiento Cuestionario dast creado con éxito',
+            'infoxxxx' => 'Seguimiento LAB- RRD creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
-    public function show(DastSeguimiento $modeloxx)
+    public function show(LabrrdSeg $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'padrexxx' => $modeloxx->dast]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['verxxxxx', 'formulario'], 'padrexxx' => $modeloxx->labrrd]);
     }
 
-    public function edit(DastSeguimiento $modeloxx)
+    public function edit(LabrrdSeg $modeloxx)
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-            'fechregi' => $modeloxx->fecha,
+            'fechregi' => $modeloxx->fechdili,
         ]);
         if ($puedexxx['tienperm']) {
             if ($this->verificarPuedoEditar($modeloxx)) {
                 $this->opciones['puedetiempo'] = $puedexxx;
-                $this->getBotones(['editarxx', [], 1, 'EDITAR SEGUIMIENTO DAST', 'btn btn-sm btn-primary']);
-                return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->dast]);
+                $this->getBotones(['editarxx', [], 1, 'EDITAR SEGUIMIENTO LAB- RRD', 'btn btn-sm btn-primary']);
+                return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->labrrd]);
             } else {
                 return redirect()
-                    ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                    ->route('labrrseg', [$modeloxx->sis_nnaj_id])
                     ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
             }
         } else {
             return redirect()
-                ->route('dastsegu', [$modeloxx->dast->id])
+                ->route('labrrseg', [$modeloxx->labrrd->id])
                 ->with('info', $puedexxx['msnxxxxx']);
         }
     }
 
-    public function update(SeguimientoDastCrearRequest $request,  DastSeguimiento $modeloxx)
+    public function update(SeguimientoLabrrdCrearRequest $request,  LabrrdSeg $modeloxx)
     {
-        return $this->setSeguimientoDast([
+        return $this->setSeguimientoLabrrd([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Seguimiento Cuestionario dast editado con éxito',
+            'infoxxxx' => 'Seguimiento LAB- RRD editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
 
-    public function inactivate(DastSeguimiento $modeloxx)
+    public function inactivate(LabrrdSeg $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR SEGUIMIENTO DAST', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->dast]);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR SEGUIMIENTO LAB- RRD', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->labrrd]);
     }
 
-    public function destroy(Request $request, DastSeguimiento $modeloxx)
+    public function destroy(Request $request, LabrrdSeg $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->dast])
-            ->with('info', 'Seguimiento Cuestionario dast inactivado correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->labrrd])
+            ->with('info', 'Seguimiento LAB- RRD inactivado correctamente');
     }
 
-    public function activate(DastSeguimiento $modeloxx)
+    public function activate(LabrrdSeg $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR SEGUIMIENTO DAST', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->dast]);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR SEGUIMIENTO LAB- RRD', 'btn btn-sm btn-primary']);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->labrrd]);
     }
 
-    public function activar(Request $request, DastSeguimiento $modeloxx)
+    public function activar(Request $request, LabrrdSeg $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->dast])
-            ->with('info', 'Seguimiento Cuestionario dast activado correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->labrrd])
+            ->with('info', 'Seguimiento LAB- RRD activado correctamente');
     }
 
     private function verificarPuedoEditar($modeloxx)

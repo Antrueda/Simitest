@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd;
+namespace App\Traits\Acciones\Individuales\Salud\Labrrd\SeguimientoLabrrd;
 
-use App\Models\Acciones\Individuales\Salud\Labrrd\Labrrd;
+use App\Models\Acciones\Individuales\Salud\Labrrd\LabrrdSeg;
 use App\Models\User;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait LabrrdVistasTrait
+trait SeguimientoLabrrdVistasTrait
 {
     public function getVista($dataxxxx)
     {
@@ -32,12 +32,12 @@ trait LabrrdVistasTrait
         $depenorigid = 0;
         $dependid = 0;
 
-        $this->opciones['fases'] = $this->getTemacomboCT(['temaxxxx' => 469, 'cabecera' => true, 'inxxxxxx' => [2905], 'ajaxxxxx' => false])['comboxxx'];
-        $this->opciones['gustos'] = $this->getTemacomboCT(['temaxxxx' => 477, 'cabecera' => false, 'ajaxxxxx' => false])['comboxxx'];
-        $this->opciones['habilidades'] = $this->getTemacomboCT(['temaxxxx' => 478, 'cabecera' => false, 'ajaxxxxx' => false])['comboxxx'];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->habilitarFases($this->opciones['accionxx'], $dataxxxx['padrexxx']->id);
 
-        $componentes = $this->getComponentesValoracionI();
+        $this->opciones['habilidades'] = $this->getTemacomboCT(['temaxxxx' => 478, 'cabecera' => false, 'ajaxxxxx' => false])['comboxxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+
+        $componentes = $this->getComponentesValoracionSegui();
         $this->opciones['personales'] = $componentes->filter(function ($item) {
             return $item->tipo_componente == 'PERSONALES';
         });
@@ -45,17 +45,17 @@ trait LabrrdVistasTrait
             return $item->tipo_componente == 'PROCESO';
         });
 
-        $this->pestania[0][2] = $dataxxxx['padrexxx'];
-        $this->pestania2[0][2] = $dataxxxx['padrexxx'];
+        $this->pestania[0][2] = $dataxxxx['padrexxx']->nnaj->id;
+        $this->pestania2[0][2] = $dataxxxx['padrexxx']->nnaj->id;
+        $this->pestania2[1][2] =  $dataxxxx['padrexxx']->id;
 
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A SEGUIMIENTOS LAB- RRD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', ['labrrdvs.verxxxxx', [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
-
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-
-            $data = Labrrd::select('id')->with('resultadoAnalisisPrivot:id')->where('id', $dataxxxx['modeloxx']->id)->first()->toArray();
+            $data = LabrrdSeg::select('id')->with('resultadoAnalisisPrivot:id')->where('id', $dataxxxx['modeloxx']->id)->first()->toArray();
             $resultados = [];
             foreach ($data['resultado_analisis_privot'] as $item) {
                 $resultados[$item['pivot']['labrrd_componente_id']] = $item['pivot']['respuesta'];
@@ -63,16 +63,16 @@ trait LabrrdVistasTrait
             $this->opciones['resultados'] = $resultados;
 
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $dependid = $dataxxxx['modeloxx']->sis_atenc_id;
-            $depenorigid = $dataxxxx['modeloxx']->sis_origen_id;
+            $dependid = $dataxxxx['modeloxx']->sis_depen_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVA VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
-            $this->getBotones(['crearxxx', ['labrrseg', [$dataxxxx['modeloxx']->id]], 2, 'SEGUIMIENTOS', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO SEGUIMIENTO (LAB- RRD)', 'btn btn-sm btn-primary']);
+            $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }
+
 
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['funccont']  = User::getUsuario(false, false, $dataxxxx['modeloxx']->user_fun_id);
@@ -84,27 +84,24 @@ trait LabrrdVistasTrait
 
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones
-        return view($this->opciones['rutacarp'] . 'Labrrd.pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'SeguimientoLabrrd.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function viewActive($dataxxxx)
+    public function habilitarFases($accion, $labrrd)
     {
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
-        $this->pestania[0][2] = $dataxxxx['padrexxx'];
-        $this->pestania2[0][2] = $dataxxxx['padrexxx'];
-
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
-        $this->getVista($dataxxxx);
-
-        // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVA VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
+        if ($accion == "verxxxxx") {
+            $this->opciones['fases'] = $this->getTemacomboCT(['temaxxxx' => 469, 'cabecera' => true, 'ajaxxxxx' => false])['comboxxx'];
+        } else {
+            $seguimiento = LabrrdSeg::where('labrrd_id', $labrrd)->orderBy('created_at', 'desc')->first();
+            if ($seguimiento == null) {
+                $this->opciones['fases'] = $this->getTemacomboCT(['temaxxxx' => 469, 'cabecera' => true, 'inxxxxxx' => [2905], 'ajaxxxxx' => false])['comboxxx'];
+            } else {
+                if ($seguimiento->prm_faseacomp == '2905') {
+                    $this->opciones['fases'] = $this->getTemacomboCT(['temaxxxx' => 469, 'cabecera' => true, 'inxxxxxx' => [2905, 2906], 'ajaxxxxx' => false])['comboxxx'];
+                } else {
+                    $this->opciones['fases'] = $this->getTemacomboCT(['temaxxxx' => 469, 'cabecera' => true, 'ajaxxxxx' => false])['comboxxx'];
+                }
+            }
         }
-
-        $this->getPestanias($this->opciones);
-        // Se arma el titulo de acuerdo al array opciones
-        return view($this->opciones['rutacarp'] . 'Labrrd.pestanias', ['todoxxxx' => $this->opciones]);
     }
 }

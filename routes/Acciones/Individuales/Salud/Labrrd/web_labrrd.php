@@ -55,7 +55,7 @@ Route::group(['prefix' => 'ai/salud/LAB-RRD'], function () use ($controll, $rout
 		'middleware' => ['permission:' . $routxxxx . '-activarx']
 	])->name($routxxxx . '.activarx');
 });
-// require_once('web_dastseguimientos.php');
+require_once('web_labrrdseguimientos.php');
 
 //administraccion
 require_once('AdmiLabrrd/web_admilabrrdmodu.php');

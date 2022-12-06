@@ -157,7 +157,7 @@
         <div class="col-md-12">
             {{ Form::label('observacion', '4.3 OBSERVACIONES :', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'5','spellcheck'=>'true']) }}
-            <p id="contador_obs_patron_con">0/4000</p>
+            <p id="contador_observacion">0/4000</p>
             @if($errors->has('observacion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('observacion') }}
@@ -178,21 +178,6 @@
         </div>
     </div>
 
-    {{-- <br><center><strong><p class="col-form-label-lg">SEGUIMIENTO AL PROCESO DE ACOMPAÑAMIENTO</p></strong></center>
-
-    <div class="form-row">
-
-        <div class="col-md-12">
-            {{ Form::label('obs_patron_con', 'Observaciones sobre el proceso :', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::textarea('obs_patron_con', null, ['class' => $errors->first('obs_patron_con') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'descripción', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'5','spellcheck'=>'true']) }}
-            <p id="contador_obs_patron_con">0/4000</p>
-            @if($errors->has('obs_patron_con'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('obs_patron_con') }}
-            </div>
-            @endif
-        </div>
-    </div> --}}
     <div class="form-row">
         <div class="col-md-12">
             {!! Form::label('user_fun_id', 'Funcionario/Contratista que realiza el seguimiento:', ['class' => 'control-label']) !!}

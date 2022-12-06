@@ -9,7 +9,6 @@ use App\Traits\Combos\CombosTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\GestionTiempos\ManageTimeTrait;
-use App\Models\Acciones\Individuales\Sicosocial\CuestionarioDast\Dast;
 
 use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdCrudTrait;
 use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdVistasTrait;
@@ -18,7 +17,6 @@ use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdListadosTrait;
 use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdPestaniasTrait;
 use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdDataTablesTrait;
 use App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd\LabrrdParametrizarTrait;
-use App\Http\Requests\Acciones\Individuales\Sicosocial\CuestionarioDast\CuestionarioDastCrearRequest;
 use App\Models\Acciones\Individuales\Salud\Labrrd\Labrrd;
 
 class LabrrdController extends Controller
@@ -57,7 +55,6 @@ class LabrrdController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
             'fechregi' => Carbon::now()->toDateString(),
@@ -99,22 +96,22 @@ class LabrrdController extends Controller
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-            'fechregi' => $modeloxx->fecha,
+            'fechregi' => $modeloxx->fechdili,
         ]);
         if ($puedexxx['tienperm']) {
             if ($this->verificarPuedoEditar($modeloxx)) {
                 $this->opciones['puedetiempo'] = $puedexxx;
                 $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-                $this->getBotones(['editarxx', [], 1, 'EDITAR CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
+                $this->getBotones(['editarxx', [], 1, 'EDITAR VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->nnaj]);
             } else {
                 return redirect()
-                    ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                    ->route('labrrdvs', [$modeloxx->sis_nnaj_id])
                     ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
             }
         } else {
             return redirect()
-                ->route('pvocacif', [$modeloxx->sis_nnaj_id])
+                ->route('labrrdvs', [$modeloxx->sis_nnaj_id])
                 ->with('info', $puedexxx['msnxxxxx']);
         }
     }
@@ -129,32 +126,32 @@ class LabrrdController extends Controller
         ]);
     }
 
-    public function inactivate(Dast $modeloxx)
+    public function inactivate(Labrrd $modeloxx)
     {
-        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
+        $this->getBotones(['borrarxx', [], 1, 'INACTIVAR VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
         return $this->viewActive(['modeloxx' => $modeloxx, 'accionxx' => ['destroyx', 'destroyx'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
-    public function destroy(Request $request, Dast $modeloxx)
+    public function destroy(Request $request, Labrrd $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->nnaj])
-            ->with('info', 'Cuestionario dast inactivado correctamente');
+            ->with('info', 'VALORACIÓN (LAB- RRD) inactivado correctamente');
     }
 
-    public function activate(Dast $modeloxx)
+    public function activate(Labrrd $modeloxx)
     {
-        $this->getBotones(['activarx', [], 1, 'ACTIVAR CUESTIONARIO DAST', 'btn btn-sm btn-primary']);
+        $this->getBotones(['activarx', [], 1, 'ACTIVAR VALORACIÓN (LAB- RRD)', 'btn btn-sm btn-primary']);
         return $this->viewActive(['modeloxx' => $modeloxx, 'accionxx' => ['activarx', 'activarx'], 'padrexxx' => $modeloxx->nnaj]);
     }
 
-    public function activar(Request $request, Dast $modeloxx)
+    public function activar(Request $request, Labrrd $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->nnaj])
-            ->with('info', 'Cuestionario dast activado correctamente');
+            ->with('info', 'VALORACIÓN (LAB- RRD) activado correctamente');
     }
 
     private function verificarPuedoCrear($padrexxx)

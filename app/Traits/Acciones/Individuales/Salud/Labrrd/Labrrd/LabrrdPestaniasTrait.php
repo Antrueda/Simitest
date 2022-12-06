@@ -11,7 +11,7 @@ trait LabrrdPestaniasTrait
     ];
     public $pestania2 = [
         ['labrrdvs', '', [], 'VALORACIÓN Y SEGUIMIENTO (LAB- RRD)', true, '', 'Valoración y seguimiento (lab- rrd) '], // por mínimo debe tener un controllador
-        ['dastsegu', '', [], 'SEGUIMIENTOS', false, '', 'Seguimientos cuestionario dast'], // por mínimo debe tener un controllador
+        ['labrrseg', '', [], 'SEGUIMIENTOS', false, '', 'Seguimientos (lab- rrd)'], // por mínimo debe tener un controllador
     ];
     /**
      * permisos que va a manejar cada pestaña

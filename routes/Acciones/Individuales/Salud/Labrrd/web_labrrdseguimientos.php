@@ -1,7 +1,7 @@
 <?php
-$routxxxx = 'dastsegu';
-$controll = 'Acciones\Individuales\Sicosocial\CuestionarioDast\DastSeguimiento';
-Route::group(['prefix' => 'dast/{padrexxx}/seguimiento'], function () use ($controll, $routxxxx) {
+$routxxxx = 'labrrseg';
+$controll = 'Acciones\Individuales\Salud\Labrrd\LabrrdSeguimiento';
+Route::group(['prefix' => 'ai/salud/LAB-RRD/{padrexxx}/seguimiento'], function () use ($controll, $routxxxx) {
 	Route::get('', [
 		'uses' => $controll . 'Controller@index',
 		'middleware' => ['permission:' . $routxxxx . '-leerxxxx|' . $routxxxx . '-crearxxx|' . $routxxxx . '-editarxx|' . $routxxxx . '-borrarxx']
@@ -20,7 +20,7 @@ Route::group(['prefix' => 'dast/{padrexxx}/seguimiento'], function () use ($cont
 	])->name($routxxxx . '.crearxxx');
 });
 
-Route::group(['prefix' => 'dast/seguimiento'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'ai/salud/LAB-RRD/seguimiento'], function () use ($controll, $routxxxx) {
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll . 'Controller@edit',
 		'middleware' => ['permission:' . $routxxxx . '-editarxx']

@@ -4,30 +4,33 @@ namespace App\Models\Acciones\Individuales\Salud\Labrrd;
 
 use App\Models\User;
 use App\Models\Parametro;
-use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDepen;
 use Illuminate\Database\Eloquent\Model;
 
-class Labrrd extends Model
+class LabrrdSeg extends Model
 {
     protected $fillable = [
-        'sis_nnaj_id',
+        'labrrd_id',
         'fechdili',
         'sis_origen_id',
         'sis_atenc_id',
         'prm_faseacomp',
-        'observacion',
+        'observacion_pro',
         'num_sesion',
         'lugar_externo',
+        'observacion_afront',
+        'observacion_impu',
+        'observacion_violen',
+        'observacion_auto',
         'user_fun_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
     ];
 
-    public function nnaj()
+    public function labrrd()
     {
-        return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
+        return $this->belongsTo(Labrrd::class, 'labrrd_id');
     }
 
     public function upiOrigen()
@@ -35,24 +38,19 @@ class Labrrd extends Model
         return $this->belongsTo(SisDepen::class, 'sis_origen_id');
     }
 
-    public function gustos_intereses()
-    {
-        return $this->belongsToMany(Parametro::class, 'labrrd_gustos', 'labrrd_id', 'prm_gusto_id');
-    }
-
     public function habilidades()
     {
-        return $this->belongsToMany(Parametro::class, 'labrrd_habilidades', 'labrrd_id', 'prm_habilidad_id');
+        return $this->belongsToMany(Parametro::class, 'labrrd_seg_habilis', 'labrrd_seg_id', 'prm_habilidad_id');
     }
 
     public function resultadoAnalisis()
     {
-        return $this->belongsToMany(LabrrdComponente::class, 'labrrd_analisis', 'labrrd_id', 'labrrd_componente_id');
+        return $this->belongsToMany(LabrrdComponente::class, 'labrrd_seg_analis', 'labrrd_seg_id', 'labrrd_componente_id');
     }
 
     public function resultadoAnalisisPrivot()
     {
-        return $this->belongsToMany(LabrrdComponente::class, 'labrrd_analisis', 'labrrd_id', 'labrrd_componente_id')->withPivot('respuesta');
+        return $this->belongsToMany(LabrrdComponente::class, 'labrrd_seg_analis', 'labrrd_seg_id', 'labrrd_componente_id')->withPivot('respuesta');
     }
 
     public function funcionario()

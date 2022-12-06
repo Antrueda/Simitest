@@ -29,7 +29,7 @@
         </div>
 
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-warning " href="{{ route('dastsegu', $queryxxx->id) }}">SEGUIMIENTOS</a>
+            <a class="btn btn-sm btn-warning " href="{{ route('labrrseg', $queryxxx->id) }}">SEGUIMIENTOS</a>
         </div>
     </div>
 </div>

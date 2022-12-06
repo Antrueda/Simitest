@@ -14,8 +14,8 @@
             let fechalimite = '<?= $todoxxxx['puedetiempo']['fechlimi'] ?>';
                 fechalimite = new Date(fechalimite +'T00:00:00')
 
-            $('#fecha').mask('0000-00-00');
-            let datepick = $("#fecha");
+            $('#fechdili').mask('0000-00-00');
+            let datepick = $("#fechdili");
             datepick.datepicker({
                 dateFormat: "yy-mm-dd",
                 changeMonth: true,
@@ -24,7 +24,24 @@
                 maxDate: new Date(fechaactual),
             });
         @endif
+
+        
+        
+        espacioExterno();
+        $('#sis_atenc_id').change(() => {
+            espacioExterno();
+        });
+
     });
+
+    function espacioExterno() {
+        require = $("#sis_atenc_id");
+        if (require.val()== '1') {
+            $('#lugar_externo').attr('disabled', false);
+        }else{
+            $('#lugar_externo').attr('disabled', true);
+        }
+    }
 
     function init_contadorTa(idtextarea, idcontador, max) {
         $("#" + idtextarea).keyup(function() {
@@ -46,14 +63,10 @@
         }
     }
 
-    init_contadorTa("obs_seguimiento", "contador_obs_seguimiento", 4000);
-
-    //evitar enviar formulario duplicado
-     $('#formulario, input[type="submit"]').on('submit',function(){
-        $('#formulario, input[type="submit"]').attr('disabled','true');
-    })
-
-
-   
+    init_contadorTa("observacion_pro", "contador_observacion_pro", 4000);
+    init_contadorTa("observacion_afront", "contador_observacion_afront", 4000);
+    init_contadorTa("observacion_impu", "contador_observacion_impu", 4000);
+    init_contadorTa("observacion_violen", "contador_observacion_violen", 4000);
+    init_contadorTa("observacion_auto", "contador_observacion_auto", 4000);
 
 </script>

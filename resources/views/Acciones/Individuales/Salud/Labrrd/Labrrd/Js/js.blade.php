@@ -68,14 +68,7 @@
         }
     }
 
-    init_contadorTa("accion_desarrolla", "contador_accion_desarrolla", 4000);
-    init_contadorTa("obs_patron_con", "contador_obs_patron_con", 4000);
-    init_contadorTa("accion_curso", "contador_accion_curso", 4000);
     init_contadorTa("observacion", "contador_observacion", 4000);
 
-    //evitar enviar formulario duplicado
-    $('#formulario, input[type="submit"]').on('submit',function(){
-        $('#formulario, input[type="submit"]').attr('disabled','true');
-    })
 
 </script>

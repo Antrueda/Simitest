@@ -15,7 +15,6 @@ class LabrrdCrearRequest extends FormRequest
 
     public function __construct()
     {
-
         $this->_mensaje = [
             'fechdili.required'               => 'Por seleccione Fecha de diligenciamiento.',
             'sis_origen_id.required'         => 'Por seleccione UPI, AREA O CONTEXTO. ORIGEN ',
