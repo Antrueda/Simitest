@@ -71,7 +71,7 @@ trait VistasTrait
         $usuarioz=null;
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
-            $opciones['dependen'] = $this->getUpisNnajUsuarioCT(['nnajidxx' => $dataxxxx['modeloxx']->casojur->nnaj->id, 'dependid' => $dependid]);
+            $opciones['dependen'] = $this->getUpisNnajUsuarioDiligCT(['nnajidxx' => $dataxxxx['modeloxx']->casojur->nnaj->id, 'dependid' => $dependid,'diligenc'=>$dataxxxx['modeloxx']->user_id]);
             $opciones['padrexxx']=[$dataxxxx['modeloxx']];
             $opciones['padrexxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
