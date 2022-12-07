@@ -43,11 +43,11 @@ trait VistasTrait
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
+        $opciones['consulta'] = Tema::comboNotIn(480,true, false,[1689,2974,2804]);
    
        
       
-        $opciones['modalxxx'] = Tema::comboNotIn(439,true, false,[1155,1156]);
+        $opciones['modalxxx'] = Tema::comboNotIn(480,true, false,[2973,1385]);
         
 
         $usuarioz=null;
