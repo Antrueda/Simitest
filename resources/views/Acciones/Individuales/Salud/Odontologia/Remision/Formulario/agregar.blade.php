@@ -4,7 +4,7 @@
 <div class="row" id="test">
   
     <div class="col-sm-2">
-      {{ Form::label('tipodiag', 'Nombre Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('tipodiag', 'Nombre Diagnóstico', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('tipodiag', $todoxxxx['estadoxx'],null, ['class' => $errors->first('tipodiag') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder'=>'Seleccione',]) }}
       @if($errors->has('tipodiag'))
       <div class="invalid-feedback d-block">
@@ -13,7 +13,7 @@
       @endif
     </div>
     <div class="col-sm-3">
-      {{ Form::label('diag_id', 'Diagnostico', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('diag_id', 'Diagnóstico', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('diag_id', $todoxxxx['diagnost'],null, ['class' => $errors->first('diag_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'diag_id',]) }}
           @if($errors->has('diag_id'))
             <div class="invalid-feedback d-block">

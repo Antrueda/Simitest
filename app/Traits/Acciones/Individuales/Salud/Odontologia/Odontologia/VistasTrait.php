@@ -41,6 +41,8 @@ trait VistasTrait
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
+        $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
+        $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['consulta'] = Tema::comboNotIn(480,true, false,[1689,2974,2804]);
