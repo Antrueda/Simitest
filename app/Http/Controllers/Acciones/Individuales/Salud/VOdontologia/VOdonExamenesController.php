@@ -101,6 +101,9 @@ class VOdonExamenesController extends Controller
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
 
         //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
 

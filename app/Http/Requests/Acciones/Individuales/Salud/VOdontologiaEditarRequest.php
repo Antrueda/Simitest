@@ -17,6 +17,7 @@ class VOdontologiaEditarRequest extends FormRequest
 
         $this->_mensaje = [
             'upi_id.required'=>'Seleccione la UPI de atención',
+            'upiorigen_id.required'=>'Seleccione la UPI de origen',
             'consulta_id.required'=>'Seleccione el tipo de consulta',
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
             'valora_id.required'=>'Seleccione la tipo de valoracion',
@@ -24,6 +25,7 @@ class VOdontologiaEditarRequest extends FormRequest
             ];
         $this->_reglasx = [
             'upi_id' => 'required',
+            'upiorigen_id' => 'required',
             'fecha' => 'required',
             'consulta_id' => 'required',
             'valora_id' => 'required',

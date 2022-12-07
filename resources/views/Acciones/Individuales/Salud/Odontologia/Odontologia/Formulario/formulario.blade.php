@@ -19,6 +19,15 @@
           </div>
        @endif
   </div>
+  <div class="col-md-3">
+    {{ Form::label('upiorigen_id', 'UPI de Origen', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('upiorigen_id', $todoxxxx['depenori'], null, ['class' => $errors->first('upiorigen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('upiorigen_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('upiorigen_id') }}
+    </div>
+    @endif
+  </div>
    <div class="col-md-4">
     {{ Form::label('consulta_id', 'Clase de Consulta', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('consulta_id', $todoxxxx['consulta'],null, ['class' => $errors->first('consulta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
