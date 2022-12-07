@@ -516,6 +516,35 @@ trait CombosTrait
         return $respuest;
     }
 
+
+    public function getUpisNnajUsuarioDiligCT($dataxxxx)
+    {
+        $dataxxxx = $this->getDefaultCT($dataxxxx);
+        // // * encontrar las dependencia del nnaj
+        $upisnnaj = SisDepen::select(['sis_depens.id'])
+            ->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
+            // * encontrar las upis activas del nnaj
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajidxx']);
+                $queryxxx->where('nnaj_upis.sis_esta_id', 1);
+            })
+            ->get()->toArray();
+        // * encontrar las dependencias del profesional registrado y que sean comunes a las del nnaj
+        $dataxxxx['dataxxxx'] = SisDepen::join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+            ->where(function ($queryxxx) use ($upisnnaj,$dataxxxx) {
+                $queryxxx->whereIn('sis_depen_user.user_id', [$dataxxxx['diligenc'],Auth::user()->id]);
+                $queryxxx->whereIn('sis_depen_user.sis_depen_id', $upisnnaj);
+                $queryxxx->where('sis_depen_user.sis_esta_id', 1);
+            })
+            // * encontrar la upi que se le asignó
+            ->orWhere(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('sis_depens.id',  $dataxxxx['dependid']);
+            })
+            ->get(['sis_depens.id as valuexxx', 'sis_depens.nombre as optionxx']);
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return $respuest;
+    }
+
     /**
      * Encontrar las dependencias del nnaj
      *
