@@ -45,7 +45,7 @@ trait VistasTrait
         $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
-        $opciones['consulta'] = Tema::comboNotIn(480,true, false,[1689,2974,2804]);
+        $opciones['consulta'] = Tema::comboNotIn(480,true, false,[1689,2974,2804,1332]);
    
        
       
