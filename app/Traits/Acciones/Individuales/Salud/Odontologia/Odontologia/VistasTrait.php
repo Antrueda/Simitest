@@ -57,8 +57,8 @@ trait VistasTrait
         if ($dataxxxx['modeloxx'] != '') {
             
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
-            if($dataxxxx['modeloxx']->consul_id==1155){
-                $opciones['consulta'] = Tema::comboNotIn(439,true, false,[2809,2804]);
+            if($dataxxxx['modeloxx']->consul_id==1689){
+                $opciones['consulta'] = Tema::comboNotIn(480,true, false,[2973,1385,1689]);
             }
           
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
