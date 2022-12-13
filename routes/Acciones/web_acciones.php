@@ -17,6 +17,7 @@ require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.ph
 require_once('Individuales\Educacion\VEntrevista\web_ventrevista.php');
 require_once('Individuales\SocioLegal\web_acasojuridico.php');
 require_once('Individuales\VOdontologia\web_vodontologia.php');
+require_once('Individuales\Egreso\web_egresodb.php');
 require_once('Individuales\Sicosocial\CuestionarioDast\web_cuestionariodast.php');
 
 
