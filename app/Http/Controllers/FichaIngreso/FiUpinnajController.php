@@ -92,7 +92,7 @@ class FiUpinnajController extends Controller
         
         $this->getBotones(['listaxxx', [$this->opciones['permisox'].'.upisnnaj', [$this->opciones['usuariox']->id]], 2, 'VOLVER UPIS NNAJ', 'btn btn-sm btn-primary']);
 
-        $this->getBotones(['inactiva', [$this->opciones['permisox'].'.upisnnaj', [$this->opciones['usuariox']->id]], 1, 'VOLVER UPIS NNAJ', 'btn btn-sm btn-primary']);
+        $this->getBotones(['inactiva', [$this->opciones['permisox'].'.upisnnaj', [$this->opciones['usuariox']->id]], 1, 'INACTIVAR UPI', 'btn btn-sm btn-primary']);
 
 
 
