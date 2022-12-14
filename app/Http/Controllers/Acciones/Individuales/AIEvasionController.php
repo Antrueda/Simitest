@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Acciones\Individuales\TieneEvacionTrait;
 use App\Traits\Acciones\SalidaTrait;
 use App\Traits\Combos\CombosTrait;
 
@@ -23,6 +24,7 @@ class AIEvasionController extends Controller
 {
     use SalidaTrait;
     use CombosTrait;
+    use TieneEvacionTrait;
     private $opciones;
 
     public function __construct()
@@ -75,6 +77,13 @@ class AIEvasionController extends Controller
     }
     public function index(SisNnaj $padrexxx)
     {
+        $repuest = $this->getTieneEvacion($padrexxx->id);
+        $vercrear=$repuest[3];
+        if (!$repuest[0]) {
+            return redirect()
+            ->route('ai.ver', [$padrexxx->id])
+            ->with('info', 'El NNAJ es mayor de edad, por lo tanto no se le puede realizar reporte de evasión');
+        }
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
 
         $this->opciones['tablasxx'] = [
@@ -82,7 +91,7 @@ class AIEvasionController extends Controller
                 'titunuev' => 'REGISTRAR NUEVO REPORTE DE EVASIÓN',
                 'titulist' => 'LISTA DE EVASIONES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' =>  $vercrear,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'cabecera' => [
                     [
@@ -117,12 +126,12 @@ class AIEvasionController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function getListado(Request $request, SisNnaj $padrexxx)
+    public function getListado(Request $request, $padrexxx)
     {
         if ($request->ajax()) {
 
             $request->routexxx = [$this->opciones['routxxxx']];
-            $request->padrexxx = $padrexxx->id;
+            $request->padrexxx = $padrexxx;
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->razonesx = $this->opciones['rutacarp'] .
@@ -305,6 +314,12 @@ class AIEvasionController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
+        $repuest = $this->getTieneEvacion($padrexxx->id);
+        if (!$repuest[0]) {
+            return redirect()
+            ->route('ai.ver', [$padrexxx->id])
+            ->with('info', 'El NNAJ es mayor de edad, por lo tanto no se le puede realizar reporte de evasión');
+        }
         $this->opciones['rutaxxxx'] = route('aievasion.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
