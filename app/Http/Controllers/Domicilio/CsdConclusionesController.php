@@ -57,8 +57,17 @@ class CsdConclusionesController extends Controller
         }
         $this->opciones['condicix'] = Tema::combo(23, false, false);
         $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['padrexxx']->csd_id)
-            ->where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
-            ->first();
+        ->where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
+        ->first();
+        if (Auth::user()->s_documento=='17496705') {
+            // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
+            // ->get();
+            // ddd($compfami,$dataxxxx['padrexxx']->csd_id);
+
+            // ddd($dataxxxx['padrexxx']->csd_id,$dataxxxx['padrexxx']->sis_nnaj_id);
+        }
+       
+         
         if (is_null($compfami)) {
             $document=$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento;
             $nombresx=$dataxxxx['padrexxx']->csd->CsdDatosBasico;

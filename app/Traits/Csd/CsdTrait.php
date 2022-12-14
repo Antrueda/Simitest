@@ -315,6 +315,10 @@ trait CsdTrait
                 if (!$usuariox->hasRole([Role::find(1)->name])) {
                     $queryxxx->where('csd_com_familiars.sis_esta_id', 1);
                 }
+                if (Auth::user()->s_documento=='17496705') {
+                    // echo $request->padrexxx;
+                }
+                
                 $queryxxx->where('csd_com_familiars.csd_id', $request->padrexxx);
             });
         return $this->getDttbComfami($dataxxxx, $request);

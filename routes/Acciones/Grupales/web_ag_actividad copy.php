@@ -20,7 +20,7 @@ Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agasiste');
 
-    Route::get('{padrexxx}/documento/{verxxxxx}s', [
+    Route::get('{padrexxx}/documento/{verxxxxx}', [
         'uses' => $controll . 'Controller@listaDocumentos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agcargdoc');

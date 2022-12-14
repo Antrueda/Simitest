@@ -6,14 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiConsentimientoCrearRequest;
 use App\Http\Requests\Vsi\VsiConsentimientoEditarRequest;
 use App\Models\fichaIngreso\FiCompfami;
-use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
-use App\Models\sistema\ParametroTema;
-use App\Models\sistema\SisNnaj;
 use App\Models\Texto;
 use App\Models\User;
 use App\Traits\Puede\PuedeTrait;
@@ -65,8 +62,6 @@ class VsiConsentimientoController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        ;
-
         $this->opciones['usuarios'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[4]]);
         $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[3]]);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -75,7 +70,7 @@ class VsiConsentimientoController extends Controller
         $this->opciones['edadxxxx']= $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
 
         if ($this->opciones['edadxxxx'] >= 17) {
-            $this->opciones['represen'] = FiCompfami::where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->nnaj->id)->where('prm_reprlega_id', 227)->first();
+            $this->opciones['represen'] = FiCompfami::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id', 227)->first();
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2677)->where('sis_esta_id', 1)->first();
         } else {
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2678)->where('sis_esta_id', 1)->first();
@@ -101,8 +96,11 @@ class VsiConsentimientoController extends Controller
      */
     private function setNnajRepresentanteLegal($edadxxxx, $padrexxx)
     {
-        if ($edadxxxx > 17 && $padrexxx->fiCompfami->prm_reprlega_id == 228) {
-            $padrexxx->fiCompfami->update(['prm_reprlega_id' => 227, 'user_edita_id' => Auth::id()]);
+        if ($edadxxxx > 17) {
+            $compofami = FiCompfami::
+            where('sis_nnaj_id', $padrexxx->sis_nnaj_id)
+            ->first();
+            $compofami->update(['prm_reprlega_id' => 227, 'user_edita_id' => Auth::id()]);
         }
     }
     /**
@@ -111,11 +109,11 @@ class VsiConsentimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Vsi $padrexxx)
-    { 
-             
+    {          
         $edadxxxx = $padrexxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
-        if ($edadxxxx >= 17) {
-            $this->setNnajRepresentanteLegal($edadxxxx, $padrexxx->nnaj);
+        $this->setNnajRepresentanteLegal($edadxxxx, $padrexxx);
+        if ($edadxxxx < 18) {
+            
             $compofami = FiCompfami::select('sis_nnajnnaj_id')
                 ->where('sis_nnajnnaj_id', $padrexxx->nnaj->id)
                 ->where('prm_reprlega_id', 227)->first();

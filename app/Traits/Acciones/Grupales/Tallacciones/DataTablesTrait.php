@@ -122,7 +122,7 @@ trait DataTablesTrait
             $vercrear = true;
             $cabecera = [];
             $columnsx = [];
-            if ($this->verxxxxx) {
+            if ($this->verxxxxx==1) {
                 $vercrear = false;
             } else {
                 $cabecera[] = ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1];
@@ -169,7 +169,7 @@ trait DataTablesTrait
                 ];
 
             $vercrear = true;
-            if ($this->verxxxxx) {
+            if ($this->verxxxxx==1) {
                 $vercrear = false;
             }
 
@@ -212,7 +212,7 @@ trait DataTablesTrait
                     'parametr' => [$dataxxxx['modeloxx']->id],
                 ];
             $vercrear = true;
-            if ($this->verxxxxx) {
+            if ($this->verxxxxx==1) {
                 $vercrear = false;
             }
 

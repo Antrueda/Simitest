@@ -88,6 +88,7 @@ class CsdCompfamiController extends Controller
 
     public function index(CsdSisNnaj $padrexxx)
     {
+        
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
@@ -101,6 +102,11 @@ class CsdCompfamiController extends Controller
         $this->opciones['pestpara'][0] = [$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
 
+        if (Auth::user()->s_documento=='17496705') {
+            // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
+            // ->first();
+            // ddd($padrexxx);
+        }
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
