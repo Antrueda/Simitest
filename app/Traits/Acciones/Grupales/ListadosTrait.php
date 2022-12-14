@@ -119,11 +119,12 @@ trait ListadosTrait
         }
     }
 
-    public function listaResponsables(Request $request, AgActividad $padrexxx)
+    public function listaResponsables(Request $request, $padrexxx,$verxxxxx)
     {
 
         if ($request->ajax()) {
             $request->routexxx = ['agrespon', 'fosubtse'];
+            $request->verxxxxx = $verxxxxx;
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapires';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -142,16 +143,17 @@ trait ListadosTrait
                 ->join('parametros', 'ag_responsables.i_prm_responsable_id', '=', 'parametros.id')
                 ->join('users', 'ag_responsables.user_id', '=', 'users.id')
                 ->join('sis_estas', 'ag_responsables.sis_esta_id', '=', 'sis_estas.id')
-                ->where('ag_responsables.ag_actividad_id', $padrexxx->id);
+                ->where('ag_responsables.ag_actividad_id', $padrexxx);
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    public function ListarRecursos(Request $request, AgActividad $padrexxx)
+    public function ListarRecursos(Request $request, AgActividad $padrexxx,$verxxxxx)
     {
 
         if ($request->ajax()) {
+            $request->verxxxxx = $verxxxxx;
             $request->routexxx = ['agrelacion', 'fosubtse'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -215,9 +217,10 @@ trait ListadosTrait
 
 
 
-    public function getAsistente(Request $request, AgActividad $padrexxx)
+    public function getAsistente(Request $request, AgActividad $padrexxx,$verxxxxx)
     {
         if ($request->ajax()) {
+            $request->verxxxxx = $verxxxxx;
             $request->routexxx = ['agasiste'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.elimasis';
@@ -487,10 +490,11 @@ trait ListadosTrait
         return response()->json($dataxxxx);
         //     }
     }
-    public function listaDocumentos(Request $request, AgActividad $padrexxx)
+    public function listaDocumentos(Request $request, AgActividad $padrexxx,$verxxxxx)
     {
 
         if ($request->ajax()) {
+            $request->verxxxxx = $verxxxxx;
             $request->routexxx = ['agcargdoc', 'fosubtse'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesdoc';

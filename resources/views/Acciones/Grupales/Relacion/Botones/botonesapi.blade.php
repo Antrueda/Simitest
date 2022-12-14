@@ -3,7 +3,7 @@
         SELECCIONE
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
+        @if(auth()->user()->can( $requestx->routexxx[0].'-editar')&& !$requestx->verxxxxx)
         <div class="dropdown-item">
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editar', $queryxxx->id) }}">EDITAR</a>
         </div>
@@ -14,14 +14,14 @@
         </div>
         @endif
         @if($queryxxx->sis_esta_id==1)
-        @if(auth()->user()->can($requestx->routexxx[0] . '-borrar'))
+        @if(auth()->user()->can($requestx->routexxx[0] . '-borrar')&& !$requestx->verxxxxx)
         <div class="dropdown-item">
             <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">INACTIVAR</a>
         </div>
         @endif
 
         @else
-        @if(auth()->user()->can($requestx->routexxx[0] . '-activarx'))
+        @if(auth()->user()->can($requestx->routexxx[0] . '-activarx')&& !$requestx->verxxxxx)
         <div class="dropdown-item">
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.activarx', [$queryxxx->id]) }}">ACTIVAR</a>
         </div>
