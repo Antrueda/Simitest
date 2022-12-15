@@ -7,6 +7,8 @@ namespace App\Traits\Acciones\Individuales\Emprender\Egreso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Emprender\Egreso\EgresoTelefono;
+use App\Models\Acciones\Individuales\Emprender\Egreso\SEgreso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
@@ -50,30 +52,82 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  VOdontologia::select([
-                'v_odontologias.id',
-                'v_odontologias.fecha',
-                
-                
-                'consulta.nombre as consulta',
-                'valoracion.nombre as valoracion',
-                'sis_estas.s_estado',
-                //'cargue.name as cargue',
-                'v_odontologias.sis_esta_id',
-                ])
-                ->join('sis_estas', 'v_odontologias.sis_esta_id', '=', 'sis_estas.id')
-                ->join('parametros as consulta', 'v_odontologias.consulta_id', '=', 'consulta.id')
-                ->join('parametros as valoracion', 'v_odontologias.valora_id', '=', 'valoracion.id')
-             //   ->join('users as cargue', 'v_odontologias.user_id', '=', 'cargue.id')
-                ->where('v_odontologias.sis_esta_id', 1)
-                ->where('v_odontologias.sis_nnaj_id',$padrexxx->id);
+            $dataxxxx =  SEgreso::select([
+                's_egresos.id',
+                's_egresos.fecha',
+                'depen.nombre as depen',
                 
 
-            return $this->getDtMedicina($dataxxxx, $request);
+                'sis_estas.s_estado',
+                'cargue.name as cargue', 
+                's_egresos.sis_esta_id',
+                ])
+                ->join('sis_estas', 's_egresos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_depens as depen', 's_egresos.upi_id', '=', 'depen.id')
+                ->join('users as cargue', 's_egresos.user_crea_id', '=', 'cargue.id')
+                ->where('s_egresos.sis_esta_id', 1)
+                ->where('s_egresos.sis_nnaj_id',$padrexxx->id);
+                
+
+            return $this->getDtEgreso($dataxxxx, $request);
         }
     }
 
 
+    public function listaTelefonos(Request $request, SisNnaj $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  EgresoTelefono::select([
+                'egreso_telefonos.id',
+                'egreso_telefonos.fechareg',
+                'egreso_telefonos.obserllamad',
+                'sis_estas.s_estado',
+                'tipollama.nombre as tipollama',
+                'egreso_telefonos.sis_esta_id',
+                ])
+                ->join('sis_estas', 'egreso_telefonos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as tipollama', 'egreso_telefonos.tipollama_id', '=', 'tipollama.id')
+                ->where('egreso_telefonos.sis_esta_id', 1)
+                ->where('egreso_telefonos.egreso_id',$padrexxx->id);
+                
+
+            return $this->getDtEgreso($dataxxxx, $request);
+        }
+    }
+
+    
+    public function listaRedes(Request $request, SisNnaj $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  EgresoTelefono::select([
+                'egreso_telefonos.id',
+                'egreso_telefonos.fechareg',
+                'egreso_telefonos.obserllamad',
+                'sis_estas.s_estado',
+                'tipollama.nombre as tipollama',
+                'egreso_telefonos.sis_esta_id',
+                ])
+                ->join('sis_estas', 'egreso_telefonos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as tipollama', 'egreso_telefonos.tipollama_id', '=', 'tipollama.id')
+                ->where('egreso_telefonos.sis_esta_id', 1)
+                ->where('egreso_telefonos.egreso_id',$padrexxx->id);
+                
+
+            return $this->getDtEgreso($dataxxxx, $request);
+        }
+    }
+
+    
     public function getTodoComFami(Request $request,SisNnaj $padrexxx)
     {
         if ($request->ajax()) {
@@ -152,6 +206,30 @@ trait ListadosTrait
             return response()->json($respuest);
         }
     }
+
+    function getAgregartele(Request $request, SEgreso $padrexxx)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            $dataxxxx = $request->all();
+            $dataxxxx['sis_esta_id'] = 1;
+            EgresoTelefono::transaccion($dataxxxx, '');
+            return response()->json($respuest);
+        }
+    }
+
+    public function quitartele(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            $dataxxxx = $request->all();
+            $modeloxx = EgresoTelefono::where('id',$dataxxxx['id'])->first();
+            $modeloxx->delete();
+            return response()->json($respuest);
+        }
+      
+    }
+
 
   
 

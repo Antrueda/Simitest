@@ -58,7 +58,7 @@
 
         $('#prm_ultniest_id').change(function(){
             $.ajax({
-                url : "{{ route($todoxxxx['routxxxx'].'.ultinive',$todoxxxx['parametr']) }}",
+                url : "{{ route('fi.formacion.ultinive',$todoxxxx['parametr']) }}",
                 data : {
                         'padrexxx':$(this).val()
                     },

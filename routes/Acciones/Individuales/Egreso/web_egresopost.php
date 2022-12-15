@@ -1,7 +1,7 @@
 <?php
-$routxxxx = 'vodontograma';
-$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdongrama';
-Route::group(['prefix' => '{padrexxx}/Odongrama'], function () use ($controll, $routxxxx) {
+$routxxxx = 'egresopost';
+$controll = 'Acciones\Individuales\Emprendimiento\Egreso\EgresoSeguimiento';
+Route::group(['prefix' => '{padrexxx}/SeguiEgreso'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
@@ -19,14 +19,19 @@ Route::group(['prefix' => '{padrexxx}/Odongrama'], function () use ($controll, $
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxz');
 
+    Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaTelefonos',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxx');
+
     Route::get('quitar', [
-        'uses' => $controll . 'Controller@quitar',
+        'uses' => $controll . 'Controller@quitartele',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.quitar');
 
 });
 
-Route::group(['prefix' => 'Odongramas'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'SeguiEgresos'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
@@ -45,7 +50,7 @@ Route::group(['prefix' => 'Odongramas'], function () use ($controll, $routxxxx) 
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
     Route::get('agregar', [
-        'uses' => $controll . 'Controller@getAgregar',
+        'uses' => $controll . 'Controller@getAgregartele',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agregar');
 

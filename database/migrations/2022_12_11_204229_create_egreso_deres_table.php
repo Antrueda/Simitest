@@ -28,8 +28,8 @@ class CreateEgresoDeresTable extends Migration
             $table->string('ape1_autorizado', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
             $table->string('ape2_autorizado', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
             $table->string('telefonopare', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
-            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+            $table->integer('egreso_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
+            $table->foreign('egreso_id')->references('id')->on('s_egresos');    
             $table = CamposMagicos::magicos($table);
         });
     }

@@ -1,11 +1,8 @@
 <?php
-$routxxxx = 'vodonhigiene';
-$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdonHigiene';
-Route::group(['prefix' => '{padrexxx}/HigieneOral'], function () use ($controll, $routxxxx) {
-    Route::get('', [
-	    'uses' => $controll.'Controller@index',
-	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
-    ])->name($routxxxx);
+$routxxxx = 'egresoredes';
+$controll = 'Acciones\Individuales\Emprendimiento\Egreso\EgresoRedesApoyo';
+Route::group(['prefix' => '{padrexxx}/EgresoRede'], function () use ($controll, $routxxxx) {
+
     Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
@@ -14,15 +11,25 @@ Route::group(['prefix' => '{padrexxx}/HigieneOral'], function () use ($controll,
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
-	Route::get('listaxxz', [
-        'uses' => $controll . 'Controller@listaDientes',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listaxxz');
 
+	Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaRedes',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxx');
+
+	Route::get('redactual', [
+	    'uses' => $controll.'Controller@Redactual',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+	])->name($routxxxx.'.redactual');
+
+	Route::get('crearedactual', [
+	    'uses' => $controll.'Controller@CreaRedactual',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+	])->name($routxxxx.'.crearedactual');
 
 });
 
-Route::group(['prefix' => 'Higiene'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'EgresoRedes'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
@@ -40,25 +47,7 @@ Route::group(['prefix' => 'Higiene'], function () use ($controll, $routxxxx) {
         'uses' => $controll . 'Controller@inactivate',
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
-    Route::get('agregar', [
-        'uses' => $controll . 'Controller@getAgregar',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.agregar');
 
-    Route::get('quitar', [
-        'uses' => $controll . 'Controller@Quitar',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.quitar');
-
-    Route::get('superficie', [
-        'uses' => $controll . 'Controller@getSuperficie',
-        'middleware' => ['permission:' . $routxxxx . '-crear']
-	])->name($routxxxx . '.superficie');
-
-    Route::get('diagnostico', [
-        'uses' => $controll . 'Controller@getDiagnostico',
-        'middleware' => ['permission:' . $routxxxx . '-crear']
-	])->name($routxxxx . '.diagnostico');
 
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@destroy',

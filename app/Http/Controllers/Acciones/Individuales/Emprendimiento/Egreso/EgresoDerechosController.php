@@ -10,9 +10,9 @@ use App\Models\Acciones\Individuales\Emprender\Egreso\SEgreso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 
 use App\Models\sistema\SisNnaj;
-use App\Traits\Acciones\Individuales\Emprender\Egreso\CrudTrait;
-use App\Traits\Acciones\Individuales\Emprender\Egreso\ParametrizarTrait;
-use App\Traits\Acciones\Individuales\Emprender\Egreso\VistasTrait;
+use App\Traits\Acciones\Individuales\Emprender\Egreso\Derechos\CrudTrait;
+use App\Traits\Acciones\Individuales\Emprender\Egreso\Derechos\ParametrizarTrait;
+use App\Traits\Acciones\Individuales\Emprender\Egreso\Derechos\VistasTrait;
 use App\Traits\Acciones\Individuales\Emprender\Egreso\ListadosTrait;
 use App\Traits\Acciones\Individuales\Emprender\Egreso\PestaniasTrait;
 use App\Traits\Combos\CombosTrait;
@@ -36,8 +36,8 @@ class EgresoDerechosController extends Controller
     public function __construct()
     {
         
-        $this->opciones['permisox'] = 'egresosdb';
-        $this->opciones['routxxxx'] = 'egresosdb';
+        $this->opciones['permisox'] = 'egresosder';
+        $this->opciones['routxxxx'] = 'egresosder';
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
@@ -46,24 +46,11 @@ class EgresoDerechosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SisNnaj $padrexxx)
-    {
-       $this->opciones['tablinde']=true;
-        $this->opciones['padrexxx'] = $padrexxx;
-        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-       
-        
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas(['opciones'=>$this->opciones,'padrexxx' => $this->opciones['usuariox']->id])]);
-    }
 
-
-    public function create(SisNnaj $padrexxx)
+    public function create(SEgreso $padrexxx)
     {
         $this->padrexxx = $padrexxx;
-        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
 
@@ -72,8 +59,39 @@ class EgresoDerechosController extends Controller
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
-        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[2]['checkxxx'] = 1;
+      
+        if($padrexxx->derechos){
+            $this->pestanix[3]['routexxx'] = '.editar';
+            $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->examenes->id];
+            $this->pestanix[3]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[3]['routexxx'] = '.nuevo';
+            $this->pestanix[3]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[3]['checkxxx'] = 0;
+        }
+        
+        if($padrexxx->redes){
+            $this->pestanix[4]['routexxx'] = '.editar';
+            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[4]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[4]['routexxx'] = '.nuevo';
+            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[4]['checkxxx'] = 0;
+        }
+        if($padrexxx->seguimiento){
+            $this->pestanix[5]['routexxx'] = '.editar';
+            $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[5]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[5]['routexxx'] = '.nuevo';
+            $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[5]['checkxxx'] = 0;
+        }
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -101,35 +119,11 @@ class EgresoDerechosController extends Controller
    
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        if($modeloxx->antecedentes){
-            $this->pestanix[2]['routexxx'] = '.ver';
-            $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->antecedentes->id];
-            $this->pestanix[2]['checkxxx'] = 1;
-        }else{
-            $this->pestanix[2]['routexxx'] = '.nuevo';
-            $this->pestanix[2]['dataxxxx'] = [true, $modeloxx];
-            $this->pestanix[2]['checkxxx'] = 0;
-        }
-        if($modeloxx->examenes){
-            $this->pestanix[3]['routexxx'] = '.ver';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
-            $this->pestanix[3]['checkxxx'] = 1;
-        }else{
-            $this->pestanix[3]['routexxx'] = '.nuevo';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
-            $this->pestanix[3]['checkxxx'] = 0;
-        }
-        if($modeloxx->higiene){
-            $this->pestanix[3]['routexxx'] = '.ver';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
-            $this->pestanix[3]['checkxxx'] = 1;
-        }else{
-            $this->pestanix[3]['routexxx'] = '.nuevo';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
-            $this->pestanix[3]['checkxxx'] = 0;
-        }
-        if($modeloxx->higiene){
-            $this->pestanix[3]['routexxx'] = '.ver';
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
+        $this->pestanix[2]['checkxxx'] = 1;
+      
+        if($modeloxx->derechos){
+            $this->pestanix[3]['routexxx'] = '.editar';
             $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
             $this->pestanix[3]['checkxxx'] = 1;
         }else{
@@ -138,7 +132,24 @@ class EgresoDerechosController extends Controller
             $this->pestanix[3]['checkxxx'] = 0;
         }
         
-
+        if($modeloxx->redes){
+            $this->pestanix[4]['routexxx'] = '.editar';
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[4]['routexxx'] = '.nuevo';
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['checkxxx'] = 0;
+        }
+        if($modeloxx->seguimiento){
+            $this->pestanix[5]['routexxx'] = '.editar';
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[5]['routexxx'] = '.nuevo';
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['checkxxx'] = 0;
+        }
         
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->nnaj;
@@ -164,7 +175,7 @@ class EgresoDerechosController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
         $this->pestanix[2]['checkxxx'] = 1;
       
-        if($modeloxx->examenes){
+        if($modeloxx->derechos){
             $this->pestanix[3]['routexxx'] = '.editar';
             $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
             $this->pestanix[3]['checkxxx'] = 1;
@@ -173,35 +184,25 @@ class EgresoDerechosController extends Controller
             $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
             $this->pestanix[3]['checkxxx'] = 0;
         }
-        // //ddd($modeloxx->odontograma);
-        // if($modeloxx->odontograma){
-        //     $this->pestanix[4]['routexxx'] = '.nuevo';
-        //     $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
-        //     $this->pestanix[4]['checkxxx'] = 1;
-        // }else{
-        //     $this->pestanix[4]['routexxx'] = '.nuevo';
-        //     $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
-        //     $this->pestanix[4]['checkxxx'] = 0;
-        // }
-        //  if($modeloxx->higiene){
-        //      $this->pestanix[5]['routexxx'] = '.nuevo';
-        //      $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
-        //      $this->pestanix[5]['checkxxx'] = 1;
-        //  }else{
-        //      $this->pestanix[5]['routexxx'] = '.nuevo';
-        //      $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
-        //      $this->pestanix[5]['checkxxx'] = 0;
-        //  }
-        // if($modeloxx->remision){
-        //     $this->pestanix[6]['routexxx'] = '.editar';
-        //     $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->remision->id];
-        //     $this->pestanix[6]['checkxxx'] = 1;
-        // }else{
-        //     $this->pestanix[6]['routexxx'] = '.nuevo';
-        //     $this->pestanix[6]['dataxxxx'] = [true, $modeloxx];
-        //     $this->pestanix[6]['checkxxx'] = 0;
         
-        // }
+        if($modeloxx->redes){
+            $this->pestanix[4]['routexxx'] = '.editar';
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[4]['routexxx'] = '.nuevo';
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['checkxxx'] = 0;
+        }
+        if($modeloxx->seguimiento){
+            $this->pestanix[5]['routexxx'] = '.editar';
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[5]['routexxx'] = '.nuevo';
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['checkxxx'] = 0;
+        }
       
         
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;

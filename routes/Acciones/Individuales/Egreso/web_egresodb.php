@@ -57,8 +57,8 @@ Route::group(['prefix' => 'EgresoDB'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 });
-require_once('web_vodonantece.php');
-require_once('web_vodonexamen.php');
-require_once('web_vodongrama.php');
+require_once('web_egresosder.php');
+require_once('web_egresoredes.php');
+require_once('web_egresopost.php');
 require_once('web_vodonremision.php');
-require_once('web_vodonhigiene.php');
+

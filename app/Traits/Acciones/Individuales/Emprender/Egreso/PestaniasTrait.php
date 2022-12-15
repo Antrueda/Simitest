@@ -16,14 +16,14 @@ trait PestaniasTrait
             'permisox' => 'egresosdb', 'routexxx' => '.editar', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
         [
-            'permisox' => 'vodonexamens', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
+            'permisox' => 'egresosder', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
-        // [
-        //     'permisox' => 'vodontograma', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
-        // ],
-        // [
-        //     'permisox' => 'vodonhigiene', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
-        // ],
+         [
+            'permisox' => 'egresoredes', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
+        ],
+        [
+            'permisox' => 'egresopost', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
+        ],
         // [
         //     'permisox' => 'vodonremites', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         // ],
@@ -37,9 +37,9 @@ trait PestaniasTrait
         'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'egresosdb' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'egresosdb' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'vodonexamens' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        // 'vodontograma' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        // 'vodonhigiene' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'egresosder' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'egresoredes' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'egresopost' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         // 'vodonremites' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
@@ -81,34 +81,34 @@ trait PestaniasTrait
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
-        $pestania['vodonexamens'] = [
+        $pestania['egresosder'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'EXAMEN ESTOMATOLÓGICO',
+            'tituloxx' => 'VERTIFICACIÓN DE DERECHOS',
             'tablaxxx' => 'sis_pais',
             'checkxxx' => '',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
-        // $pestania['vodontograma'] = [
-        //     'routexxx' => '',
-        //     'activexx' => '',
-        //     'tituloxx' => 'ODONTOGRAMA',
-        //     'tablaxxx' => 'sis_pais',
-        //     'checkxxx' => '',
-        //     'datablex' => [],
-        //     'cananyxx' => $this->getCanany($dataxxxx),
-        // ];
-        // $pestania['vodonhigiene'] = [
-        //     'routexxx' => '',
-        //     'activexx' => '',
-        //     'tituloxx' => 'REGISTRO INDICE DE PLACA SINLESS Y LÖE MODIFICADO',
-        //     'tablaxxx' => 'sis_pais',
-        //     'checkxxx' => '',
-        //     'datablex' => [],
-        //     'cananyxx' => $this->getCanany($dataxxxx),
-        // ];
+         $pestania['egresoredes'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'REDES SOCIALES DE APOYO',
+            'tablaxxx' => 'sis_pais',
+            'checkxxx' => '',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['egresopost'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'SEGUIMIENTO POST EGRESO',
+            'tablaxxx' => 'sis_pais',
+            'checkxxx' => '',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
         // $pestania['vodonremites'] = [
         //     'routexxx' => '',
         //     'activexx' => '',

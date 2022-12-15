@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Emprender\Egreso;
+namespace App\Traits\Acciones\Individuales\Emprender\Egreso\Derechos;
 
 use App\Models\Acciones\Individuales\Emprender\Egreso\SEgreso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;

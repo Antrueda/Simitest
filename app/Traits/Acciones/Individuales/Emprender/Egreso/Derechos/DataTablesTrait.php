@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Emprender\Egreso;
+namespace App\Traits\Acciones\Individuales\Emprender\Egreso\Derechos;
 
 
 
@@ -71,7 +71,7 @@ trait DataTablesTrait
                 ],
               ];
         }else {
-            //ddd($this->opciones['cursosxx']);
+            $dataxxxx['padrexxx']=$this->opciones['padrexxx'];
             $dataxxxx['tablasxx'][] =
             [
                 'titunuev' => 'AGREGAR REPRESENTANTE LEGAL',
@@ -112,8 +112,8 @@ trait DataTablesTrait
                 ],
                 'tablaxxx' => 'datatablennaj',
                 'permisox' => $dataxxxx['permisox'],
-                'routxxxx' => 'ficomposicion', [$this->padrexxx->fi_datos_basico->id],
-                'parametr' => [$this->padrexxx->fi_datos_basico->id],
+                'routxxxx' => 'egresosdb',
+                'parametr' => [],
             ];    
         }
             $dataxxxx['ruarchjs'][] =

@@ -1,14 +1,5 @@
-<hr>
-
-@include($todoxxxx['rutacarp'].'Remision.Formulario.agregar')
-
-<hr>
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-<hr><br>
-
 <div class="row">
-
-    <div class="col-md-12">
+      <div class="col-md-12">
         {{ Form::label('evolucion', 'Evolución:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('evolucion', null, ['class' => $errors->first('evolucion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'evolucion', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
         <span id="evolu"></span>

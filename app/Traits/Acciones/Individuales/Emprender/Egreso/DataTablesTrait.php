@@ -47,21 +47,17 @@ trait DataTablesTrait
                             ['td' => 'ACCIONES', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                  
-                            ['td' => 'CLASE DE CONSULTA', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'TIPO DE VALORACIÓN', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
-       
-       //                     ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'UPI', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'v_odontologias.id'],
-                        ['data' => 'fecha', 'name' => 'v_odontologias.fecha'],
-                        ['data' => 'consulta', 'name' => 'consulta.nombre as consulta'],
-                        ['data' => 'valoracion', 'name' => 'valoracion.nombre as valoracion'],
-                        //['data' => 'cargue', 'name' => 'cargue.name as cargue'],
+                        ['data' => 'id', 'name' => 's_egresos.id'],
+                        ['data' => 'fecha', 'name' => 's_egresos.fecha'],
+                        ['data' => 'depen', 'name' => 'depen.nombre as depen'],
+                        ['data' => 'cargue', 'name' => 'cargue.name as cargue'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',

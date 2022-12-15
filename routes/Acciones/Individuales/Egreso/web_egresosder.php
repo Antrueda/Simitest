@@ -1,7 +1,7 @@
 <?php
-$routxxxx = 'vodonexamens';
-$controll = 'Acciones\Individuales\Salud\VOdontologia\VOdonExamenes';
-Route::group(['prefix' => '{padrexxx}/Odonexamen'], function () use ($controll, $routxxxx) {
+$routxxxx = 'egresosder';
+$controll = 'Acciones\Individuales\Emprendimiento\Egreso\EgresoDerechos';
+Route::group(['prefix' => '{padrexxx}/Vderecho'], function () use ($controll, $routxxxx) {
 
     Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
@@ -11,10 +11,14 @@ Route::group(['prefix' => '{padrexxx}/Odonexamen'], function () use ($controll, 
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
+	Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaRedes',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listaxxx');
 
 });
 
-Route::group(['prefix' => 'Odonexamens'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Vderechos'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
 	    'uses' => $controll.'Controller@edit',
@@ -49,5 +53,5 @@ Route::group(['prefix' => 'Odonexamens'], function () use ($controll, $routxxxx)
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 });
-
+//VOdonAntecedentesController
 

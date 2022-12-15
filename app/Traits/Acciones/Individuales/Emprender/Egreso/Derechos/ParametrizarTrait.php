@@ -1,5 +1,5 @@
 <?php
-namespace App\Traits\Acciones\Individuales\Emprender\Egreso;
+namespace App\Traits\Acciones\Individuales\Emprender\Egreso\Derechos;
 
 
 
