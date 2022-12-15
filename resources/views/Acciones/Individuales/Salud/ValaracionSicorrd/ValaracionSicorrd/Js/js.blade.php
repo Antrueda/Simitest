@@ -96,11 +96,21 @@
                         } 
                     });
                 }
+
+                let entornoep = $('#entorep{{$entorno->id}}');
+                entornoep.attr('disabled', true);
+                entornoep.val("");
             });
 
             $('.entorno_{{$entorno->id}}[id!="factor_6"]').change(() => {
                 $('.entorno_{{$entorno->id}}[id="factor_6"]').val("")
+                let entornoep = $('#entorep{{$entorno->id}}');
+                entornoep.attr('disabled', false);
             });
+
+            if ($('#entorep{{$entorno->id}}').val() != '' && {{$todoxxxx['accionxx'] != 'verxxxxx'}}) {
+                $('#entorep{{$entorno->id}}').attr('disabled', false);
+            }
         @endforeach
        
 
