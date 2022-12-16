@@ -248,8 +248,8 @@
                                                     old('entornoep.'.($entornoep->id),
                                                     isset($todoxxxx['actual_entornosep'][($entornoep->id)]) ? $todoxxxx['actual_entornosep'][($entornoep->id)] : ''), 
                                                 ['name'=> 'entornoep['.($entornoep->id).']',
-                                                'id'=>'entorep'.($key+1),
-                                                'class' => 'form-control form-control-sm','required',
+                                                'id'=>'entorep'.($entornoep->id),
+                                                'class' => 'form-control form-control-sm','required','disabled',
                                                 ($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) !!}
                             </td>
                         </tr>                        

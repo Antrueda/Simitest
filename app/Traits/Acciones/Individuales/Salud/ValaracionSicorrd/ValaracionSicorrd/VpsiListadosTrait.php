@@ -81,16 +81,14 @@ trait VpsiListadosTrait
     {
         $convenio = null;
         if ($edad >= 18 && $edad < 29) {
-            $convenio = SisDepen::select(['nnaj_deses.id', 'sis_depens.nombre', 'nnaj_upis.sis_depen_id'])
+            $convenio = SisDepen::select(['nnaj_upis.id', 'sis_depens.nombre', 'nnaj_upis.sis_depen_id'])
                 ->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
-                ->join('nnaj_deses', 'nnaj_upis.id', '=', 'nnaj_deses.nnaj_upi_id')
                 ->where('nnaj_upis.sis_nnaj_id', $padrexxx)
                 ->where('nnaj_upis.sis_esta_id', 1)
-                ->where('nnaj_deses.sis_servicio_id', 4)
-                ->orderBy('nnaj_deses.created_at', 'desc')
+                ->where('sis_depens.i_prm_tdependen_id', 2689)
+                ->orderBy('nnaj_upis.created_at', 'desc')
                 ->first();
         }
-
         return $convenio;
     }
 
