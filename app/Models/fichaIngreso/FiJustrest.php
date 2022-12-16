@@ -75,6 +75,11 @@ class FiJustrest extends Model
       return $this->hasOne(FiProcesoSpoa::class, 'fi_justrest_id');
   }
 
+  public function fi_proceso_pard()
+  {
+      return $this->hasOne(FiProcesoPard::class, 'fi_justrest_id');
+  }
+
   public function fi_jr_causassis()
   {
       return $this->hasMany(FiJrCausassi::class, 'fi_justrest_id');

@@ -23,7 +23,7 @@
     @if($todoxxxx['usuariox']->prm_tipoblaci_id==650||$todoxxxx['usuariox']->prm_tipoblaci_id==651)
     {{ Form::select('i_prm_ha_estado_pard_id', $todoxxxx['juridica'],null, ['class' => $errors->first('i_prm_ha_estado_pard_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }} 
   @else
-  {{ Form::select('i_prm_ha_estado_pard_id', $todoxxxx['condicio'], $todoxxxx['juridica']->i_prm_ha_estado_srpa_id, ['class' => $errors->first('i_prm_ha_estado_pard_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
+  {{ Form::select('i_prm_ha_estado_pard_id', $todoxxxx['condicio'], $todoxxxx['juridica']->i_prm_ha_estado_pard_id, ['class' => $errors->first('i_prm_ha_estado_pard_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
   @endif
     @if($errors->has('i_prm_ha_estado_pard_id'))
     <div class="invalid-feedback d-block">
