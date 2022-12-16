@@ -1,4 +1,4 @@
-@if($requestx->pueditar)
+@if($requestx->pueditar&&$requestx->cerrado!=true)
 <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editar', [$queryxxx->id]) }}">EDITAR</a>
 @endif
 @if($requestx->puedever)

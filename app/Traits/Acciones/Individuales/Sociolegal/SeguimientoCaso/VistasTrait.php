@@ -39,7 +39,7 @@ trait VistasTrait
     {
         
         if($opciones['usuariox']->prm_tipoblaci_id!=650){
-            $opciones['juridica'] = $opciones['padrexxx']->fi_justrests->fi_proceso_srpas;
+            $opciones['juridica'] = $opciones['padrexxx']->fi_justrests->fi_proceso_pard;
         }else{
             $opciones['juridica'] = [235 => 'N/A'];
         }     
@@ -71,6 +71,7 @@ trait VistasTrait
         $usuarioz=null;
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
+            $dependid=$dataxxxx['modeloxx']->upi_id;
             $opciones['dependen'] = $this->getUpisNnajUsuarioDiligCT(['nnajidxx' => $dataxxxx['modeloxx']->casojur->nnaj->id, 'dependid' => $dependid,'diligenc'=>$dataxxxx['modeloxx']->user_id]);
             $opciones['padrexxx']=[$dataxxxx['modeloxx']];
             $opciones['padrexxx'] = $dataxxxx['modeloxx'];

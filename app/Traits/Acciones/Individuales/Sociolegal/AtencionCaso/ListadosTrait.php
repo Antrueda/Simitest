@@ -182,6 +182,11 @@ trait ListadosTrait
                 $request->botonesx = $this->opciones['rutacarp'] .
                     $this->opciones['carpetax'] . '.Botones.botonesapi';
                 $request->estadoxx = 'layouts.components.botones.estadosx';
+                $casoactual=SeguiJuridico::where('estadocaso',2856)->where('casojur_id',$padrexxx->id)->first();
+                $request->cerrado=false;
+                if($casoactual!=null){
+                    $request->cerrado=true;
+                }
                 $dataxxxx =  SeguiJuridico::select([
                     'segui_juridicos.id',
                     'segui_juridicos.casojur_id',
@@ -200,7 +205,7 @@ trait ListadosTrait
                     ->join('tipo_casos as tipo', 'segui_juridicos.tipoc_id', '=', 'tipo.id')
                     ->join('tema_casos as tema', 'segui_juridicos.temac_id', '=', 'tema.id')
                     ->join('parametros as estado', 'segui_juridicos.estadocaso', '=', 'estado.id')
-                    ->join('users as cargue', 'caso_jurs.user_id', '=', 'cargue.id')
+                    ->join('users as cargue', 'segui_juridicos.user_id', '=', 'cargue.id')
                     ->join('sis_estas', 'caso_jurs.sis_esta_id', '=', 'sis_estas.id')
                     ->where('segui_juridicos.casojur_id','=',$padrexxx->id)
                     ->where('caso_jurs.sis_nnaj_id',$padrexxx->sis_nnaj_id)

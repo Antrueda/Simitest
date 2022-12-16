@@ -54,7 +54,7 @@ trait VistasTrait
         $opciones['upzxxxxr'] = SisUpz::combo($opciones['residenc']->sis_barrio->sis_localupz->sis_localidad_id, false);
         $opciones['barrioxr'] = SisBarrio::combo($opciones['residenc']->sis_barrio->sis_localupz_id, false);  
         if($opciones['usuariox']->prm_tipoblaci_id!=650){
-            $opciones['juridica'] = $opciones['padrexxx']->fi_justrests->fi_proceso_srpas;
+            $opciones['juridica'] = $opciones['padrexxx']->fi_justrests->fi_proceso_pard;
         }else{
             $opciones['juridica'] = [235 => 'N/A'];
         }     
