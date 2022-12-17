@@ -1061,6 +1061,9 @@ class SisBarriosDosMilSeeder extends Seeder
         SisBarrio::create(['s_barrio' => 'TIMIZA A', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-10T21:10:54.000000Z', 'updated_at' => '2021-08-10T21:10:54.000000Z',]); // 2000
         // 5333
 
+
+
         
+
     }
 }
