@@ -396,6 +396,8 @@ class DatabaseSeeder extends Seeder
                 $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
                 $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
                 $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
-                $this->call(DastPreguntasSeeder::class); // CUESTIONARIO DAST PREGUNTAS
+                $this->call(DastPreguntasSeeder::class); // CUESTIONARIO DAST PREGUNTAS      
+
+                
         }
 }
