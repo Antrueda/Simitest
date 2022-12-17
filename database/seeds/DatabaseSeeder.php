@@ -7,7 +7,7 @@ use Database\Seeds\Indicadores\InIndilibaSeeder;
 use Database\Seeds\Indicadores\InLibagrupSeeder;
 use Database\Seeds\Indicadores\InLineaBasesSeeder;
 use Database\Seeds\Indicadores\InPregtcamSeeder;
-use Database\Seeds\Permisos\ReportesSeeder;
+use Database\Seeds\Permisos\ReportesSeeder; 
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
