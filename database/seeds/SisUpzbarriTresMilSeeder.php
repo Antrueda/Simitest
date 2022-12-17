@@ -622,6 +622,7 @@ class SisUpzbarriTresMilSeeder extends Seeder
         SisUpzbarri::create(['sis_localupz_id' => '7', 'sis_barrio_id' => '2250', 'simianti_id' => '70292', 'user_crea_id' => '5', 'user_edita_id' => '5', 'sis_esta_id' => '1', 'created_at' => '2022-01-21T20:40:14.000000Z', 'updated_at' => '2022-01-21T20:40:14.000000Z',]); // 2606
         SisUpzbarri::create(['sis_localupz_id' => '5', 'sis_barrio_id' => '2251', 'simianti_id' => '50094', 'user_crea_id' => '584', 'user_edita_id' => '584', 'sis_esta_id' => '1', 'created_at' => '2022-01-24T14:46:35.000000Z', 'updated_at' => '2022-01-24T14:46:35.000000Z',]); // 2607
         SisUpzbarri::create(['sis_localupz_id' => '6', 'sis_barrio_id' => '2252', 'simianti_id' => '60030', 'user_crea_id' => '584', 'user_edita_id' => '584', 'sis_esta_id' => '1', 'created_at' => '2022-01-24T20:00:58.000000Z', 'updated_at' => '2022-01-24T20:00:58.000000Z',]); // 2608
-        // 5333
+        // 5333   
+        
     }
 }
