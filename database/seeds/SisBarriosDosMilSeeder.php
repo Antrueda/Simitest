@@ -12,8 +12,8 @@ class SisBarriosDosMilSeeder extends Seeder
      */
     public function run()
     {
-          SisBarrio::create(['s_barrio' => 'SANTANDER', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:59.000000Z', 'updated_at' => '2021-04-27T16:59:59.000000Z',]); // 1000
-         SisBarrio::create(['s_barrio' => 'SALAMANCA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:59.000000Z', 'updated_at' => '2021-04-27T16:59:59.000000Z',]); // 1001
+        SisBarrio::create(['s_barrio' => 'SANTANDER', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:59.000000Z', 'updated_at' => '2021-04-27T16:59:59.000000Z',]); // 1000
+        SisBarrio::create(['s_barrio' => 'SALAMANCA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:59.000000Z', 'updated_at' => '2021-04-27T16:59:59.000000Z',]); // 1001
         SisBarrio::create(['s_barrio' => 'SAN PEDRO-LOS ROBLES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:59.000000Z', 'updated_at' => '2021-04-27T16:59:59.000000Z',]); // 1002
         SisBarrio::create(['s_barrio' => 'UNIDAD RESIDENCIAL MONTECARLO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:59.000000Z', 'updated_at' => '2021-04-27T16:59:59.000000Z',]); // 1003
         SisBarrio::create(['s_barrio' => 'VALLE VERDE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-04-27T16:59:59.000000Z', 'updated_at' => '2021-04-27T16:59:59.000000Z',]); // 1004

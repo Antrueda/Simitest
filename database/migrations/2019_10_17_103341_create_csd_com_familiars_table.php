@@ -24,7 +24,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->string('s_segundo_nombre')->nullable()->comment('CAMPO SEGUNDO NOMBRE');
             $table->string('s_nombre_identitario')->nullable()->comment('CAMPO NOMBRE IDENTITARIO');
             $table->integer('prm_tipodocu_id')->unsigned()->comment('CAMPO PARAMETRO TIPO DE DOCUMENTO');
-            $table->string('s_documento')->unique('csd_doc_un1')->comment('CAMPO NUMERO DE DOCUMENTO');
+            $table->string('s_documento')->unique('csd_doc_un2')->comment('CAMPO NUMERO DE DOCUMENTO');
             $table->date('d_nacimiento')->comment('CAMPO FECHA DE NACIMIENTO');
             $table->integer('prm_sexo_id')->unsigned()->comment('CAMPO PARAMETRO SEXO');
             $table->integer('prm_estado_civil_id')->unsigned()->comment('CAMPO PARAMETRO ESTADO CIVIL');
@@ -40,7 +40,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->integer('prm_vin_pasado_id')->unsigned()->nullable()->comment('CAMPO ESTUVO VINCULADO AL IDIPRON');
             $table->integer('prm_regimen_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO REGIMEN');
             $table->integer('prm_cualeps_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO EPS');
-            $table->decimal('sisben', 19, 2)->nullable()->comment('CAMPO SISBEN');
+            $table->string('sisben', 19)->nullable()->comment('CAMPO SISBEN');
             $table->integer('prm_sisben_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SISBEN');
             $table->integer('prm_discapacidad_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DISCAPACIDAD');
             $table->integer('prm_cual_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO CUAL DISCAPACIDAD');
