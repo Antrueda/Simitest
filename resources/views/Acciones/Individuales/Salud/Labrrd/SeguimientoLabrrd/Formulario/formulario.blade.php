@@ -87,13 +87,13 @@
         </div>
     </div>
 
-    <br><center><strong><p class="col-form-label-lg">4. ANÁLISIS DEL COMPONENTE PARA EL PROCESO DE ACOMPAÑAMIENTO</p></strong></center>
+    <br><center><strong><p class="col-form-label-lg">5. SEGUIMIENTO</p></strong></center>
     <div class="form-row">
         <div class="col-2"></div>
         <div class="col-8">
             <div class="form-row">
                 <div class="col-4 d-flex align-items-center border border-light rounded-lg bg-personeles">
-                    <p class="font-weight-bold text-center px-2">4.1 COMPONENTES PERSONALES</p>
+                    <p class="font-weight-bold text-center px-2">5.1 COMPONENTES PERSONALES</p>
                 </div>
                 <div class="col-8">
                     @foreach ($todoxxxx['personales'] as $item)
@@ -122,7 +122,7 @@
         <div class="col-8">
             <div class="form-row">
                 <div class="col-4 d-flex align-items-center border border-light rounded-lg bg-proceso">
-                    <p class="font-weight-bold text-center px-2">4.2 COMPONENTES DEL PROCESO</p>
+                    <p class="font-weight-bold text-center px-2">5.2 COMPONENTES DEL PROCESO</p>
                 </div>
                 <div class="col-8">
                     @foreach ($todoxxxx['proceso'] as $item)
