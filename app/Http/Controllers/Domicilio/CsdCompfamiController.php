@@ -105,7 +105,7 @@ class CsdCompfamiController extends Controller
         if (Auth::user()->s_documento=='17496705') {
             // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             // ->first();
-            // ddd($padrexxx);
+      
         }
         $this->opciones['tablasxx'] = [
             [
@@ -205,7 +205,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            // ddd($dataxxxx['modeloxx']->prm_cualeps_id);
+           
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] = Parametro::find(235)->Combo;
             }

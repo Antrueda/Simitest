@@ -68,7 +68,7 @@ trait DataTablesTrait
             ];
         } else {
 
-            // ddd( $this->verxxxxx);
+          
             $responsa = AgResponsable::where('ag_actividad_id', $dataxxxx['modeloxx']->id)->get();
             $vercrear = (count($responsa) <= 2 ? true : false);
             if ($this->verxxxxx) {

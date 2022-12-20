@@ -41,7 +41,7 @@ class CedulaCsdComFamiliarExisteRule implements Rule
         $csdsisnn =CsdSisNnaj::where('id',$this->dataxxxx['segments'][0])->first();
         // if (Auth::user()->s_documento == '17496705') {
            
-        //     ddd( $this->dataxxxx,$value);
+        //  
         // }
         $respuest=true;
         $registro = CsdComFamiliar::select('csd_com_familiars.id')

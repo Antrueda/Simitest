@@ -62,9 +62,7 @@ class CsdConclusionesController extends Controller
         if (Auth::user()->s_documento=='17496705') {
             // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             // ->get();
-            // ddd($compfami,$dataxxxx['padrexxx']->csd_id);
-
-            // ddd($dataxxxx['padrexxx']->csd_id,$dataxxxx['padrexxx']->sis_nnaj_id);
+           
         }
        
          
