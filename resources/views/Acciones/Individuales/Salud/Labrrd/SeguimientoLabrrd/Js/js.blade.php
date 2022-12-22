@@ -32,6 +32,42 @@
             espacioExterno();
         });
 
+        var check=$("#check_observacion_afront").is(":checked");
+        ActivarCaja(check,'observacion_afront')
+        $('#check_observacion_afront').change(() => {
+            var check=$("#check_observacion_afront").is(":checked");
+            ActivarCaja(check,'observacion_afront')
+        });
+
+        var check=$("#check_observacion_impu").is(":checked");
+            ActivarCaja(check,'observacion_impu')
+        $('#check_observacion_impu').change(() => {
+            var check=$("#check_observacion_impu").is(":checked");
+            ActivarCaja(check,'observacion_impu')
+        });
+
+        var check=$("#check_observacion_violen").is(":checked");
+            ActivarCaja(check,'observacion_violen')
+        $('#check_observacion_violen').change(() => {
+            var check=$("#check_observacion_violen").is(":checked");
+            ActivarCaja(check,'observacion_violen')
+        });
+        
+        var check=$("#check_observacion_auto").is(":checked");
+            ActivarCaja(check,'observacion_auto')
+        $('#check_observacion_auto').change(() => {
+            var check=$("#check_observacion_auto").is(":checked");
+            ActivarCaja(check,'observacion_auto')
+        });
+        
+        function ActivarCaja(value,input){
+            if (value) {
+                $('#'+input).attr('disabled', false);
+            }else{
+                $('#'+input).attr('disabled', true);
+            }
+        }
+        
     });
 
     function espacioExterno() {

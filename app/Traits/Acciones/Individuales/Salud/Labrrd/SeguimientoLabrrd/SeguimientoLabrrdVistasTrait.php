@@ -80,7 +80,8 @@ trait SeguimientoLabrrdVistasTrait
             $this->opciones['funccont']  = User::getUsuario(false, false);
         }
         $this->opciones['sis_depens'] = $this->getUpiUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $depenorigid]);
-        $this->opciones['sis_atencion'] = $this->getUpiUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+        $dependenatencion = $this->getSisDepenCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+        $this->opciones['sis_atencion'] = $dependenatencion['comboxxx'];
 
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones

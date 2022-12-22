@@ -143,7 +143,7 @@ trait LabrrdCrudTrait
 
     public function numeroSesion($labrrd)
     {
-        $seguimiento = LabrrdSeg::where('labrrd_id', $labrrd)->orderBy('created_at', 'desc')->first();
+        $seguimiento = LabrrdSeg::where('labrrd_id', $labrrd)->orderBy('created_at', 'desc')->where('sis_esta_id', 1)->first();
         if ($seguimiento == null) {
             return "2";
         } else {
