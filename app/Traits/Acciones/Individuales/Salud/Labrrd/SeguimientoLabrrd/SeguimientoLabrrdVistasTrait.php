@@ -63,7 +63,8 @@ trait SeguimientoLabrrdVistasTrait
             $this->opciones['resultados'] = $resultados;
 
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $dependid = $dataxxxx['modeloxx']->sis_depen_id;
+            $dependid = $dataxxxx['modeloxx']->sis_atenc_id;
+            $depenorigid = $dataxxxx['modeloxx']->sis_origen_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -79,8 +80,8 @@ trait SeguimientoLabrrdVistasTrait
         } else {
             $this->opciones['funccont']  = User::getUsuario(false, false);
         }
-        $this->opciones['sis_depens'] = $this->getUpiUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $depenorigid]);
-        $dependenatencion = $this->getSisDepenCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
+        $this->opciones['sis_depens'] = $this->getUpisNnajCT(['nnajidxx' => $dataxxxx['padrexxx']->nnaj->id, 'dependid' => $depenorigid]);
+        $dependenatencion = $this->getSisDepenCT(['nnajidxx' => $dataxxxx['padrexxx']->nnaj->id, 'dependid' => $dependid]);
         $this->opciones['sis_atencion'] = $dependenatencion['comboxxx'];
 
         $this->getPestanias($this->opciones);

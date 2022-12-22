@@ -81,7 +81,7 @@ trait LabrrdVistasTrait
             $this->opciones['funccont']  = User::getUsuario(false, false);
         }
         //getUpisNnajCT
-        $this->opciones['sis_depens'] = $this->getUpiUsuarioCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $depenorigid]);
+        $this->opciones['sis_depens'] = $this->getUpisNnajCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $depenorigid]);
         $dependenatencion = $this->getSisDepenCT(['nnajidxx' => $dataxxxx['padrexxx']->id, 'dependid' => $dependid]);
         $this->opciones['sis_atencion'] = $dependenatencion['comboxxx'];
         $this->getPestanias($this->opciones);
