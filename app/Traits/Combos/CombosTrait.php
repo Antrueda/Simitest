@@ -53,7 +53,7 @@ trait CombosTrait
      * @return $comboxxx
      */
 
-     
+
     public function getTemacomboCT($dataxxxx)
     {
         $dataxxxx = $this->getDefaultCT($dataxxxx);
@@ -137,7 +137,7 @@ trait CombosTrait
         return $comboxxx;
     }
 
-    
+
 
     public function getBarriosCT($dataxxxx)
     {
@@ -822,7 +822,7 @@ trait CombosTrait
         return $respuest;
     }
 
-     /**
+    /**
      * listado de municipios del departamento
      *
      * @param array $dataxxxx

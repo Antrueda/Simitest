@@ -2,11 +2,12 @@
 
 namespace App\Traits\Acciones\Individuales\Salud\Labrrd\Labrrd;
 
-use App\Models\Acciones\Individuales\Salud\Labrrd\Labrrd;
-use App\Models\Acciones\Individuales\Salud\Labrrd\LabrrdAsoComponente;
-use App\Models\Acciones\Individuales\Salud\Labrrd\LabrrdSeg;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Acciones\Individuales\Salud\Labrrd\Labrrd;
+use App\Models\Acciones\Individuales\Salud\Labrrd\LabrrdSeg;
+use App\Models\Acciones\Individuales\Salud\Labrrd\LabrrdAsoComponente;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -78,6 +79,13 @@ trait LabrrdListadosTrait
                 ->join('users', 'labrrds.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'labrrds.sis_esta_id', '=', 'sis_estas.id')
                 ->where('labrrds.sis_nnaj_id', $padrexxx->id);
+
+            //mostrar regsitros inactivos a solo administradores
+            $rol = Auth::user()->roles->first()->id;
+            if (!($rol == 1 || $rol == 2)) {
+                $dataxxxx = $dataxxxx->where('labrrds.sis_esta_id', 1);
+            }
+
             return $this->getDt($dataxxxx, $request);
         }
     }
@@ -105,6 +113,12 @@ trait LabrrdListadosTrait
                 ->join('users', 'labrrd_segs.user_fun_id', '=', 'users.id')
                 ->join('sis_estas', 'labrrd_segs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('labrrd_segs.labrrd_id', $padrexxx->id);
+
+            //mostrar regsitros inactivos a solo administradores
+            $rol = Auth::user()->roles->first()->id;
+            if (!($rol == 1 || $rol == 2)) {
+                $dataxxxx = $dataxxxx->where('labrrd_segs.sis_esta_id', 1);
+            }
             return $this->getDt($dataxxxx, $request);
         }
     }

@@ -100,7 +100,7 @@ class LabrrdSeguimientoController extends Controller
                 return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'padrexxx' => $modeloxx->labrrd]);
             } else {
                 return redirect()
-                    ->route('labrrseg', [$modeloxx->sis_nnaj_id])
+                    ->route('labrrseg', [$modeloxx->labrrd->id])
                     ->with('info', 'No tiene permiso para editar este formulario fue creado por otra persona.');
             }
         } else {

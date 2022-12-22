@@ -180,11 +180,14 @@
         </div>
     </div>
     <div class="form-row">
+        <div class="col-1 d-flex justify-content-center align-items-start" >
+            <input type="checkbox" {{old('observacion_afront',isset($todoxxxx['modeloxx']->observacion_afront)) != "" ? 'checked':''}}  id="check_observacion_afront" style="width: 18px;height: 18px; margin-top: 7px;">
+        </div>
         <div class="col-md-4">
             {{ Form::label('observacion_afront', 'Capacidad de Afrontamiento:', ['class' => 'control-label col-form-label-sm']) }}
         </div>
-        <div class="col-md-8">
-            {{ Form::textarea('observacion_afront', null, ['class' => $errors->first('observacion_afront') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
+        <div class="col-md-7">
+            {{ Form::textarea('observacion_afront', null, ['class' => $errors->first('observacion_afront') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required','placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true','disabled',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
             <p id="contador_observacion_afront">0/4000</p>
             @if($errors->has('observacion_afront'))
             <div class="invalid-feedback d-block">
@@ -194,11 +197,14 @@
         </div>
     </div><hr>
     <div class="form-row">
+        <div class="col-1 d-flex justify-content-center align-items-start" >
+            <input type="checkbox" {{old('observacion_impu',isset($todoxxxx['modeloxx']->observacion_impu)) != "" ? 'checked':''}}  id="check_observacion_impu" style="width: 18px;height: 18px; margin-top: 7px;">
+        </div>
         <div class="col-md-4">
             {{ Form::label('observacion_impu', ' Sensación Impunidad:', ['class' => 'control-label col-form-label-sm']) }}
         </div>
-        <div class="col-md-8">
-            {{ Form::textarea('observacion_impu', null, ['class' => $errors->first('observacion_impu') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
+        <div class="col-md-7">
+            {{ Form::textarea('observacion_impu', null, ['class' => $errors->first('observacion_impu') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
             <p id="contador_observacion_impu">0/4000</p>
             @if($errors->has('observacion_impu'))
             <div class="invalid-feedback d-block">
@@ -208,11 +214,14 @@
         </div>
     </div><hr>
     <div class="form-row">
+        <div class="col-1 d-flex justify-content-center align-items-start" >
+            <input type="checkbox" {{old('observacion_violen',isset($todoxxxx['modeloxx']->observacion_violen)) != "" ? 'checked':''}}  id="check_observacion_violen" style="width: 18px;height: 18px; margin-top: 7px;">
+        </div>
         <div class="col-md-4">
             {{ Form::label('observacion_violen', 'Concepción y práctica de relaciones violentas:', ['class' => 'control-label col-form-label-sm']) }}
         </div>
-        <div class="col-md-8">
-            {{ Form::textarea('observacion_violen', null, ['class' => $errors->first('observacion_violen') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
+        <div class="col-md-7">
+            {{ Form::textarea('observacion_violen', null, ['class' => $errors->first('observacion_violen') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
             <p id="contador_observacion_violen">0/4000</p>
             @if($errors->has('observacion_violen'))
             <div class="invalid-feedback d-block">
@@ -222,11 +231,14 @@
         </div>
     </div><hr>
     <div class="form-row">
+          <div class="col-1 d-flex justify-content-center align-items-start" >
+            <input type="checkbox" {{old('observacion_auto',isset($todoxxxx['modeloxx']->observacion_auto)) != "" ? 'checked':''}}  id="check_observacion_auto" style="width: 18px;height: 18px; margin-top: 7px;">
+        </div>
         <div class="col-md-4">
             {{ Form::label('observacion_auto', 'Estigma y Autoestigma:', ['class' => 'control-label col-form-label-sm']) }}
         </div>
-        <div class="col-md-8">
-            {{ Form::textarea('observacion_auto', null, ['class' => $errors->first('observacion_auto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
+        <div class="col-md-7">
+            {{ Form::textarea('observacion_auto', null, ['class' => $errors->first('observacion_auto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required', 'placeholder' => 'OBSERVACIONES', 'maxlength' => '4000','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','rows'=>'3','spellcheck'=>'true',($todoxxxx["accionxx"] == "verxxxxx" ? 'disabled':'' )]) }}
             <p id="contador_observacion_auto">0/4000</p>
             @if($errors->has('observacion_auto'))
             <div class="invalid-feedback d-block">
