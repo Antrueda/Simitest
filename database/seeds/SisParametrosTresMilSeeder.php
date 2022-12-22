@@ -1027,6 +1027,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'PPT', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2972,
     Parametro::create(['nombre' => 'ODONTOLOGÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2973,
     Parametro::create(['nombre' => 'CONTROL O SEGUIMIENTO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2974,
+    Parametro::create([ 'nombre' => 'M. ACTIVIDADES DECEMBRINAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '16-12-2022 11:24:37 AM', 'updated_at' => '16-12-2022 11:24:37 AM', ]); // 2975,
 
 
 
