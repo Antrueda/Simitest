@@ -57,6 +57,7 @@
       </div>
   </div>
 </div>
+</div>
 {{-- <div class="form-group col-md-4">
   {{ Form::label('prm_ultniest_id', '4.9 ¿Cuál es su último nivel de estudio?', ['class' => 'control-label col-form-label-sm']) }}
   {{ Form::select('prm_ultniest_id', $todoxxxx["ulnivest"], null, ['class' => 'form-control form-control-sm select2']) }}
@@ -70,7 +71,7 @@
   <div class="invalid-feedback d-block">
       {{ $errors->first('prm_ultgrapr_id') }}
   </div> --}}
-
+<hr>
   <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_pard_id', '10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?', ['class' => 'control-label col-form-label-sm']) }}
@@ -112,7 +113,7 @@
         {{ Form::text('s_lugar_abierto_pard', null, ['class' => 'form-control form-control-sm', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     </div>
 </div>
-
+<hr>
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
       {{ Form::label('i_prm_ha_estado_srpa_id', '10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?', ['class' => 'control-label col-form-label-sm']) }}
@@ -142,7 +143,7 @@
       {{ Form::select('i_prm_sancion_srpa_id', $todoxxxx["sancsrpa"], null, ['class' => 'form-control form-control-sm select2']) }}
   </div>
 </div>
-
+<hr>
 {{-- SPOA Sistema Penal Oral Acusatorio para Jóvenes (J) (MAYOR DE 18 AÑOS) --}}
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
@@ -179,8 +180,9 @@
       {{ Form::select('i_prm_ha_estado_preso_id', $todoxxxx["condspoa"], null, ['class' => 'form-control form-control-sm select2']) }}
   </div>
 </div>
+<hr>
 
-
+</div>
 </div>
 <hr>
 <div class="form-group row">

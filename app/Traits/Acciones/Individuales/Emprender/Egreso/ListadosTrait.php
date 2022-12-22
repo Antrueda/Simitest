@@ -7,6 +7,7 @@ namespace App\Traits\Acciones\Individuales\Emprender\Egreso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Emprender\Egreso\EgreApoyo;
 use App\Models\Acciones\Individuales\Emprender\Egreso\EgresoTelefono;
 use App\Models\Acciones\Individuales\Emprender\Egreso\SEgreso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
@@ -109,18 +110,19 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  EgresoTelefono::select([
-                'egreso_telefonos.id',
-                'egreso_telefonos.fechareg',
-                'egreso_telefonos.obserllamad',
+            $dataxxxx =  EgreApoyo::select([
+                'egre_apoyos.id',
+                'egre_apoyos.nombreper',
+                'egre_apoyos.servicios',
+                'egre_apoyos.contacto',
                 'sis_estas.s_estado',
-                'tipollama.nombre as tipollama',
-                'egreso_telefonos.sis_esta_id',
+                'tipored.nombre as tipored',
+                'egre_apoyos.sis_esta_id',
                 ])
-                ->join('sis_estas', 'egreso_telefonos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('parametros as tipollama', 'egreso_telefonos.tipollama_id', '=', 'tipollama.id')
-                ->where('egreso_telefonos.sis_esta_id', 1)
-                ->where('egreso_telefonos.egreso_id',$padrexxx->id);
+                ->join('sis_estas', 'egre_apoyos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as tipored', 'egre_apoyos.tipo_id', '=', 'tipored.id')
+                ->where('egre_apoyos.sis_esta_id', 1)
+                ->where('egre_apoyos.egreso_id',$padrexxx->id);
                 
 
             return $this->getDtEgreso($dataxxxx, $request);
@@ -148,7 +150,7 @@ trait ListadosTrait
                 'nnaj_nacimis.d_nacimiento',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
-    
+                
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -169,7 +171,7 @@ trait ListadosTrait
 
             $dataxxxx = [
                 'tipodocu' => ['prm_doc_id', ''],
-                'parentes' => ['prm_parentezco_id', ''],
+                'parentes' => ['parent_id', ''],
                 
 
             ];
@@ -227,9 +229,30 @@ trait ListadosTrait
             $modeloxx->delete();
             return response()->json($respuest);
         }
-      
-    }
+      }
 
+      function getAgregarRed(Request $request, SEgreso $padrexxx)
+      {
+          if ($request->ajax()) {
+              $respuest = [];
+              $dataxxxx = $request->all();
+              $dataxxxx['sis_esta_id'] = 1;
+              EgreApoyo::transaccion($dataxxxx, '');
+              return response()->json($respuest);
+          }
+      }
+  
+      public function quitarRed(Request $request)
+      {
+          if ($request->ajax()) {
+              $respuest = [];
+              $dataxxxx = $request->all();
+              $modeloxx = EgreApoyo::where('id',$dataxxxx['id'])->first();
+              $modeloxx->delete();
+              return response()->json($respuest);
+          }
+        
+      }
 
   
 

@@ -68,6 +68,7 @@ trait VistasTrait
         $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $opciones['dinamica'] = Tema::comboAsc(249,true, false);
         $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
+        $opciones['parentes'] = Tema::comboAsc(358,true, false);
         if ($opciones['usuariox']->prm_tipoblaci_id == 650) {
             $opciones['readchcx'] = 'readonly';
             $opciones['residees'] = [235 => 'N/A'];

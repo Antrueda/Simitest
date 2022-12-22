@@ -83,6 +83,7 @@ $(document).ready(function() {
             $('#nom1_autorizado').val('');
             $('#nom2_autorizado').val('');
             $('#doc_autorizado').val('');
+            $('#s_telefono').val('');
  
 
 
@@ -98,6 +99,7 @@ $(document).ready(function() {
             $('#nom1_autorizado').val(d.s_segundo_apellido);
             $('#nom2_autorizado').val(d.s_segundo_nombre);
             $('#doc_autorizado').val(d.s_documento);
+            $('#telefonopare').val(d.s_telefono);
             f_combo({dataxxxx:{padrexxx:d.id},selected:''});
         }
     } );

@@ -21,7 +21,8 @@
   </div>
 </div>
 <hr>
-<h1>1.Datos Básicos</h1>
+<h5>Datos Básicos</h5>
+<hr>
 <div class="row">
 @if($todoxxxx['usuariox']->sis_nnaj->FiResidencia != null)
         <div class="form-group col-md-4">
@@ -257,14 +258,15 @@
 
 </div>
 @if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18)
-<hr style="border:3px;">
+<hr>
 <div class="row mt-3">
 <div class="col-md-12">
 <h5>INFORMACIÓN BÁSICA DEL REPRESENTANTE LEGAL</h5>
 </div>
 </div>
-<hr style="border:3px;">
+<hr>
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+<hr>
 <div class="row">
 <div class="col-md-3">
 {{ Form::label('ape1_autorizado', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
@@ -315,7 +317,7 @@
 </div>
 <div class="col-md-3">
   {{ Form::label('telefonopare', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::text('telefonopare', $todoxxxx['parentes'], null, ['class' => $errors->first('telefonopare') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
+  {{ Form::text('telefonopare',  null, ['class' => $errors->first('telefonopare') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
   @if($errors->has('telefonopare'))
    <div class="invalid-feedback d-block">
      {{ $errors->first('telefonopare') }}
@@ -326,27 +328,15 @@
 @endif
 <hr>
 <br>
-<hr style="border:3px;">
+<hr>
 <div class="row mt-3">
   <div class="col-md-12">
     <h5>Datos de residencia y de notificación</h5>
-    <ul class="list-group list-group-unbordered mb-3">
-      <li class="list-group-item">
-        <b>Dirección:</b>
-        <a class="float">{{$todoxxxx['residenc']->getDireccionAttribute()}} </a>
-      </li>
-      <li class="list-group-item">
-        <b>Teléfono:</b>
-        <a class="float">{{$todoxxxx['residenc']->getTelefonosAttribute()}} </a>
-      </li>
-    </ul>
+   
   </div>
 </div>
 <hr>
-<hr style="border:3px;">
 <div class="row">
-  <input type="checkbox" name='checkbox1' id="checkbox1" checked/>  Editar Residencia 
-  {{ Form::hidden('checki', null, ['class' => $errors->first('ape1_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id'=>'checki', 'style' => 'text-transform:uppercase;']) }} 
   <div id="autoUpdate" class="autoUpdate">
     <div class="card">
       <div class="card-body">

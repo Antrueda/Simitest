@@ -54,7 +54,19 @@ trait VistasTrait
         $opciones['jornestu'] = Tema::comboAsc(151, true, false);
         $opciones['ulnivest'] = Tema::comboAsc(153, true, false);
         $opciones['ulgradap'] = Tema::comboAsc(154, true, false);
-        $opciones['condicio'] = Tema::combo(23, true, false);
+        $opciones['condicio'] = Tema::comboNotIn(23, true, false,[2503]);
+        $opciones['tipoblac'] = Tema::combo(119, true, false);
+        $opciones['escnaxxx'] = Tema::combo(126, false, false);
+        $opciones['vulnerax'] = Tema::combo(58, false, false);
+        $opciones['parentes'] = Tema::comboAsc(358,true, false);
+        $opciones['acgening'] = Tema::combo(114, true, false);
+        $opciones['trabinfo'] = Tema::comboAsc(115, true, false);
+        $opciones['otractiv'] = Tema::comboAsc(116, true, false);
+        $opciones['tiporela'] = Tema::comboAsc(117, true, false);
+        $opciones['raznogen'] = Tema::comboAsc(122, true, false);
+        $opciones['jorgener'] = Tema::comboAsc(123, true, false);
+        $opciones['diaseman'] = Tema::comboAsc(124, false, false);
+        $opciones['frecugen'] = Tema::comboAsc(125, true, false);
        
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
 

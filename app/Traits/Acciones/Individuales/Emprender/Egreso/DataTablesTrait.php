@@ -75,7 +75,7 @@ trait DataTablesTrait
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.acompaña',
                 'titupreg' => '',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$this->padrexxx->id]),
+                'urlxxxxx' => route($this->opciones['permisox'] . '.listodox', [$this->padrexxx->id]),
                 'permtabl' => [
                     $dataxxxx['permisox'] . '-leer',
                     $dataxxxx['permisox'] . '-crear',
@@ -113,7 +113,7 @@ trait DataTablesTrait
             ];    
         }
             $dataxxxx['ruarchjs'][] =
-            ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];
+            ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tablatodos'];
         return $dataxxxx;    
     }
 }

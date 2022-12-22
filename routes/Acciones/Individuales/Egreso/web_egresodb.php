@@ -19,6 +19,10 @@ Route::group(['prefix' => '{padrexxx}/SEgreso'], function () use ($controll, $ro
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
+    Route::get('listodox', [
+        'uses' => $controll . 'Controller@getTodoComFami',
+        'middleware' => ['permission:' . $routxxxx . '-leer|']
+    ])->name($routxxxx . '.listodox');
 
 });
 
@@ -42,6 +46,11 @@ Route::group(['prefix' => 'EgresoDB'], function () use ($controll, $routxxxx) {
     ])->name($routxxxx . '.borrar');
 
 
+    Route::get('nnajsele', [
+		'uses' => $controll . 'Controller@getNnajsele',
+		'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.nnajsele');
+    
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routxxxx . '-borrar']

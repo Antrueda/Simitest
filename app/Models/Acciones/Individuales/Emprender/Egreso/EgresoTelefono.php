@@ -36,14 +36,7 @@ class EgresoTelefono extends Model
           'motivollama_id' => $dataxxxx['motivollama_id'], 
           'sis_esta_id' =>1,
            'user_crea_id' =>Auth::user()->id]);
-  
-      
-
-
-
-        
-        
-        return $objetoxx;
+      return $objetoxx;
       }, 5);
       return $usuariox;
     }

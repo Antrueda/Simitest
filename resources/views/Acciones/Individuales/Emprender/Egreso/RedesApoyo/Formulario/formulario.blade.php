@@ -1,6 +1,6 @@
 <hr style="border:3px;">
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-6">
         {{ Form::label('presenta_id', '¿Presenta alguna red de apoyo?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="form-check">
             <label class="form-check-label">
@@ -20,7 +20,7 @@
         </div>
         @endif
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
     {{ Form::label('factor_id', '¿La red de apoyo con la que cuenta actualmente es un factor protector?', ['class' => 'control-label col-form-label-sm']) }}
     <div class="form-check">
         <label class="form-check-label">
@@ -41,7 +41,7 @@
     @endif
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-6">
     {{ Form::label('dificulta_id', '¿Presenta dificultades para acceder a alguna red de apoyo? ', ['class' => 'control-label col-form-label-sm']) }}
     <div class="form-check">
         <label class="form-check-label">
@@ -62,18 +62,18 @@
     @endif
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-6">
       {{ Form::label('aclara_id', '¿Quien? ', ['class' => 'control-label col-form-label-sm']) }}
       <div class="form-check">
           <label class="form-check-label">
               <input type="radio" class="form-check-input"
-              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 227) ? 'checked' : ''; ?> value="227" {{ old("aclara_id") == '227' ? 'checked' : '' }}>SI
+              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 227) ? 'checked' : ''; ?> value="227" {{ old("aclara_id") == '805' ? 'checked' : '' }}>NNAJ
           </label>
       </div>
       <div class="form-check disabled">
           <label class="form-check-label">
               <input type="radio" class="form-check-input {{$errors->first('aclara_id') ? ' is-invalid' : ''}}"
-              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 228) ? 'checked' : ''; ?> value="228" {{ old("aclara_id") == '228' ? 'checked' : '' }}>NO
+              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 228) ? 'checked' : ''; ?> value="228" {{ old("aclara_id") == '228' ? 'checked' : '' }}>Familia
           </label>
       </div>
       @if($errors->has('aclara_id'))
@@ -82,8 +82,10 @@
       </div>
       @endif
       </div>
+    </div>
+      <div class="row">
 
-      <div class="col-md-4">
+      <div class="col-md-6">
         {{ Form::label('predifi_id', 'Motivos por el cual se presenta la dificultad:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('predifi_id', $todoxxxx['condicio'],null, ['class' => $errors->first('predifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
             @if($errors->has('predifi_id'))
@@ -93,7 +95,7 @@
            @endif
       </div>
 
-    <div class="col-md-3">
+    <div class="col-md-6">
     {{ Form::label('ruptura_id', '¿Existe la ruptura de redes de apoyo por la exteriorización de su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
     <div class="form-check">
         <label class="form-check-label">
@@ -113,7 +115,7 @@
     </div>
     @endif
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
       {{ Form::label('restriespa_id', '¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo? ', ['class' => 'control-label col-form-label-sm']) }}
       <div class="form-check">
           <label class="form-check-label">
@@ -134,7 +136,7 @@
       @endif
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-6">
         {{ Form::label('motivore_id', 'Motivos de restricción de acceso a espacios, servicio o redes de apoyo:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('motivore_id', $todoxxxx['condicio'],null, ['class' => $errors->first('motivore_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
             @if($errors->has('motivore_id'))
@@ -169,7 +171,8 @@
 
 </div>
 
-
+<hr>
+@include($todoxxxx['rutacarp'].'RedesApoyo.Formulario.apoyo')
 <hr>
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <hr>

@@ -27,6 +27,11 @@ Route::group(['prefix' => '{padrexxx}/EgresoRede'], function () use ($controll, 
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crearedactual');
 
+	Route::get('quitar', [
+        'uses' => $controll . 'Controller@quitarRed',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.quitar');
+
 });
 
 Route::group(['prefix' => 'EgresoRedes'], function () use ($controll, $routxxxx) {
@@ -48,6 +53,10 @@ Route::group(['prefix' => 'EgresoRedes'], function () use ($controll, $routxxxx)
         'middleware' => ['permission:' . $routxxxx . '-borrar']
     ])->name($routxxxx . '.borrar');
 
+    Route::get('agregar', [
+        'uses' => $controll . 'Controller@getAgregarRed',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.agregar');
 
     Route::put('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@destroy',
