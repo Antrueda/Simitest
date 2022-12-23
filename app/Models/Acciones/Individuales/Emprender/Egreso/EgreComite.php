@@ -16,4 +16,11 @@ class EgreComite extends Model
     public function egreso(){
         return $this->belongsTo(SEgreso::class, 'egreso_id');
     }
+
+    public function creador(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function modifico(){
+        return $this->belongsTo(User::class, 'user_edita_id');
+    }
 }
