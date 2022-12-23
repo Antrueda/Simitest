@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routexxx = 'gestmaca';
 $controll = 'Acciones\Grupales\GestMatrAcademia\GestMatrAcademiaController@';
 Route::group(['prefix' => 'gestmatriacademica'], function () use ($routexxx, $controll) {

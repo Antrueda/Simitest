@@ -56,6 +56,14 @@ trait NnajEgresoTrait
         $nnajupis = NnajUpi::where('sis_nnaj_id', $dataxxxx['nnajidxx'])->where('sis_depen_id', 37)
             ->where('sis_esta_id', 1)
             ->first();
+            if (Auth::user()->s_documento=='17496705') {
+            //     $nnajupix = NnajUpi::where('sis_nnaj_id', $dataxxxx['nnajidxx'])
+            // ->where('sis_esta_id', 1)
+            // ->get();
+            // 26897
+                // ddd($nnajupis);
+             }
+
         if (is_null($nnajupis)) {
             $respuest = false;
         }
@@ -91,6 +99,7 @@ trait NnajEgresoTrait
     {
         $respuest = $this->setTieneEgresoNET($dataxxxx);
 
+        
         $tienegre = $this->setEgresoNET($dataxxxx);
         if ($tienegre) {
             $respuest = $tienegre;

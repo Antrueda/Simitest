@@ -142,6 +142,7 @@ class ValoracionCompetenciasController extends Controller
         $this->padrexxx = $modeloxx->nnaj;
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
+        $this->opciones['vercrear'] = true;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
@@ -157,6 +158,7 @@ class ValoracionCompetenciasController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->valora->nnaj->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->opciones['vercrear'] = true;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
@@ -171,6 +173,7 @@ class ValoracionCompetenciasController extends Controller
         $this->padrexxx = $modeloxx->valora->nnaj;
         $this->opciones['usuariox'] = $modeloxx->valora->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->valora->nnaj;
+        $this->opciones['vercrear'] = true;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', ['formatov.editar', [$modeloxx->valora]], 2, 'VOLVER A FORMATO DE VALORACIÓN', 'btn btn-sm btn-primary']);
         return $this->view(
@@ -182,6 +185,7 @@ class ValoracionCompetenciasController extends Controller
 
     public function activar(Request $request, UniComp $modeloxx)
     {
+        $this->opciones['vercrear'] = true;
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])

@@ -68,8 +68,10 @@ class VsiConsentimientoController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['edadxxxx']= $dataxxxx['padrexxx']->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
-
-        if ($this->opciones['edadxxxx'] >= 17) {
+if(Auth::user()->s_documento=='17496705'){
+// ddd( $this->opciones['edadxxxx'] );
+}
+        if ($this->opciones['edadxxxx'] > 17) {
             $this->opciones['represen'] = FiCompfami::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id', 227)->first();
             $this->opciones['textoxxx'] = Texto::select('texto')->where('tipotexto_id', 2677)->where('sis_esta_id', 1)->first();
         } else {

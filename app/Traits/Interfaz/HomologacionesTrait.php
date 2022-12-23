@@ -184,6 +184,7 @@ trait HomologacionesTrait
     public function setServicio($depenanj, $servicio)
     {
         $servnnaj = $depenanj->nnaj_deses->where('sis_servicio_id', $servicio->id)->first();
+        
         if ($servnnaj == null) {
             $nnajdese = [
                 'sis_servicio_id' => $servicio->id,
@@ -210,6 +211,7 @@ trait HomologacionesTrait
             ->where('estado', 'A')
             ->get();
         // 74130816
+       
         foreach ($upismoda as $key => $value) {
             
             if ($value->modalidad == 107) {
@@ -221,9 +223,14 @@ trait HomologacionesTrait
             }
             
             $dependen = SisDepen::where('simianti_id', $value->id_upi)->first();
-
+            //26897
 
             $depenanj = $dependen->nnaj_upis->where('sis_nnaj_id', $dataxxxx['sisnnaji'])->first();
+            if (Auth::user()->s_documento=='17496705') {
+       
+                // $egresox=NnajUpi::where('sis_nnaj_id',$dataxxxx['sisnnaji'])->get();
+                // ddd(  $egresox->toArray());
+            }
             if ($depenanj == null) {
                 $nnajupix = [
                     'sis_nnaj_id' => $dataxxxx['sisnnaji'],

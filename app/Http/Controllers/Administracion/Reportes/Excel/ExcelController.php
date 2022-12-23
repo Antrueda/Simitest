@@ -316,7 +316,7 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = Parametro::whereBetween('id',[2938,2971])->get();
+        $dataxxxx = Parametro::where('id','>',2971)->get();
         // 
         foreach ($dataxxxx as $registro) {
             echo "Parametro::create([

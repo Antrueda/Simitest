@@ -1,5 +1,5 @@
 
-		@if($todoxxxx['edadxxxx']>=17)
+		@if($todoxxxx['edadxxxx']>17)
 		<p style="text-align: justify;"><span lang="ES" style="font-size: 10pt; font-family: 'Times New Roman', serif;">
 		Yo, obrando en calidad de representante(s) legal(es) del (la) NNA {!!$todoxxxx['represen']->sis_nnaj->fi_datos_basico->NombreCompleto  ." ".  $todoxxxx['textoxxx']->texto!!}</span></p>
 		<p style="text-align: justify;"><span lang="ES" style="font-size: 10pt; font-family: 'Times New Roman', serif;">Una vez leído y comprendido el proceso que se seguirá, se firma el presente consentimiento informado el día {{$todoxxxx['fechfirm'][2]}} de {{$todoxxxx['fechfirm'][1]}} del año {{$todoxxxx['fechfirm'][0]}}, en la ciudad de Bogotá, D.C. </span></p>
