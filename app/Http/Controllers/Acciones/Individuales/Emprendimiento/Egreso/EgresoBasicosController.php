@@ -130,13 +130,13 @@ class EgresoBasicosController extends Controller
             $this->pestanix[5]['checkxxx'] = 0;
         }
         if($modeloxx->comite){
-            $this->pestanix[5]['routexxx'] = '.editar';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->comite->id];
-            $this->pestanix[5]['checkxxx'] = 1;
+            $this->pestanix[6]['routexxx'] = '.editar';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->comite->id];
+            $this->pestanix[6]['checkxxx'] = 1;
         }else{
-            $this->pestanix[5]['routexxx'] = '.nuevo';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
-            $this->pestanix[5]['checkxxx'] = 0;
+            $this->pestanix[6]['routexxx'] = '.nuevo';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[6]['checkxxx'] = 0;
         }
 
         
@@ -193,13 +193,13 @@ class EgresoBasicosController extends Controller
             $this->pestanix[5]['checkxxx'] = 0;
         }
         if($modeloxx->comite){
-            $this->pestanix[5]['routexxx'] = '.editar';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->comite->id];
-            $this->pestanix[5]['checkxxx'] = 1;
+            $this->pestanix[6]['routexxx'] = '.editar';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->comite->id];
+            $this->pestanix[6]['checkxxx'] = 1;
         }else{
-            $this->pestanix[5]['routexxx'] = '.nuevo';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
-            $this->pestanix[5]['checkxxx'] = 0;
+            $this->pestanix[6]['routexxx'] = '.nuevo';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[6]['checkxxx'] = 0;
         }
       
         

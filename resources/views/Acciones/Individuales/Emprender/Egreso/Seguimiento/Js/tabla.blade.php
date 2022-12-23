@@ -50,6 +50,13 @@ $(document).ready(function() {
                             }
                         });
                     }
+                
+        $("#tipollama_id").change(function(){
+            if($(this).val()==227){
+                $('#motivollama_id').val('235')
+            }
+        });        
+
 
             $('#agregar').on('click',function() {
                 if($('#fechareg').val()==''||$('#obserllamad').val()==''||$('#tipollama_id').val()==''||$('#motivollama_id').val()==''){

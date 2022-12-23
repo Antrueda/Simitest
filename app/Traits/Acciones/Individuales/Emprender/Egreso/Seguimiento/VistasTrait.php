@@ -61,6 +61,7 @@ trait VistasTrait
         $opciones['escnaxxx'] = Tema::combo(126, false, false);
         $opciones['vulnerax'] = Tema::combo(58, false, false);
         $opciones['parentes'] = Tema::comboAsc(358,true, false);
+        $opciones['motivoll'] = Tema::comboNA(483,true, false);
         $opciones['acgening'] = Tema::combo(114, true, false);
         $opciones['trabinfo'] = Tema::comboNA(115, true, false);
         $opciones['otractiv'] = Tema::comboNA(116, true, false);

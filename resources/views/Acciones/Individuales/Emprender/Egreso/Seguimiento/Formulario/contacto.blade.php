@@ -5,7 +5,7 @@
   
     <div class="col-sm-3">
       {{ Form::label('fechareg', 'Fecha de llamada', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::date('fechareg', null, ['class' => $errors->first('fechareg') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder'=>'Seleccione',]) }}
+      {{ Form::date('fechareg', null, ['class' => $errors->first('fechareg') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder'=>'Seleccione','max' => $todoxxxx['hoyxxxxx']]) }}
       @if($errors->has('fechareg'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('fechareg') }}
@@ -33,7 +33,7 @@
     </div>
      <div class="col-sm-3">
       {{ Form::label('motivollama_id', 'Motivo por el cual no fue efectiva ', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('motivollama_id', $todoxxxx['condicio'],null, ['class' => $errors->first('motivollama_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',]) }}
+      {{ Form::select('motivollama_id', $todoxxxx['motivoll'],null, ['class' => $errors->first('motivollama_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',]) }}
           @if($errors->has('motivollama_id'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('motivollama_id') }}
