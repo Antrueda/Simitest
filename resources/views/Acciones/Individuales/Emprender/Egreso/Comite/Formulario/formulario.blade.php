@@ -52,7 +52,7 @@
   <div class="row">
       <div class="col-sm-3">
         {{ Form::label('cierreca_id', 'Motivo De Cierre De Caso', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('cierreca_id', $todoxxxx['condicio'],null, ['class' => $errors->first('cierreca_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
+        {{ Form::select('cierreca_id', $todoxxxx['motivoci'],null, ['class' => $errors->first('cierreca_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
             @if($errors->has('cierreca_id'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('cierreca_id') }}
@@ -61,7 +61,7 @@
       </div>
       <div class="col-md-3">
         {{ Form::label('motivo_id', 'Motivo', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('motivo_id', $todoxxxx['condicio'],null, ['class' => $errors->first('motivo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
+        {{ Form::select('motivo_id', $todoxxxx['motivost'],null, ['class' => $errors->first('motivo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
             @if($errors->has('motivo_id'))
         <div class="invalid-feedback d-block">
                 {{ $errors->first('motivo_id') }}

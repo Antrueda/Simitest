@@ -70,6 +70,11 @@ Route::group(['prefix' => 'EgresoComites'], function () use ($controll, $routxxx
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
+    Route::get('motivo', [
+        'uses' => $controll . 'Controller@getMotivo',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.motivo');
+
     Route::put('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']

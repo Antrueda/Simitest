@@ -18,7 +18,7 @@ use App\Models\CentroZonal\CentroZosec;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisNnaj;
-
+use App\Models\Tema;
 use App\Traits\DatatableTrait;
 
 use Illuminate\Http\Request;
@@ -281,6 +281,28 @@ trait ListadosTrait
             $dataxxxx['cabecera'] = $request->cabecera;
     
             $respuest = response()->json($this->getCentroTp($dataxxxx));
+            return $respuest;
+        }
+
+        
+        public function getMotivo(Request $request)
+        {
+            $dataxxxx = [
+                'cabecera' => true,
+                'ajaxxxxx' => true,
+                'selected' => $request->selected,
+                'orderxxx' => 'ASC',
+                'tipocurs' => $request->upixxxxx,
+            ];
+            if($dataxxxx['tipocurs']==2977){
+                $respuest =Tema::comboNotIn(482, true, true,[2984,2985]);
+            }else{
+                $respuest =Tema::comboNotIn(482, true, true,[2979,2980,2981,2982,2983]);
+            }
+
+            $dataxxxx['cabecera'] = $request->cabecera;
+    
+            //$respuest = response()->json($this->getModuloTp($dataxxxx));
             return $respuest;
         }
 

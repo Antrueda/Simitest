@@ -53,18 +53,9 @@ trait VistasTrait
         $opciones['condicio'] = Tema::combo(23, true, false);
         $opciones['motivoeg'] = MotivoEgresoSecu::combo(true, false);
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
-        $opciones['condicio'] = Tema::combo(23, true, false);
-        if ($opciones['usuariox']->prm_tipoblaci_id == 650) {
-            $opciones['readchcx'] = 'readonly';
-            $opciones['residees'] = [235 => 'N/A'];
-            $opciones['localida'] = [22 => 'N/A'];
-            $opciones['upzxxxxx'] = [119 => 'N/A'];
-            $opciones['barrioxx'] = [1653 => 'N/A'];
-            
-            $opciones['tiporesi'] = Tema::combo(145, true, false);
-        } else {
-            $opciones['tiporesi'] = Tema::combo(34, true, false);
-        }
+        $opciones['motivoci'] = Tema::combo(481, true, false);
+        $opciones['motivost'] = Tema::combo(482, true, false);
+
         $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');

@@ -50,6 +50,25 @@ class EgresoDerechosController extends Controller
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
 
+        if($this->opciones['usuariox']->nnaj->fi_saluds==null){
+            return redirect()
+            ->route('egresosdb', [$this->opciones['usuariox']->id])
+            ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de salud del NNAJ en el formulario ficha de ingreso para continuar');
+        }else{
+            if($this->opciones['usuariox']->nnaj->fi_formacions==null){
+                return redirect()
+                ->route('egresosdb', [$this->opciones['usuariox']->id])
+                ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de salud del NNAJ en el formulario ficha de ingreso para continuar');
+            }else{
+            if($this->opciones['usuariox']->nnaj->fi_datos_basico->prm_tipoblaci_id != 650){
+            if($this->opciones['usuariox']->nnaj->fi_justrests==null){
+                return redirect()
+                ->route('egresosdb', [$this->opciones['usuariox']->id])
+                ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de justicia restuarativa del NNAJ en el formulario ficha de ingreso para continuar');
+                 }
+            }
+        }
+
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
 

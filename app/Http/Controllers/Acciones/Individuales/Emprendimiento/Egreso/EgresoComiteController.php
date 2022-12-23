@@ -47,8 +47,21 @@ class EgresoComiteController extends Controller
 
     public function create(SEgreso $padrexxx)
     {
+        //$this->opciones['usuariox']->sis_nnaj->fi_saluds
+
+
+
+
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
+        $upiprincipal=$this->opciones['usuariox']->sis_nnaj->UpiPrincipal->sis_depen_id;
+        
+        if($upiprincipal!=37){
+            return redirect()
+            ->route('egresosdb', [$this->opciones['usuariox']->id])
+            ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de egreso del NNAJ en el formulario traslados entre upis/egreso o reasignación de talleres para continuar');
+        }
+        
 
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;

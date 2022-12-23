@@ -1027,7 +1027,17 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'PPT', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2972,
     Parametro::create(['nombre' => 'ODONTOLOGÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2973,
     Parametro::create(['nombre' => 'CONTROL O SEGUIMIENTO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2974,
-    Parametro::create([ 'nombre' => 'M. ACTIVIDADES DECEMBRINAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '16-12-2022 11:24:37 AM', 'updated_at' => '16-12-2022 11:24:37 AM', ]); // 2975,
+    Parametro::create(['nombre' => 'M. ACTIVIDADES DECEMBRINAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '16-12-2022 11:24:37 AM', 'updated_at' => '16-12-2022 11:24:37 AM',]); // 2975,
+    Parametro::create(['nombre' => 'AC/ACUERDO DE CORRESPONSABILIDAD MODALIDAD CPS CONVENIO DE 837/2022', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 03:37:04 PM', 'updated_at' => '22-12-2022 03:37:04 PM',]); // 2976,
+    Parametro::create(['nombre' => 'SATISFACTORIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:45:19 PM', 'updated_at' => '22-12-2022 07:45:19 PM',]); // 2977,
+    Parametro::create(['nombre' => 'NO SATISFACTORIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:45:25 PM', 'updated_at' => '22-12-2022 07:45:25 PM',]); // 2978,
+    Parametro::create(['nombre' => 'CUMPLIMIENTO DEL PLAN DE ATENCIÓN INTEGRAL Y FAMILIAR (PAIF).', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:45:36 PM', 'updated_at' => '22-12-2022 07:45:36 PM',]); // 2979,
+    Parametro::create(['nombre' => 'VERIFICACIÓN DEL GOCE EFECTIVO DE DERECHOS.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:46:26 PM', 'updated_at' => '22-12-2022 07:46:26 PM',]); // 2980,
+    Parametro::create(['nombre' => 'RESTABLECIMIENTO DE DERECHOS A TRAVÉS DE LA ACTIVACIÓN DE REDES.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:46:36 PM', 'updated_at' => '22-12-2022 07:46:36 PM',]); // 2981,
+    Parametro::create(['nombre' => 'DIRECCIONAMIENTO A OTRA INSTITUCIÓN POR VERIFICACIÓN DE VULNERACIÓN DE DERECHOS.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:47:11 PM', 'updated_at' => '22-12-2022 07:47:11 PM',]); // 2982,
+    Parametro::create(['nombre' => 'VERIFICACIÓN DE PROCESO: (ICBF O COMISARIA DE FAMILIA PARA NNA), (PROCESO EN EL EJÉRCITO: JOVEN).', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:48:40 PM', 'updated_at' => '22-12-2022 07:48:40 PM',]); // 2983,
+    Parametro::create(['nombre' => 'DECESO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:48:47 PM', 'updated_at' => '22-12-2022 07:48:47 PM',]); // 2984,
+    Parametro::create(['nombre' => 'VERIFICACIÓN DEL GOCE PARCIAL DE DERECHOS DEL/LA JOVEN.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:48:58 PM', 'updated_at' => '22-12-2022 07:48:58 PM',]); // 2985,
 
 
 

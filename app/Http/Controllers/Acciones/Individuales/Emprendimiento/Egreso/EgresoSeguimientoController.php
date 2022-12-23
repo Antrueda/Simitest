@@ -50,6 +50,18 @@ class EgresoSeguimientoController extends Controller
         $this->padrexxx = $padrexxx;
         
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
+
+        if($this->opciones['usuariox']->nnaj->fi_situacion_especials==null){
+            return redirect()
+            ->route('egresosdb', [$this->opciones['usuariox']->id])
+            ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de tipo de población del NNAJ en el formulario ficha de ingreso para continuar');
+        }else{
+            if($this->opciones['usuariox']->nnaj->fi_generacion_ingresos==null){
+                return redirect()
+                ->route('egresosdb', [$this->opciones['usuariox']->id])
+                ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de generacion de ingresos del NNAJ en el formulario ficha de ingreso para continuar');
+            }
+        }
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
       // ddd($this->opciones['usuariox']->sis_nnaj->fi_situacion_especials->prm_situacion_vulnera_id);
