@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Acciones\Individuales\Emprendimiento\Egreso;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\Emprender\EgresoCrearRequest as EmprenderEgresoCrearRequest;
-
+use App\Http\Requests\Acciones\Individuales\Emprender\EgresoDerechoCrearRequest;
 use App\Http\Requests\Acciones\Individuales\Salud\VOdontologiaEditarRequest;
+use App\Models\Acciones\Individuales\Emprender\Egreso\EgresoDere;
 use App\Models\Acciones\Individuales\Emprender\Egreso\SEgreso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 
@@ -48,10 +49,10 @@ class EgresoDerechosController extends Controller
     {
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
+
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
 
-        //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
 
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
@@ -60,10 +61,10 @@ class EgresoDerechosController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->pestanix[2]['checkxxx'] = 1;
-      
+        
         if($padrexxx->derechos){
             $this->pestanix[3]['routexxx'] = '.editar';
-            $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->examenes->id];
+            $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->derechos->id];
             $this->pestanix[3]['checkxxx'] = 1;
         }else{
             $this->pestanix[3]['routexxx'] = '.nuevo';
@@ -73,7 +74,7 @@ class EgresoDerechosController extends Controller
         
         if($padrexxx->redes){
             $this->pestanix[4]['routexxx'] = '.editar';
-            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->redes->id];
             $this->pestanix[4]['checkxxx'] = 1;
         }else{
             $this->pestanix[4]['routexxx'] = '.nuevo';
@@ -82,12 +83,21 @@ class EgresoDerechosController extends Controller
         }
         if($padrexxx->seguimiento){
             $this->pestanix[5]['routexxx'] = '.editar';
-            $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[5]['dataxxxx'] = [true, $padrexxx->seguimiento->id];
             $this->pestanix[5]['checkxxx'] = 1;
         }else{
             $this->pestanix[5]['routexxx'] = '.nuevo';
             $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
             $this->pestanix[5]['checkxxx'] = 0;
+        }
+        if($padrexxx->comite){
+            $this->pestanix[6]['routexxx'] = '.editar';
+            $this->pestanix[6]['dataxxxx'] = [true, $padrexxx->comite->id];
+            $this->pestanix[6]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[6]['routexxx'] = '.nuevo';
+            $this->pestanix[6]['dataxxxx'] = [true, $padrexxx];
+            $this->pestanix[6]['checkxxx'] = 0;
         }
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
@@ -96,63 +106,72 @@ class EgresoDerechosController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$this->padrexxx->id]
         );
     }
-    public function store(EmprenderEgresoCrearRequest $request,SisNnaj $padrexxx)
+    public function store(EgresoDerechoCrearRequest $request,SEgreso $padrexxx)
     {//
-
+        
         $request->request->add(['sis_esta_id'=> 1]);
-        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
+        $request->request->add(['egreso_id'=> $padrexxx->id]);
         return $this->setEgreso([
             'requestx' => $request,//
             'modeloxx' => '',
-            'padrexxx' => $padrexxx,
-            'infoxxxx' => 'Valoracion odontologica creado con éxito',
+            'padrexxx' => $padrexxx->nnaj,
+            'infoxxxx' => 'Verificación de derechos creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(SEgreso $modeloxx)
+    public function show(EgresoDere $modeloxx)
     {
    
-        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
+        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->egreso->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->egreso->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->egreso->id];
         $this->pestanix[2]['checkxxx'] = 1;
       
-        if($modeloxx->derechos){
+        if($modeloxx->egreso->derechos){
             $this->pestanix[3]['routexxx'] = '.editar';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->egreso->derechos->id];
             $this->pestanix[3]['checkxxx'] = 1;
         }else{
             $this->pestanix[3]['routexxx'] = '.nuevo';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->egreso->id];
             $this->pestanix[3]['checkxxx'] = 0;
         }
         
-        if($modeloxx->redes){
+        if($modeloxx->egreso->redes){
             $this->pestanix[4]['routexxx'] = '.editar';
-            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->egreso->redes->id];
             $this->pestanix[4]['checkxxx'] = 1;
         }else{
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->egreso->id];
             $this->pestanix[4]['checkxxx'] = 0;
         }
-        if($modeloxx->seguimiento){
+        if($modeloxx->egreso->seguimiento){
             $this->pestanix[5]['routexxx'] = '.editar';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->egreso->seguimiento->id];
             $this->pestanix[5]['checkxxx'] = 1;
         }else{
             $this->pestanix[5]['routexxx'] = '.nuevo';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->egreso->id];
             $this->pestanix[5]['checkxxx'] = 0;
         }
+        if($modeloxx->egreso->comite){
+            $this->pestanix[6]['routexxx'] = '.editar';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->egreso->comite->id];
+            $this->pestanix[6]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[6]['routexxx'] = '.nuevo';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->egreso];
+            $this->pestanix[6]['checkxxx'] = 0;
+        }
         
-        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['usuariox'] = $modeloxx->egreso->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->egreso->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['diagnost'] = '.listaxxz';
-        $this->padrexxx = $modeloxx->nnaj;
+        $this->padrexxx = $modeloxx->egreso->nnaj;
         
         $this->opciones['vercrear'] = false;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -165,73 +184,82 @@ class EgresoDerechosController extends Controller
 
 
 
-    public function edit(SEgreso $modeloxx)
+    public function edit(EgresoDere $modeloxx)
     {    
-        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
+        $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->egreso->nnaj->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->egreso->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->egreso->id];
         $this->pestanix[2]['checkxxx'] = 1;
       
-        if($modeloxx->derechos){
+        if($modeloxx->egreso->derechos){
             $this->pestanix[3]['routexxx'] = '.editar';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->egreso->derechos->id];
             $this->pestanix[3]['checkxxx'] = 1;
         }else{
             $this->pestanix[3]['routexxx'] = '.nuevo';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->egreso->id];
             $this->pestanix[3]['checkxxx'] = 0;
         }
         
-        if($modeloxx->redes){
+        if($modeloxx->egreso->redes){
             $this->pestanix[4]['routexxx'] = '.editar';
-            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->egreso->redes->id];
             $this->pestanix[4]['checkxxx'] = 1;
         }else{
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->egreso->id];
             $this->pestanix[4]['checkxxx'] = 0;
         }
-        if($modeloxx->seguimiento){
+        if($modeloxx->egreso->seguimiento){
             $this->pestanix[5]['routexxx'] = '.editar';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->egreso->seguimiento->id];
             $this->pestanix[5]['checkxxx'] = 1;
         }else{
             $this->pestanix[5]['routexxx'] = '.nuevo';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->egreso->id];
             $this->pestanix[5]['checkxxx'] = 0;
+        }
+        if($modeloxx->egreso->comite){
+            $this->pestanix[6]['routexxx'] = '.editar';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->egreso->comite->id];
+            $this->pestanix[6]['checkxxx'] = 1;
+        }else{
+            $this->pestanix[6]['routexxx'] = '.nuevo';
+            $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->egreso];
+            $this->pestanix[6]['checkxxx'] = 0;
         }
       
         
-        $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
-        $this->opciones['padrexxx'] = $modeloxx->nnaj;
+        $this->opciones['usuariox'] = $modeloxx->egreso->nnaj->fi_datos_basico;
+        $this->opciones['padrexxx'] = $modeloxx->egreso->nnaj;
         $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['diagnost'] = '.listaxxz';
-        $this->padrexxx = $modeloxx->nnaj;
+        $this->padrexxx = $modeloxx->egreso->nnaj;
         $this->opciones['vercrear'] = true;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         
         // $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view(        $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->egreso->nnaj]
         );
     }
 
 
-    public function update(VOdontologiaEditarRequest $request,  SEgreso $modeloxx)
+    public function update(EgresoDerechoCrearRequest $request,  EgresoDere $modeloxx)
     {
         
-        $request->request->add(['sis_nnaj_id'=> $modeloxx->nnaj->id]);
+        $request->request->add(['egreso_id'=> $modeloxx->egreso->id]);
         return $this->setEgreso([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'padrexxx' => $modeloxx->nnaj,
-            'infoxxxx' => 'Valoracion odontologica editado con éxito',
+            'padrexxx' => $modeloxx->egreso->nnaj,
+            'infoxxxx' => 'Verificación de derechos editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(SEgreso $modeloxx)
+    public function inactivate(EgresoDere $modeloxx)
     {
         
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -243,7 +271,7 @@ class EgresoDerechosController extends Controller
         $this->opciones['diagnost'] = '.listaxxz';
         $this->opciones['usuariox'] = $modeloxx->nnaj->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->egreso->nnaj->id]], 2, 'VOLVER A VALORACIÓN MEDICINA GENERAL', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
@@ -251,7 +279,7 @@ class EgresoDerechosController extends Controller
     }
 
 
-    public function destroy(Request $request, SEgreso $modeloxx)
+    public function destroy(Request $request, EgresoDere $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
@@ -263,7 +291,7 @@ class EgresoDerechosController extends Controller
             ->with('info', 'Valoracion odontologica inactivado correctamente');
     }
 
-    public function activate(SEgreso $modeloxx)
+    public function activate(EgresoDere $modeloxx)
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];

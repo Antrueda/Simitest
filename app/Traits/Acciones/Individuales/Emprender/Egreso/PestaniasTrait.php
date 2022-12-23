@@ -24,9 +24,9 @@ trait PestaniasTrait
         [
             'permisox' => 'egresopost', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
         ],
-        // [
-        //     'permisox' => 'vodonremites', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
-        // ],
+         [
+             'permisox' => 'egresocomite', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],'checkxxx'=>'',
+         ],
      
      
     ];
@@ -40,7 +40,7 @@ trait PestaniasTrait
         'egresosder' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'egresoredes' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         'egresopost' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        // 'vodonremites' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+         'egresocomite' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -109,15 +109,15 @@ trait PestaniasTrait
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
-        // $pestania['vodonremites'] = [
-        //     'routexxx' => '',
-        //     'activexx' => '',
-        //     'tituloxx' => 'REMISIÓN',
-        //     'tablaxxx' => 'sis_pais',
-        //     'checkxxx' => '',
-        //     'datablex' => [],
-        //     'cananyxx' => $this->getCanany($dataxxxx),
-        // ];
+        $pestania['egresocomite'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'VALIDACIÓN DEL CASO',
+            'tablaxxx' => 'sis_pais',
+            'checkxxx' => '',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
 
         if (isset($pestania[$dataxxxx['slotxxxx']]['activexx'])) {
             $pestania[$dataxxxx['slotxxxx']]['activexx'] = 'active';

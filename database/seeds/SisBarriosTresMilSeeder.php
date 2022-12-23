@@ -12,7 +12,7 @@ class SisBarriosTresMilSeeder extends Seeder
      */
     public function run()
     {
-          SisBarrio::create(['s_barrio' => 'TIMIZA A', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-10T21:10:54.000000Z', 'updated_at' => '2021-08-10T21:10:54.000000Z',]); // 2000
+        SisBarrio::create(['s_barrio' => 'TIMIZA A', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-10T21:10:54.000000Z', 'updated_at' => '2021-08-10T21:10:54.000000Z',]); // 2000
         SisBarrio::create(['s_barrio' => 'S.C. SAN JOSÉ SUR ORIENTAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-10T21:37:10.000000Z', 'updated_at' => '2021-08-10T21:37:10.000000Z',]); // 2001
         SisBarrio::create(['s_barrio' => 'NUEVA GRANADA BOSA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-08-11T15:51:06.000000Z', 'updated_at' => '2021-08-11T15:51:06.000000Z',]); // 2002
         SisBarrio::create(['s_barrio' => 'S.C. BOSA BRASIL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-08-11T17:18:42.000000Z', 'updated_at' => '2021-08-11T17:18:42.000000Z',]); // 2003

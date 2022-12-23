@@ -16,15 +16,15 @@ trait PestaniasTrait
         [
             'permisox' => 'formatov', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
-     
+
     ];
 
     private function getCanany($dataxxxx)
     {
         $permisox = [
-        'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'matricurso' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'formatov' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'matricurso' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'formatov' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -35,26 +35,26 @@ trait PestaniasTrait
 
     public function setPestanias($dataxxxx)
     {
-  
+
         $pestania['ai'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tooltipx' => 'INDIVIDUALES',
+
             'tituloxx' => 'INDIVIDUALES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => ['aiindex-leer'],
+            'tooltipx' => ''
         ];
 
         $pestania['matricurso'] = [
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'MATRÍCULA CURSOS INFORMALES FORMACIÓN TÉCNICA TALLERES',
-            'tooltipx' => 'MATRÍCULA CURSOS INFORMALES FORMACIÓN TÉCNICA TALLERES',
             'tablaxxx' => 'sis_pais',
             'datablex' =>  [],
             'cananyxx' => $this->getCanany($dataxxxx),
-
+            'tooltipx' => ''
 
         ];
 
@@ -62,14 +62,13 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'FORMATO VALORACIÓN DE COMPETENCIAS',
-            'tooltipx' => 'FORMATO VALORACIÓN DE COMPETENCIAS',
             'tablaxxx' => 'sis_pais',
             'datablex' =>  [],
             'cananyxx' => $this->getCanany($dataxxxx),
-
+            'tooltipx' => ''
 
         ];
-   
+
 
         if (isset($pestania[$dataxxxx['slotxxxx']]['activexx'])) {
             $pestania[$dataxxxx['slotxxxx']]['activexx'] = 'active';
@@ -80,11 +79,11 @@ trait PestaniasTrait
     {
         $pestania = [];
         foreach ($this->pestanix as $key => $value) {
-             if ($value['dataxxxx'][0]) {
+            if ($value['dataxxxx'][0]) {
                 $dataxxxx['cananyxx'] = $value['permisox'];
                 $dotosxxx = $this->setPestanias($dataxxxx);
-                
-                $dotosxxx['routexxx'] = route($value['permisox'].$value['routexxx'], $value['dataxxxx'][1]);
+
+                $dotosxxx['routexxx'] = route($value['permisox'] . $value['routexxx'], $value['dataxxxx'][1]);
                 $pestania[] = $dotosxxx;
             }
         }

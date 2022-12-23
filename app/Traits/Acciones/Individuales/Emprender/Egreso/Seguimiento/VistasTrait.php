@@ -2,7 +2,8 @@
 
 namespace App\Traits\Acciones\Individuales\Emprender\Egreso\Seguimiento;
 
-
+use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
@@ -47,6 +48,7 @@ trait VistasTrait
 
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
+        $opciones['motivoeg'] = MotivoEgresoSecu::combo(true, false);
         $opciones['actuestu'] = Tema::combo(23, true, false);
         $opciones['condicio'] = Tema::combo(23, true, false);
         $opciones['motvincu'] = Tema::comboAsc(63, false, false);
@@ -60,13 +62,12 @@ trait VistasTrait
         $opciones['vulnerax'] = Tema::combo(58, false, false);
         $opciones['parentes'] = Tema::comboAsc(358,true, false);
         $opciones['acgening'] = Tema::combo(114, true, false);
-        $opciones['trabinfo'] = Tema::comboAsc(115, true, false);
-        $opciones['otractiv'] = Tema::comboAsc(116, true, false);
-        $opciones['tiporela'] = Tema::comboAsc(117, true, false);
-        $opciones['raznogen'] = Tema::comboAsc(122, true, false);
+        $opciones['trabinfo'] = Tema::comboNA(115, true, false);
+        $opciones['otractiv'] = Tema::comboNA(116, true, false);
+        $opciones['tiporela'] = Tema::comboNA(117, true, false);
         $opciones['jorgener'] = Tema::comboAsc(123, true, false);
-        $opciones['diaseman'] = Tema::comboAsc(124, false, false);
-        $opciones['frecugen'] = Tema::comboAsc(125, true, false);
+        $opciones['situavul'] = Tema::comboAsc(89, false, false);
+        
        
         $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
 

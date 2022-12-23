@@ -42,7 +42,18 @@ class NnajDese extends Model
     {
         return $this->belongsTo(SisServicio::class);
     }
+
+    public function sisServicio()
+    {
+        return $this->belongsTo(SisServicio::class);
+    }
+
     public function nnaj_upi()
+    {
+        return $this->belongsTo(NnajUpi::class, 'nnaj_upi_id');
+    }
+
+    public function nnajUpi()
     {
         return $this->belongsTo(NnajUpi::class, 'nnaj_upi_id');
     }

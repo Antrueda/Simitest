@@ -161,10 +161,10 @@ class EgresoBasicosController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->nnaj->id];
         $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
         $this->pestanix[2]['checkxxx'] = 1;
-      
+        
         if($modeloxx->derechos){
             $this->pestanix[3]['routexxx'] = '.editar';
-            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->examenes->id];
+            $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->derechos->id];
             $this->pestanix[3]['checkxxx'] = 1;
         }else{
             $this->pestanix[3]['routexxx'] = '.nuevo';
@@ -174,7 +174,7 @@ class EgresoBasicosController extends Controller
         
         if($modeloxx->redes){
             $this->pestanix[4]['routexxx'] = '.editar';
-            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->redes->id];
             $this->pestanix[4]['checkxxx'] = 1;
         }else{
             $this->pestanix[4]['routexxx'] = '.nuevo';
@@ -183,7 +183,7 @@ class EgresoBasicosController extends Controller
         }
         if($modeloxx->seguimiento){
             $this->pestanix[5]['routexxx'] = '.editar';
-            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx];
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->seguimiento->id];
             $this->pestanix[5]['checkxxx'] = 1;
         }else{
             $this->pestanix[5]['routexxx'] = '.nuevo';

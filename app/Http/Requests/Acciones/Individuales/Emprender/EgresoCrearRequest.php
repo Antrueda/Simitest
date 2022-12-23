@@ -24,6 +24,10 @@ class EgresoCrearRequest extends FormRequest
         $this->_reglasx = [
             'upi_id' => 'required',
             'fecha' => 'required',
+            'custo_id' => 'nullable',
+            'parent_id' => 'nullable',
+            'nom1_autorizado' => 'nullable',
+            'ape1_autorizado' => 'nullable',
       
             ];
     }

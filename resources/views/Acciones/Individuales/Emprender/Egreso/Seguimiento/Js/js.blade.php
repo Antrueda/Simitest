@@ -140,38 +140,49 @@
         return /\d/.test(String.fromCharCode(keynum));
     }
     function doc(valor){
-        if(valor == 227){
-            document.getElementById("cual_div").hidden=false;
-            }
-        if(valor == 228){
-            document.getElementById("cual_div").hidden=true;
-        }
-    } 
-
-    function doc2(valor){
-        if(valor == 227){
-            document.getElementById("diag_div").hidden=false;
-            }
-        if(valor == 228){
-            document.getElementById("diag_div").hidden=true;
-        }
-    } 
-
+        if(valor == 227 ){
+            document.getElementById("consudiv").hidden=false;
+            
+        }else{
+        document.getElementById("consudiv").hidden=true;
+         }
+      
+        }  
     function doc1(valor){
-        if(valor == 227){
-            document.getElementById("medic_div").hidden=false;
-        }
-        if(valor == 228){
-            document.getElementById("medic_div").hidden=true;
-        }
-    } 
+        if(valor == 227 ){
+            document.getElementById("veridiv").hidden=false;
+            
+        }else{
+        document.getElementById("veridiv").hidden=true;
+         }
+      
+        }  
 
+        function doc2(valor){
+        if(valor == 227 ){
+            document.getElementById("telefonodiv").hidden=false;
+            
+        }else{
+        document.getElementById("telefonodiv").hidden=true;
+         }
+      
+        }  
+        function doc3(valor){
+        if(valor == 227 ){
+            document.getElementById("emprende").hidden=false;
+            
+        }else{
+        document.getElementById("emprende").hidden=true;
+         }
+      
+        }  
 
-    function carga() {
-        doc(document.getElementById('alergia_id').value);
-        doc1(document.getElementById('toma_id').value);
-        doc2(document.getElementById('enfactu_id').value);
-    }
+        function carga() {
+        doc(document.getElementById('consul_id').value);
+        doc1(document.getElementById('verifi_id').value);
+        doc3(document.getElementById('emprende_id').value);
+       
+     }
     window.onload=carga;
 
 </script>

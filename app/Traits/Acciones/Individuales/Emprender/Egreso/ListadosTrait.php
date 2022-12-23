@@ -14,6 +14,7 @@ use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+use App\Models\CentroZonal\CentroZosec;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisNnaj;
@@ -251,8 +252,37 @@ trait ListadosTrait
               $modeloxx->delete();
               return response()->json($respuest);
           }
-        
-      }
+        }
+
+        public function getCentroTp($dataxxxx)
+        {
+    
+            $dataxxxx['dataxxxx'] = CentroZosec::select(['centro_zosecs.id as valuexxx', 'centro_zosecs.nombre as optionxx'])
+                ->join('asignar_centros', 'centro_zosecs.id', '=', 'asignar_centros.censec_id')
+                ->where('asignar_centros.centro_id', $dataxxxx['tipocurs'])
+                ->where('centro_zosecs.sis_esta_id', 1)
+                ->orderBy('centro_zosecs.id', 'asc')
+                ->get();
+            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+            return    $respuest;
+        }
+    
+    
+        public function getCentro(Request $request)
+        {
+            $dataxxxx = [
+                'cabecera' => true,
+                'ajaxxxxx' => true,
+                'selected' => $request->selected,
+                'orderxxx' => 'ASC',
+                'tipocurs' => $request->upixxxxx,
+                
+            ];
+            $dataxxxx['cabecera'] = $request->cabecera;
+    
+            $respuest = response()->json($this->getCentroTp($dataxxxx));
+            return $respuest;
+        }
 
   
 

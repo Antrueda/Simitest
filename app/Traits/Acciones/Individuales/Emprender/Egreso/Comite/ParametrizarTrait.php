@@ -33,21 +33,21 @@ trait ParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'VERIFICACIÓN DE DERECHOS';
+        $this->opciones['tituhead'] = 'VALIDACIÓN DEL CASO';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutacarp'] = 'Acciones.Individuales.Emprender.Egreso.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Derechos';
+        $this->opciones['carpetax'] = 'Comite';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "VERIFICACIÓN DE DERECHOS";
+        $this->opciones['tituloxx'] = "VALIDACIÓN DEL CASO";
     }
 
     public function getBotones($dataxxxx)

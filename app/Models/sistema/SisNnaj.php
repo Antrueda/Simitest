@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace App\Models\sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
@@ -50,6 +50,12 @@ class SisNnaj extends Model
     {
         return $this->hasOne(FiDatosBasico::class, 'sis_nnaj_id');
     }
+
+    public function fiDatosBasico()
+    {
+        return $this->hasOne(FiDatosBasico::class, 'sis_nnaj_id');
+    }
+
 
     public function FiBienvenida()
     {

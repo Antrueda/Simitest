@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional;
+namespace App\Traits\Acciones\Individuales\Educacion\PerfilOcupacional\PerfilOcupacional;
 
 
 use Illuminate\Support\Facades\DB;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Este trait permite el crear y editar del acta de encuetro
  */
-trait perfilOcupacionalCrudTrait
+trait PerfilOcupacionalCrudTrait
 {
    /**
      * grabar o actualizar el acta de encuentro

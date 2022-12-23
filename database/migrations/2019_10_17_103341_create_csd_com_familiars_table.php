@@ -17,14 +17,14 @@ class CreateCsdComFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->integer('csd_id')->unsigned()->comment('CONSULTA SOCIAL EN DOMICILIO A LA QUE PERTENECE LA COMPOSICION FAMILIAR');
             $table->string('s_primer_apellido')->comment('CAMPO PRIMER APELLIDO');
             $table->string('s_segundo_apellido')->nullable()->comment('CAMPO SEGUNDO APELLIDO');
             $table->string('s_primer_nombre')->comment('CAMPO PRIMER NOMBRE');
             $table->string('s_segundo_nombre')->nullable()->comment('CAMPO SEGUNDO NOMBRE');
             $table->string('s_nombre_identitario')->nullable()->comment('CAMPO NOMBRE IDENTITARIO');
             $table->integer('prm_tipodocu_id')->unsigned()->comment('CAMPO PARAMETRO TIPO DE DOCUMENTO');
-            $table->string('s_documento')->unique('csd_doc_un1')->comment('CAMPO NUMERO DE DOCUMENTO');
+            $table->string('s_documento')->unique('csd_doc_un2')->comment('CAMPO NUMERO DE DOCUMENTO');
             $table->date('d_nacimiento')->comment('CAMPO FECHA DE NACIMIENTO');
             $table->integer('prm_sexo_id')->unsigned()->comment('CAMPO PARAMETRO SEXO');
             $table->integer('prm_estado_civil_id')->unsigned()->comment('CAMPO PARAMETRO ESTADO CIVIL');
@@ -40,7 +40,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->integer('prm_vin_pasado_id')->unsigned()->nullable()->comment('CAMPO ESTUVO VINCULADO AL IDIPRON');
             $table->integer('prm_regimen_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO REGIMEN');
             $table->integer('prm_cualeps_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO EPS');
-            $table->decimal('sisben', 19, 2)->nullable()->comment('CAMPO SISBEN');
+            $table->string('sisben', 19)->nullable()->comment('CAMPO SISBEN');
             $table->integer('prm_sisben_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SISBEN');
             $table->integer('prm_discapacidad_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DISCAPACIDAD');
             $table->integer('prm_cual_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO CUAL DISCAPACIDAD');
@@ -89,6 +89,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->foreign('prm_estudia_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->unique(['s_documento', 'csd_id'],'csd_doc_un1');
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE IDENTIFICACIÓN Y CARACTERIZACIÓN DE LOS FAMILIARES UNA PERSONA ENTREVISTADA, SECCION 7 COMPOSICION FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
     }

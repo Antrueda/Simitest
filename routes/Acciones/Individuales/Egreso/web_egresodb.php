@@ -69,5 +69,5 @@ Route::group(['prefix' => 'EgresoDB'], function () use ($controll, $routxxxx) {
 require_once('web_egresosder.php');
 require_once('web_egresoredes.php');
 require_once('web_egresopost.php');
-require_once('web_vodonremision.php');
+require_once('web_egresocomite.php');
 

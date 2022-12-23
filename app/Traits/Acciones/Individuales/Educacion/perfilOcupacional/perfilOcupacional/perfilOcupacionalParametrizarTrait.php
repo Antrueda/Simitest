@@ -1,14 +1,14 @@
 <?php
 use Carbon\Carbon;
      
-namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional;
+namespace App\Traits\Acciones\Individuales\Educacion\PerfilOcupacional\PerfilOcupacional;
 
 use Carbon\Carbon;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait perfilOcupacionalParametrizarTrait
+trait PerfilOcupacionalParametrizarTrait
 {
 public $opciones;
 /**

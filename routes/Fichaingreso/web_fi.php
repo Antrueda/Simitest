@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 $routexxx = 'fidatbas';
 $controll = 'FichaIngreso\Fi';
 Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
@@ -147,6 +148,7 @@ Route::group(['prefix' => 'fi'], function () use ($routexxx, $controll) {
     include_once('web_fi_vestuario.php');
     include_once('web_fi_violencia.php');
     include_once('web_fi_jr_familiar.php');
+    include_once('web_fiupinna.php'); 
 });
 Route::group(['prefix' => 'homologar'], function () use ($routexxx, $controll) {
     Route::get('{temacomb}/{parametr}/{codigoxx}/{tablaxxx}', [

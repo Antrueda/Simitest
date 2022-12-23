@@ -12,7 +12,7 @@ class SisUpzbarriTresMilSeeder extends Seeder
      */
     public function run()
     {
-       SisUpzbarri::create(['sis_localupz_id' => '69', 'sis_barrio_id' => '1706', 'simianti_id' => '100270', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-05-21T01:25:29.000000Z', 'updated_at' => '2021-05-21T01:25:29.000000Z',]); // 2001
+        SisUpzbarri::create(['sis_localupz_id' => '69', 'sis_barrio_id' => '1706', 'simianti_id' => '100270', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-05-21T01:25:29.000000Z', 'updated_at' => '2021-05-21T01:25:29.000000Z',]); // 2001
         SisUpzbarri::create(['sis_localupz_id' => '80', 'sis_barrio_id' => '1707', 'simianti_id' => '70191', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-05-21T01:26:09.000000Z', 'updated_at' => '2021-05-21T01:26:09.000000Z',]); // 2002
         SisUpzbarri::create(['sis_localupz_id' => '69', 'sis_barrio_id' => '1708', 'simianti_id' => '5636', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-05-21T01:31:17.000000Z', 'updated_at' => '2021-05-21T01:31:17.000000Z',]); // 2003
         SisUpzbarri::create(['sis_localupz_id' => '27', 'sis_barrio_id' => '1709', 'simianti_id' => '1115', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => '1', 'created_at' => '2021-05-21T01:31:49.000000Z', 'updated_at' => '2021-05-21T01:31:49.000000Z',]); // 2004
@@ -622,6 +622,7 @@ class SisUpzbarriTresMilSeeder extends Seeder
         SisUpzbarri::create(['sis_localupz_id' => '7', 'sis_barrio_id' => '2250', 'simianti_id' => '70292', 'user_crea_id' => '5', 'user_edita_id' => '5', 'sis_esta_id' => '1', 'created_at' => '2022-01-21T20:40:14.000000Z', 'updated_at' => '2022-01-21T20:40:14.000000Z',]); // 2606
         SisUpzbarri::create(['sis_localupz_id' => '5', 'sis_barrio_id' => '2251', 'simianti_id' => '50094', 'user_crea_id' => '584', 'user_edita_id' => '584', 'sis_esta_id' => '1', 'created_at' => '2022-01-24T14:46:35.000000Z', 'updated_at' => '2022-01-24T14:46:35.000000Z',]); // 2607
         SisUpzbarri::create(['sis_localupz_id' => '6', 'sis_barrio_id' => '2252', 'simianti_id' => '60030', 'user_crea_id' => '584', 'user_edita_id' => '584', 'sis_esta_id' => '1', 'created_at' => '2022-01-24T20:00:58.000000Z', 'updated_at' => '2022-01-24T20:00:58.000000Z',]); // 2608
-        // 5333
+        // 5333   
+        
     }
 }

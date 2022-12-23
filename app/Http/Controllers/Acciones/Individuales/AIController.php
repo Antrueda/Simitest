@@ -3,16 +3,14 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisDepeUsua;
-use App\Models\Sistema\SisNnaj;
+use App\Traits\Acciones\Individuales\TieneEvacionTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Support\Facades\Auth;
 
 class AIController extends Controller
 {
     use ManageTimeTrait;
+    use TieneEvacionTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'aiindex';
@@ -28,11 +26,9 @@ class AIController extends Controller
 
     public function index()
     {
-        if(Auth::user()->s_documento=='17496705'){
-
-
+        if (Auth::user()->s_documento == '17496705') {
         }
-        
+
         // 
         $this->getPuedeCargar([
             'estoyenx' => 1,
@@ -49,9 +45,10 @@ class AIController extends Controller
 
     public function show($id)
     {
-
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->fi_datos_basico;
-        return view('Acciones.Individuales.index', ['accion' => 'Editar'], compact('dato', 'nnaj'));
+        $repuest = $this->getTieneEvacion($id);
+        $reportex = $repuest[0];
+        $dato = $repuest[1];
+        $nnaj = $repuest[2];
+        return view('Acciones.Individuales.index', ['accion' => 'Editar'], compact('dato', 'nnaj', 'reportex'));
     }
 }

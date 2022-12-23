@@ -6,6 +6,8 @@ namespace App\Traits\Acciones\Individuales\Emprender\Egreso\Derechos;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
+use App\Models\CentroZonal\CentroZonal;
+use App\Models\CentroZonal\CentroZosec;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepartam;
 use App\Models\sistema\SisEntidadSalud;
@@ -40,20 +42,21 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
-        $opciones['residenc'] = $opciones['padrexxx']->FiResidencia;
+        
+        //ddd($opciones['usuariox']->prm_tipoblaci_id);
+
 
         $dependid = 0;
         $localida = 0;
-
+        
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
-        $opciones['estafili'] = Tema::comboAsc(21, true, false);
-        $opciones['entid_id'] = ['' => 'Seleccione'];
-        $opciones['condicio'] = Tema::combo(23, true, false);
         $opciones['actuestu'] = Tema::combo(23, true, false);
+        $opciones['estafili'] = Tema::comboAsc(21, true, false);
+        $opciones['entid_id'] = SisEntidadSalud::combo($opciones['usuariox']->sis_nnaj->fi_saluds->prm_regisalu_id, true, false);
         $opciones['motvincu'] = Tema::comboAsc(63, false, false);
-        $opciones['natuenti'] = Tema::comboAsc(130, true, false);
-        $opciones['jornestu'] = Tema::comboAsc(151, true, false);
+        $opciones['natuenti'] = Tema::comboNA(130, true, false);
+        $opciones['jornestu'] = Tema::comboNA(151, true, false);
         $opciones['ulnivest'] = Tema::comboAsc(153, true, false);
         $opciones['ulgradap'] = Tema::comboAsc(154, true, false);
         $opciones['violvinc'] = Tema::combo(369, true, false);
@@ -62,22 +65,24 @@ trait VistasTrait
         $opciones['actupard'] = Tema::combo(368, true, false);
         $opciones['actusrpa'] = Tema::combo(371, true, false);
         $opciones['condicio'] = Tema::combo(372, true, false);//N/A
+        $opciones['centrozo'] = CentroZonal::combo(true, false);
+        $opciones['centrose'] = CentroZosec::combo(true, false);
         $opciones['estaspoa'] = Tema::combo(374, true, false);//N/A
         $opciones['actuspoa'] = Tema::combo(376, true, false);//N/A
         $opciones['condspoa'] = Tema::combo(375, true, false);//N/A
-        $opciones['motipard'] = Tema::combo(45, true, false);
-        $opciones['motisrpa'] = Tema::combo(46, true, false);
-        $opciones['sancsrpa'] = Tema::combo(47, true, false);
-        $opciones['motispoa'] = Tema::combo(357, true, false);
-        $opciones['sancspoa'] = Tema::combo(49, true, false);
+        $opciones['motipard'] = Tema::comboNA(46, true, false);
+        $opciones['motisrpa'] = Tema::comboNA(46, true, false);
+        $opciones['sancsrpa'] = Tema::comboNA(47, true, false);
+        $opciones['motispoa'] = Tema::comboNA(357, true, false);
+        $opciones['sancspoa'] = Tema::comboNA(49, true, false);
         $opciones['causviol'] = Tema::combo(120, true, false);
         $opciones['sexoxxxx'] = Tema::combo(11, true, false);
         // $opciones['tablname'] = 'jrfamili';
         $opciones['vincviol'] = Tema::combo(120, false, false);
         $opciones['riesviol'] = Tema::combo(120, false, false);
-        $opciones['titipard'] = Tema::combo(152, true, false);
-        $opciones['titisrpa'] = Tema::combo(152, true, false);
-        $opciones['titispoa'] = Tema::combo(152, true, false);
+        $opciones['titipard'] = Tema::comboNA(152, true, false);
+        $opciones['titisrpa'] = Tema::comboNA(152, true, false);
+        $opciones['titispoa'] = Tema::comboNA(152, true, false);
         
 
 

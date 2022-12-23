@@ -79,8 +79,6 @@ class VsMedicinaGeneralController extends Controller
         $this->opciones['diagnost'] = '.listaxxy';
         $this->opciones['valoraci'] = $padrexxx;
 
-        //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
-
         $this->opciones['vercrear'] = false;
         $this->opciones['tablinde']=false;
         $this->opciones['parametr']=$padrexxx;
@@ -99,7 +97,7 @@ class VsMedicinaGeneralController extends Controller
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
 
-        //ddd($request->request->all());
+      
 
         return $this->setMedicinaGeneral([
             'requestx' => $request,//

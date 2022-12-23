@@ -2,7 +2,7 @@
 
 namespace App\Traits\Acciones\Individuales\Emprender\Egreso\Comite;
 
-
+use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
@@ -47,13 +47,12 @@ trait VistasTrait
 
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
+        $opciones['usuarioc'] = '';
+        $opciones['usuarioe'] = '';
         $opciones['actuestu'] = Tema::combo(23, true, false);
         $opciones['condicio'] = Tema::combo(23, true, false);
-        $opciones['motvincu'] = Tema::comboAsc(63, false, false);
-        $opciones['natuenti'] = Tema::comboAsc(130, true, false);
-        $opciones['jornestu'] = Tema::comboAsc(151, true, false);
-        $opciones['ulnivest'] = Tema::comboAsc(153, true, false);
-        $opciones['ulgradap'] = Tema::comboAsc(154, true, false);
+        $opciones['motivoeg'] = MotivoEgresoSecu::combo(true, false);
+        $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
         $opciones['condicio'] = Tema::combo(23, true, false);
         if ($opciones['usuariox']->prm_tipoblaci_id == 650) {
             $opciones['readchcx'] = 'readonly';
@@ -66,9 +65,7 @@ trait VistasTrait
         } else {
             $opciones['tiporesi'] = Tema::combo(34, true, false);
         }
-        $opciones['dependen'] = $this->getUpiUsuarioCT(['nnajidxx' => $opciones['padrexxx']->id, 'dependid' => $dependid]);
-        $upinnajx=$opciones['padrexxx']->UpiPrincipal->sis_depen;
-        $opciones['depenori'] = [$upinnajx->id=>$upinnajx->nombre];
+        $opciones['usuarioz'] = User::getUsuario(false, false);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['consulta'] = Tema::comboNotIn(480,true, false,[1689,2974,2804,1332]);
@@ -91,7 +88,9 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
-
+            $opciones['usuarioc'] = $dataxxxx['modeloxx']->creador->name;
+            $opciones['usuarioe'] = $dataxxxx['modeloxx']->modifico->name;
+            $usuarioz=$dataxxxx['modeloxx']->user_id;
             
          }
 

@@ -41,7 +41,7 @@ trait NnajEgresoTrait
             ->first();
         if (!is_null($simianti)) {
             $nnajupis = NnajUpi::where('sis_nnaj_id', $dataxxxx['nnajidxx'])->where('sis_depen_id', 37)
-            ->first();
+                ->first();
             $respuest = true;
         }
         return  $respuest;
@@ -66,20 +66,21 @@ trait NnajEgresoTrait
      */
     public function setActivarEgreso($dataxxxx)
     {
-       
+
         // * E
         $nnajupis = NnajUpi::where('sis_nnaj_id', $dataxxxx['nnajidxx'])->where('sis_depen_id', 37)
             ->first();
+        if (!is_null($nnajupis)) {
+            $nnajupis->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::id(), 'prm_principa_id' => 227]);
 
-        $nnajupis->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::id(), 'prm_principa_id' => 227]);
 
-
-        foreach ($nnajupis->nnaj_deses as $key => $value) {
-            $value->update([
-                'user_edita_id' => Auth::id(),
-                'prm_principa_id' => 227,
-                'sis_esta_id' => 1,
-            ]);
+            foreach ($nnajupis->nnaj_deses as $key => $value) {
+                $value->update([
+                    'user_edita_id' => Auth::id(),
+                    'prm_principa_id' => 227,
+                    'sis_esta_id' => 1,
+                ]);
+            }
         }
     }
 
@@ -89,12 +90,12 @@ trait NnajEgresoTrait
     public function getEgresNET($dataxxxx)
     {
         $respuest = $this->setTieneEgresoNET($dataxxxx);
-       
-            $tienegre = $this->setEgresoNET($dataxxxx);
-            if ($tienegre) {
-                $respuest = $tienegre;
-            }
-      
+
+        $tienegre = $this->setEgresoNET($dataxxxx);
+        if ($tienegre) {
+            $respuest = $tienegre;
+        }
+
         if ($respuest) {
             $this->getInactivarUpisNET($dataxxxx);
             $this->setActivarEgreso($dataxxxx);

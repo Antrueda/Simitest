@@ -3,14 +3,14 @@
   
   <div class="col-md-4">
     {{ Form::label('consul_id', 'Consulta Del Proceso Del NNAJ En Simi', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('consul_id', $todoxxxx['condicio'],null, ['class' => $errors->first('consul_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('consul_id', $todoxxxx['condicio'],null, ['class' => $errors->first('consul_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
         @if($errors->has('consul_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('consul_id') }}
           </div>
        @endif
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6" id="consudiv">
     {{ Form::label('observconsu', 'Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('observconsu', null, ['class' => $errors->first('observconsu') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 
     'id' => 'observconsu', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'cols'=>'30','rows'=>'4',
@@ -26,14 +26,14 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('verifi_id', 'Verificación De Historia Social', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('verifi_id', $todoxxxx['condicio'],null, ['class' => $errors->first('verifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('verifi_id', $todoxxxx['condicio'],null, ['class' => $errors->first('verifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
         @if($errors->has('verifi_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('verifi_id') }}
           </div>
        @endif
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6" id="veridiv">
     {{ Form::label('observerifi', 'Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('observerifi', null, ['class' => $errors->first('observerifi') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 
     'id' => 'observerifi', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();','cols'=>'30','rows'=>'4',
@@ -50,7 +50,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('contact_id', 'Contacto Telefónico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('contact_id', $todoxxxx['dependen'],null, ['class' => $errors->first('contact_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('contact_id', $todoxxxx['condicio'],null, ['class' => $errors->first('contact_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('contact_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('contact_id') }}
@@ -62,15 +62,11 @@
 
 
 
-
-
-
-        <h5>Tipo de Llamada</h5>
+<h5>Tipo de Llamada</h5>
 <hr>
 
       @include($todoxxxx['rutacarp'].'Seguimiento.Formulario.contacto')
       <hr>
-      <br>
       <hr>
       @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <hr>
@@ -78,7 +74,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('numcontac', 'Número de teléfono donde se estableció contacto', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('numcontac', null, ['class' => $errors->first('numcontac') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::text('numcontac', null, ['class' => $errors->first('numcontac') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('numcontac'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('numcontac') }}
@@ -87,7 +83,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('persocpntac', 'Nombre De La Persona Que Atiende La Llamada', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('persocpntac', null, ['class' => $errors->first('persocpntac') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::text('persocpntac', null, ['class' => $errors->first('persocpntac') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',  "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
         @if($errors->has('persocpntac'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('persocpntac') }}
@@ -105,7 +101,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('motivoe_id', 'Motivo egreso, inactivación y/o retiro según nnaj y/o familia (indagar en el contacto).', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('motivoe_id', $todoxxxx['dependen'],null, ['class' => $errors->first('motivoe_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('motivoe_id', $todoxxxx['motivoeg'],null, ['class' => $errors->first('motivoe_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('motivoe_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('motivoe_id') }}
@@ -119,7 +115,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('prm_tipoblaci_id', 'Tipo de población', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_tipoblaci_id', $todoxxxx['tipoblac'],null, ['class' => $errors->first('prm_tipoblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::text('prm_tipoblaci_id', $todoxxxx['usuariox']->prmTipoPobla->nombre, ['class' => $errors->first('prm_tipoblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
         @if($errors->has('prm_tipoblaci_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_tipoblaci_id') }}
@@ -128,16 +124,17 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('vulnera_id', 'Situaciones de vulneraciones', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('vulnera_id', $todoxxxx['vulnerax'],null, ['class' => $errors->first('vulnera_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple']) }}
+    {{ Form::select('prm_situacion_vulnera_id[]', $todoxxxx['situavul'],$todoxxxx['usuariox']->sis_nnaj->fi_situacion_especials->prm_situacion_vulnera_id, ['class' => $errors->first('vulnera_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple']) }}
         @if($errors->has('vulnera_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('vulnera_id') }}
           </div>
        @endif
   </div>
+  
   <div class="col-md-4">
     {{ Form::label('victimaescnna_id', 'Víctima ESCNNA', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('victimaescnna_id', $todoxxxx['escnaxxx'],null, ['class' => $errors->first('victimaescnna_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
+    {{ Form::select('i_prm_victima_escnna_id[]', $todoxxxx['vulnerax'],$todoxxxx['usuariox']->sis_nnaj->fi_situacion_especials->victima_escnnas, ['class' => $errors->first('victimaescnna_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
         @if($errors->has('victimaescnna_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('victimaescnna_id') }}
@@ -148,13 +145,14 @@
 
   <div class="col-md-4">
     {{ Form::label('riesgoescnna_id', 'En riesgo de ESCNNA', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('riesgoescnna_id', $todoxxxx['escnaxxx'],null, ['class' => $errors->first('riesgoescnna_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
+    {{ Form::select('i_prm_riesgo_escnna_id[]', $todoxxxx['vulnerax'],$todoxxxx['usuariox']->sis_nnaj->fi_situacion_especials->riesgo_escnnas, ['class' => $errors->first('riesgoescnna_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
         @if($errors->has('riesgoescnna_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('riesgoescnna_id') }}
           </div>
        @endif
   </div>
+  
   <div class="col-md-4">
     {{ Form::label('conflicto_id', '¿Es usted Joven en presunto conflicto con la ley?', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('conflicto_id', $todoxxxx['condicio'],null, ['class' => $errors->first('conflicto_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
@@ -171,7 +169,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('vincula_id', 'Vinculación laboral', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('vincula_id', $todoxxxx['acgening'],null, ['class' => $errors->first('vincula_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('vincula_id', $todoxxxx['acgening'],$todoxxxx['usuariox']->sis_nnaj->fi_generacion_ingresos->prm_actgeing_id, ['class' => $errors->first('vincula_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('vincula_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('vincula_id') }}
@@ -180,7 +178,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('s_trabajo_formal', 'Trabajo Formal', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_trabajo_formal', null, ['class' => $errors->first('s_trabajo_formal') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::text('s_trabajo_formal', $todoxxxx['usuariox']->sis_nnaj->fi_generacion_ingresos->s_trabajo_formal, ['class' => $errors->first('s_trabajo_formal') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('s_trabajo_formal'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('s_trabajo_formal') }}
@@ -189,16 +187,17 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('prm_trabinfo_id', 'Trabajo Informal', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_trabinfo_id', $todoxxxx['trabinfo'],null, ['class' => $errors->first('prm_trabinfo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_trabinfo_id', $todoxxxx['trabinfo'],$todoxxxx['usuariox']->sis_nnaj->fi_generacion_ingresos->prm_trabinfo_id, ['class' => $errors->first('prm_trabinfo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_trabinfo_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_trabinfo_id') }}
           </div>
        @endif
   </div>
+  
   <div class="col-md-4">
     {{ Form::label('prm_otractiv_id', 'Otras Actividades', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_otractiv_id', $todoxxxx['otractiv'],null, ['class' => $errors->first('prm_otractiv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_otractiv_id', $todoxxxx['otractiv'],$todoxxxx['usuariox']->sis_nnaj->fi_generacion_ingresos->prm_otractiv_id, ['class' => $errors->first('prm_otractiv_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_otractiv_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_otractiv_id') }}
@@ -207,7 +206,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('prm_tiprelab_id', '¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_tiprelab_id', $todoxxxx['tiporela'],null, ['class' => $errors->first('prm_tiprelab_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_tiprelab_id', $todoxxxx['tiporela'],$todoxxxx['usuariox']->sis_nnaj->fi_generacion_ingresos->prm_tiprelab_id, ['class' => $errors->first('prm_tiprelab_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_tiprelab_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_tiprelab_id') }}
@@ -219,7 +218,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('emprende_id', 'Emprendimiento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('emprende_id', $todoxxxx['condicio'],null, ['class' => $errors->first('emprende_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('emprende_id', $todoxxxx['condicio'],null, ['class' => $errors->first('emprende_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc3(this.value)']) }}
         @if($errors->has('emprende_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('emprende_id') }}

@@ -13,7 +13,7 @@ class EgreSegui extends Model
         'persocpntac', 'parent_id','motivoe_id',
         'vulnera_id', 'victimaescnna_id','riesgoescnna_id',
         'conflicto_id', 'vincula_id','emprende_id',
-        'egreso_id',
+        'egreso_id','observemp'
         
     ];
 

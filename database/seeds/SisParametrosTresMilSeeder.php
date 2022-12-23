@@ -959,6 +959,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'COGNITIVO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2910
     Parametro::create(['nombre' => 'CONDUCTUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2911
 
+<<<<<<< HEAD
     Parametro::create([ 'nombre' => 'A. LOS DERECHOS DE LOS NIÑOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:50:37 PM', 'updated_at' => '15-10-2022 04:50:37 PM', ]); // 2912,
     Parametro::create([ 'nombre' => 'B. EL TERRITORIO CON MIS OJOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:54:49 PM', 'updated_at' => '15-10-2022 04:54:49 PM', ]); // 2913,
     Parametro::create([ 'nombre' => 'C. LA FAMILIA COMO ENTORNO PROTECTOR Y GARANTE DE DERECHOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:55:05 PM', 'updated_at' => '15-10-2022 04:55:05 PM', ]); // 2914,
@@ -1003,10 +1004,77 @@ class SisParametrosTresMilSeeder extends Seeder
 
 
 
+=======
+    Parametro::create(['nombre' => 'A. LOS DERECHOS DE LOS NIÑOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:50:37 PM', 'updated_at' => '15-10-2022 04:50:37 PM',]); // 2912,
+    Parametro::create(['nombre' => 'B. EL TERRITORIO CON MIS OJOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:54:49 PM', 'updated_at' => '15-10-2022 04:54:49 PM',]); // 2913,
+    Parametro::create(['nombre' => 'C. LA FAMILIA COMO ENTORNO PROTECTOR Y GARANTE DE DERECHOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:55:05 PM', 'updated_at' => '15-10-2022 04:55:05 PM',]); // 2914,
+    Parametro::create(['nombre' => 'D. EL TAPIZ VIAJERO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:56:18 PM', 'updated_at' => '15-10-2022 04:56:18 PM',]); // 2915,
+    Parametro::create(['nombre' => 'E. AMAR NO ES MALTRATAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:56:33 PM', 'updated_at' => '15-10-2022 04:56:33 PM',]); // 2916,
+    Parametro::create(['nombre' => 'F. EXPOSICIÓN ITINERANTE "ES REAL PERO NO NATURAL".', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:56:53 PM', 'updated_at' => '15-10-2022 05:04:01 PM',]); // 2917,
+    Parametro::create(['nombre' => 'G. LOS SECRETOS Y MIS PARTES PRIVADAS.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:58:35 PM', 'updated_at' => '15-10-2022 04:58:35 PM',]); // 2918,
+    Parametro::create(['nombre' => 'H. LA VIOLENCIA SEXUAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:59:09 PM', 'updated_at' => '15-10-2022 04:59:09 PM',]); // 2919,
+    Parametro::create(['nombre' => 'I. LA VIOLENCIA SEXUAL CONTRA NIÑAS, NIÑOS Y ADOLESCENTES.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:59:26 PM', 'updated_at' => '15-10-2022 04:59:26 PM',]); // 2920,
+    Parametro::create(['nombre' => 'J. QUÉ ES LA ESCNNA?.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:59:40 PM', 'updated_at' => '15-10-2022 04:59:40 PM',]); // 2921,
+    Parametro::create(['nombre' => 'K. LA ESCNNA EN MI TERRITORIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 04:59:55 PM', 'updated_at' => '15-10-2022 04:59:55 PM',]); // 2922,
+    Parametro::create(['nombre' => 'A. LA HISTORIA DE REINVIDICACIONES DE LOS DERECHOS DE LAS MUJERES.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:04:31 PM', 'updated_at' => '15-10-2022 05:04:31 PM',]); // 2923,
+    Parametro::create(['nombre' => 'B. LA IGUALDAD DE LOS DERECHOS DE LOS NIÑOS, MUJERES Y HOMBRES.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:06:58 PM', 'updated_at' => '15-10-2022 05:06:58 PM',]); // 2924,
+    Parametro::create(['nombre' => 'C. LA EQUIDAD DE GÉNERO Y EL CUIDADO CORRESPONSABLE.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:07:25 PM', 'updated_at' => '15-10-2022 05:07:25 PM',]); // 2925,
+    Parametro::create(['nombre' => 'D. LAS REDES DE APOYO FAMILIARES, SOCIALES (SORORIDAD) E INSTITUCIONALES.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:07:53 PM', 'updated_at' => '15-10-2022 05:07:53 PM',]); // 2926,
+    Parametro::create(['nombre' => 'E. ENCUENTRO PEDAGÓGICO JUVENIL.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:08:12 PM', 'updated_at' => '15-10-2022 05:08:12 PM',]); // 2927,
+    Parametro::create(['nombre' => 'A. DESFILE DE COMPARSAS.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:08:34 PM', 'updated_at' => '15-10-2022 05:08:34 PM',]); // 2928,
+    Parametro::create(['nombre' => 'B. TOMAS CULTURALES EN LOS TERRITORIOS PRIORIZADOS.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:08:57 PM', 'updated_at' => '15-10-2022 05:08:57 PM',]); // 2929,
+    Parametro::create(['nombre' => 'CIA- PREVENCIÓN DE LA VIOLENCIA INTRAFAMILIAR Y LA VIOLENCIA SEXUAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:29:21 PM', 'updated_at' => '15-10-2022 05:29:21 PM',]); // 2930,
+    Parametro::create(['nombre' => 'CIA- FORTALECIMIENTO DE VÍNCULOS FAMILIARES', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:34:37 PM', 'updated_at' => '15-10-2022 05:34:37 PM',]); // 2931,
+    Parametro::create(['nombre' => 'CIA- FORTALECIMIENTO DE ORGANIZACIONES JUVENILES', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '15-10-2022 05:35:11 PM', 'updated_at' => '15-10-2022 05:35:11 PM',]); // 2932,
+    Parametro::create(['nombre' => 'L. FESTIVAL POR LA NIÑEZ', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '03-11-2022 12:32:40 PM', 'updated_at' => '03-11-2022 12:59:48 PM',]); // 2933,
+    Parametro::create(['nombre' => 'FORMATO ASISTENCIA TALLERES YO ACCIONES FORMATIVAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '03-11-2022 03:07:01 PM', 'updated_at' => '03-11-2022 03:07:01 PM',]); // 2934,
+    Parametro::create(['nombre' => 'FORMATO ASISTENCIA TALLERES EDUCATIVOS CON FAMILIAS Y/O REDES DE APOYO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '03-11-2022 03:20:40 PM', 'updated_at' => '03-11-2022 03:20:40 PM',]); // 2935,
+    Parametro::create(['nombre' => 'REGISTRO ASISTENCIA COMITÉ, JUNTA, REUNIÓN, CAPACITACIÓN Y/O ACTIVIDADES DE BIENESTAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '03-11-2022 03:27:53 PM', 'updated_at' => '03-11-2022 03:27:53 PM',]); // 2936,
+    Parametro::create(['nombre' => 'ACUERDO DE CORRESPONSABILIDAD CONVENIO FDL FONTIBÓN N° 331/2022', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '10-11-2022 10:53:11 AM', 'updated_at' => '10-11-2022 10:53:11 AM',]); // 2937,
+    Parametro::create(['nombre' => 'CASO JURÍDICO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2938,
 
+    Parametro::create(['nombre' => 'MAXILOFACIAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2939,
+    Parametro::create(['nombre' => 'PERIODONCIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2940,
+    Parametro::create(['nombre' => 'ESTOMATOLOGÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2941,
+    Parametro::create(['nombre' => 'ORTODONCIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2942,
+    Parametro::create(['nombre' => 'ODONTOPEDIATRIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2943,
+    Parametro::create(['nombre' => 'ODONTOLOGÍA EPS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2944,
+>>>>>>> master
 
+    Parametro::create(['nombre' => 'ANTIBIÓTICOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2945,
+    Parametro::create(['nombre' => 'ANALGÉSICOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2946,
+    Parametro::create(['nombre' => 'CORTICOIDES', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2947,
 
+    Parametro::create(['nombre' => 'L. PREVENCIÓN DE VIOLENCIAS EN EL NOVIAZGO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2948,
+    Parametro::create(['nombre' => 'M. PREVENCIÓN DE VIOLENCIAS DE GÉNERO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2949,
+    Parametro::create(['nombre' => 'F. ROLES DE GÉNERO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2950,
 
+    Parametro::create(['nombre' => 'ARTES GRAFICAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2951,
+    Parametro::create(['nombre' => 'AUDIOVISUAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2952,
+    Parametro::create(['nombre' => 'DANZA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2953,
+    Parametro::create(['nombre' => 'DEPORTE', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2954,
+    Parametro::create(['nombre' => 'DIBUJO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2955,
+    Parametro::create(['nombre' => 'ESCRITURA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2956,
+    Parametro::create(['nombre' => 'FOTOGRAFÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2957,
+    Parametro::create(['nombre' => 'HIP/HOP', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2958,
+    Parametro::create(['nombre' => 'PINTURA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2959,
+    Parametro::create(['nombre' => 'LECTURA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2960,
+    Parametro::create(['nombre' => 'MEDIO AMBIENTE', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2961,
+    Parametro::create(['nombre' => 'MUSICA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2962,
+    Parametro::create(['nombre' => 'TEATRO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2963,
+    Parametro::create(['nombre' => 'TECNOLOGÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2964,
+    Parametro::create(['nombre' => 'TEJIDO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2965,
+
+    Parametro::create(['nombre' => 'COMPRENDER', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2966,
+    Parametro::create(['nombre' => 'EXPRESAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2967,
+    Parametro::create(['nombre' => 'CREAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2968,
+    Parametro::create(['nombre' => 'ARGUMENTAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2969,
+    Parametro::create(['nombre' => 'EVALUAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2970,
+    Parametro::create(['nombre' => 'OPERATORIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2971,
+    Parametro::create(['nombre' => 'PPT', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2972,
+    Parametro::create(['nombre' => 'ODONTOLOGÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2973,
+    Parametro::create(['nombre' => 'CONTROL O SEGUIMIENTO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '17-11-2022 03:37:46 PM', 'updated_at' => '17-11-2022 03:37:46 PM',]); // 2974,
+    Parametro::create([ 'nombre' => 'M. ACTIVIDADES DECEMBRINAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '16-12-2022 11:24:37 AM', 'updated_at' => '16-12-2022 11:24:37 AM', ]); // 2975,
 
 
 

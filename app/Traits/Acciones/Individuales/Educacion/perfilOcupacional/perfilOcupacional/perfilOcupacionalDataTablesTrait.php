@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional;
+namespace App\Traits\Acciones\Individuales\Educacion\PerfilOcupacional\PerfilOcupacional;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait perfilOcupacionalDataTablesTrait
+trait PerfilOcupacionalDataTablesTrait
 {
    /**
      * grabar o actualizar registros para paises

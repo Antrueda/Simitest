@@ -142,29 +142,21 @@
 		<div class="row">
 			<div class="col-md-4">
 				{{ Form::label('dia_morir', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('dia_morir', null, ['class' => $errors->first('dia_morir') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
-				@if($errors->has('dia_morir'))
-					<div class="invalid-feedback d-block">
-						{{ $errors->first('dia_morir') }}
-					</div>
-				@endif
+				{{ Form::number('dia_morir', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('mes_morir', 'Mes(es)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('mes_morir', null, ['class' => $errors->first('mes_morir') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
-				@if($errors->has('mes_morir'))
-					<div class="invalid-feedback d-block">
-						{{ $errors->first('mes_morir') }}
-					</div>
-				@endif
+				{{ Form::number('mes_morir', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('ano_morir', 'Año(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('ano_morir', null, ['class' => $errors->first('ano_morir') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
-				@if($errors->has('ano_morir'))
-					<div class="invalid-feedback d-block">
-						{{ $errors->first('ano_morir') }}
-					</div>
+				{{ Form::number('ano_morir', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
+			</div>
+			<div class="col-12">
+				@if($errors->has('dia_morir'))
+				<div class="invalid-feedback d-block">
+					{{ $errors->first('dia_morir') }}
+				</div>
 				@endif
 			</div>
 		</div>
@@ -275,27 +267,28 @@
 	</div>
 
 </div>
-<div class="row">
-	<div class="col-md">
-		{{ Form::label('motivos', '12.20 Indique los motivos o situaciones por el cual se ha tenido pensamientos, amenazas e intentos de quitarse la vida', ['class' => 'control-label col-form-label-sm']) }}
-		<div id="motivos_div">
-			{{ Form::select('motivos[]', $todoxxxx['aconteci'], null, ['class' => $errors->first('motivos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple']) }}
+<div id="motivos_div">
+	<div class="row">
+		<div class="col-md">
+			{{ Form::label('motivos', '12.20 Indique los motivos o situaciones por el cual se ha tenido pensamientos, amenazas e intentos de quitarse la vida', ['class' => 'control-label col-form-label-sm']) }}
+			
+				{{ Form::select('motivos[]', $todoxxxx['aconteci'], null, ['class' => $errors->first('motivos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple']) }}
+			@if($errors->has('motivos'))
+				<div class="invalid-feedback d-block">
+					{{ $errors->first('motivos') }}
+				</div>
+			@endif
 		</div>
-		@if($errors->has('motivos'))
-			<div class="invalid-feedback d-block">
-				{{ $errors->first('motivos') }}
-			</div>
-		@endif
-	</div>
-	<div class="col-md">
-		{{ Form::label('descripcion_motivo', '12.21 Descripción', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::textarea('descripcion_motivo', null, ['class' => $errors->first('descripcion_motivo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-		<p id="contadordescripcion5">0/4000</p>
-		@if($errors->has('descripcion_motivo'))
-			<div class="invalid-feedback d-block">
-				{{ $errors->first('descripcion_motivo') }}
-			</div>
-		@endif
+		<div class="col-md">
+			{{ Form::label('descripcion_motivo', '12.21 Descripción', ['class' => 'control-label col-form-label-sm']) }}
+			{{ Form::textarea('descripcion_motivo', null, ['class' => $errors->first('descripcion_motivo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+			<p id="contadordescripcion5">0/4000</p>
+			@if($errors->has('descripcion_motivo'))
+				<div class="invalid-feedback d-block">
+					{{ $errors->first('descripcion_motivo') }}
+				</div>
+			@endif
+		</div>
 	</div>
 </div>
 <div class="row">

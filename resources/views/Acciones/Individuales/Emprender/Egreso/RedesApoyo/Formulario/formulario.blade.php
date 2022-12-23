@@ -45,13 +45,13 @@
     {{ Form::label('dificulta_id', '¿Presenta dificultades para acceder a alguna red de apoyo? ', ['class' => 'control-label col-form-label-sm']) }}
     <div class="form-check">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input"
+            <input type="radio" class="form-check-input" onchange = "doc(this.value);"
             name="dificulta_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->dificulta_id == 227) ? 'checked' : ''; ?> value="227" {{ old("dificulta_id") == '227' ? 'checked' : '' }}>SI
         </label>
     </div>
     <div class="form-check disabled">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input {{$errors->first('dificulta_id') ? ' is-invalid' : ''}}"
+            <input type="radio" class="form-check-input {{$errors->first('dificulta_id') ? ' is-invalid' : ''}}" onchange = "doc(this.value);"
             name="dificulta_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->dificulta_id == 228) ? 'checked' : ''; ?> value="228" {{ old("dificulta_id") == '228' ? 'checked' : '' }}>NO
         </label>
     </div>
@@ -62,18 +62,18 @@
     @endif
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6" id="whodiv">
       {{ Form::label('aclara_id', '¿Quien? ', ['class' => 'control-label col-form-label-sm']) }}
       <div class="form-check">
           <label class="form-check-label">
               <input type="radio" class="form-check-input"
-              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 227) ? 'checked' : ''; ?> value="227" {{ old("aclara_id") == '805' ? 'checked' : '' }}>NNAJ
+              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 227) ? 'checked' : ''; ?> value="227" {{ old("aclara_id") == '227' ? 'checked' : '' }}>NNAJ
           </label>
       </div>
       <div class="form-check disabled">
           <label class="form-check-label">
               <input type="radio" class="form-check-input {{$errors->first('aclara_id') ? ' is-invalid' : ''}}"
-              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 228) ? 'checked' : ''; ?> value="228" {{ old("aclara_id") == '228' ? 'checked' : '' }}>Familia
+              name="aclara_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->aclara_id == 447) ? 'checked' : ''; ?> value="447" {{ old("aclara_id") == '447' ? 'checked' : '' }}>Familia
           </label>
       </div>
       @if($errors->has('aclara_id'))
@@ -85,9 +85,9 @@
     </div>
       <div class="row">
 
-      <div class="col-md-6">
+      <div class="col-md-6" id="difidiv">
         {{ Form::label('predifi_id', 'Motivos por el cual se presenta la dificultad:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('predifi_id', $todoxxxx['condicio'],null, ['class' => $errors->first('predifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('predifi_id', $todoxxxx['motivosx'],null, ['class' => $errors->first('predifi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
             @if($errors->has('predifi_id'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('predifi_id') }}
@@ -115,17 +115,37 @@
     </div>
     @endif
     </div>
+    {{-- <div class="col-md-6">
+        {{ Form::label('restriserv_id', '¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo?  ', ['class' => 'control-label col-form-label-sm']) }}
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" 
+                name="restriserv_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->restriserv_id == 227) ? 'checked' : ''; ?> value="227" {{ old("restriserv_id") == '227' ? 'checked' : '' }}>SI
+            </label>
+        </div>
+        <div class="form-check disabled">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input {{$errors->first('restriserv_id') ? ' is-invalid' : ''}}" 
+                name="restriserv_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->restriserv_id == 228) ? 'checked' : ''; ?> value="228" {{ old("restriserv_id") == '228' ? 'checked' : '' }}>NO
+            </label>
+        </div>
+        @if($errors->has('restriserv_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('restriserv_id') }}
+        </div>
+        @endif
+        </div> --}}
     <div class="col-md-6">
-      {{ Form::label('restriespa_id', '¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo? ', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('restriespa_id', '¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo?', ['class' => 'control-label col-form-label-sm']) }}
       <div class="form-check">
           <label class="form-check-label">
-              <input type="radio" class="form-check-input"
+              <input type="radio" class="form-check-input" onchange = "doc1(this.value);"
               name="restriespa_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->restriespa_id == 227) ? 'checked' : ''; ?> value="227" {{ old("restriespa_id") == '227' ? 'checked' : '' }}>SI
           </label>
       </div>
       <div class="form-check disabled">
           <label class="form-check-label">
-              <input type="radio" class="form-check-input {{$errors->first('restriespa_id') ? ' is-invalid' : ''}}"
+              <input type="radio" class="form-check-input {{$errors->first('restriespa_id') ? ' is-invalid' : ''}}" onchange = "doc1(this.value);"
               name="restriespa_id" <?php echo (isset($todoxxxx['modeloxx']) && $todoxxxx['modeloxx']->restriespa_id == 228) ? 'checked' : ''; ?> value="228" {{ old("restriespa_id") == '228' ? 'checked' : '' }}>NO
           </label>
       </div>
@@ -136,9 +156,9 @@
       @endif
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6" id="motivodiv">
         {{ Form::label('motivore_id', 'Motivos de restricción de acceso a espacios, servicio o redes de apoyo:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('motivore_id', $todoxxxx['condicio'],null, ['class' => $errors->first('motivore_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('motivore_id', $todoxxxx['accesoxx'],null, ['class' => $errors->first('motivore_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
             @if($errors->has('motivore_id'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('motivore_id') }}
