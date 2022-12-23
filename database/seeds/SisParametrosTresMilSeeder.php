@@ -1038,6 +1038,12 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'VERIFICACIÓN DE PROCESO: (ICBF O COMISARIA DE FAMILIA PARA NNA), (PROCESO EN EL EJÉRCITO: JOVEN).', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:48:40 PM', 'updated_at' => '22-12-2022 07:48:40 PM',]); // 2983,
     Parametro::create(['nombre' => 'DECESO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:48:47 PM', 'updated_at' => '22-12-2022 07:48:47 PM',]); // 2984,
     Parametro::create(['nombre' => 'VERIFICACIÓN DEL GOCE PARCIAL DE DERECHOS DEL/LA JOVEN.', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 07:48:58 PM', 'updated_at' => '22-12-2022 07:48:58 PM',]); // 2985,
+    Parametro::create(['nombre' => 'APAGADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:09:46 PM', 'updated_at' => '22-12-2022 09:09:46 PM',]); // 2986,
+    Parametro::create(['nombre' => 'FUERA DE SERVICIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:04 PM', 'updated_at' => '22-12-2022 09:10:04 PM',]); // 2987,
+    Parametro::create(['nombre' => 'NÚMERO EQUIVOCADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:12 PM', 'updated_at' => '22-12-2022 09:10:12 PM',]); // 2988,
+    Parametro::create(['nombre' => 'FUERA DE COBERTURA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:18 PM', 'updated_at' => '22-12-2022 09:10:18 PM',]); // 2989,
+    Parametro::create(['nombre' => 'SIN SEÑAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:26 PM', 'updated_at' => '22-12-2022 09:10:26 PM',]); // 2990,
+    Parametro::create([ 'nombre' => 'SIN RESPUESTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM', ]); // 2991,
 
 
 
