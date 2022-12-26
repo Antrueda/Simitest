@@ -7,16 +7,18 @@ namespace App\Traits\Acciones\Individuales\Emprender\Egreso;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
 
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
+use App\Models\Acciones\Individuales\Emprender\Egreso\EgreApoyo;
 use App\Models\Acciones\Individuales\Emprender\Egreso\EgresoTelefono;
 use App\Models\Acciones\Individuales\Emprender\Egreso\SEgreso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\VDiagnostico;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Vsmedicina;
+use App\Models\CentroZonal\CentroZosec;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisNnaj;
-
+use App\Models\Tema;
 use App\Traits\DatatableTrait;
 
 use Illuminate\Http\Request;
@@ -109,18 +111,19 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  EgresoTelefono::select([
-                'egreso_telefonos.id',
-                'egreso_telefonos.fechareg',
-                'egreso_telefonos.obserllamad',
+            $dataxxxx =  EgreApoyo::select([
+                'egre_apoyos.id',
+                'egre_apoyos.nombreper',
+                'egre_apoyos.servicios',
+                'egre_apoyos.contacto',
                 'sis_estas.s_estado',
-                'tipollama.nombre as tipollama',
-                'egreso_telefonos.sis_esta_id',
+                'tipored.nombre as tipored',
+                'egre_apoyos.sis_esta_id',
                 ])
-                ->join('sis_estas', 'egreso_telefonos.sis_esta_id', '=', 'sis_estas.id')
-                ->join('parametros as tipollama', 'egreso_telefonos.tipollama_id', '=', 'tipollama.id')
-                ->where('egreso_telefonos.sis_esta_id', 1)
-                ->where('egreso_telefonos.egreso_id',$padrexxx->id);
+                ->join('sis_estas', 'egre_apoyos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as tipored', 'egre_apoyos.tipo_id', '=', 'tipored.id')
+                ->where('egre_apoyos.sis_esta_id', 1)
+                ->where('egre_apoyos.egreso_id',$padrexxx->id);
                 
 
             return $this->getDtEgreso($dataxxxx, $request);
@@ -148,7 +151,7 @@ trait ListadosTrait
                 'nnaj_nacimis.d_nacimiento',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
-    
+                
             ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -169,7 +172,7 @@ trait ListadosTrait
 
             $dataxxxx = [
                 'tipodocu' => ['prm_doc_id', ''],
-                'parentes' => ['prm_parentezco_id', ''],
+                'parentes' => ['parent_id', ''],
                 
 
             ];
@@ -227,9 +230,81 @@ trait ListadosTrait
             $modeloxx->delete();
             return response()->json($respuest);
         }
-      
-    }
+      }
 
+      function getAgregarRed(Request $request, SEgreso $padrexxx)
+      {
+          if ($request->ajax()) {
+              $respuest = [];
+              $dataxxxx = $request->all();
+              $dataxxxx['sis_esta_id'] = 1;
+              EgreApoyo::transaccion($dataxxxx, '');
+              return response()->json($respuest);
+          }
+      }
+  
+      public function quitarRed(Request $request)
+      {
+          if ($request->ajax()) {
+              $respuest = [];
+              $dataxxxx = $request->all();
+              $modeloxx = EgreApoyo::where('id',$dataxxxx['id'])->first();
+              $modeloxx->delete();
+              return response()->json($respuest);
+          }
+        }
+
+        public function getCentroTp($dataxxxx)
+        {
+    
+            $dataxxxx['dataxxxx'] = CentroZosec::select(['centro_zosecs.id as valuexxx', 'centro_zosecs.nombre as optionxx'])
+                ->join('asignar_centros', 'centro_zosecs.id', '=', 'asignar_centros.censec_id')
+                ->where('asignar_centros.centro_id', $dataxxxx['tipocurs'])
+                ->where('centro_zosecs.sis_esta_id', 1)
+                ->orderBy('centro_zosecs.id', 'asc')
+                ->get();
+            $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+            return    $respuest;
+        }
+    
+    
+        public function getCentro(Request $request)
+        {
+            $dataxxxx = [
+                'cabecera' => true,
+                'ajaxxxxx' => true,
+                'selected' => $request->selected,
+                'orderxxx' => 'ASC',
+                'tipocurs' => $request->upixxxxx,
+                
+            ];
+            $dataxxxx['cabecera'] = $request->cabecera;
+    
+            $respuest = response()->json($this->getCentroTp($dataxxxx));
+            return $respuest;
+        }
+
+        
+        public function getMotivo(Request $request)
+        {
+            $dataxxxx = [
+                'cabecera' => true,
+                'ajaxxxxx' => true,
+                'selected' => $request->selected,
+                'orderxxx' => 'ASC',
+                'tipocurs' => $request->upixxxxx,
+            ];
+            if($dataxxxx['tipocurs']==2977){
+                $respuest =Tema::comboNotIn(482, true, true,[2984,2985]);
+            }else{
+                $respuest =Tema::comboNotIn(482, true, true,[2979,2980,2981,2982,2983]);
+            }
+
+            $dataxxxx['cabecera'] = $request->cabecera;
+    
+            //$respuest = response()->json($this->getModuloTp($dataxxxx));
+            return $respuest;
+        }
 
   
 

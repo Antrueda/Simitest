@@ -57,17 +57,19 @@ trait VistasTrait
         $opciones['factorrh'] = Tema::combo(18, true, false);
         $opciones['pais_idx'] = SisPai::combo(true, false);
         $opciones['localida'] = SisLocalidad::combo();
-        $opciones['condicio'] = Tema::combo(23, true, false);
-        $opciones['tipodire'] = Tema::comboAsc(36, true, false);
-        $opciones['zonadire'] = Tema::comboAsc(37, true, false);
+        $opciones['condicio'] = Tema::combo(372, true, false);//N/A
+        $opciones['tipodire'] = Tema::comboNA(36, true, false);
+        $opciones['zonadire'] = Tema::comboNA(37, true, false);
         $opciones['cuadrant'] = Tema::comboNA(38, true, false);
         $opciones['alfabeto'] = Tema::comboNA(39, true, false);
-        $opciones['tpviapal'] = Tema::comboAsc(62, true, false);
+        $opciones['tpviapal'] = Tema::comboNA(62, true, false);
         $opciones['dircondi'] = Tema::combo(23, true, false);
         $opciones['localida'] = SisLocalidad::combo();
         $opciones['estadoxx'] = Tema::comboAsc(441,true, false);
         $opciones['dinamica'] = Tema::comboAsc(249,true, false);
         $opciones['estadoxx'] = Tema::comboAsc(436, true, false);
+        $opciones['parentes'] = Tema::comboAsc(358,true, false);
+        $opciones['ulgradap'] = Tema::comboAsc(154, true, false);
         if ($opciones['usuariox']->prm_tipoblaci_id == 650) {
             $opciones['readchcx'] = 'readonly';
             $opciones['residees'] = [235 => 'N/A'];

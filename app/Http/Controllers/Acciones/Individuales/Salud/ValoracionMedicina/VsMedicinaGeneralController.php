@@ -93,8 +93,11 @@ class VsMedicinaGeneralController extends Controller
     public function store(VsmedicinaCrearRequest $request, SisNnaj $padrexxx)
     { //
 
-        $request->request->add(['sis_esta_id' => 1]);
-        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
+        $request->request->add(['sis_esta_id'=> 1]);
+        $request->request->add(['sis_nnaj_id'=> $padrexxx->id]);
+
+      
+
         return $this->setMedicinaGeneral([
             'requestx' => $request, //
             'modeloxx' => '',

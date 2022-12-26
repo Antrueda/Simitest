@@ -17,15 +17,18 @@ class SEgreso extends Model
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
     public function derechos(){
-        return $this->belongsTo(EgresoDere::class, 'egreso_id');
+        return $this->hasOne(EgresoDere::class, 'egreso_id');
     }
 
     public function seguimiento(){
-        return $this->belongsTo(EgreSegui::class, 'egreso_id');
+        return $this->hasOne(EgreSegui::class, 'egreso_id');
     }
 
     public function redes(){
-        return $this->belongsTo(EgreRede::class, 'egreso_id');
+        return $this->hasOne(EgreRede::class, 'egreso_id');
+    }
+    public function comite(){
+        return $this->hasOne(EgreComite::class, 'egreso_id');
     }
 
     public function apoyo(){

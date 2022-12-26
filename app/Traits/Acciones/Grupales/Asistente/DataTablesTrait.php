@@ -2,6 +2,8 @@
 
 namespace App\Traits\Acciones\Grupales\Asistente;
 
+use Illuminate\Support\Facades\Auth;
+
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
@@ -64,7 +66,7 @@ trait DataTablesTrait
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
                 'vercrear' => false,
-                'urlxxxxx' => route('agactividad.agasiste', $this->opciones['padrexxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
+                'urlxxxxx' => route('agactividad.agasiste', [$this->opciones['padrexxx']->id,2]), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                 'permtabl' => [
                     'agactividad-leer',
                 ],
@@ -95,6 +97,8 @@ trait DataTablesTrait
                 'routxxxx' => 'agasiste',
                 'parametr' => [$this->opciones['padrexxx']->id],
             ];
+            if(Auth::user()->s_documento=='17496705'){
+            }
         $this->opciones['ruarchjs'][] =
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
         return $this->opciones;

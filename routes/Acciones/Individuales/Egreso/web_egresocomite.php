@@ -1,6 +1,6 @@
 <?php
 $routxxxx = 'egresocomite';
-$controll = 'Acciones\Individuales\Emprendimiento\Egreso\EgresoBasicos';
+$controll = 'Acciones\Individuales\Emprendimiento\Egreso\EgresoComite';
 Route::group(['prefix' => '{padrexxx}/EgresoComite'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
@@ -14,10 +14,10 @@ Route::group(['prefix' => '{padrexxx}/EgresoComite'], function () use ($controll
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
-	Route::get('listaxxz', [
-        'uses' => $controll . 'Controller@listaDientes',
+    Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@listaSEgresos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listaxxz');
+    ])->name($routxxxx . '.listaxxx');
 
 
 });
@@ -69,6 +69,11 @@ Route::group(['prefix' => 'EgresoComites'], function () use ($controll, $routxxx
         'uses' => $controll . 'Controller@activate',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+
+    Route::get('motivo', [
+        'uses' => $controll . 'Controller@getMotivo',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+	])->name($routxxxx . '.motivo');
 
     Route::put('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activar',

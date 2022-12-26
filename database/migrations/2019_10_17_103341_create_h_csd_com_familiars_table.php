@@ -41,7 +41,7 @@ class CreateHCsdComFamiliarsTable extends Migration
             $table->integer('prm_vin_pasado_id')->unsigned()->nullable()->comment('CAMPO ESTUVO VINCULADO AL IDIPRON');
             $table->integer('prm_regimen_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO REGIMEN');
             $table->integer('prm_cualeps_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO EPS');
-            $table->decimal('sisben', 19, 2)->nullable()->comment('CAMPO SISBEN');
+            $table->string('sisben', 19)->nullable()->comment('CAMPO SISBEN');
             $table->integer('prm_sisben_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SISBEN');
             $table->integer('prm_discapacidad_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DISCAPACIDAD');
             $table->integer('prm_cual_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO CUAL DISCAPACIDAD');

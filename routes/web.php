@@ -12,44 +12,74 @@
 */
 
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
+use App\Models\Permissionext;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-route::get('/cache',function(){
-Artisan::call('view:cache');
-Artisan::call('route:cache');
-return 'exito';
+route::get('/cache', function () {
+    Artisan::call('view:cache');
+    Artisan::call('route:cache');
+    return 'exito';
 });
-route::get('/pruebasjose',function(){
-$asddiari=AsdDiaria::join('sis_depens','asd_diarias.sis_depen_id','=','sis_depens.id')
+route::get('/pruebasjose', function () {
+    // $asddiari = AsdDiaria::join('sis_depens', 'asd_diarias.sis_depen_id', '=', 'sis_depens.id')
 
-->join('sis_upzbarris','sis_depens.sis_upzbarri_id','=','sis_upzbarris.id')
-->where('prm_lugactiv_id','2762')
-->groupBy('asd_diarias.sis_depen_id','sis_upzbarris.sis_localupz_id','sis_depens.sis_upzbarri_id')
-->get(['asd_diarias.sis_depen_id','sis_depens.sis_upzbarri_id','sis_upzbarris.sis_localupz_id'])
-;
-foreach ($asddiari as $key => $value) {
-     AsdDiaria::where('sis_depen_id',$value->sis_depen_id)->update(['sis_localupz_id'=>$value->sis_localupz_id,'sis_upzbarri_id'=>$value->sis_upzbarri_id]);
-    // echo $value->sis_depen_id.' '.$value->sis_localupz_id.' '.$value->sis_upzbarri_id.'<br>';
-}
+    //     ->join('sis_upzbarris', 'sis_depens.sis_upzbarri_id', '=', 'sis_upzbarris.id')
+    //     ->where('prm_lugactiv_id', '2762')
+    //     ->groupBy('asd_diarias.sis_depen_id', 'sis_upzbarris.sis_localupz_id', 'sis_depens.sis_upzbarri_id')
+    //     ->get(['asd_diarias.sis_depen_id', 'sis_depens.sis_upzbarri_id', 'sis_upzbarris.sis_localupz_id']);
+    // foreach ($asddiari as $key => $value) {
+    //     AsdDiaria::where('sis_depen_id', $value->sis_depen_id)->update(['sis_localupz_id' => $value->sis_localupz_id, 'sis_upzbarri_id' => $value->sis_upzbarri_id]);
+    //     // echo $value->sis_depen_id.' '.$value->sis_localupz_id.' '.$value->sis_upzbarri_id.'<br>';
+    // }
+
+    Permissionext::create([
+        'name' => 'nnajdese-listaxxx',
+        'descripcion' => 'Permiso que pemite mostrar la lista de los servicios que tiene asociados la dependencia',
+        'sis_pestania_id' => 1,
+        'user_crea_id' => 1,
+        'user_edita_id' => 1,
+        'sis_esta_id' => 1
+    ]);
+    
+    Permissionext::create([
+        'name' => 'nnajdese-activarx',
+        'descripcion' => 'Permiso que permite ativar los servicios que tiene asociados la dependencia',
+        'sis_pestania_id' => 1,
+        'user_crea_id' => 1,
+        'user_edita_id' => 1,
+        'sis_esta_id' => 1
+    ]);
+
+    Permissionext::create([
+        'name' => 'nnajdese-inactiva',
+        'descripcion' => 'Permiso que permite inactivar los servicios que tiene asociados la dependencia',
+        'sis_pestania_id' => 1,
+        'user_crea_id' => 1,
+        'user_edita_id' => 1,
+        'sis_esta_id' => 1
+    ]);
+
+
+
 });
 
-route::get('/clear-cache',function(){
+route::get('/clear-cache', function () {
     Artisan::call('config:clear');
     Artisan::call('view:clear');
     Artisan::call('cache:clear');
     Artisan::call('route:clear');
     return 'exito';
-    });
+});
 
 
 
-route::get('/crearpermisos',function(){
-  
+route::get('/crearpermisos', function () {
+
     return 'exito';
-    });
+});
 
 Route::get('/', function () {
     // fecha de inactivacion del usuario, se le suma un día para que le permita el acceso el último día

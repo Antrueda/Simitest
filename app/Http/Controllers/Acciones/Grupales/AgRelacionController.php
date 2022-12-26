@@ -25,6 +25,7 @@ class AgRelacionController extends Controller
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    private $verxxxxx=false;
     public function __construct()
     {
         $this->opciones['permisox'] = 'agrelacion';
@@ -64,10 +65,12 @@ class AgRelacionController extends Controller
 
     public function show(AgRelacion $modeloxx)
     {
+        $this->verxxxxx=true;
         $padrexxx = $modeloxx->ag_actividad;
         $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        $this->opciones['pestania'][1]['routexxx']=route('agactividad.ver',[$padrexxx]);
+        $this->getBotones(['editar', ['agactividad.ver', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

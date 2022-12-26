@@ -9,6 +9,12 @@
             <li class="nav-item"><a class="nav-link {{ Tr::active(['pathxxxx'=>'fi']) }}
         text-sm" href="{{ route('fidatbas') }}">NNAJ</a></li>
             @endcanany
+
+            @canany(['fiupinna-listaxxx'])
+            <li class="nav-item"><a class="nav-link {{ ($todoxxxx['slotxxxx']=='fiupinna') ?' active' : '' }}
+        text-sm" href="{{ route('fiupinna') }}">ACTIVAR UPI NNAJ</a></li>
+            @endcanany
+
             @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
             <li class="nav-item"><a class="nav-link {{ ($todoxxxx['slotxxxx']=='compnnaj') ?' active' : '' }}
         text-sm" href="{{ route('fidatbas.compnnaj') }}">COMPONENTE FAMILIAR A NNAJ</a></li>

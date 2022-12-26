@@ -33,25 +33,6 @@ trait FiPestaniasTrait
         $pestania[0] = ['routexxx' => ['routexxx' =>  $this->routesxx[0],'compleme'=>'', 'parametr' => [], 'muespest' => true], 'titupest' => 'NNAJ', 'tooltipx' => 'Listado de nnaj con FI'];
         $pestania[10] = ['routexxx' => $this->getCasoFPT($dataxxxx, $this->routesxx, 10),  'titupest' => '10. JUSTICIA RESTAURATIVA', 'tooltipx' => 'Respuestas para asignar'];
 
-        // ['routexxx'=>[$this->routesxx[0], ] , '', [], 'NNAJ', true, '', 'Listado de nnaj con FI'],
-        // ['routexxx'=>[$this->routesxx[1] ] , '.nuevo', [], "1. INFORMACI" . $this->opciones['vocalesx'][3] . "N B" . $this->opciones['vocalesx'][0] . "SICA", false, '', 'Pregunta del documento que se esté'],
-        // ['routexxx'=>[$this->routesxx[2] ] , '', [], '2. VESTUARIO', false, '', 'Respuestas asignadas al combo'],
-        // ['routexxx'=>[$this->routesxx[3] ] , '.nuevo', [$dataxxxx['padrexxx']->id], '3. RESIDENCIA', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[4] ] , '.nuevo', [$dataxxxx['padrexxx']->id], '4. ESCUELA', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[5] ] , '', [$dataxxxx['padrexxx']->id], '5. COMPOSICIÓN FAMILIAR', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[6] ] , '.nuevo', [$dataxxxx['padrexxx']->id], '6. SALUD', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[7] ] , '.nuevo', [$dataxxxx['padrexxx']->id], '7. GENERACIÓN DE INGRESOS', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[8] ] , '.nuevo', [$dataxxxx['padrexxx']->id], '8. ACTIVIDADES EN TIEMPO LIBRE', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[9] ] , '', [$dataxxxx['padrexxx']->id], '9. REDES DE APOYO', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[10]] , '.redirect', [$dataxxxx['padrexxx']->id], '10. JUSTICIA RESTAURATIVA', $this->getJusticiaFPT($dataxxxx), '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[11]] , '.nuevo', [$dataxxxx['padrexxx']->id], '11. CONSUMO SPA', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[12]] , '.nuevo', [$dataxxxx['padrexxx']->id], '12. VIOLENCIAS Y CONDICIÓN ESPECIAL', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[13]] , '.nuevo', [$dataxxxx['padrexxx']->id], '13. TIPO DE POBLACIÓN', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[14]] , '.nuevo', [$dataxxxx['padrexxx']->id], '14. AUTORIZACION DE VINCULACIÓN', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[15]] , '.nuevo', [$dataxxxx['padrexxx']->id], '15. BIENVENIDA', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[16]] , '.nuevo', [$dataxxxx['padrexxx']->id], '16. AUTORIZACIÓN', false, '', 'Respuestas para asignar'],
-        // ['routexxx'=>[$this->routesxx[17]] , '.nuevo', [$dataxxxx['padrexxx']->id], '17. RAZONES PARA INGRESAR AL IDIPRON', false, '', 'Respuestas para asignar'],
-        // ];
         return $pestania;
     }
     /**

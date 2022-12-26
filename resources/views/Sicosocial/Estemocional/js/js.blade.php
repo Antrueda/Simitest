@@ -171,6 +171,20 @@ init_contadorTa("descripcion_alimenticio", "contadordescripcion8", 4000);
     });
 }
 
+disabledMotivosDescripcion();
+$('#prm_pensamiento_id,#prm_amenaza_id,#prm_intento_id').change(function() {
+    disabledMotivosDescripcion();
+});
+
+function disabledMotivosDescripcion(){
+    if(document.getElementById('prm_pensamiento_id').value == 227 || document.getElementById('prm_amenaza_id').value == 227 || document.getElementById('prm_intento_id').value == 227){
+        document.getElementById("motivos_div").hidden=false;
+
+    } else {
+        document.getElementById("motivos_div").hidden=true;
+    }
+}
+
 function updateContadorTa(idtextarea, idcontador, max) {
     var contador = $("#" + idcontador);
     var ta = $("#" + idtextarea);

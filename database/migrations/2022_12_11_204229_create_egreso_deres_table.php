@@ -16,18 +16,10 @@ class CreateEgresoDeresTable extends Migration
     {
         Schema::create('egreso_deres', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->date('fecha')->comment('FECHA DE DILIGENCIAMIENTO');
-            $table->integer('upi_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('upi_id')->references('id')->on('sis_depens');
-            $table->integer('custo_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('custo_id')->references('id')->on('parametros');
-            $table->integer('parent_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('parent_id')->references('id')->on('parametros');
-            $table->string('nom1_autorizado', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
-            $table->string('nom2_autorizado', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
-            $table->string('ape1_autorizado', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
-            $table->string('ape2_autorizado', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
-            $table->string('telefonopare', 200)->nullable()->comment('NOMBRE DE DIAGNOSTICO');
+            $table->integer('centro_id')->unsigned()->nullable()->comment('CAMPO TIPO DE DOCUMENTO AUTORIZADO');
+            $table->foreign('centro_id')->references('id')->on('centro_zonals');
+            $table->integer('censec_id')->unsigned()->nullable()->comment('CAMPO TIPO DE DOCUMENTO AUTORIZADO');
+            $table->foreign('censec_id')->references('id')->on('centro_zosecs');
             $table->integer('egreso_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
             $table->foreign('egreso_id')->references('id')->on('s_egresos');    
             $table = CamposMagicos::magicos($table);

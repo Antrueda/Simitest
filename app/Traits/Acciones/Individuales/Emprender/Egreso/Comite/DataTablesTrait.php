@@ -112,8 +112,8 @@ trait DataTablesTrait
                 ],
                 'tablaxxx' => 'datatablennaj',
                 'permisox' => $dataxxxx['permisox'],
-                'routxxxx' => 'ficomposicion', [$this->padrexxx->fi_datos_basico->id],
-                'parametr' => [$this->padrexxx->fi_datos_basico->id],
+                'routxxxx' => '',
+                'parametr' => [],
             ];    
         }
             $dataxxxx['ruarchjs'][] =

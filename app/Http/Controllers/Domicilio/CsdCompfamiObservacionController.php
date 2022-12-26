@@ -48,6 +48,11 @@ class CsdCompfamiObservacionController extends Controller
 
     private function view($dataxxxx)
     {
+        if (Auth::user()->s_documento=='17496705') {
+            // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
+            // ->first();
+        
+        }
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];

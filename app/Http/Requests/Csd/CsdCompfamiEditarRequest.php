@@ -131,7 +131,7 @@ class CsdCompfamiEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_documento'][4]=new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getActualiza','registro'=>$this->segments()[3]]);
+        $this->_reglasx['s_documento'][4]=new CedulaCsdComFamiliarExisteRule(['metodoxx' => 'getActualiza','registro'=>$this->segments()[3],'segments'=>$this->segments()]);
         return $this->_reglasx;
         
     }

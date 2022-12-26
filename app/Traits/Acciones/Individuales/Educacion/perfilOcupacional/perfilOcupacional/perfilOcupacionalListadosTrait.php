@@ -1,23 +1,13 @@
 <?php
 
-namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional;
+namespace App\Traits\Acciones\Individuales\Educacion\PerfilOcupacional\PerfilOcupacional;
 
-use Illuminate\Http\Request;
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDepen;
-use App\Models\Ejemplo\AeEncuentro;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfActividade;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCategoria;
-use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoPerfilOcupacional;
 
 /**
  * Este trait permite armar las consultas para vsi que arman las datatable
  */
-trait perfilOcupacionalListadosTrait
+trait PerfilOcupacionalListadosTrait
 {
   
   

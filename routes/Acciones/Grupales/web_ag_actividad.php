@@ -12,17 +12,17 @@ Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
         'uses' => $controll . 'Controller@listaActividades',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
-    Route::get('{padrexxx}/responsable', [
+    Route::get('{padrexxx}/responsable/{verxxxxx}', [
         'uses' => $controll . 'Controller@listaResponsables',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.responsa');
 
-    Route::get('{padrexxx}/asistentes', [
+    Route::get('{padrexxx}/asistentes/{verxxxxx}', [
         'uses' => $controll . 'Controller@getAsistente',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agasiste');
 
-    Route::get('{padrexxx}/documento', [
+    Route::get('{padrexxx}/documento/{verxxxxx}s', [
         'uses' => $controll . 'Controller@listaDocumentos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agcargdoc');

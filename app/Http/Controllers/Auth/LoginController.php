@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Login\LoginRequest;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -54,8 +57,10 @@ class LoginController extends Controller
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this Application. We'll key this by the username and
         // the IP address of the client making these requests into this Application.
-        if (method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)) {
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);
@@ -70,5 +75,24 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+
+
+
+    protected function authenticated(Request $request, User $user)
+    {
+        if (!is_null(auth()->user()->d_finvinculacion)) {
+            // Consulta de la fecha de base de datos y verifica si esta caducada
+            $fechaACaducar = Carbon::parse(auth()->user()->d_finvinculacion)
+            ->addDay()
+            ->format('Y-m-d H:m:s');
+            // Se consulta la fecha contra el valor actual
+            if (Carbon::now()->gt($fechaACaducar)) {
+                $user->update([ "user_edita_id" => "1","sis_esta_id" => "2"]);
+                Auth::logout();
+                return redirect()->route('login')->with('info', 'Contrato Finalizado, para mayor información contacte al Administrador del Sistema.');
+            }
+        }
     }
 }

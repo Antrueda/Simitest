@@ -35,6 +35,14 @@ class FiSituacionEspecial extends Model {
     return $this->belongsToMany(Parametro::class,'fi_situ_vulnera','fi_situacion_especial_id','prm_situacion_vulnera_id');
   }
 
+  public function riesgo_escnnas() {
+    return $this->belongsToMany(Parametro::class,'fi_riesgo_escnnas','fi_situacion_especial_id','i_prm_riesgo_escnna_id');
+  }
+
+  public function victima_escnnas() {
+    return $this->belongsToMany(Parametro::class,'fi_victima_escnnas','fi_situacion_especial_id','i_prm_victima_escnna_id');
+  }
+
   public function fi_riesgo_escnnas() {
     return $this->hasMany(FiRiesgoEscnna::class);
   }

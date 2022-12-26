@@ -40,7 +40,6 @@ trait CrudTrait
             if($dataxxxx['requestx']->areas){
                 foreach ($dataxxxx['requestx']->areas as $d) {
                     $dataxxxx['modeloxx']->areas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'sis_esta_id'=>1,'entrevista_id'=>$dataxxxx['modeloxx']->id]);
-             
                 }
             }
             $dataxxxx['modeloxx']->intra()->detach();

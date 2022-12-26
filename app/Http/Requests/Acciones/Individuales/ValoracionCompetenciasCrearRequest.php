@@ -66,7 +66,7 @@ class ValoracionCompetenciasCrearRequest extends FormRequest
           
 
             $responsa = UniComp::select('unidad_id')->where('valora_id',$this->segments(0))->first();
-            $competen = UniComp::where('unidad_id',$this->unidad_id)->where('sis_nnaj_id',$this->padrexxx->sis_nnaj_id)->get();
+            $competen = UniComp::where('unidad_id',$this->unidad_id)->where('modulo_id',$this->modulo_id)->where('sis_nnaj_id',$this->padrexxx->sis_nnaj_id)->get();
             //ddd($competen);
             
             if ($responsa==$this->unidad_id) {

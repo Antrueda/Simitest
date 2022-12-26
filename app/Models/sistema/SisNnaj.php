@@ -4,6 +4,7 @@ namespace App\Models\sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
 use App\Models\Acciones\Individuales\Educacion\PerfilVocacional\PvfPerfilVoca;
@@ -50,6 +51,12 @@ class SisNnaj extends Model
     {
         return $this->hasOne(FiDatosBasico::class, 'sis_nnaj_id');
     }
+
+    public function fiDatosBasico()
+    {
+        return $this->hasOne(FiDatosBasico::class, 'sis_nnaj_id');
+    }
+
 
     public function FiBienvenida()
     {
@@ -337,6 +344,12 @@ class SisNnaj extends Model
     {
         return $this->hasMany(IMatriculaNnaj::class);
     }
+
+    public function ItrasladoNnaj()
+    {
+        return $this->hasMany(TrasladoNnaj::class);
+    }
+
     public function MatriculaCursos()
     {
         return $this->hasMany(MatriculaCurso::class);
@@ -424,5 +437,26 @@ class SisNnaj extends Model
     public function nnajUpis()
     {
         return $this->hasMany(NnajUpi::class);
+    }
+
+
+    public function getEgresoAttribute()
+    {
+        $nnajxxxx ='';
+        $egreso ='';
+        
+        if($this->ItrasladoNnaj->count()>0){  
+            foreach($this->ItrasladoNnaj as $registro) {
+                if($registro->sis_esta_id==1) {
+                    $traslado=$registro->traslado;
+                    if($traslado->prm_trasupi_id==37){
+                        $nnajxxxx=$registro;
+                    }
+       
+                }
+              }
+            }
+        // ddd($nnajxxxx);
+        return $nnajxxxx ;
     }
 }

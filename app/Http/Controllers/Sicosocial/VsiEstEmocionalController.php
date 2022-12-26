@@ -119,7 +119,7 @@ class VsiEstEmocionalController extends Controller
     public function store(VsiEstEmocionalCrearRequest $request, $padrexxx)
     {
         $request->request->add(['vsi_id' => $padrexxx]);
-        $request->request->add(['sis_esta_id'=> 1]);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -136,22 +136,22 @@ class VsiEstEmocionalController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-  
-        if(Auth::user()->id==$objetoxx->user_crea_id||User::userAdmin()){
+
+        if (Auth::user()->id == $objetoxx->user_crea_id || User::userAdmin()) {
             if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
                 $this->opciones['botoform'][] =
                     [
                         'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                         'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
-                }
-            }else{
-                $this->opciones['botoform'][] =
+            }
+        } else {
+            $this->opciones['botoform'][] =
                 [
                     'mostrars' => false,
                 ];
-            }
-        
+        }
+
         return $this->view(['modeloxx' => $objetoxx->VsiEstEmocional, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
@@ -173,6 +173,7 @@ class VsiEstEmocionalController extends Controller
      */
     public function update(VsiEstEmocionalEditarRequest $request, Vsi $objetoxx)
     {
+
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => $objetoxx->VsiEstEmocional,

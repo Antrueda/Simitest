@@ -10,7 +10,7 @@ Route::group(['prefix' => '{padrexxx}/agrelacion'], function () use($controll,$r
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.crear');
-	Route::get('recurso', [
+	Route::get('recurso/{verxxxxx}', [
         'uses' => $controll . 'Controller@ListarRecursos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agrecurso');

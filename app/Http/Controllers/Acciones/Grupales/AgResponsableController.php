@@ -66,7 +66,8 @@ class AgResponsableController extends Controller
         $padrexxx = $modeloxx->ag_actividad;
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        $this->opciones['pestania'][1]['routexxx']=route('agactividad.ver',[$padrexxx->id]);
+        $this->getBotones(['editar', ['agactividad.ver', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
  
         return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Individuales\Emprender\Egreso\Redes;
 
+use App\Models\Acciones\Individuales\Emprender\Egreso\EgreRede;
 use App\Models\Acciones\Individuales\Emprender\Egreso\SEgreso;
 use App\Models\Acciones\Individuales\Salud\Odontologia\VOdontologia;
 
@@ -30,7 +31,7 @@ trait CrudTrait
                 
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = SEgreso::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = EgreRede::create($dataxxxx['requestx']->all());
             }
             
             return $dataxxxx['modeloxx'];

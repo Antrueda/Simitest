@@ -43,16 +43,18 @@ trait VistasTrait
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
         $opciones['actuestu'] = Tema::combo(23, true, false);
-        $opciones['condicio'] = Tema::combo(23, true, false);
+
         $opciones['motvincu'] = Tema::comboAsc(63, false, false);
         $opciones['natuenti'] = Tema::comboAsc(130, true, false);
         $opciones['jornestu'] = Tema::comboAsc(151, true, false);
         $opciones['ulnivest'] = Tema::comboAsc(153, true, false);
         $opciones['ulgradap'] = Tema::comboAsc(154, true, false);
-        $opciones['condicio'] = Tema::combo(23, true, false);
+        $opciones['condicio'] = Tema::combo(372, true, false);//N/A
         $opciones['estafili'] = Tema::comboAsc(21, true, false);
-        
-
+        $opciones['tiporedx'] = Tema::comboAsc(88, true, false);
+        $opciones['accesoxx'] = Tema::comboAsc(71, true, false);
+        $opciones['motivosx'] = Tema::comboAsc(72, true, false);
+ 
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
         $opciones['consulta'] = Tema::comboNotIn(480,true, false,[1689,2974,2804,1332]);

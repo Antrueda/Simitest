@@ -382,7 +382,6 @@ class DatabaseSeeder extends Seeder
                 $this->call(IntervencionAdminSeeder::class); // Intervenciones Admin.
                 $this->call(BeneficiarioSeeder::class); // Familiares como beneficiarios
 
-
                 $this->call(CursosSeeder::class); // Administracion de Matricula Curso
                 $this->call(ModuloSeeder::class); // Administracion de Modulo
                 $this->call(CursoModuloSeeder::class); // Administracion de Matricula Curso , modulo asignado
@@ -398,6 +397,7 @@ class DatabaseSeeder extends Seeder
                 $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
                 $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
                 $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
+<<<<<<< HEAD
                 $this->call(DastPreguntasSeeder::class); // CUESTIONARIO DAST PREGUNTAS
 
                 $this->call(CentroZonalSeeder::class); // Permisos caso juridico
@@ -413,5 +413,10 @@ class DatabaseSeeder extends Seeder
                 $this->call(SuperficiesOdontologiaSeeder::class); // Diagnosticos
 
                 
+=======
+                $this->call(DastPreguntasSeeder::class); // CUESTIONARIO DAST PREGUNTAS      
+
+
+>>>>>>> master
         }
 }

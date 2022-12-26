@@ -27,6 +27,7 @@ class AgActividadController extends Controller
     use PuedeTrait;
     use ManageTimeTrait;
     use CombosTrait;
+    private $verxxxxx=2;
     public function __construct()
     {
         $this->opciones['permisox'] = 'agactividad';
@@ -77,10 +78,11 @@ class AgActividadController extends Controller
 
     public function show(AgActividad $modeloxx)
     {
+        $this->verxxxxx=1;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TALLER', 'btn btn-sm btn-primary']);
+       // $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TALLER', 'btn btn-sm btn-primary']);
         return $this->view(
-            $do,
+            $this->opciones,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->id]
         );
     }

@@ -6,6 +6,7 @@ use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Individuales\Educacion\AdmiActiAsd\AsdTiactividad;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\sistema\SisEsta;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -46,15 +47,17 @@ trait DiariaVistasTrait
                 'selected' => [0],
                 'ajaxxxxx' => false
             ]);
-           
+         
             $departam = $dataxxxx['modeloxx']->sis_departam_id;
             $this->opciones['departam'] = $respuest['combosxx'][0];
 
             // no me estan cargando los municipios del departamento que seleccioné
 
             $this->opciones['localida'] = $respuest['combosxx'][2];
-            $this->opciones['upzxxxxx'] = $respuest['combosxx'][3];
-            $this->opciones['barrioxx'] = $respuest['combosxx'][4];
+            $this->opciones['upzxxxxx'] =$this->getSisLocalupzCT([ 'padrexxx' => $dataxxxx['modeloxx']->sis_localidad_id])['comboxxx'];
+            
+            $this->opciones['barrioxx'] =$this->getSisUpzBarriCT([ 'padrexxx' => $dataxxxx['modeloxx']->sis_localupz_id])['comboxxx'];
+         
             $respuest = $this->setPaginaGrupos(['ajaxxxxx' => false, 'progacti' => $dataxxxx['modeloxx']->prm_actividad_id]);
             $this->opciones['grupoxxx'] = $respuest['combosxx'][0];
             if (!$respuest['readonly']) {

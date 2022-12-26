@@ -41,13 +41,8 @@ class CreateEgreSeguisTable extends Migration
             $table->integer('parent_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('parent_id')->references('id')->on('parametros');
             $table->integer('motivoe_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('motivoe_id')->references('id')->on('motivo_egresos');
-            $table->integer('vulnera_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('vulnera_id')->references('id')->on('parametros');
-            $table->integer('victimaescnna_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('victimaescnna_id')->references('id')->on('parametros');
-            $table->integer('riesgoescnna_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
-            $table->foreign('riesgoescnna_id')->references('id')->on('parametros');
+            $table->foreign('motivoe_id')->references('id')->on('motivo_egreso_secus');
+          
             $table->integer('conflicto_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
             $table->foreign('conflicto_id')->references('id')->on('parametros');
             $table->integer('vincula_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');

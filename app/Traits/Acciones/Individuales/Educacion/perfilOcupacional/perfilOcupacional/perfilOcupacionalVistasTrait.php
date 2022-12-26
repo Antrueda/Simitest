@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Traits\Acciones\Individuales\Educacion\perfilOcupacional\perfilOcupacional;
+namespace App\Traits\Acciones\Individuales\Educacion\PerfilOcupacional\PerfilOcupacional;
 
 use App\Models\Acciones\Individuales\Educacion\perfilOcupacional\FpoPerfilOcupacional;
 use App\Models\sistema\SisDepen;
@@ -9,7 +9,7 @@ use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use Carbon\Carbon;
 
-trait perfilOcupacionalVistasTrait
+trait PerfilOcupacionalVistasTrait
 {
     public function getVista( $dataxxxx)
     {

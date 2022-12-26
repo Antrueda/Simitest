@@ -78,7 +78,7 @@ trait DataTablesTrait
                 'titulist' => 'REDES DE APOYO ACTUALES',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.redesapoyo',
                 'titupreg' => '',
-                'vercrear' => true,
+                'vercrear' => false,
                 'urlxxxxx' => route($this->opciones['permisox'] . '.listaxxx', [$this->padrexxx->id]),
                 'permtabl' => [
                     $dataxxxx['permisox'] . '-leer',
@@ -95,7 +95,6 @@ trait DataTablesTrait
                         ['td' => 'NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SERVICIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'CONTACTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DIRECCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                       
                     ]
@@ -104,11 +103,11 @@ trait DataTablesTrait
 
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'egre_apoyos.id'],
-                    ['data' => 'tipollama', 'name' => 'egre_apoyos.id'],
+                    ['data' => 'tipored', 'name' => 'tipored.nombre as tipored'],
                     ['data' => 'nombreper', 'name' => 'egre_apoyos.nombreper'],
                     ['data' => 'servicios', 'name' => 'egre_apoyos.servicios'],
                     ['data' => 'contacto', 'name' => 'egre_apoyos.contacto'],
-                    ['data' => 'direccion', 'name' => 'egre_apoyos.direccion'],
+                    
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatablennaj',

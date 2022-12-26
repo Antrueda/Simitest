@@ -9,7 +9,9 @@ namespace App\Traits\Acciones\Grupales\Tallacciones;
  */
 trait ParametrizarTrait
 {
-    public $opciones;
+    public $opciones=[
+        'botoform'=>[],
+    ];
     /**
      * permisos del middleware
      *
