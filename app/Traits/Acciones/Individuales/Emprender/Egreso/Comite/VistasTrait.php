@@ -40,11 +40,11 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
-        $opciones['residenc'] = $opciones['padrexxx']->FiResidencia;
-
+        $opciones['egresoxx'] = $opciones['usuariox']->sis_nnaj->Egreso;
+       // ddd($opciones['egresoxx'] );
         $dependid = 0;
         $localida = 0;
-
+        
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
         $opciones['usuarioc'] = '';

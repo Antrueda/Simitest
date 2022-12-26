@@ -1,7 +1,7 @@
 <div class="row">
       <div class="col-md-5">
         {{ Form::label('fechaegreso', 'Fecha realización del comité de egreso, inactivación y/o retiro', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fechaegreso', null, ['class' => $errors->first('fechaegreso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+        {{ Form::date('fechaegreso', $todoxxxx['egresoxx']->traslado->fecha, ['class' => $errors->first('fechaegreso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]), 'readonly' }}
         @if($errors->has('fechaegreso'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('fechaegreso') }}
@@ -10,7 +10,7 @@
       </div>
       <div class="col-sm-5">
         {{ Form::label('motivo_egreso', 'Motivo de egreso, inactivación y/o retiro', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('motivo_egreso', $todoxxxx['motivoeg'],null, ['class' => $errors->first('motivo_egreso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
+        {{ Form::select('motivo_egreso', $todoxxxx['motivoeg'],$todoxxxx['egresoxx']->motivoese_id, ['class' => $errors->first('motivo_egreso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
         @if($errors->has('motivo_egreso'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('motivo_egreso') }}
@@ -19,7 +19,7 @@
       </div>
       <div class="col-sm-3">
         {{ Form::label('upiegreso_id', 'Unidad de protección integral que realizó el egreso', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('upiegreso_id', $todoxxxx['dependen'],null, ['class' => $errors->first('upiegreso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
+        {{ Form::select('upiegreso_id', $todoxxxx['dependen'],$todoxxxx['egresoxx']->traslado->prm_upi_id, ['class' => $errors->first('upiegreso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
         @if($errors->has('upiegreso_id'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('upiegreso_id') }}

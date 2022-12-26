@@ -24,13 +24,22 @@ trait CrudTrait
     public function setEgreso($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
+            $formacion=$dataxxxx['padrexxx']->fi_formacions;
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $formacion->update([
+                    'prm_ultgrapr_id' => $dataxxxx['requestx']->cursado, 
+              
+                ]);
+
                 
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = SEgreso::create($dataxxxx['requestx']->all());
+                $formacion->update([
+                    'prm_ultgrapr_id' => $dataxxxx['requestx']->cursado, 
+                ]);
             }
             
             return $dataxxxx['modeloxx'];

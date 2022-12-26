@@ -58,11 +58,11 @@ trait VistasTrait
         $opciones['pais_idx'] = SisPai::combo(true, false);
         $opciones['localida'] = SisLocalidad::combo();
         $opciones['condicio'] = Tema::combo(372, true, false);//N/A
-        $opciones['tipodire'] = Tema::comboAsc(36, true, false);
-        $opciones['zonadire'] = Tema::comboAsc(37, true, false);
+        $opciones['tipodire'] = Tema::comboNA(36, true, false);
+        $opciones['zonadire'] = Tema::comboNA(37, true, false);
         $opciones['cuadrant'] = Tema::comboNA(38, true, false);
         $opciones['alfabeto'] = Tema::comboNA(39, true, false);
-        $opciones['tpviapal'] = Tema::comboAsc(62, true, false);
+        $opciones['tpviapal'] = Tema::comboNA(62, true, false);
         $opciones['dircondi'] = Tema::combo(23, true, false);
         $opciones['localida'] = SisLocalidad::combo();
         $opciones['estadoxx'] = Tema::comboAsc(441,true, false);

@@ -188,7 +188,7 @@
       @if($todoxxxx['usuariox']->sis_nnaj->fi_formacions != null)   
          <div class="col-md-2">
         {{ Form::label('cursado', 'Último año cursado', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('cursado', $todoxxxx['ulgradap'],$todoxxxx['usuariox']->sis_nnaj->fi_formacions->prm_ultgrapr->id, ['class' => $errors->first('cursado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);",'readonly']) }}
+        {{ Form::select('cursado', $todoxxxx['ulgradap'],$todoxxxx['usuariox']->sis_nnaj->fi_formacions->prm_ultgrapr->id, ['class' => $errors->first('cursado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',]) }}
             @if($errors->has('cursado'))
               <div class="invalid-feedback d-block">
                 {{ $errors->first('cursado') }}
@@ -264,28 +264,7 @@
 </div>
 @endif
 
-@if($todoxxxx['usuariox']->sis_nnaj->iMatriculaNnajs->count()>0)   
-<div class="col-md-2">
-{{ Form::label('grado', 'Grado de escolaridad', ['class' => 'control-label col-form-label-sm']) }}
-{{ Form::text('grado', $todoxxxx['usuariox']->sis_nnaj->Matricula, ['class' => $errors->first('grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'readonly']) }}
-   @if($errors->has('grado'))
-     <div class="invalid-feedback d-block">
-       {{ $errors->first('grado') }}
-     </div>
-  @endif
-</div>
-@endif
-@if($todoxxxx['usuariox']->sis_nnaj->fi_formacions != null)   
-<div class="col-md-2">
-{{ Form::label('cursado', 'Último año cursado', ['class' => 'control-label col-form-label-sm']) }}
-{{ Form::text('cursado', $todoxxxx['usuariox']->sis_nnaj->fi_formacions->prm_ultgrapr->nombre, ['class' => $errors->first('cursado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);",'readonly']) }}
-   @if($errors->has('cursado'))
-     <div class="invalid-feedback d-block">
-       {{ $errors->first('cursado') }}
-     </div>
-  @endif
-</div>
-@endif
+
 
 </div>
 @if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18)
