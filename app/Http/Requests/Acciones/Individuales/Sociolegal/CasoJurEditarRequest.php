@@ -38,9 +38,7 @@ class CasoJurEditarRequest extends FormRequest
             'prm_sujeto.required'=>'Seleccione el tipo de sujeto',
             'consultaca.required'=>'Digite consulta de caso',
             'asesoriaca.required'=>'Digite asesoria de caso',
-            'num_proceso.required_if'=>'Digite el numero de proceso',
-            'prm_juzgado.required_if'=>'Seleccione el juzgado que atiende',
-
+            
             
            
         
