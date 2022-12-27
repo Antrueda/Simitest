@@ -21,6 +21,7 @@ use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeNnajModulo;
 use App\Models\Simianti\Sl\SlCasoJuridico;
 use App\Models\sistema\SisBarrio;
+use App\Models\sistema\SisLocalidad;
 use App\Models\Sistema\SisNnaj;
 use App\Models\sistema\SisUpz;
 use App\Traits\DatatableTrait;
@@ -366,6 +367,17 @@ trait ListadosTrait
         $respuest = response()->json($this->getTemaTp($dataxxxx));
         return $respuest;
     }
+
+
+    public function localidad(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            return response()->json(SisLocalidad::combo($dataxxxx['upzxxx'], true));
+        }
+    }
+
+
     public function upzs(Request $request)
     {
         if ($request->ajax()) {

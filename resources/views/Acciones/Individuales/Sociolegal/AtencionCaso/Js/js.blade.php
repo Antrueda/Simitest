@@ -104,7 +104,7 @@
         var dataupz = function(campoxxx, valuexxx, selected) {
 
             var departam = 'upz_id';
-            var municipi = 'sis_upzbarrio_id';
+            var municipi = 'sis_upzbario_id';
             var routexxx = "{{ route('acasojur.upz') }}";
 
             $("#" + departam + ",#" + municipi).empty();
@@ -124,7 +124,7 @@
         }
         var databarrio = function(campoxxx, valuexxx, selected) {
 
-            var municipi = 'sis_upzbarrio_id';
+            var municipi = 'sis_upzbario_id';
             var routexxx = "{{ route('acasojur.barrio') }}"
 
             $("#" + municipi).empty();
@@ -148,7 +148,7 @@
         dataupz('localidad_id', "{{old('localidad_id')}}", "{{old('upz_id')}}");
 
             @if(old('upz_id') !== null)
-            databarrio('upz_id', "{{old('upz_id')}}", "{{old('sis_upzbarrio_id')}}");
+            databarrio('upz_id', "{{old('upz_id')}}", "{{old('sis_upzbario_id')}}");
             @endif
         @endif
 

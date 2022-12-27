@@ -19,16 +19,19 @@ class CasoJurCrearRequest extends FormRequest
             'upi_id.required'=>'Seleccione la UPI de atención',
             'upiorigen_id.required'=>'Seleccione la UPI de origen',
             'fecha.required'=>'Ingrese la fecha de diligenciamiento',
-            'i_prm_ha_estado_pard_id.required'=>'Seleccione la tipo de consulta',
+            'i_prm_ha_estado_pard_id.required'=>'Seleccione si cuenta con pard',
             'num_sim.required'=>'Seleccione la tipo de consulta',
-            'centro_id.required'=>'Seleccione el tipo de población',
-            'remico_id.required'=>'Seleccione el tipo de remisión Interinstitucional',
-            'censec_id.required'=>'Seleccione la entidad de salud',
+            'centro_id.required'=>'Seleccione el Centro Zonal',
+//            'remico_id.required'=>'Seleccione el tipo de remisión Interinstitucional',
+            'censec_id.required'=>'Seleccione la Centro Zonal Secundario',
             'remiesp_id.required_if'=>'Seleccione la especialidad',
-            'tipoc_id.required'=>'Indique si requiere certificado',
-            'temac_id.required'=>'Seleccione el tipo de remisión Intrainstitucional',
+            'tipoc_id.required'=>'Seleccione el tipo de caso',
+            'temac_id.required'=>'Seleccione el tema de caso',
             'prm_rama_id.required'=>'¿El caso registra en rama Judicial?',
+            'prm_juzgado.required_if'=>'¿Que juzgado atiende el proceso?',
+            'num_proceso.required_if'=>'Digite el numero del proceso',
             'estacaso.required'=>'Seleccione el estado del caso',
+            'prm_solicita_id.required'=>'Seleccione la persona que solicita la asesoria',
             'prm_sujeto.required'=>'Seleccione el tipo de sujeto',
             'consultaca.required'=>'Digite consulta de caso',
             'asesoriaca.required'=>'Digite asesoria de caso',
@@ -47,9 +50,9 @@ class CasoJurCrearRequest extends FormRequest
             'censec_id' => 'nullable',
             'checkbox1' => 'nullable',
             'prm_rama_id' => 'required',
-            'num_proceso' => 'nullable',
-            'prm_juzgado' => 'nullable',
-            'prm_solicita_id' => 'nullable',
+            'num_proceso' =>  'required_if:prm_rama_id,227',
+            'prm_juzgado' =>  'required_if:prm_rama_id,227',
+            'prm_solicita_id' => 'required',
             'tipoc_id' => 'required',
             'temac_id' => 'required',
             'telfapo2' => 'nullable',
@@ -108,10 +111,18 @@ class CasoJurCrearRequest extends FormRequest
                 $this->_reglasx['nom1_autorizado'] = 'Required';
                 $this->_mensaje['ape1_autorizado.required'] = 'Ingrese el apellido del acompañante';
                 $this->_reglasx['ape1_autorizado'] = 'Required';
-                $this->_mensaje['prm_parentezco_id.required'] = 'Seleccione el parentezco';
+                $this->_mensaje['prm_parentezco_id.required'] = 'Seleccione el parentesco';
                 $this->_reglasx['prm_parentezco_id'] = 'Required';
                 $this->_mensaje['doc_autorizado.required'] = 'Ingrese el numero de documento';
                 $this->_reglasx['doc_autorizado'] = 'Required';
+                $this->_mensaje['sis_municipio_id.required'] = 'Selecccione el municipio';
+                $this->_reglasx['sis_municipio_id'] = 'Required';
+                $this->_mensaje['localidad_id.required'] = 'Selecccione la localidad';
+                $this->_reglasx['localidad_id'] = 'Required';
+                $this->_mensaje['upz_id.required'] = 'Selecccione la UPZ ';
+                $this->_reglasx['upz_id'] = 'Required';
+                $this->_mensaje['sis_upzbario_id.required'] = 'Selecccione el barrio';
+                $this->_reglasx['sis_upzbario_id'] = 'Required';
 
                 }
             }

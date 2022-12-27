@@ -158,7 +158,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_doc_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm select2']) }}
+    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm','id'=>'prm_doc_id']) }}
     @if($errors->has('prm_doc_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_doc_id') }}
@@ -166,7 +166,7 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('doc_autorizado', 'No. de doc_autorizado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('doc_autorizado', 'No. de Documento', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('doc_autorizado', null, ['class' => $errors->first('doc_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('doc_autorizado'))
     <div class="invalid-feedback d-block">
@@ -229,11 +229,11 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('sis_upzbarrio_id', 'Barrio', ['class' => 'control-label col-form-label-sm']) }}
-   {{ Form::select('sis_upzbarrio_id', $todoxxxx["barrioxx"] , null, ['class' => $errors->first('sis_upzbarrio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
-    @if($errors->has('sis_upzbarrio_id'))
+    {{ Form::label('sis_upzbario_id', 'Barrio', ['class' => 'control-label col-form-label-sm']) }}
+   {{ Form::select('sis_upzbario_id', $todoxxxx["barrioxx"] , null, ['class' => $errors->first('sis_upzbario_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
+    @if($errors->has('sis_upzbario_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_upzbarrio_id') }}
+        {{ $errors->first('sis_upzbario_id') }}
       </div>
     @endif
   </div>

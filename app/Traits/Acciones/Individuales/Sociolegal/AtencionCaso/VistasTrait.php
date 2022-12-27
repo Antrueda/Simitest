@@ -88,7 +88,7 @@ trait VistasTrait
             $opciones['residees'] = [235 => 'N/A'];
             $opciones['localida'] = [22 => 'N/A'];
             $opciones['upzxxxxx'] = [119 => 'N/A'];
-            $opciones['barrioxx'] = [1653 => 'N/A'];
+            $opciones['barrioxx'] = [1654 => 'N/A'];
             
             $opciones['tiporesi'] = Tema::combo(145, true, false);
         } else {
