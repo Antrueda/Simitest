@@ -4,10 +4,10 @@
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
-    {!! Form::model($todoxxxx['modeloxx']) !!}
+    {{-- {!! Form::model($todoxxxx['modeloxx']) !!} --}}
         @include($todoxxxx["botonesx"])
         @include($todoxxxx["formular"])
         @include($todoxxxx["botonesx"])
-    {!! Form::close() !!}
+    {{-- {!! Form::close() !!} --}}
   </div>
 </div>
