@@ -41,7 +41,7 @@ trait VistasTrait
         if($opciones['usuariox']->prm_tipoblaci_id==650){
             $opciones['juridica'] = [235 => 'N/A'];
         }else{
-            $opciones['juridica'] = $opciones['padrexxx']->fi_justrests->fi_proceso_pard;
+            $opciones['juridica'] = $opciones['usuariox']->sis_nnaj->fi_justrests->fi_proceso_pard;
         }     
         
         $dependid = 0;
