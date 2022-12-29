@@ -15,6 +15,7 @@
              @include('layouts.menus.admindicadores')
          @endcanany
          @canany(['motaller-modulo'])
+       
              @include('layouts.menus.talleres')
          @endcanany
          @canany(['actenadm-moduloxx'])

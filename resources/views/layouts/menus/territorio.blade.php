@@ -18,16 +18,16 @@
 
         @endcanany
         @can('cargdocu-modulo')
-         <li class="nav-item">
-             <a href="{{ route('cargdocu') }}" class="nav-link">
-                 <i class="fas fa-chess-pawn nav-icon"></i>
-                 <p>Documentación del beneficiario</p>
-             </a>
-         </li>
-         @endcan
+        <li class="nav-item">
+            <a href="{{ route('cargdocu') }}" class="nav-link">
+                <i class="fas fa-chess-pawn nav-icon"></i>
+                <p>Documentación del beneficiario</p>
+            </a>
+        </li>
+        @endcan
 
-         @can('actamodu-moduloxx')
-         <li class="nav-item">
+        @can('actamodu-moduloxx')
+        <li class="nav-item">
             <a href="{{ route('actaencu') }}" class="nav-link">
                 <i class="fas fa-address-card nav-icon"></i>
                 <p>Acta de Encuentro</p>
@@ -36,12 +36,12 @@
         @endcan
         @can('direccionmodulo-modulo')
         <li class="nav-item">
-           <a href="{{ route('direccionmodulo') }}" class="nav-link">
-               <i class="fas fa-building nav-icon"></i>
-               <p>Direccionamiento y Referenciación</p>
-           </a>
-       </li>
-       @endcan
-       
+            <a href="{{ route('direccionmodulo') }}" class="nav-link">
+                <i class="fas fa-building nav-icon"></i>
+                <p>Direccionamiento y Referenciación</p>
+            </a>
+        </li>
+        @endcan
+
     </ul>
 </li>
