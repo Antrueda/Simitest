@@ -225,12 +225,12 @@ class FiDatosBasico extends Model
         return Carbon::parse($this->d_nacimiento)->age;
     }
 
-    public function SisNnaj()
+    public function sisNnaj()
     {
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 
-
+    
     public static function getTransactionVsi($dataxxxx, $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Actaencu;
 
+use App\Rules\CedulaExisteRule;
 use App\Rules\CedulaValidaRule;
+use App\Rules\ValidarEdadNnajRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AeAsisNnajCrearRequest extends FormRequest
@@ -19,6 +21,7 @@ class AeAsisNnajCrearRequest extends FormRequest
             'prm_tipodocu_id.required'          => 'Debe diligenciar el tipo de documento.',
             'prm_ayuda_id.required'             => 'Debe diligenciar el motivo de pérdida del documento.',
             's_documento.required'              => 'Debe diligenciar el número de documento.',
+            's_documento.digits_between'        => 'Debe debe estar entre 6 y 15 dígitos.',
             'd_nacimiento.required'             => 'Debe diligenciar la fecha de nacimiento.',
             'aniosxxx.required'                 => 'Debe diligenciar la edad.',
             'prm_sexo_id.required'              => 'Debe diligenciar el sexo.',
@@ -38,31 +41,7 @@ class AeAsisNnajCrearRequest extends FormRequest
             'prm_autorizo_id.required'          => 'Debe diligenciar la autorización.',
             'observaciones.required'            => 'Debe diligenciar las observaciones.',
         ];
-        $this->_reglasx = [
-            's_primer_apellido'         => ['required', 'string'],
-            's_primer_nombre'           => ['required', 'string'],
-            'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
-            'prm_ayuda_id'              => ['required', 'exists:parametros,id'],
-            's_documento'               => ['required', 'numeric', 'digits_between:6,15', 'unique:nnaj_docus,s_documento',new CedulaValidaRule()],
-            'd_nacimiento'              => ['required'],
-            'aniosxxx'                  => ['required', 'numeric', 'min:6', 'max:28'],
-            'prm_sexo_id'               => ['required', 'exists:parametros,id'],
-            'sis_localidad_id'          => ['required', 'exists:sis_localidads,id'],
-            'sis_upz_id'                => ['required', 'exists:sis_upzs,id'],
-            'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarris,id'],
-
-            'i_prm_zona_direccion_id'   => ['required', 'exists:parametros,id'],
-            // 'i_prm_tipo_via_id'         => ['required_if:i_prm_zona_direccion_id,287', 'exists:parametros,id'],
-            // 's_nombre_via'              => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
-            // 'i_via_generadora'          => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
-            // 'i_placa_vg'                => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
-
-            'prm_tipoblaci_id'          => ['required', 'exists:parametros,id'],
-            'prm_pefil_id'              => ['required', 'exists:parametros,id'],
-            'prm_lugar_focali_id'       => ['required', 'exists:parametros,id'],
-            'prm_autorizo_id'           => ['required', 'exists:parametros,id'],
-            'observaciones'             => ['required', 'string'],
-        ];
+       
     }
     /**
      * Determine if the user is authorized to make this request.
@@ -85,11 +64,33 @@ class AeAsisNnajCrearRequest extends FormRequest
      */
     public function rules()
     {
-        $this->validar();
+        $this->_reglasx = [
+            's_primer_apellido'         => ['required', 'string'],
+            's_primer_nombre'           => ['required', 'string'],
+            'prm_tipodocu_id'           => ['required', 'exists:parametros,id'],
+            'prm_ayuda_id'              => ['required', 'exists:parametros,id'],
+            's_documento'               => ['required', 'numeric', 'digits_between:6,15', new CedulaExisteRule([]),new CedulaValidaRule()],
+            'd_nacimiento'              => ['required',new ValidarEdadNnajRule([])],
+            'aniosxxx'                  => ['required', 'numeric', 'min:6', 'max:28'],
+            'prm_sexo_id'               => ['required', 'exists:parametros,id'],
+            'sis_localidad_id'          => ['required', 'exists:sis_localidads,id'],
+            'sis_upz_id'                => ['required', 'exists:sis_upzs,id'],
+            'sis_upzbarri_id'           => ['required', 'exists:sis_upzbarris,id'],
+
+            'i_prm_zona_direccion_id'   => ['required', 'exists:parametros,id'],
+            // 'i_prm_tipo_via_id'         => ['required_if:i_prm_zona_direccion_id,287', 'exists:parametros,id'],
+            // 's_nombre_via'              => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
+            // 'i_via_generadora'          => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
+            // 'i_placa_vg'                => ['required_if:i_prm_zona_direccion_id,287', 'numeric', 'min:1', 'max:250'],
+
+            'prm_tipoblaci_id'          => ['required', 'exists:parametros,id'],
+            'prm_pefil_id'              => ['required', 'exists:parametros,id'],
+            'prm_lugar_focali_id'       => ['required', 'exists:parametros,id'],
+            'prm_autorizo_id'           => ['required', 'exists:parametros,id'],
+            'observaciones'             => ['required', 'string'],
+        ];
         return $this->_reglasx;
     }
 
-    public function validar()
-    {
-    }
+    
 }

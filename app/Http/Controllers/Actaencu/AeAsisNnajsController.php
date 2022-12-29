@@ -15,6 +15,7 @@ use App\Traits\Actaencu\ActaencuPestaniasTrait;
 use App\Traits\Actaencu\Nnajs\NnajsParametrizarTrait;
 use App\Traits\Actaencu\Nnajs\NnajsVistasTrait;
 use App\Traits\Combos\CombosTrait;
+use App\Traits\Combos\ParametroTemacomboTrait;
 
 class AeAsisNnajsController extends Controller
 {
@@ -26,7 +27,7 @@ class AeAsisNnajsController extends Controller
     use ActaencuDataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use NnajsVistasTrait; // trait que arma la logica para lo metodos: crud
     use ActaencuAjaxTrait;
-
+    use ParametroTemacomboTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'asisnnaj';
@@ -48,6 +49,7 @@ class AeAsisNnajsController extends Controller
 
     public function create(AeAsistencia $padrexxx)
     {
+       
         $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->opciones['readfisi'] = '';
@@ -78,13 +80,13 @@ class AeAsisNnajsController extends Controller
         $this->getBotones(['editarxx', [], 1, 'GUARDAR CONTACTO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editarxx', ['asistenc.editarxx', [$padrexxx->id]], 2, 'VOLVER A ASISTENCIA', 'btn btn-sm btn-primary']);
         $this->getBotones(['editarxx', ['asistenc.crearfix', [$modeloxx->id, $padrexxx->id]], 2, 'CREAR FICHA DE INGRESO', 'btn btn-sm btn-primary', ['target' => '_blank']]);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'formulario'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editarxx', 'editarzx'], 'todoxxxx' => $this->opciones, 'padrexxx' => $padrexxx]);
     }
 
 
     public function update(AeAsistencia $padrexxx, AeAsisNnajEditarRequest $request,  FiDatosBasico $modeloxx)
     {
-        return $this->setAeAsisNnaj([
+        return $this->setAeAsisNnajUpdate([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'NNAJ editado con éxito',

@@ -127,7 +127,6 @@ class UsuarioController extends Controller
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
         $this->opciones['prm_documento_id'] = Tema::comboAsc(3, true, false);
         $this->opciones['prm_tvinculacion_id'] = Tema::comboAsc(310, true, false);
-      
         $this->opciones['prm_tdependencia_id'] = Tema::comboAsc(3, true, false);
         $this->opciones['sis_depen_id'] = SisDepen::combo('', true, false);
         $this->opciones['sis_departam_id'] = SisDepartam::combo(2, false);

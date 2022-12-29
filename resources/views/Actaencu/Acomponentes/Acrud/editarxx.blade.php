@@ -7,11 +7,11 @@
       {!! Form::model($todoxxxx['modeloxx'],[route($todoxxxx["permisox"].'.editarxx',
       $todoxxxx["parametr"]),'method'=>'PUT','id'=>"formulario"
       ,'enctype'=>"multipart/form-data"]) !!}
-        @include($todoxxxx["botonesx"])
-        @include($todoxxxx["formular"])
-        @include($todoxxxx["botonesx"])
+      <x-pagina.botones :todoxxxx='$todoxxxx'>
+      </x-pagina.botones>
+      @include($todoxxxx["formular"])
+      <x-pagina.botones :todoxxxx='$todoxxxx'>
+      </x-pagina.botones>
       {!! Form::close() !!}
     </div>
   </div>
-
-

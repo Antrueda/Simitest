@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routexxx = 'asisnnaj';
 $controll = 'Actaencu\AeAsisNnajsController@';
 Route::group(['prefix' => 'aeasisnnaj'], function () use ($routexxx, $controll) {
@@ -18,11 +21,17 @@ Route::group(['prefix' => 'aeasisnnaj'], function () use ($routexxx, $controll) 
         'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crearxxx']
     ])->name($routexxx . '.crearxxx');
-    Route::get('{padrexxx}/editar/{modeloxx}', [
+   
+
+});
+
+Route::group(['prefix' => 'aeasisnnaj/{padrexxx}'], function () use ($routexxx, $controll) {
+    
+    Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.editarxx');
-    Route::put('{padrexxx}/editar/{modeloxx}', [
+    Route::put('editar/{modeloxx}', [
         'uses' => $controll . 'update',
         'middleware' => ['permission:' . $routexxx . '-editarxx']
     ])->name($routexxx . '.editarxx');
@@ -48,6 +57,7 @@ Route::group(['prefix' => 'aeasisnnaj'], function () use ($routexxx, $controll) 
     // ])->name($routexxx . '.activarx');
 
 });
+
 
 Route::group(['prefix' => 'aeasisnnajsin'], function () use ($routexxx, $controll) {
 

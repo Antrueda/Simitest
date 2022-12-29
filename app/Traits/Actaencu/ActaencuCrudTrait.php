@@ -172,6 +172,38 @@ trait ActaencuCrudTrait
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
+    public function setNnajAsisCreate($dataxxxx)
+    {
+        $dataxxxx['requestx']->request->add([
+            'user_edita_id' => Auth::id(),
+            'user_crea_id' => Auth::id(),
+            'sis_esta_id' => 1,
+            'fi_datos_basico_id' => $dataxxxx['modeloxx']->id
+        ]);
+        NnajAsis::create($dataxxxx['requestx']->all());
+    }
+
+    public function setAeAsisNnajUpdate($dataxxxx)
+    {
+        $respuest = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id, 'fi_datos_basico_id' => $dataxxxx['modeloxx']->id]);
+            $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            if (!is_null($dataxxxx['modeloxx']->nnaj_asis)) {
+                $dataxxxx['modeloxx']->nnaj_asis->update($dataxxxx['requestx']->all());
+            } else {
+                $this->setNnajAsisCreate($dataxxxx);
+            }
+            $dataxxxx['modeloxx']->nnaj_sexo->update($dataxxxx['requestx']->all());
+            $dataxxxx['modeloxx']->nnaj_docu->update($dataxxxx['requestx']->all());
+            $dataxxxx['modeloxx']->nnaj_nacimi->update($dataxxxx['requestx']->all());
+            $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->update($dataxxxx['requestx']->all());
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return redirect()
+            ->route($dataxxxx['permisox'], [$dataxxxx['padrexxx']->id, $respuest->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
+
     public function setAeRecurso($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
