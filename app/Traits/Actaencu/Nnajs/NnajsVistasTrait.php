@@ -132,7 +132,9 @@ trait NnajsVistasTrait
             $localidx = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_localidad->id;
             $upzselec = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_upz->id;
             $docuayud = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
-            $perfilxx = $dataxxxx['modeloxx']->nnaj_asis->prm_pefil_id;
+            if (!is_null($dataxxxx['modeloxx']->nnaj_asis)) {
+                $perfilxx = $dataxxxx['modeloxx']->nnaj_asis->prm_pefil_id;
+            }
             $tpviapal = $dataxxxx['modeloxx']->sis_nnaj->FiResidencia->i_prm_tipo_via_id;
             $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
