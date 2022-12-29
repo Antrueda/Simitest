@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routxxxx = 'formatov';
 $controll = 'Acciones\Individuales\Educacion\FormatoValoracion\FormatoValoracion';
 Route::group(['prefix' => '{padrexxx}/FormatoValora'], function () use ($controll, $routxxxx) {
