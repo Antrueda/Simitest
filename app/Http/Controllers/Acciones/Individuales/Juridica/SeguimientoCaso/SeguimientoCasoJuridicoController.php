@@ -121,7 +121,6 @@ class SeguimientoCasoJuridicoController extends Controller
         $this->opciones['tablinde']=false;
         $this->padrexxx = $modeloxx->casojur;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->casojur]], 2, 'CREAR NUEVO SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
         $do= $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->casojur]], 2, 'VOLVER A SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
         return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
@@ -131,7 +130,7 @@ class SeguimientoCasoJuridicoController extends Controller
 
     public function edit(SeguiJuridico $modeloxx)
     {    
-        if($modeloxx->user_crea_id!=Auth::user()->id){
+        if($modeloxx->user_id!=Auth::user()->id||Auth::user()->roles->first()->id == 1 ){
             return redirect()
             ->route('seguimjur', [$modeloxx->casojur_id])
             ->with('info', 'No se puede editar este formulario');
