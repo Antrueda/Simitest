@@ -495,12 +495,23 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'LAB-RRD HABILIDADES A TRABAJAR', 'tema_id' => '415', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 478
 
     Temacombo::create(['nombre' => 'NOMBRE DIAGNOSTICO', 'tema_id' => '415', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 479
-    Temacombo::create(['nombre' => 'TIPO CONSULTA ODONTOLOGICA', 'tema_id' => '415', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 479
-    
-    Temacombo::create(['nombre' => 'EGRESO CIERRE DE CASO', 'tema_id' => '418', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 479
-    Temacombo::create(['nombre' => 'EGRESO MOTIVO COMPLEMENTO	', 'tema_id' => '419', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 479
-    Temacombo::create(['nombre' => 'EGRESO MOTIVO LLAMADA	', 'tema_id' => '419', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 479
+    Temacombo::create(['nombre' => 'TIPO CONSULTA ODONTOLOGICA', 'tema_id' => '415', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 480
 
+    Temacombo::create(['nombre' => 'EGRESO CIERRE DE CASO', 'tema_id' => '418', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 481
+    Temacombo::create(['nombre' => 'EGRESO MOTIVO COMPLEMENTO	', 'tema_id' => '419', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 482
+    Temacombo::create(['nombre' => 'EGRESO MOTIVO LLAMADA	', 'tema_id' => '419', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 483
+
+    Temacombo::create(['nombre' => 'V NUTRICIONAL IMC/EDAD', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 484
+    Temacombo::create(['nombre' => 'V NUTRICIONAL TALLA/EDAD', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 485
+    Temacombo::create(['nombre' => 'V NUTRICIONAL ACTIVIDAD FÍSICA', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 486
+    Temacombo::create(['nombre' => 'V NUTRICIONAL APETITO', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 487
+    Temacombo::create(['nombre' => 'V NUTRICIONAL ALIMENTOS FRECUENCIA', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 488
+    Temacombo::create(['nombre' => 'V NUTRICIONAL ACCIONES AUMENTAR', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 489
+    Temacombo::create(['nombre' => 'V NUTRICIONAL ACCIONES DISMINUIR', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 490
+    Temacombo::create(['nombre' => 'V NUTRICIONAL SEGUIMIENTO DE CONSUMO', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 491
+    Temacombo::create(['nombre' => 'V NUTRICIONAL REMISIÓN INTRAINSTITUCIONAL', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 492
+    Temacombo::create(['nombre' => 'V NUTRICIONAL DIAGNÓSTICO NUTRICIONAL', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 493
+    Temacombo::create(['nombre' => 'V NUTRICIONAL RECOMENDACIONES', 'tema_id' => '421', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 494
 
   }
 }
