@@ -2,17 +2,7 @@
 
 namespace App\Traits\Acciones\CentroZonal\Administracion;
 
-use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Modulo;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\AsignaEnfermedad;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiasigna;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remiespecial;
-use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Remision;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Usuario\Estusuario;
 use App\Traits\DatatableTrait;

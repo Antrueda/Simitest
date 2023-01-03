@@ -96,5 +96,14 @@
             </li>
             @endcan
 
+            @can('inscricon-leer') 
+            <li class="nav-item">
+              <a href="{{ route('inscricon')}}" class="nav-link">
+                <i class="fas fa-file-signature"></i>
+                <p>Inscripción Programa De Formación Técnica Convenios</p>
+              </a>
+            </li>
+            @endcan
+
     </ul>
 </li>

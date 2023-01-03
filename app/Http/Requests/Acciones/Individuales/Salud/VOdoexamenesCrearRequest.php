@@ -29,7 +29,7 @@ class VOdoexamenesCrearRequest extends FormRequest
             'pisob_id' => 'required',
             'paladar_id' => 'required',
             'mucosa_id' => 'required',
-            'descripcion' => 'required',
+            //'descripcion' => 'required',
       
             ];
     }
@@ -61,7 +61,12 @@ class VOdoexamenesCrearRequest extends FormRequest
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
           
-         
+            if($this->labios_id==227||$this->lengua_id==227||$this->pisob_id==227||$this->paladar_id==227||$this->mucosa_id==227){
+                $this->_reglasx['descripcion'] = 'Required';
+                $this->_mensaje['descripcion.required'] = 'Digite la descripción de los hallazgos';
+            
+
+            }
         }
     }
 

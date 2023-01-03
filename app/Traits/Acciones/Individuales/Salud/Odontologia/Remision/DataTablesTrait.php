@@ -75,7 +75,7 @@ trait DataTablesTrait
             $dataxxxx['tablasxx'][] =
             [
                 'titunuev' => 'AGREGAR REPRESENTANTE LEGAL',
-                'titulist' => 'DIAGNOSTICOS',
+                'titulist' => 'DIAGNÓSTICOS',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
                 'vercrear' => false,
@@ -89,9 +89,9 @@ trait DataTablesTrait
                 ],
                 'cabecera' => [
                     [
-                        ['td' => 'NOMBRE DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DIAGNOSTICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'CODIGO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'NOMBRE DIAGNÓSTICOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DIAGNÓSTICOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CÓDIGO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],

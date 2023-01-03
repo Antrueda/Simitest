@@ -80,4 +80,14 @@
             </li>
         @endcan
     </ul>
+    <ul class="nav nav-treeview">
+        @can('programamodulo-modulo')
+            <li class="nav-item">
+                <a href="{{ route('programamodulo') }}" class="nav-link">
+                    <i class="fas fa-school nav-icon"></i>
+                    <p>Formación Técnica Convenios</p>
+                </a>
+            </li>
+        @endcan
+    </ul>
 </li>

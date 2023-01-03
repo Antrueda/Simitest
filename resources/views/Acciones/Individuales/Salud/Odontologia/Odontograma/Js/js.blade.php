@@ -2,7 +2,9 @@
   $(document).ready(function(){
     $('#diag_id').select2({
       language: "es",
-      theme: "classic",
+      placeholder: function(){
+        $(this).data('placeholder');
+        }
     });
 
 
