@@ -84,4 +84,5 @@ Route::group(['prefix' => 'InscripcionCovenio'], function () use ($controll, $ro
 	
 });
      
-require_once('web_matriculannnaj.php');
+require_once('web_inscripcionnnaj.php');
+require_once('web_moduloInscr.php');

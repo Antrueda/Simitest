@@ -51,7 +51,7 @@ class VOdonExamenesController extends Controller
             return redirect()
             ->route('vodonexamens.editar', [$padrexxx->examenes->id]);
         }
-                if($padrexxx->antecedentes){
+        if($padrexxx->antecedentes){
             $this->pestanix[2]['routexxx'] = '.editar';
             $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->antecedentes->id];
             $this->pestanix[2]['checkxxx'] = 1;
@@ -72,20 +72,16 @@ class VOdonExamenesController extends Controller
         //ddd($padrexxx->odontograma);
         if($padrexxx->odontograma){
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
             $this->pestanix[4]['checkxxx'] = 1;
         }else{
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
             $this->pestanix[4]['checkxxx'] = 0;
         }
          if($padrexxx->higiene){
              $this->pestanix[5]['routexxx'] = '.nuevo';
-             $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
              $this->pestanix[5]['checkxxx'] = 1;
          }else{
              $this->pestanix[5]['routexxx'] = '.nuevo';
-             $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
              $this->pestanix[5]['checkxxx'] = 0;
          }
         if($padrexxx->remision){
@@ -97,6 +93,13 @@ class VOdonExamenesController extends Controller
             $this->pestanix[6]['dataxxxx'] = [true, $padrexxx];
             $this->pestanix[6]['checkxxx'] = 0;
         }
+
+        if($padrexxx->consulta_id==1385){
+            $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
+        }else{
+            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
+        }
+
         $this->padrexxx = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $padrexxx;
@@ -122,12 +125,12 @@ class VOdonExamenesController extends Controller
     {//
         $request->request->add(['sis_esta_id'=> 1]);
         $request->request->add(['odonto_id'=> $padrexxx->id]);
-        foreach($request->diente as $key => $value){
-            $dientes =$value;
-            $diag=$request->diag_id[$key];
-            $test=VOdontograma::create(['diente' =>$dientes, 'diag_id' => $diag, 'odonto_id' => $padrexxx->id, 'sis_esta_id' =>1, 'user_crea_id' =>Auth::user()->id]);
-          //  ddd($test);
-        }
+        // foreach($request->diente as $key => $value){
+        //     $dientes =$value;
+        //     $diag=$request->diag_id[$key];
+        //     $test=VOdontograma::create(['diente' =>$dientes, 'diag_id' => $diag, 'odonto_id' => $padrexxx->id, 'sis_esta_id' =>1, 'user_crea_id' =>Auth::user()->id]);
+        //   //  ddd($test);
+        // }
 
 
    
@@ -164,7 +167,6 @@ class VOdonExamenesController extends Controller
     public function edit(VOdonexamen $modeloxx)
     {    
 
-
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         if($modeloxx->odontologia->antecedentes){
@@ -188,20 +190,16 @@ class VOdonExamenesController extends Controller
         //ddd($modeloxx->odontologia->odontograma);
         if($modeloxx->odontologia->odontograma){
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->odontologia];
             $this->pestanix[4]['checkxxx'] = 1;
         }else{
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->odontologia];
             $this->pestanix[4]['checkxxx'] = 0;
         }
          if($modeloxx->odontologia->higiene){
              $this->pestanix[5]['routexxx'] = '.nuevo';
-             $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->odontologia];
              $this->pestanix[5]['checkxxx'] = 1;
          }else{
              $this->pestanix[5]['routexxx'] = '.nuevo';
-             $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->odontologia];
              $this->pestanix[5]['checkxxx'] = 0;
          }
         if($modeloxx->odontologia->remision){
@@ -212,6 +210,12 @@ class VOdonExamenesController extends Controller
             $this->pestanix[6]['routexxx'] = '.nuevo';
             $this->pestanix[6]['dataxxxx'] = [true, $modeloxx->odontologia];
             $this->pestanix[6]['checkxxx'] = 0;
+        }
+        
+        if($modeloxx->odontologia->consulta_id==1385){
+            $this->pestanix[5]['dataxxxx'] = [true, $modeloxx->odontologia];
+        }else{
+            $this->pestanix[4]['dataxxxx'] = [true, $modeloxx->odontologia];
         }
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
@@ -226,7 +230,7 @@ class VOdonExamenesController extends Controller
     }
 
 
-    public function update(VOdontoantecentesEditarRequest $request,  VOdonexamen $modeloxx)
+    public function update(VOdoexamenesCrearRequest $request,  VOdonexamen $modeloxx)
     {
         $request->request->add(['odonto_id'=> $modeloxx->odontologia->id]);
         

@@ -2,6 +2,9 @@
   $(document).ready(function(){
     $('#diag_id').select2({
       language: "es"
+      placeholder: function(){
+        $(this).data('placeholder');
+        }
     });
 
 

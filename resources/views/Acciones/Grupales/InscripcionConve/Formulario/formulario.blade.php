@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
         {{ Form::label('conve_id', 'Convenio/Entidad', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('conve_id', $todoxxxx['apoyoxxx'], null, ['class' => $errors->first('conve_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
         @if ($errors->has('conve_id'))

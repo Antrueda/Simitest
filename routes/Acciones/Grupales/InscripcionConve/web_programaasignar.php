@@ -7,7 +7,7 @@ Route::group(['prefix' => 'Programaasig'], function () use($controll,$routxxxx){
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'getServiciosDependenciaGrado',
+		'uses' => $controll.'listaAsignarPrograma',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 	Route::get('nuevo', [

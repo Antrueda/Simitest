@@ -24,8 +24,8 @@ class CreateProgramaAsociasTable extends Migration
             $table->foreign('modal_id')->references('id')->on('modalidads');
             $table->integer('sede_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
             $table->foreign('sede_id')->references('id')->on('sede_centros');
-            //$table->integer('sede_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
-            //$table->foreign('sede_id')->references('id')->on('sede_centros');
+            $table->integer('conve_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
+            $table->foreign('conve_id')->references('id')->on('convenios');
             $table = CamposMagicos::magicos($table);
         });
     }
@@ -42,15 +42,5 @@ class CreateProgramaAsociasTable extends Migration
 }
 
 
-/*
-        Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
-            $table->integer('sis_servicio_id')->unsigned()->comment('CAMPO DE ID DEL SERVICIO');
-            $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
-            $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
-            $table = CamposMagicos::magicos($table);
-            $table->unique(['sis_entidad_id', 'sis_servicio_id'],'entser_pk1');
-        });
-*/
+
 

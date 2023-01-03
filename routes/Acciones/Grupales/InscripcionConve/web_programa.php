@@ -7,7 +7,7 @@ Route::group(['prefix' => 'Programas'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']
     ])->name($routxxxx);
     Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@ListaGrado',
+        'uses' => $controll . 'Controller@listaprograma',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
     Route::get('nuevo', [
@@ -34,10 +34,10 @@ Route::group(['prefix' => 'Programas'], function () use ($controll, $routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.ver');
 
-    Route::get('motivosstse', [
+    Route::get('motitseg', [
 	    'uses' => $controll.'Controller@getMotivos',
 	    'middleware' => ['permission:'.$routxxxx.'-leer']
-    ])->name($routxxxx.'.motistse');
+    ])->name($routxxxx.'.motitseg');
 
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@inactivate',

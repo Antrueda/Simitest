@@ -6,18 +6,24 @@ namespace App\Traits\Acciones\Grupales\Sena\Administracion;
 trait PestaniasTrait
 {
     public $pestanix = [
-        'grupoasig' => [true, []],
-        'gradoasig' => [true, []],
-        'grupom' => [true, []],
+        'programa' => [true, []],
+        'modalidad' => [true, []],
+        'tipoprograma' => [true, []],
+        'sedecentro' => [true, []],
+        'conveniox' => [true, []],
+        'asignaprograma' => [true, []],
     ];
 
     private function getCanany($dataxxxx)
     {
         $permisox = [
 
-            'grupoasig' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-             'gradoasig' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-             'grupom' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'programa' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+             'modalidad' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+             'tipoprograma' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+             'sedecentro' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+             'conveniox' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+             'asignaprograma' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -28,27 +34,53 @@ trait PestaniasTrait
 
     public function setPestanias($dataxxxx)
     {
-        $pestania['grupoasig'] = [
+        $pestania['programa'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ASIGNAR GRUPO',
+            'tituloxx' => 'PROGRAMA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
-        $pestania['gradoasig'] = [
+        $pestania['modalidad'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ASIGNAR GRADO',
+            'tituloxx' => 'MODALIDAD',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
-        $pestania['grupom'] = [
+        $pestania['tipoprograma'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'GRUPOS',
+            'tituloxx' => 'TIPO PROGRAMA',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
+        $pestania['sedecentro'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'SEDE CENTRO',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
+        $pestania['conveniox'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'CONVENIO',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['asignaprograma'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'ASIGNAR PROGRAMA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

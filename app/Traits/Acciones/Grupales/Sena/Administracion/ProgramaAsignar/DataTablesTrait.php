@@ -19,8 +19,8 @@ trait DataTablesTrait
 
         $dataxxxx['tablasxx'] = [
             [
-                'titunuev' => 'ASIGNAR GRADO',
-                'titulist' => 'LISTA DE UPI Y SERVICIOS CON GRADO',
+                'titunuev' => 'ASIGNAR PROGRAMA',
+                'titulist' => 'LISTA DE PROGRAMA',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
@@ -35,18 +35,22 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'GRADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CONVENIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEDE/CENTRO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PROGRAMA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIPO DE PROGRAMA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MODALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'grado_asignars.id'],
-                    ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
-                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 'grado', 'name' => 'grado.s_grado as grado'],
+                    ['data' => 'conve', 'name' => 'convenios.nombre as conve'],
+                    ['data' => 'sede', 'name' => 'sede_centros.nombre as sede'],
+                    ['data' => 'progra', 'name' => 'programas.nombre as progra'],
+                    ['data' => 'tipopro', 'name' => 'tipoprogramas.nombre as tipopro'],
+                    ['data' => 'modal', 'name' => 'modalidads.nombre as modal'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -62,41 +66,3 @@ trait DataTablesTrait
     }
 }
 
-/*        $this->opciones['tablasxx'] = [
-            [
-                'titunuev' => 'SERVICIO',
-                'titulist' => 'LISTA DE SERVICIOS',
-                'dataxxxx' => [
-                    ['campoxxx' => 'botonesx', 'dataxxxx' =>
-                    $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
-                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadosx'],
-                    ['campoxxx' => 'padrexxx', 'dataxxxx' => $padrexxx->id],
-                    ['campoxxx' => 'pueditar', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-editar')],
-                    ['campoxxx' => 'puedever', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-leer')],
-                    ['campoxxx' => 'puedinac', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-borrar')],
-                ],
-
-                'accitabl' => true,
-                'vercrear' => true,
-                'urlxxxxx' => 'api/sis/servicio',
-                'cabecera' => [
-                    ['td' => 'ID'],
-                    ['td' => 'SERVICIO'],
-                    ['td' => 'ESTADO'],
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_depeservs.id'],
-                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => $this->opciones['tablaxxx'],
-                'permisox' => 'servdepe',
-                'routxxxx' => 'servdepe',
-                'parametr' => $this->opciones['botoform'][0]['routingx'][1],
-            ]
-
-        ];
-        $this->opciones['accionxx'] = 'index';
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-    }

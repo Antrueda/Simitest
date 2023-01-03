@@ -5,6 +5,12 @@ namespace App\Traits\Acciones\Grupales\Sena\Administracion;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Convenio;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Modalidad;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Programa;
+use App\Models\Acciones\Grupales\InscripcionConvenios\ProgramaAsocia;
+use App\Models\Acciones\Grupales\InscripcionConvenios\SedeCentro;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Tipoprograma;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\fichaobservacion\FosTse;
@@ -52,7 +58,7 @@ trait ListadosTrait
      * encontrar listar paises
      */
 
-    public function listaFosts(Request $request)
+    public function listaprograma(Request $request)
     {
 
         if ($request->ajax()) {
@@ -60,23 +66,23 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = Temacombo::select(
+            $dataxxxx = Programa::select(
                 [
-                    'motivo_egresos.id',
-                    'motivo_egresos.nombre',
-                    'motivo_egresos.created_at',
-                    'motivo_egresos.sis_esta_id',
+                    'programas.id',
+                    'programas.nombre',
+                    'programas.created_at',
+                    'programas.sis_esta_id',
                     'sis_estas.s_estado'
                 ]
             )
-                ->join('sis_estas', 'motivo_egresos.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'programas.sis_esta_id', '=', 'sis_estas.id');
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
 
-    public function ListaGrado(Request $request)
+    public function ListaModalidad(Request $request)
     {
 
         if ($request->ajax()) {
@@ -84,36 +90,91 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = EdaGrado::select([
-                'id',
-                's_grado',
-                'sis_esta_id',
+            $dataxxxx = Modalidad::select([
+                'modalidads.id',
+                'modalidads.nombre',
+                'modalidads.created_at',
+                'modalidads.sis_esta_id',
+                'sis_estas.s_estado'
                 ])
-
-            ->where('sis_esta_id',1);
+            ->join('sis_estas', 'modalidads.sis_esta_id', '=', 'sis_estas.id');
+ 
             
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    public function ListaGrupo(Request $request)
+
+    public function ListaTipoPrograma(Request $request)
     {
+
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx'], 'fosasignar'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = GrupoMatricula::select([
-                'grupo_matriculas.id',
-                'grupo_matriculas.s_grupo',
-                'grupo_matriculas.sis_esta_id',
+            $dataxxxx = Tipoprograma::select([
+                'tipoprogramas.id',
+                'tipoprogramas.nombre',
+                'tipoprogramas.created_at',
+                'tipoprogramas.sis_esta_id',
+                'sis_estas.s_estado'
                 ])
-            ->join('sis_estas', 'grupo_matriculas.sis_esta_id', '=', 'sis_estas.id');
+            ->join('sis_estas', 'tipoprogramas.sis_esta_id', '=', 'sis_estas.id');
+ 
+            
 
             return $this->getDt($dataxxxx, $request);
         }
     }
+
+    public function ListaConvenio(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosasignar'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = Convenio::select([
+                'convenios.id',
+                'convenios.nombre',
+                'convenios.created_at',
+                'convenios.sis_esta_id',
+                'sis_estas.s_estado'
+                ])
+            ->join('sis_estas', 'convenios.sis_esta_id', '=', 'sis_estas.id');
+            
+            
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
+    public function ListaSedeCentro(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosasignar'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = SedeCentro::select([
+                'sede_centros.id',
+                'sede_centros.nombre',
+                'sede_centros.created_at',
+                'sede_centros.sis_esta_id',
+                'sis_estas.s_estado'
+                ])
+            ->join('sis_estas', 'sede_centros.sis_esta_id', '=', 'sis_estas.id');
+            
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
 
     /*
     Temacombo::select(['parametros.id', 'parametros.nombre'])
@@ -125,104 +186,42 @@ trait ListadosTrait
             ->get();
     */
 
-    public function listaFossts(Request $request, FosTse $padrexxx)
+
+    public function listaAsignarPrograma(Request $request)
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->routexxx = [$this->opciones['routxxxx'],'fosasignar'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = MotivoEgresoSecu::select(
-                [
-                    'motivo_egreso_secus.id',
-                    'motivo_egreso_secus.nombre',
-                    'motivo_egreso_secus.created_at',
-                    'motivo_egreso_secus.sis_esta_id',
-                    'sis_estas.s_estado'
-                ]
-            )
-                ->join('sis_estas', 'motivo_egreso_secus.sis_esta_id', '=', 'sis_estas.id');
-
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
-
-    //     public static function getServiciosDependencia(Request $request)
-    //     {
-    //        if ($request->ajax()) {
-    //             $request->routexxx = [$this->opciones['routxxxx']];
-    //             $request->botonesx = $this->opciones['rutacarp'] .
-    //                 $this->opciones['carpetax'] . '.Botones.botonesapi';
-    //             $request->estadoxx = 'layouts.components.botones.estadosx';
-    //         $dataxxxx = SisServicio::select([
-    //             'sis_depeservs.id',
-    //             'sis_servicios.s_servicio',
-    //             'sis_depeservs.sis_esta_id',
-    //             'sis_estas.s_estado'
-    //         ])
-    //             ->join('sis_depeservs', 'sis_servicios.id', '=', 'sis_depeservs.sis_servicio_id')
-    //             ->join('sis_estas', 'sis_depeservs.sis_esta_id', '=', 'sis_estas.id')
-    //             ->where('sis_depeservs.sis_depen_id', $request->padrexxx);
-    //         return $this->getDt($dataxxxx, $request);
-    //     }
-    // }
-
-
-    public function getServiciosDependenciaGru(Request $request)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'grupoasig'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = GrupoAsignar::select([
-                'grupo_asignars.id',
-                'sis_servicios.s_servicio',
-                'sis_depens.nombre',
-                'grupo_matriculas.s_grupo',
-                'grupo_asignars.sis_esta_id',
-                'sis_estas.s_estado'
-            ])
-                ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
-                ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
-                ->join('sis_estas', 'grupo_asignars.sis_esta_id', '=', 'sis_estas.id')
-                ->join('grupo_matriculas', 'grupo_asignars.grupo_matricula_id', '=', 'grupo_matriculas.id');
-
+            $dataxxxx = ProgramaAsocia::select(
+				[
+                    'programa_asocias.id',
+                    'programas.nombre as progra',
+                    'tipoprogramas.nombre as tipopro',
+                    'modalidads.nombre as modal',
+                    'sede_centros.nombre as sede',
+                    'convenios.nombre as conve',
+                    'programa_asocias.created_at',
+					'programa_asocias.sis_esta_id',
+					'sis_estas.s_estado'
+				]
+			)
+                ->join('programas', 'programa_asocias.progra_id', '=', 'programas.id')
+                ->join('tipoprogramas', 'programa_asocias.tipop_id', '=', 'tipoprogramas.id')
+                ->join('modalidads', 'programa_asocias.modal_id', '=', 'modalidads.id')
+                ->join('sede_centros', 'programa_asocias.sede_id', '=', 'sede_centros.id')
+                ->join('convenios', 'programa_asocias.conve_id', '=', 'convenios.id')
+                ->join('sis_estas', 'programa_asocias.sis_esta_id', '=', 'sis_estas.id');
+                
 
             return $this->getDt($dataxxxx, $request);
         }
     }
 
 
-
-    public function getServiciosDependenciaGrado(Request $request)
-    {
-        if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'grupoasig'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx = GradoAsignar::select([
-                'grado_asignars.id',
-                'sis_servicios.s_servicio',
-                'sis_depens.nombre',
-                'grado.s_grado as grado',
-                'grado_asignars.sis_esta_id',
-                'sis_estas.s_estado'
-            ])
-            ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
-            ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_estas', 'grado_asignars.sis_esta_id', '=', 'sis_estas.id')
-            ->join('eda_grados as grado', 'grado_asignars.grado_matricula', '=', 'grado.id');
-
-
-            return $this->getDt($dataxxxx, $request);
-        }
-    }
-
-
-
+    
 
     public function getMotivosts(Request $request)
     {

@@ -7,7 +7,7 @@ Route::group(['prefix' => 'SedeCentro'], function () use($controll,$routxxxx){
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@getServiciosDependenciaGru',
+		'uses' => $controll.'Controller@ListaSedeCentro',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 	Route::get('nuevo', [
@@ -54,7 +54,10 @@ Route::group(['prefix' => 'SedeCentro'], function () use($controll,$routxxxx){
 		'uses' => $controll . 'Controller@activar',
 		'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
-
+    Route::get('motitseg', [
+	    'uses' => $controll.'Controller@getMotivos',
+	    'middleware' => ['permission:'.$routxxxx.'-leer']
+    ])->name($routxxxx.'.motitseg');
 
 });
 

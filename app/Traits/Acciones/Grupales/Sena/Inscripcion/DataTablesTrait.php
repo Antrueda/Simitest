@@ -24,8 +24,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REGISTRAR NUEVA MATRÍCULA',
-                    'titulist' => 'LISTA DE MATRICULAS',
+                    'titunuev' => 'REGISTRAR NUEVA INSCRIPCIÓN FORMACIÓN TÉCNICA CONVENIOS',
+                    'titulist' => 'LISTA DE INSCRIPCIONES FORMACIÓN TÉCNICA CONVENIOS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,

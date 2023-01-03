@@ -91,7 +91,7 @@ trait DataTablesTrait
                     [
                         ['td' => 'DIENTE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SUPERFICIES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DIAGNOSTICO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DIAGNÓSTICO', 'widthxxx' => 100, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ACCIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],

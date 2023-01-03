@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\MatriculaCrearRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculaEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Grupales\InscripcionConvenios\InscriConve;
 use App\Models\Simianti\Ped\PedMatricula;
-use App\Traits\Acciones\Grupales\Matricula\CrudTrait;
-use App\Traits\Acciones\Grupales\Matricula\ParametrizarTrait;
-use App\Traits\Acciones\Grupales\Matricula\VistasTrait;
-use App\Traits\Acciones\Grupales\ListadosTrait;
-use App\Traits\Acciones\Grupales\Matricula\PestaniasTrait;
+use App\Traits\Acciones\Grupales\Sena\Inscripcion\CrudTrait;
+use App\Traits\Acciones\Grupales\Sena\Inscripcion\ParametrizarTrait;
+use App\Traits\Acciones\Grupales\Sena\Inscripcion\VistasTrait;
+use App\Traits\Acciones\Grupales\Sena\Inscripcion\ListadosTrait;
+use App\Traits\Acciones\Grupales\Sena\Inscripcion\PestaniasTrait;
 use App\Traits\Combos\UserCombosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,24 +59,19 @@ class InscripcionSenaController extends Controller
     {
         // en que caso de que no exista una matricula creada entonces se busca en el antiguo sistema para 
         // para saber en que consecutivo se encuentra allá
-        $traslado= IMatricula::count();
-        if($traslado==0){    
-            $dataxxxx = PedMatricula::orderby('id_matricula', 'desc')->first()->id_matricula + 1;;
-            $request->request->add(['id'=> $dataxxxx]);
-        }
         $request->request->add(['sis_esta_id'=> 1]);
         return $this->setMatricula([
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Matricula creada con éxito, por favor asignar NNAJ',
-            'routxxxx' => 'imatricula.editar'
+            'infoxxxx' =>       'Inscripción creada con éxito, por favor asignar NNAJ',
+            'routxxxx' => 'inscricon.editar'
             //'routxxxx' => 'salidajovenes.nuevo'
         ]);
     }
 
 
-    public function show(IMatricula $modeloxx)
+    public function show(InscriConve $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO MATRICULA', 'btn btn-sm btn-primary']);
@@ -85,7 +81,7 @@ class InscripcionSenaController extends Controller
     }
 
 
-    public function edit(IMatricula $modeloxx)
+    public function edit(InscriConve $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MATRICULAS', 'btn btn-sm btn-primary']);
@@ -97,18 +93,18 @@ class InscripcionSenaController extends Controller
     }
 
 
-    public function update(MatriculaEditarRequest $request,  IMatricula $modeloxx)
+    public function update(MatriculaEditarRequest $request,  InscriConve $modeloxx)
     {
         return $this->setMatricula([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,
-            'infoxxxx' => 'Matricula editada con éxito',
+            'infoxxxx' => 'Inscripción editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(IMatricula $modeloxx)
+    public function inactivate(InscriConve $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -118,7 +114,7 @@ class InscripcionSenaController extends Controller
     }
 
 
-    public function destroy(Request $request, IMatricula $modeloxx)
+    public function destroy(Request $request, InscriConve $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -127,7 +123,7 @@ class InscripcionSenaController extends Controller
             ->with('info', 'Matricula inactivada correctamente');
     }
 
-    public function activate(IMatricula $modeloxx)
+    public function activate(InscriConve $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -136,7 +132,7 @@ class InscripcionSenaController extends Controller
         );
 
     }
-    public function activar(Request $request, IMatricula $modeloxx)
+    public function activar(Request $request, InscriConve $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

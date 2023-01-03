@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Acciones\Grupales\InscripcionSena\Administracion;
 
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Acciones\Grupales\InscripcionFormacion\FormacionCrearRequest;
 use App\Http\Requests\MatriculaAdmin\GrupoCrearRequest;
 use App\Http\Requests\MatriculaAdmin\GrupoEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
-use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Convenio;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Traits\Acciones\Grupales\Sena\Administracion\Convenio\CrudTrait;
@@ -52,28 +52,28 @@ class ConvenioController extends Controller
    
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR GRUPO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(GrupoCrearRequest $request)   
+    public function store(FormacionCrearRequest $request)   
      {
 
-        return $this->setGrupo([
+        return $this->setConvenio([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Grupo creado con éxito',
+            'infoxxxx' =>       'Convenio creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(GrupoMatricula $modeloxx)
+    public function show(Convenio $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A GRUPO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A CONVENIO', 'btn btn-sm btn-primary']);
          $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR GRUPO', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR CONVENIO', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]
@@ -81,40 +81,40 @@ class ConvenioController extends Controller
     }
 
 
-    public function edit(GrupoMatricula $modeloxx)
+    public function edit(Convenio $modeloxx)
     {
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A GRUPO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A CONVENIO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR GRUPO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR CONVENIO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]
         );
     }
 
 
-    public function update(GrupoEditarRequest $request,  GrupoMatricula $modeloxx)
+    public function update(FormacionCrearRequest $request,  Convenio $modeloxx)
     {
-        return $this->setGrupo([
+        return $this->setConvenio([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Grupo editado con éxito',
+            'infoxxxx' => 'Convenio editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(GrupoMatricula $modeloxx)
+    public function inactivate(Convenio $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR GRUPO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->fos_tse]
         );
     }
 
 
-    public function destroy(Request $request, GrupoMatricula $modeloxx)
+    public function destroy(Request $request, Convenio $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -122,25 +122,25 @@ class ConvenioController extends Controller
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Grupo inactivado correctamente');
+            ->with('info', 'Convenio inactivado correctamente');
     }
 
-    public function activate(GrupoMatricula $modeloxx)
+    public function activate(Convenio $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR GRUPO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->fos_tse]
         );
 
     }
-    public function activar(Request $request, GrupoMatricula $modeloxx)
+    public function activar(Request $request, Convenio $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         $seguimix=GrupoAsignar::where('grupo_matricula_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Grupo activado correctamente');
+            ->with('info', 'Convenio activado correctamente');
     }
 }

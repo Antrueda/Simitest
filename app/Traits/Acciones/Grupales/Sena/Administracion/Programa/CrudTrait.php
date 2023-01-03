@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Sena\Administracion\Programa;
 
+use App\Models\Acciones\Grupales\InscripcionConvenios\Programa;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\fichaobservacion\FosTse;
@@ -19,7 +20,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setMotivoEgreso($dataxxxx)
+    public function setPrograma($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -31,7 +32,6 @@ trait CrudTrait
                 $arrayxx =
                     [
                         "nombre" => $dataxxxy['nombre'],
-                        "descripcion" =>  $dataxxxy['descripcion'],
                         "sis_esta_id" =>  $dataxxxy['sis_esta_id'],
                         "estusuario_id" =>  $dataxxxy['estusuario_id'],
                         "user_edita_id" =>  $dataxxxy['user_edita_id'],
@@ -39,7 +39,7 @@ trait CrudTrait
                     ];
 
 
-                $dataxxxx['modeloxx'] = MotivoEgreso::create($arrayxx);
+                $dataxxxx['modeloxx'] = Programa::create($arrayxx);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

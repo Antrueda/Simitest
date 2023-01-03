@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Acciones\Grupales\InscripcionSena\Administracion;
 
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Acciones\Grupales\InscripcionFormacion\FormacionCrearRequest;
 use App\Http\Requests\MatriculaAdmin\GrupoCrearRequest;
 use App\Http\Requests\MatriculaAdmin\GrupoEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoMatricula;
+use App\Models\Acciones\Grupales\InscripcionConvenios\SedeCentro;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgresoSecu;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Traits\Acciones\Grupales\Sena\Administracion\SedeCentro\CrudTrait;
@@ -52,28 +53,28 @@ class SedeCentroController extends Controller
    
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR GRUPO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(GrupoCrearRequest $request)   
+    public function store(FormacionCrearRequest $request)   
      {
 
-        return $this->setGrupo([
+        return $this->setSede([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Grupo creado con éxito',
+            'infoxxxx' =>       'Sede/Centro creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(GrupoMatricula $modeloxx)
+    public function show(SedeCentro $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A GRUPO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A SEDE/CENTRO', 'btn btn-sm btn-primary']);
          $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR GRUPO', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR SEDE/CENTRO', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]
@@ -81,40 +82,40 @@ class SedeCentroController extends Controller
     }
 
 
-    public function edit(GrupoMatricula $modeloxx)
+    public function edit(SedeCentro $modeloxx)
     {
         
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A GRUPO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A SEDE/CENTRO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR GRUPO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SEDE/CENTRO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]
         );
     }
 
 
-    public function update(GrupoEditarRequest $request,  GrupoMatricula $modeloxx)
+    public function update(FormacionCrearRequest $request,  SedeCentro $modeloxx)
     {
-        return $this->setGrupo([
+        return $this->setSede([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Grupo editado con éxito',
+            'infoxxxx' => 'Sede/Centro editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(GrupoMatricula $modeloxx)
+    public function inactivate(SedeCentro $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR GRUPO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->fos_tse]
         );
     }
 
 
-    public function destroy(Request $request, GrupoMatricula $modeloxx)
+    public function destroy(Request $request, SedeCentro $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -122,10 +123,10 @@ class SedeCentroController extends Controller
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Grupo inactivado correctamente');
+            ->with('info', 'Sede/Centro inactivado correctamente');
     }
 
-    public function activate(GrupoMatricula $modeloxx)
+    public function activate(SedeCentro $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -134,13 +135,13 @@ class SedeCentroController extends Controller
         );
 
     }
-    public function activar(Request $request, GrupoMatricula $modeloxx)
+    public function activar(Request $request, SedeCentro $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         $seguimix=GrupoAsignar::where('grupo_matricula_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->id])
-            ->with('info', 'Grupo activado correctamente');
+            ->with('info', 'Sede/Centro activado correctamente');
     }
 }

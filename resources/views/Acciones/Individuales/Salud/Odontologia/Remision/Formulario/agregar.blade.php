@@ -22,7 +22,7 @@
          @endif
     </div>
     <div class="col-sm-2">
-      {{ Form::label('codigo', 'Codigo', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('codigo', 'C+odigo', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::text('codigo',null, ['class' => $errors->first('codigo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',]) }}
           @if($errors->has('codigo'))
             <div class="invalid-feedback d-block">
@@ -37,7 +37,7 @@
 
   <br>
   <div>
-    <button type="button" class="btn btn-primary" id="agregar" type="submit">AGREGAR DIAGNOSTICO</button>
+    <button type="button" class="btn btn-primary" id="agregar" type="submit">AGREGAR DIAGNÓSTICO</button>
   </div>
 
 

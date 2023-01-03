@@ -8,6 +8,7 @@ use App\Http\Requests\MatriculaAdmin\GrupoAsignarEditarRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
+use App\Models\Acciones\Grupales\InscripcionConvenios\ProgramaAsocia;
 use App\Models\sistema\SisDepeServ;
 use App\Traits\Acciones\Grupales\Sena\Administracion\ProgramaAsignar\CrudTrait;
 use App\Traits\Acciones\Grupales\Sena\Administracion\ProgramaAsignar\DataTablesTrait;
@@ -65,12 +66,12 @@ class ProgramaAsignarController extends Controller
     }
 
 
-    public function show(GrupoAsignar $modeloxx)
+    public function show(ProgramaAsocia $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'ASIGNAR PROGRAMA', 'btn btn-sm btn-primary']);
 
         return $this->view(
             $do,
@@ -79,19 +80,19 @@ class ProgramaAsignarController extends Controller
     }
 
 
-    public function edit(GrupoAsignar $modeloxx)
+    public function edit(ProgramaAsocia $modeloxx)
     {
         $this->pestanix['grupoasig'] = [true, $modeloxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'NUEVA ASIGNACION', 'btn btn-sm btn-primary']);
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'ASIGNAR PROGRAMA', 'btn btn-sm btn-primary']);
         return $this->view($do, ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
 
     }
 
 
-    public function update(GrupoAsignarEditarRequest $request,  GrupoAsignar $modeloxx)
+    public function update(GrupoAsignarEditarRequest $request,  ProgramaAsocia $modeloxx)
     {
         return $this->setGrupoAsignar([
             'requestx' => $request,
@@ -101,18 +102,18 @@ class ProgramaAsignarController extends Controller
         ]);
     }
 
-    public function inactivate(GrupoAsignar $modeloxx)
+    public function inactivate(ProgramaAsocia $modeloxx)
     {
         $this->pestanix['grupoasig'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR ASIGNACIÓN', 'btn btn-sm btn-primary']),
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
 
 
-    public function destroy(Request $request, GrupoAsignar $modeloxx)
+    public function destroy(Request $request, ProgramaAsocia $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -121,16 +122,16 @@ class ProgramaAsignarController extends Controller
             ->with('info', 'Se desactivó la asignación correctamente');
     }
 
-    public function activate(GrupoAsignar $modeloxx)
+    public function activate(ProgramaAsocia $modeloxx)
     {
         $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR ASIGNACIÓN', 'btn btn-sm btn-primary']),
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
-    public function activar(Request $request, GrupoAsignar $modeloxx)
+    public function activar(Request $request, ProgramaAsocia $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

@@ -83,20 +83,16 @@ class VOdongramaController extends Controller
         //ddd($padrexxx->odontograma);
         if($padrexxx->odontograma){
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
             $this->pestanix[4]['checkxxx'] = 1;
         }else{
             $this->pestanix[4]['routexxx'] = '.nuevo';
-            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
             $this->pestanix[4]['checkxxx'] = 0;
         }
          if($padrexxx->higiene){
              $this->pestanix[5]['routexxx'] = '.nuevo';
-             $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
              $this->pestanix[5]['checkxxx'] = 1;
          }else{
              $this->pestanix[5]['routexxx'] = '.nuevo';
-             $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
              $this->pestanix[5]['checkxxx'] = 0;
          }
         if($padrexxx->remision){
@@ -108,6 +104,13 @@ class VOdongramaController extends Controller
             $this->pestanix[6]['dataxxxx'] = [true, $padrexxx];
             $this->pestanix[6]['checkxxx'] = 0;
         }
+
+        if($padrexxx->consulta_id==1385){
+            $this->pestanix[5]['dataxxxx'] = [true, $padrexxx];
+        }else{
+            $this->pestanix[4]['dataxxxx'] = [true, $padrexxx];
+        }
+
         $this->padrexxx = $padrexxx;
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;

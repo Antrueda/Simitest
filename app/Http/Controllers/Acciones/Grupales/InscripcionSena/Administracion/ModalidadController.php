@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Acciones\Grupales\InscripcionSena\Administracion;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Grupales\InscripcionFormacion\FormacionCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresoCrearRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresoEditarRequest;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Modalidad;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreso;
 use App\Models\Acciones\Grupales\Traslado\MotivoEgreu;
 use App\Models\fichaobservacion\FosSeguimiento;
@@ -49,29 +51,29 @@ class ModalidadController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary']),
+            $this->getBotones(['crear', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(MotivoEgresoCrearRequest $request)
+    public function store(FormacionCrearRequest $request)
     {
         
-        return $this->setFostiposeguim([
+        return $this->setModalidad([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Motivo de egreso creado con éxito',
+            'infoxxxx' =>       'Modalidad creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(MotivoEgreso $modeloxx)
+    public function show(Modalidad $modeloxx)
     {
         
          $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER MOTIVO DE EGRESO', 'btn btn-sm btn-primary']);
-         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MODALIDAD', 'btn btn-sm btn-primary']);
+         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'].'.nuevo', [$modeloxx->id]], 2, 'CREAR MODALIDAD', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>'']
@@ -79,39 +81,39 @@ class ModalidadController extends Controller
     }
 
 
-    public function edit(MotivoEgreso $modeloxx)
+    public function edit(Modalidad $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A MOTIVO DE EGRESO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary'])
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A MODALIDAD', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'].'.nuevo', [$modeloxx->sis_nnaj]], 2, 'CREAR MODALIDAD', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]
         );
     }
 
 
-    public function update(MotivoEgresoEditarRequest $request,  MotivoEgreso $modeloxx)
+    public function update(FormacionCrearRequest $request,  Modalidad $modeloxx)
     {
-        return $this->setMotivoEgreso([
+        return $this->setModalidad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Motivo de egreso editado con éxito',
+            'infoxxxx' => 'Modalidad editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(MotivoEgreso $modeloxx)
+    public function inactivate(Modalidad $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
         );
     }
 
 
-    public function destroy(Request $request, MotivoEgreso $modeloxx)
+    public function destroy(Request $request, Modalidad $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -119,25 +121,25 @@ class ModalidadController extends Controller
         $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Motivo de egreso inactivado correctamente');
+            ->with('info', 'Modalidad inactivado correctamente');
     }
 
-    public function activate(MotivoEgreso $modeloxx)
+    public function activate(Modalidad $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR MOTIVO DE EGRESO', 'btn btn-sm btn-primary'])            ,
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary'])            ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_nnaj]
         );
 
     }
-    public function activar(Request $request, MotivoEgreso $modeloxx)
+    public function activar(Request $request, Modalidad $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         $seguimix=MotivoEgreu::where('motivoe_id',$modeloxx->id);
         $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Motivo de egreso activado correctamente');
+            ->with('info', 'Modalidad activado correctamente');
     }
 }
