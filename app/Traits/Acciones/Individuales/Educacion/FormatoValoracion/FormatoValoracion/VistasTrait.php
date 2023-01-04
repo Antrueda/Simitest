@@ -88,12 +88,6 @@ trait VistasTrait
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['minimoxx'] = Carbon::today()->subDays(3)->isoFormat('YYYY-MM-DD');
 
-
-
-
-
-
-
         $opciones['document'] = Auth::user()->s_documento;
         $opciones['cargoxxx'] = Auth::user()->sis_cargo->s_cargo;
 

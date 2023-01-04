@@ -13,7 +13,7 @@ trait ActaencuAjaxTrait
 {
     public function getUPZ(Request $request)
     {
-        $respuest = $this->getUpzsComboCT([
+        $respuest = $this->getSisLocalupzComboCT([
             'localidx' => $request->sis_localidad_id,
             'selected' => $request->selected,
             'cabecera' => true,
@@ -24,7 +24,7 @@ trait ActaencuAjaxTrait
 
     public function getBarrio(Request $request)
     {
-        return response()->json($this->getBarriosComboCT([
+        return response()->json($this->getSisUpzbarrisComboCT([
             'localidx' => $request->sis_localidad_id,
             'selected' => $request->selected,
             'upzidxxx' => $request->sis_upz_id,

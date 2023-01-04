@@ -127,7 +127,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_upzbarri_id', 'Barrio', ['class' => 'control-label']) }}
-        {{ Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_barrio->id ?? null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2','placeholder'=>'Selecione']) }}
+        {{ Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm select2']) }}
         @if($errors->has('sis_upzbarri_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_upzbarri_id') }}

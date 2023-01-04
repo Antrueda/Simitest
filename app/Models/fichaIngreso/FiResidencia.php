@@ -58,6 +58,12 @@ class FiResidencia extends Model
     {
         return $this->belongsTo(SisNnaj::class);
     }
+
+    public function sisUpzbarri()
+    {
+        return $this->belongsTo(SisUpzbarri::class);
+    }
+
     public function sis_barrio()
     {
         return $this->belongsTo(SisUpzbarri::class, 'sis_upzbarri_id');

@@ -156,6 +156,9 @@ trait CombosTrait
      */
     public function getBarriosComboCT($dataxxxx)
     {
+        if(!isset($dataxxxx['cabecera'])){
+            $dataxxxx['cabecera']=true;
+        }
         $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_barrios.id as valuexxx', 'sis_barrios.s_barrio as optionxx'])
             ->join('sis_upzbarris', 'sis_localupzs.id', '=', 'sis_upzbarris.sis_localupz_id')
             ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
@@ -167,12 +170,48 @@ trait CombosTrait
         return    $this->getCuerpoComboSinValueCT($dataxxxx);
     }
 
+
+    /**
+     * combo de los barrios para utilizarlos en el select
+     */
+    public function getSisUpzbarrisComboCT($dataxxxx)
+    {
+        if(!isset($dataxxxx['cabecera'])){
+            $dataxxxx['cabecera']=true;
+        }
+        $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_upzbarris.id as valuexxx', 'sis_barrios.s_barrio as optionxx'])
+            ->join('sis_upzbarris', 'sis_localupzs.id', '=', 'sis_upzbarris.sis_localupz_id')
+            ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
+            ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
+            ->where('sis_localupzs.id', $dataxxxx['upzidxxx'])
+            ->where('sis_upzbarris.sis_esta_id', 1)
+            ->orderBy('sis_barrios.s_barrio', $dataxxxx['ordenxxx'])
+            ->get();
+        return    $this->getCuerpoComboSinValueCT($dataxxxx);
+    }
+
     /**
      * encontrar las upzs de la localidad
      */
     public function getUpzsComboCT($dataxxxx)
     {
+        if(!isset($dataxxxx['cabecera'])){
+            $dataxxxx['cabecera']=true;
+        }
         $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
+            ->join('sis_upzs', 'sis_localupzs.sis_upz_id', '=', 'sis_upzs.id')
+            ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
+            ->get();
+        return    $this->getCuerpoComboCT($dataxxxx);
+    }
+
+
+     /**
+     * encontrar las upzs de la localidad
+     */
+    public function getSisLocalupzComboCT($dataxxxx)
+    {
+        $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_localupzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
             ->join('sis_upzs', 'sis_localupzs.sis_upz_id', '=', 'sis_upzs.id')
             ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
             ->get();

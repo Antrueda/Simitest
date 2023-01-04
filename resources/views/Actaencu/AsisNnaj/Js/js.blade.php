@@ -72,6 +72,7 @@
         }
 
         if (upzxxxxx !== '') {
+          
             f_sis_barrio(barrioxx, upzxxxxx);
         }
 
@@ -83,7 +84,7 @@
             f_perfil(perfilxx);
         }
 
-        $('#sis_upz_id').change(() => {
+        $('#sis_upz_id').change(() => {  
             let upzxxxxx = $('#sis_upz_id').val();
             f_sis_barrio(0, upzxxxxx);
         });
