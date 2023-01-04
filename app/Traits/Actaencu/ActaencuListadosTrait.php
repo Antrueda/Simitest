@@ -8,8 +8,10 @@ use App\Models\Actaencu\AeContacto;
 use App\Models\Actaencu\AeEncuentro;
 use App\Models\Actaencu\AeRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Roleext;
 use App\Models\sistema\SisNnaj;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -190,6 +192,9 @@ trait ActaencuListadosTrait
     {
 
         if ($request->ajax()) {
+            $rolexxxx=Roleext::find(1);
+            $user=Auth::user();
+            $request->administ =$user->hasRole([$rolexxxx->name]);
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -237,6 +242,9 @@ trait ActaencuListadosTrait
     public function getListaContactos($padrexxx, Request $request)
     {
         if ($request->ajax()) {
+            $rolexxxx=Roleext::find(1);
+            $user=Auth::user();
+            $request->administ =$user->hasRole([$rolexxxx->name]);
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.' . $request->botonapi;
@@ -313,7 +321,9 @@ trait ActaencuListadosTrait
             ->join('parametros as sexo', 'nnaj_sexos.prm_sexo_id', '=', 'sexo.id')
             ->join('parametros as tipo_pobla', 'fi_datos_basicos.prm_tipoblaci_id', '=', 'tipo_pobla.id')
             ->whereIn('sis_nnajs.prm_escomfam_id', [227, 2686])
-            ->whereNotIn('sis_nnajs.id', $nnajregi);
+            //->where('ae_asistencia_sis_nnaj.sis_nnaj_id',null)
+            ->whereNotIn('sis_nnajs.id', $nnajregi)
+            ;
 
         return $this->getAsistenciaNnajDt($dataxxxx, $request);
         // }
@@ -437,6 +447,9 @@ trait ActaencuListadosTrait
     public function getListaRecursos($padrexxx, Request $request)
     {
         if ($request->ajax()) {
+            $rolexxxx=Roleext::find(1);
+            $user=Auth::user();
+            $request->administ =$user->hasRole([$rolexxxx->name]);
             $request->routexxx = [$this->opciones['permisox'], 'comboxxx'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.' . $request->botonapi;

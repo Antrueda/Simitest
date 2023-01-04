@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Actaencu\AeEncuentroCrearRequest;
 use App\Http\Requests\Actaencu\AeEncuentroEditarRequest;
 use App\Models\Actaencu\AeEncuentro;
+use App\Models\Roleext;
 use App\Traits\Actaencu\Actaencu\ActaencuParametrizarTrait;
 use App\Traits\actaencu\actaencu\ActaencuVistasTrait;
 use App\Traits\Actaencu\ActaencuAjaxTrait;
@@ -86,7 +87,12 @@ class AeEncuentroController extends Controller
             'upixxxxx' => $modeloxx->sis_depen_id,
             'fechregi' => explode(' ', $modeloxx->fechdili)[0]
         ]);
-        if (!$respuest['tienperm']) {
+
+        $rolexxxx=Roleext::find(1);
+        $user=Auth::user();
+        $administ =$user->hasRole([$rolexxxx->name]);
+
+        if (!$respuest['tienperm'] && !$administ) {
             return redirect()
                 ->route($this->opciones['permisox'] . '.verxxxxx', [$modeloxx->id]);
         }

@@ -47,11 +47,13 @@ class CedulaNnajRule implements Rule
     {
         $objetoxx = NnajDocu::where('s_documento', $this->requestx->s_documento)->first();
         $this->respuest = true;
+        
         if (!is_null($objetoxx)) {            
             $this->datobasi = $objetoxx->fi_datos_basico;
             $this->messagex = "La cédula: {$this->requestx->s_documento} ya existe y pertences al nnaj: " . $this->getNombre();
             $this->respuest = false;
         }
+
         return $objetoxx;
     }
     /**
@@ -98,13 +100,48 @@ class CedulaNnajRule implements Rule
      */
     public function getOtroComponenteFamiliar()
     {
+
+
+        // if (Auth::user()->s_documento=='17496705') {
+        //     $compfami = FiCompfami:: where('fi_compfamis.id', $this->requestx->segments()[4])
+        //     ->first(['sis_nnaj_id']);
+        //     //sis_nnaj_id
+
+        //     $compfami = FiCompfami::join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
+        //     ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+        //     ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+        //     ->whereNotIn('fi_compfamis.sis_nnaj_id', [$compfami->sis_nnaj_id])
+        //     ->where('s_documento', $this->requestx->s_documento)
+        //     ->first();
+
+        //     ddd( $compfami);
+           
+        // }
+       
+
+        $compfami = FiCompfami:: where('fi_compfamis.id', $this->requestx->segments()[4])
+        ->first(['sis_nnaj_id']);
+        //sis_nnaj_id
+
         $compfami = FiCompfami::join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
-            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->whereNotIn('fi_compfamis.id', [$this->requestx->segments()[4]])
-            ->where('s_documento', $this->requestx->s_documento)
-            ->first();
+        ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+        ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+        ->whereNotIn('fi_compfamis.sis_nnaj_id', [$compfami->sis_nnaj_id])
+        ->where('s_documento', $this->requestx->s_documento)
+        ->first();
+        
+        // $compfami = FiCompfami::join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
+        //     ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+        //     ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+        //     ->whereNotIn('fi_compfamis.id', [$this->requestx->segments()[4]])
+        //     ->where('s_documento', $this->requestx->s_documento)
+        //     ->first();
+
+
+           
         // verificar que la cédula ya la tenga otro nnaj
+
+       
 
         if (!is_null($compfami)) { 
             $this->getDocumentoExiste();

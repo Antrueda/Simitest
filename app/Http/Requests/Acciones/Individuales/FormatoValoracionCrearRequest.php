@@ -2,9 +2,6 @@
 
 namespace App\Http\Requests\Acciones\Individuales;
 
-use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-use App\Models\fichaIngreso\FiDatosBasico;
-use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FormatoValoracionCrearRequest extends FormRequest

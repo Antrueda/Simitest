@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routxxxx = 'matricurso';
 $controll = 'Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCursos';
 Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, $routxxxx) {
@@ -63,7 +66,7 @@ Route::group(['prefix' => '{padrexxx}/Matricurso'], function () use ($controll, 
     
 });
 
-Route::group(['prefix' => 'Matricursos'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 's'], function () use ($controll, $routxxxx) {
 
     Route::get('getServicios', [
         'uses' => $controll . 'Controller@getServiciosUpi',

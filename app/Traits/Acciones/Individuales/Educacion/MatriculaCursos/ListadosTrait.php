@@ -2,29 +2,20 @@
 
 namespace App\Traits\Acciones\Individuales\Educacion\MatriculaCursos;
 
-
-use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\Curso;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\CursoModulo;
-use App\Models\Acciones\Individuales\Educacion\AdministracionCursos\ModuloUnidad;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
-
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Roleext;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeNnajModulo;
-
 use App\Models\Sistema\SisNnaj;
-
 use App\Traits\DatatableTrait;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -101,9 +92,17 @@ trait ListadosTrait
                 ->join('cursos', 'matricula_cursos.curso_id', '=', 'cursos.id')
                 ->join('grupo_matriculas', 'matricula_cursos.prm_grupo', '=', 'grupo_matriculas.id')
                 ->join('users as cargue', 'matricula_cursos.user_id', '=', 'cargue.id')
-                ->where('matricula_cursos.sis_esta_id', 1)
-                ->where('sis_nnaj_id',$padrexxx->id);
-                
+                // ->where('matricula_cursos.sis_esta_id', 1)
+                // ->where('sis_nnaj_id',$padrexxx->id);
+                ->where(function ($queryxxx) use ($request,$padrexxx) {
+                    $usuariox=Auth::user();
+                    if (!$usuariox->hasRole([Roleext::find(1)->name])) {
+                        $queryxxx->where('matricula_cursos.sis_esta_id', 1);
+                    }
+                    $queryxxx->where('sis_nnaj_id',$padrexxx->id);
+                });
+
+
 
             return $this->getDtGeneral($dataxxxx, $request);
         }

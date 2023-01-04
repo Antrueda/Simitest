@@ -41,7 +41,9 @@
   <!-- ./wrapper -->
 
   <!-- Scripts -->
-  @include('layouts.scripts')
+  <x-loyauts.scripts>
+
+  </x-loyauts.scripts>
   @yield('codigo')
   <!-- End Scripts -->
 

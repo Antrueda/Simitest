@@ -30,7 +30,7 @@ class AeEncuentroCrearRequest extends FormRequest
             'metodologia.required'                           => 'Debe diligenciar la metodologia.',
             'observaciones.required'                         => 'Debe diligenciar las observaciones.',
             'user_contdili_id.required'                      => 'Debe diligenciar el funcionario o contratista que diligencia.',
-            // 'user_funcontr_id.required'                      => 'Debe diligenciar el funcionario o contratista que aprueba.',
+            'user_funcontr_id.required'                      => 'Debe diligenciar el funcionario o contratista que aprueba.',
             'respoupi_id.required'                           => 'Debe diligenciar el responsable de la upi que aprueba.',
             // 'ag_recurso_id.required'                         => 'Seleccione al menos un recurso.',
         ];
@@ -49,12 +49,12 @@ class AeEncuentroCrearRequest extends FormRequest
             'sis_barrio_id'                         => ['required', 'exists:sis_barrios,id'],
             'prm_accion_id'                         => ['required', 'exists:parametros,id'],
             'prm_actividad_id'                      => ['required', 'exists:parametros,id'],
-            'objetivo'                              => ['required', 'string','max:500'],
+            'objetivo'                              => ['required', 'string', 'max:500'],
             'desarrollo_actividad'                  => ['required', 'string'],
             'metodologia'                           => ['required', 'string'],
             'observaciones'                         => ['required', 'string'],
             'user_contdili_id'                      => ['required', 'exists:users,id'],
-            // 'user_funcontr_id'                      => ['required', 'exists:users,id'],
+            'user_funcontr_id'                      => ['required', 'exists:users,id'],
             'respoupi_id'                           => ['required', 'exists:users,id'],
             // 'ag_recurso_id'                           => ['required'],
         ];
@@ -80,7 +80,7 @@ class AeEncuentroCrearRequest extends FormRequest
      */
     public function rules()
     {
-        $this->_reglasx['fechdili'][]=new TiempoCargueRuleTrait(['estoyenx' => 2,'upixxxxx'=>$this->sis_depen_id]);
+        $this->_reglasx['fechdili'][] = new TiempoCargueRuleTrait(['estoyenx' => 2, 'upixxxxx' => $this->sis_depen_id]);
         return $this->_reglasx;
     }
 }

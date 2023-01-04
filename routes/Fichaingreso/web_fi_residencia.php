@@ -1,33 +1,39 @@
 <?php
-Route::group(['prefix' => '{padrexxx}/firesidencia'], function () {
+
+use Illuminate\Support\Facades\Route;
+$routexxx = 'residencia';
+$controll = 'FichaIngreso\FiResidenciaController@';
+
+
+Route::group(['prefix' => '{padrexxx}/firesidencia'], function () use($controll,$routexxx){
 
 	Route::get('', [
-		'uses' => 'FichaIngreso\FiResidenciaController@create',
-		'middleware' => ['permission:firesidencia-crear']
-	])->name('fi.residencia.nuevo');
+		'uses' => $controll.'create',
+		'middleware' => ['permission:fi'.$routexxx.'-crear|fi'.$routexxx.'-editar|fi'.$routexxx.'-leer']
+	])->name('fi.'.$routexxx.'.nuevo');
 
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiResidenciaController@store',
-		'middleware' => ['permission:firesidencia-crear']
-	])->name('fi.residencia.crear');
+		'uses' => $controll.'store',
+		'middleware' => ['permission:fi'.$routexxx.'-crear']
+	])->name('fi.'.$routexxx.'.crear');
 
 	Route::get('editar/{modeloxx}', [
-		'uses' => 'FichaIngreso\FiResidenciaController@edit',
-		'middleware' => ['permission:firesidencia-editar']
-	])->name('fi.residencia.editar');
+		'uses' => $controll.'edit',
+		'middleware' => ['permission:fi'.$routexxx.'-editar']
+	])->name('fi.'.$routexxx.'.editar');
 
 	Route::put('editar/{modeloxx}', [
-		'uses' => 'FichaIngreso\FiResidenciaController@update',
-		'middleware' => ['permission:firesidencia-editar']
-	])->name('fi.residencia.editar');
+		'uses' => $controll.'update',
+		'middleware' => ['permission:fi'.$routexxx.'-editar']
+	])->name('fi.'.$routexxx.'.editar');
 
 	Route::get('ver/{modeloxx}', [
-		'uses' => 'FichaIngreso\FiResidenciaController@show',
-		'middleware' => ['permission:firesidencia-leer']
-    ])->name('fi.residencia.ver');
+		'uses' => $controll.'show',
+		'middleware' => ['permission:fi'.$routexxx.'-leer']
+    ])->name('fi.'.$routexxx.'.ver');
 
     Route::get('comboval', [
-		'uses' => 'FichaIngreso\FiResidenciaController@getCaminando',// este metodo se encentra en FiTrait
-		'middleware' => ['permission:firesidencia-leer']
-	])->name('fi.residencia.comboval');
+		'uses' => $controll.'getCaminando',// este metodo se encentra en FiTrait
+		'middleware' => ['permission:fi'.$routexxx.'-leer']
+	])->name('fi.'.$routexxx.'.comboval');
 });

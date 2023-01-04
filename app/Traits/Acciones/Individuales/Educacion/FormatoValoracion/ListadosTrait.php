@@ -93,9 +93,17 @@ trait ListadosTrait
                 ->join('modulos', 'valora_comps.modulo_id', '=', 'modulos.id')
                 ->join('cursos', 'valora_comps.cursos_id', '=', 'cursos.id')
                 ->join('users as cargue', 'valora_comps.user_id', '=', 'cargue.id')
-                ->where('valora_comps.sis_esta_id', 1)
-                ->where('valora_comps.sis_nnaj_id',$padrexxx->id);
+                // ->where('valora_comps.sis_esta_id', 1)
+                // ->where('valora_comps.sis_nnaj_id',$padrexxx->id);
                 
+                ->where(function ($queryxxx) use ($request,$padrexxx) {
+                    $usuariox=Auth::user();
+                    if (!$usuariox->hasRole([Role::find(1)->name])) {
+                        $queryxxx->where('valora_comps.sis_esta_id', 1);
+                    }
+                    $queryxxx->where('valora_comps.sis_nnaj_id', $padrexxx->id);
+                });
+
 
             return $this->getDtMTaller($dataxxxx, $request);
         }

@@ -97,12 +97,6 @@ trait ParametroTemacomboTrait
                 }
                
             }
-            // $temacomb = Temacombo::where('id', $dataxxxx['temaxxxx'])
-            //     ->with(['parametros' => function ($queryxxx) use ($dataxxxx) {
-            //         $queryxxx->select(['id as valuexxx', 'nombre as optionxx']);
-            //         $queryxxx->orderBy($dataxxxx['campoxxx'], $dataxxxx['orderxxx']);
-            //     }])
-            //     ->first();
             Cache::put('temacombo_' . $dataxxxx['temaxxxx'], $temacomb);
         }
         return $temacomb;
