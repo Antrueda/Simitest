@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routxxxx = 'imatricula';
 $controll = 'Acciones\Grupales\Matricula\Matricula';
 Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {

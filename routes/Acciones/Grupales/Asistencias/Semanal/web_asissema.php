@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routexxx = 'asissema';
 $controll = 'Acciones\Grupales\Asistencias\Semanal\AsisSemaController@';
 Route::group(['prefix' => 'asissema'], function () use ($routexxx, $controll) {

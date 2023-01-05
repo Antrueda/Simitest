@@ -5,7 +5,6 @@ namespace App\Traits\Acciones\Grupales;
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\AgCarguedoc;
-use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\AgTema;
@@ -20,10 +19,7 @@ use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDocu;
-use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Simianti\Ge\GeUpiNnaj;
-use App\Models\Simianti\Inf\IfAsistenciaDiaria;
 use App\Models\Simianti\Inf\IfDetalleAsistenciaDiaria;
 use App\Models\Simianti\Inf\IfPlanillaAsistencia;
 use App\Models\Simianti\Ped\PedEstadoM;
@@ -33,10 +29,8 @@ use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisServicio;
-use App\Models\Tema;
+
 use App\Models\User;
-use App\Traits\Combos\CombosTrait;
-use App\Traits\DatatableTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,8 +41,82 @@ use Spatie\Permission\Models\Role;
  */
 trait ListadosTrait
 {
-    use DatatableTrait;
+    //use DatatableTrait;
 
+    public  function getDt($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+    public  function getDtMatri($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'contado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->contado, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
     /**
      * encontrar listar paises
      */
@@ -78,6 +146,62 @@ trait ListadosTrait
                 });
             return $this->getDttb($dataxxxx, $request);
         }
+    }
+    public  function getDtTaller($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+
+            ->addColumn(
+                'contado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->contado, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'responsx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->responsx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+
+
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
     }
     public function listaActividades(Request $request)
     {
@@ -215,7 +339,32 @@ trait ListadosTrait
         }
     }
 
+    public  function getDtGok($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
 
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
 
     public function getAsistente(Request $request, AgActividad $padrexxx,$verxxxxx)
     {
@@ -305,6 +454,62 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
+    public  function getDtSalidaz($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+
+            ->addColumn(
+                'contado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->contado, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'razonesg',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->razonesg, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+
+
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
     public function getSalidasMayoresGrupales(Request $request)
     {
         if ($request->ajax()) {
@@ -380,7 +585,80 @@ trait ListadosTrait
         }
     }
 
+    public  function getDtSalidas($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
 
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+
+            ->addColumn(
+                'razonesx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->razonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'responsx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->responsx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'telefono',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->telefono, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'edadxxxx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->edadxxxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
 
     public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
     {
@@ -657,7 +935,46 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
+    public  function getDtras($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    /**
+                     * validaciones para los permisos
+                     */
 
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
+                'edadxxxx',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->edadxxxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
 
 
     public function getNnajTraslado(Request $request, Traslado $padrexxx)
@@ -1085,7 +1402,7 @@ trait ListadosTrait
                 ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
-                ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_estas', 'i_matricula_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
                 ->join('parametros as documento', 'i_matricula_nnajs.prm_copdoc', '=', 'documento.id')
@@ -1149,27 +1466,6 @@ trait ListadosTrait
                 }
         }
 
-
-
-
-        // if ($matricula == null) {
-        //     if($matriculn>= $matricnew){
-        //         $matriculx = $matriculn+1;
-        //     }else{
-        //         $matriculx = $matricnew+1;
-        //     }
-        // }else{
-        //     if($matrnnaj==null){
-        //         $matriculx = $matricula->numero_matricula;
-        //     }else{
-        //         if($matricula->numero_matricula>=$matrnnaj->numeromatricula){
-        //             $matriculx = $matricula->numero_matricula;
-        //         }else{
-        //             $matriculx = $matrnnaj->numeromatricula;
-        //         }
-        //     }
-
-        // }
 
 
 

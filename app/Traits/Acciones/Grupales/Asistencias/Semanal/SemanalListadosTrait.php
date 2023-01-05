@@ -8,7 +8,6 @@ use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\DB;
 use App\Models\AdmiActi\Actividade;
-use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
 use App\Models\Acciones\Grupales\Educacion\GrupoAsignar;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
