@@ -130,6 +130,7 @@ class SeguimientoCasoJuridicoController extends Controller
 
     public function edit(SeguiJuridico $modeloxx)
     {    
+        
         if($modeloxx->user_id!=Auth::user()->id||Auth::user()->roles->first()->id != 1 ){
             return redirect()
             ->route('seguimjur', [$modeloxx->casojur_id])

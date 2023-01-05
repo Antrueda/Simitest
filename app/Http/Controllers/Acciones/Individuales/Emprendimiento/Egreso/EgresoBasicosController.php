@@ -65,7 +65,7 @@ class EgresoBasicosController extends Controller
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['valoraci'] = $padrexxx;
 
-        if($this->opciones['usuariox']->nnaj->fi_formacions==null){
+        if($padrexxx->fi_formacions==null){
             return redirect()
             ->route('egresosdb', [$this->opciones['usuariox']->id])
             ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de salud del NNAJ en el formulario ficha de ingreso para continuar');
@@ -74,7 +74,7 @@ class EgresoBasicosController extends Controller
                 return redirect()
                 ->route('egresosdb', [$padrexxx->id])
                 ->with('info', 'No se puede realizar el formulario, debe actualizar los datos de residencia del NNAJ en el formulario ficha de ingreso para continuar');
-            }else
+            }
         }
         //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
 

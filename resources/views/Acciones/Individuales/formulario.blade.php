@@ -138,7 +138,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Emprender</a>
                 <div class="dropdown-menu">
-                    
+                    @if($nnaj->sis_nnaj->Egreso!=null)
+                    <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('egresosdb', $nnaj->sis_nnaj_id) }}">Seguimiento a Egreso</a>
+                    @endif
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -146,6 +148,7 @@
             </li>
         </ul>
     </div>
+    
 </div>
 @if($accion == 'SalidaMayores')
 @include('Acciones.Individuales.SalidaMayores.index')

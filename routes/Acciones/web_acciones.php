@@ -21,6 +21,7 @@ require_once('Individuales/Salud/Medicina/web_medimodu.php');
 require_once('Individuales/Salud/Vacunas/web_vacunamodu.php');
 require_once('Individuales\VOdontologia\web_vodontologia.php');
 require_once('Individuales\Salud\Labrrd\web_labrrd.php');
+require_once('Individuales\Egreso\web_egresodb.php');
 
 
 require_once('Individuales\Salud\ValaracionSicorrd\web_valaracionSicorrd.php');
