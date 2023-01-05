@@ -124,6 +124,25 @@
         border-radius: 50%;
     }
 
+
+    /* dropdown sub menu - acciones individuales menu */
+
+    .dropdown-submenu {
+    position: relative;
+  }
+
+  .dropdown-submenu a::after {
+    position: absolute;
+    right: 6px;
+  }
+
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: .1rem;
+    margin-right: .1rem;
+  }
+
 </style>
 
 @yield('styles')
