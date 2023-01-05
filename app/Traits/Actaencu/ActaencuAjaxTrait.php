@@ -34,6 +34,29 @@ trait ActaencuAjaxTrait
         ]));
     }
 
+    public function getUPZAe(Request $request)
+    {
+        $respuest = $this->getUpzsComboCT([
+            'localidx' => $request->sis_localidad_id,
+            'selected' => $request->selected,
+            'cabecera' => true,
+            'ajaxxxxx' => true
+        ]);
+        return response()->json($respuest);
+    }
+
+    public function getBarrioAe(Request $request)
+    {
+        return response()->json($this->getBarriosComboCT([
+            'localidx' => $request->sis_localidad_id,
+            'selected' => $request->selected,
+            'upzidxxx' => $request->sis_upz_id,
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'ordenxxx' => 'ASC'
+        ]));
+    }
+
     /**
      * combo para el responsable de la upi
      *

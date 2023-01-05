@@ -11,7 +11,7 @@
                     sis_localidad_id: $('#sis_localidad_id').val(),
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencuGetUPZs") }}',
+                urlxxxxx: '{{ route("actaencu.upzacten") }}',
                 campoxxx: 'sis_upz_id',
                 mensajex: 'Exite un error al cargar las upzs'
             }
@@ -26,7 +26,7 @@
                     sis_upz_id: upzxxxxx,
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("actaencuGetBarrio") }}',
+                urlxxxxx: '{{ route("actaencu.barrioae") }}',
                 campoxxx: 'sis_barrio_id',
                 mensajex: 'Exite un error al cargar los barrios'
             }

@@ -71,6 +71,9 @@ trait ActaencuVistasTrait
             $upidxxxx = $dataxxxx['modeloxx']->sis_depen_id;
             $accionid = $dataxxxx['modeloxx']->prm_accion_id;
             $upzselec = $dataxxxx['modeloxx']->sis_upz_id;
+            if (Auth::user()->s_documento=='17496705') {
+                //ddd($dataxxxx['modeloxx']);
+            }
 
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

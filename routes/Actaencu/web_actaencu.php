@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routexxx = 'actaencu';
 $controll = 'Actaencu\AeEncuentroController@';
 Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
@@ -54,6 +57,16 @@ Route::group(['prefix' => 'encuentro'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'getBarrio',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
     ])->name($routexxx . 'GetBarrio');
+
+    Route::get('aeEncuentro/upzac', [
+        'uses' => $controll . 'getUPZAe',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.upzacten');
+    Route::get('aeEncuentro/barrioae', [
+        'uses' => $controll . 'getBarrioAe',
+        'middleware' => ['permission:' . $routexxx . '-leerxxxx']
+    ])->name($routexxx . '.barrioae');
+
     Route::get('aeEncuentro/getActividades', [
         'uses' => $controll . 'getActividadesAjax',
         'middleware' => ['permission:' . $routexxx . '-leerxxxx']
