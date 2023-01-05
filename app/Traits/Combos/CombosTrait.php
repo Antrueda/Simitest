@@ -137,6 +137,23 @@ trait CombosTrait
         return $comboxxx;
     }
 
+    public function getCuerpoUpzComboCT($dataxxxx)
+    {
+        
+        $comboxxx = $this->getCabecera($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->id . ' ' . strtoupper($registro->optionxx), 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->id . ' ' .strtoupper($registro->optionxx);
+            }
+        }
+        return $comboxxx;
+    }
     
 
     public function getBarriosCT($dataxxxx)
@@ -211,11 +228,11 @@ trait CombosTrait
      */
     public function getSisLocalupzComboCT($dataxxxx)
     {
-        $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_localupzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
+        $dataxxxx['dataxxxx'] = SisLocalupz::select(['sis_localupzs.id as valuexxx', 'sis_upzs.s_upz as optionxx','sis_upzs.id'])
             ->join('sis_upzs', 'sis_localupzs.sis_upz_id', '=', 'sis_upzs.id')
             ->where('sis_localupzs.sis_localidad_id', $dataxxxx['localidx'])
             ->get();
-        return    $this->getCuerpoComboCT($dataxxxx);
+        return    $this->getCuerpoUpzComboCT($dataxxxx);
     }
 
     /**

@@ -137,6 +137,7 @@ trait NnajsVistasTrait
             $upzselec = $residenc->sis_localupz_id;
             
             $dataxxxx['modeloxx']->sis_upzbarri_id=$residenc->id;
+            $dataxxxx['modeloxx']->sis_upz_id= $upzselec;
             $docuayud = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
             if (!is_null($dataxxxx['modeloxx']->nnaj_asis)) {
                 $perfilxx = $dataxxxx['modeloxx']->nnaj_asis->prm_pefil_id;

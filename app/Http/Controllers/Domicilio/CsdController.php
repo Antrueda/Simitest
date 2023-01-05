@@ -78,7 +78,8 @@ class CsdController extends Controller
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PROPÓSITO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO CSD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO NNAJ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
@@ -87,6 +88,7 @@ class CsdController extends Controller
                     ['data' => 'proposito', 'name' => 'csds.proposito'],
                     ['data' => 'fecha', 'name' => 'csds.fecha'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                    ['data' => 'estannaj', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
@@ -108,6 +110,8 @@ class CsdController extends Controller
             $request->padrexxx = $padrexxx->id;
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $request->estannaj = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.estannaj';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getCsdNnaj($request);
         }
@@ -189,7 +193,7 @@ class CsdController extends Controller
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'DOCUMENTOdd', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],

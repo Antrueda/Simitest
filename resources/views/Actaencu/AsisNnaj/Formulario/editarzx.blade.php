@@ -118,7 +118,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_upz_id', 'UPZ', ['class' => 'control-label']) }}
-        {{ Form::select('sis_upz_id', $todoxxxx['upzxxxxx'], $todoxxxx['modeloxx']->sis_nnaj->FiResidencia->sis_barrio->sis_localupz->sis_upz->id ?? null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm select2']) }}
+        {{ Form::select('sis_upz_id', $todoxxxx['upzxxxxx'], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm select2']) }}
         @if($errors->has('sis_upz_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_upz_id') }}

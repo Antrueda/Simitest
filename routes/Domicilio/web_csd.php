@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routexxx = 'csdxxxxx';
 $controll = 'Domicilio\Csd';
 Route::group(['prefix' => '{padrexxx}/csds'], function () use ($routexxx, $controll) {
