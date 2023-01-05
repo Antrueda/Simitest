@@ -49,7 +49,6 @@ class AeAsisNnajsController extends Controller
 
     public function create(AeAsistencia $padrexxx)
     {
-       
         $this->pestania[2][2]=[$padrexxx->id];
         $this->opciones['parametr'][]=$padrexxx->id;
         $this->opciones['readfisi'] = '';
