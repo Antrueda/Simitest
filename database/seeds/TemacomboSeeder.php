@@ -496,7 +496,7 @@ class TemacomboSeeder extends Seeder
 
     Temacombo::create(['nombre' => 'NOMBRE DIAGNOSTICO', 'tema_id' => '415', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 479
     Temacombo::create(['nombre' => 'TIPO CONSULTA ODONTOLOGICA', 'tema_id' => '415', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 480
-    
+
     Temacombo::create(['nombre' => 'EGRESO CIERRE DE CASO', 'tema_id' => '418', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 481
     Temacombo::create(['nombre' => 'EGRESO MOTIVO COMPLEMENTO	', 'tema_id' => '419', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 482
     Temacombo::create(['nombre' => 'EGRESO MOTIVO LLAMADA	', 'tema_id' => '419', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 483

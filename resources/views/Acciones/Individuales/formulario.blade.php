@@ -62,8 +62,10 @@
                     <!-- @if($nnaj->nnaj_nacimi->Edad>=18)
                     <a class="dropdown-item{{ ($accion == 'SalidaMayores') ?' active' : '' }}" href="{{ route('aisalidamayores', $nnaj->sis_nnaj_id) }}">Salida ddddde Jóvenes Mayores de Edad</a>
                     @endif -->
-                    @if($nnaj->nnaj_nacimi->Edad<18) <a class="dropdown-item{{ ($accion == 'Evasion') ?' active' : '' }}" href="{{ route('aievasion', $nnaj->sis_nnaj_id) }}">Reporte de Evasión</a>
-                        @endif
+                    @if($reportex) 
+                        <a class="dropdown-item{{ ($accion == 'Evasion') ?' active' : '' }}" 
+                        href="{{ route('aievasion', $nnaj->sis_nnaj_id) }}">Reporte de Evasión</a>
+                    @endif
                         @if($nnaj->Salida)
                         <a class="dropdown-item{{ ($accion == 'SalidaMenores') ?' active' : '' }}" href="{{ route('aisalidamenores', $nnaj->sis_nnaj_id) }}">Salidas y permisos con acompañamiento y/o representante legal</a>
                         @endif
@@ -89,8 +91,9 @@
                         </ul>
                     </li>
                   
-                </ul>
                
+                    <a class="dropdown-item{{ ($accion == 'vnutrici') ?' active' : '' }}" href="{{ route('vnutrici', $nnaj->sis_nnaj_id) }}">Valoración y seguimiento nutricional completa</a>
+                </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Socio Legal</a>

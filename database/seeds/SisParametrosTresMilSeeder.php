@@ -837,7 +837,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => '2- A VECES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2815
     Parametro::create(['nombre' => '4- SIEMPRE', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2816
 
-    Parametro::create(['nombre' => 'REFUERZO HÁBITOS DE AUTOCUIDADO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2817
+    Parametro::create(['nombre' => 'REFUERZO HÁBITOS DE AUTOCUIDADOSS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2817
     Parametro::create(['nombre' => 'REFUERZO HABILIDADES COGNITIVAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2818
     Parametro::create(['nombre' => 'REFUERZO A NIVEL DE HÁBITOS Y RUTINAS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2819
     Parametro::create(['nombre' => 'REFUERZO EN HABILIDADES EMOCIONALES', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2820
@@ -1043,7 +1043,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'NÚMERO EQUIVOCADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:12 PM', 'updated_at' => '22-12-2022 09:10:12 PM',]); // 2988,
     Parametro::create(['nombre' => 'FUERA DE COBERTURA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:18 PM', 'updated_at' => '22-12-2022 09:10:18 PM',]); // 2989,
     Parametro::create(['nombre' => 'SIN SEÑAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:26 PM', 'updated_at' => '22-12-2022 09:10:26 PM',]); // 2990,
-    Parametro::create([ 'nombre' => 'SIN RESPUESTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM', ]); // 2991,
+    Parametro::create(['nombre' => 'SIN RESPUESTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2991,
 
 
 

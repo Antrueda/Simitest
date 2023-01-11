@@ -68,7 +68,7 @@ trait DataTablesTrait
             ];
         } else {
 
-          
+
             $responsa = AgResponsable::where('ag_actividad_id', $dataxxxx['modeloxx']->id)->get();
             $vercrear = (count($responsa) <= 2 ? true : false);
             if ($this->verxxxxx) {
@@ -122,7 +122,7 @@ trait DataTablesTrait
             $vercrear = true;
             $cabecera = [];
             $columnsx = [];
-            if ($this->verxxxxx==1) {
+            if ($this->verxxxxx == 1) {
                 $vercrear = false;
             } else {
                 $cabecera[] = ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1];
@@ -169,7 +169,7 @@ trait DataTablesTrait
                 ];
 
             $vercrear = true;
-            if ($this->verxxxxx==1) {
+            if ($this->verxxxxx == 1) {
                 $vercrear = false;
             }
 
@@ -212,7 +212,7 @@ trait DataTablesTrait
                     'parametr' => [$dataxxxx['modeloxx']->id],
                 ];
             $vercrear = true;
-            if ($this->verxxxxx==1) {
+            if ($this->verxxxxx == 1) {
                 $vercrear = false;
             }
 

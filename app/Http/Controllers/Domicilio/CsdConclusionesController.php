@@ -57,19 +57,19 @@ class CsdConclusionesController extends Controller
         }
         $this->opciones['condicix'] = Tema::combo(23, false, false);
         $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['padrexxx']->csd_id)
-        ->where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
-        ->first();
-        if (Auth::user()->s_documento=='17496705') {
+            ->where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
+            ->first();
+        if (Auth::user()->s_documento == '17496705') {
             // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             // ->get();
-           
+
         }
-       
-         
+
+
         if (is_null($compfami)) {
-            $document=$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento;
-            $nombresx=$dataxxxx['padrexxx']->csd->CsdDatosBasico;
-            $nombresx=$nombresx->s_primer_nombre .' '.$nombresx->s_segundo_nombre .' '.$nombresx->s_primer_apellido .' '.$nombresx->s_segundo_apellido;
+            $document = $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento;
+            $nombresx = $dataxxxx['padrexxx']->csd->CsdDatosBasico;
+            $nombresx = $nombresx->s_primer_nombre . ' ' . $nombresx->s_segundo_nombre . ' ' . $nombresx->s_primer_apellido . ' ' . $nombresx->s_segundo_apellido;
             // if (Auth::user()->s_documento == '1070010061') {
             //     dd( $nombresx);
             // }
@@ -79,7 +79,7 @@ class CsdConclusionesController extends Controller
                 para continuar con las observaciones primero se debe agregar");
         }
         // if (Auth::user()->s_documento == '1070010061') {
-       
+
         $this->opciones['familiax'] = Parametro::find($compfami->prm_parentezco_id)->combo;
         $nombrexx = $dataxxxx['padrexxx']->csd->CsdDatosBasico;
         $nombrexx =
