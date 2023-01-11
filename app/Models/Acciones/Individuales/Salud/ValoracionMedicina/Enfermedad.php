@@ -7,16 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Enfermedad extends Model
 {
     protected $fillable = [
-        'user_crea_id', 'user_edita_id', 'sis_esta_id', 
+        'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'nombre', 'estusuario_id',
     ];
 
-    public function estusuario(){
+    public function estusuario()
+    {
         return $this->belongsTo(Estusuario::class, 'estusuario_id');
     }
 
 
-  public static function combo($cabecera, $ajaxxxxx)
+    public function EnfermedadesAsignadas()
+    {
+        return $this->hasMany(AsignaEnfermedad::class, 'enfe_id');
+    }
+
+    public static function combo($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
         if ($cabecera) {

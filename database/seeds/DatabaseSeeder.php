@@ -397,26 +397,14 @@ class DatabaseSeeder extends Seeder
                 $this->call(FpoDesempenioCategoriasSeeder::class); //  Formulario peril Ocupacional 
                 $this->call(FpoDesempenioComponenteSeeder::class); // Formulario peril Ocupacional
                 $this->call(FpoDesempenioItemSeeder::class); // Formulario peril Ocupacional
-<<<<<<< HEAD
                 $this->call(DastPreguntasSeeder::class); // CUESTIONARIO DAST PREGUNTAS
 
                 $this->call(CentroZonalSeeder::class); // Permisos caso juridico
                 $this->call(CasoAdminSeeder::class); // Administracion caso juridico
                 $this->call(DiagnosticoSeeder::class); // Diagnosticos
                 $this->call(MedicamentoSeeder::class); // ADMINISTRACION DE MEDICAMENTOS
-
-
-                $this->call(CentroZonalSeeder::class); // Permisos caso juridico
-                $this->call(CasoAdminSeeder::class); // Administracion caso juridico
-                
-                $this->call(DiagnosticoSeeder::class); // Diagnosticos
                 $this->call(SuperficiesOdontologiaSeeder::class); // Diagnosticos
 
-                
-=======
-                $this->call(DastPreguntasSeeder::class); // CUESTIONARIO DAST PREGUNTAS      
 
-
->>>>>>> master
         }
 }

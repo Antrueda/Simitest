@@ -88,7 +88,7 @@ class CsdCompfamiController extends Controller
 
     public function index(CsdSisNnaj $padrexxx)
     {
-        
+
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
@@ -102,10 +102,10 @@ class CsdCompfamiController extends Controller
         $this->opciones['pestpara'][0] = [$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
 
-        if (Auth::user()->s_documento=='17496705') {
+        if (Auth::user()->s_documento == '17496705') {
             // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             // ->first();
-      
+
         }
         $this->opciones['tablasxx'] = [
             [
@@ -205,7 +205,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-           
+
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] = Parametro::find(235)->Combo;
             }

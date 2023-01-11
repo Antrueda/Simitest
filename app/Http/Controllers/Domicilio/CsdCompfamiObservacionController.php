@@ -38,20 +38,20 @@ class CsdCompfamiObservacionController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-            $this->opciones['botoform'] = [
-                [
-                    'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdcomfamiliar', []],
-                    'formhref' => 2, 'tituloxx' => "VOLVER A COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
-                ],
-            ];
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdcomfamiliar', []],
+                'formhref' => 2, 'tituloxx' => "VOLVER A COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
 
     private function view($dataxxxx)
     {
-        if (Auth::user()->s_documento=='17496705') {
+        if (Auth::user()->s_documento == '17496705') {
             // $compfami = CsdComFamiliar::where('s_documento', $dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
             // ->first();
-        
+
         }
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
@@ -68,10 +68,10 @@ class CsdCompfamiObservacionController extends Controller
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['aniosxxx'] = '';
-        $vercrear=true;
+        $vercrear = true;
         $value = Session::get('csdver_' . Auth::id());
         if (!$value) {
-            $vercrear=false;
+            $vercrear = false;
         }
         $this->opciones['tablasxx'] = [
             [

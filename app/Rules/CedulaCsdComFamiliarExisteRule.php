@@ -18,40 +18,40 @@ class CedulaCsdComFamiliarExisteRule implements Rule
      */
     public function __construct($dataxxxx)
     {
-        $this->dataxxxx=$dataxxxx;
+        $this->dataxxxx = $dataxxxx;
     }
 
     public function getNuevo($value)
     {
-        $csdsisnn =CsdSisNnaj::where('id',$this->dataxxxx['segments'][0])->first();
-        $respuest=true;
+        $csdsisnn = CsdSisNnaj::where('id', $this->dataxxxx['segments'][0])->first();
+        $respuest = true;
         $registro = CsdComFamiliar::select('csd_com_familiars.id')
-        ->where('csd_com_familiars.s_documento', $value)
-        ->where('csd_com_familiars.csd_id',  $csdsisnn->csd_id)
-        ->first();
+            ->where('csd_com_familiars.s_documento', $value)
+            ->where('csd_com_familiars.csd_id',  $csdsisnn->csd_id)
+            ->first();
         if (!is_null($registro)) {
             $this->mansajex = "El número de documento: $value ya existe";
-            $respuest=false;
+            $respuest = false;
         }
         return $respuest;
     }
 
     public function getActualiza($value)
     {
-        $csdsisnn =CsdSisNnaj::where('id',$this->dataxxxx['segments'][0])->first();
+        $csdsisnn = CsdSisNnaj::where('id', $this->dataxxxx['segments'][0])->first();
         // if (Auth::user()->s_documento == '17496705') {
-           
+
         //  
         // }
-        $respuest=true;
+        $respuest = true;
         $registro = CsdComFamiliar::select('csd_com_familiars.id')
-        ->where('csd_com_familiars.s_documento', $value)
-        ->where('csd_com_familiars.id','!=', $this->dataxxxx['registro'])
-        ->where('csd_com_familiars.csd_id',  $csdsisnn->csd_id)
-        ->first();
+            ->where('csd_com_familiars.s_documento', $value)
+            ->where('csd_com_familiars.id', '!=', $this->dataxxxx['registro'])
+            ->where('csd_com_familiars.csd_id',  $csdsisnn->csd_id)
+            ->first();
         if (!is_null($registro)) {
             $this->mansajex = "El número de documento: $value ya existe";
-            $respuest=false;
+            $respuest = false;
         }
         return $respuest;
     }
@@ -64,8 +64,8 @@ class CedulaCsdComFamiliarExisteRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        $metodoxx=$this->dataxxxx['metodoxx'];
-        return $this->$metodoxx( $value);
+        $metodoxx = $this->dataxxxx['metodoxx'];
+        return $this->$metodoxx($value);
     }
 
     /**
