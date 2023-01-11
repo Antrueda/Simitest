@@ -16,6 +16,7 @@ require_once('Individuales/Educacion/PerfilOcupacional/web_perfil_ocupacional.ph
 
 require_once('Individuales\Educacion\VEntrevista\web_ventrevista.php');
 require_once('Individuales\Sicosocial\CuestionarioDast\web_cuestionariodast.php');
+require_once('Individuales\Salud\Vnutricional\web_vnutricional.php');
 
 
 

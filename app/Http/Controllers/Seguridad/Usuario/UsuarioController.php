@@ -97,7 +97,7 @@ class UsuarioController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->getTablas();
         $this->opciones['accionxx'] = 'index';
-        
+
         // if (Auth::user()->s_documento == '111111111111') {
         //     // $this->getSeeder(1,'getSisCargo',1); 
         //     // $this->getSeeder(1, 'getSisDepen', 1); 
@@ -115,7 +115,7 @@ class UsuarioController extends Controller
         //     $this->getSeeder(8716, 'getFiDiligenc', 8001);
         //     // $this->getSeeder(2081, 'getSisBarrio', 2001);
         // } else {
-            return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
         // }
     }
 
@@ -127,7 +127,7 @@ class UsuarioController extends Controller
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
         $this->opciones['prm_documento_id'] = Tema::comboAsc(3, true, false);
         $this->opciones['prm_tvinculacion_id'] = Tema::comboAsc(310, true, false);
-        ddd( $this->opciones['prm_tvinculacion_id']);
+        ddd($this->opciones['prm_tvinculacion_id']);
         $this->opciones['prm_tdependencia_id'] = Tema::comboAsc(3, true, false);
         $this->opciones['sis_depen_id'] = SisDepen::combo('', true, false);
         $this->opciones['sis_departam_id'] = SisDepartam::combo(2, false);

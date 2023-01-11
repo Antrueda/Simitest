@@ -3,20 +3,31 @@
 namespace App\Models\Acciones\Individuales\Salud\ValoracionMedicina;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Diagnostico;
 
 class AsignaEnfermedad extends Model
 {
-  protected $fillable = [
-        'user_crea_id', 'user_edita_id', 'sis_esta_id', 
-        'diag_id', 'enfe_id', 
+    protected $fillable = [
+        'user_crea_id', 'user_edita_id', 'sis_esta_id',
+        'diag_id', 'enfe_id',
     ];
 
-    public function estusuario(){
+    public function estusuario()
+    {
         return $this->belongsTo(Estusuario::class, 'estusuario_id');
     }
 
+    public function diagnostico()
+    {
+        return $this->belongsTo(Diagnostico::class, 'diag_id');
+    }
 
-  public static function combo($cabecera, $ajaxxxxx)
+    public function enfermedad()
+    {
+        return $this->belongsTo(Enfermedad::class, 'enfe_id');
+    }
+
+    public static function combo($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
         if ($cabecera) {
