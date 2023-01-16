@@ -219,7 +219,6 @@ trait ListadosTrait
                 'i_matriculas.created_at',
             ])
                 ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
-                ->join('sis_servicios as servicio', 'i_matriculas.prm_serv_id', '=', 'servicio.id')
                 ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
                 ->join('eda_grados as grado', 'i_matriculas.prm_grado', '=', 'grado.id')
                 ->join('grupo_matriculas', 'i_matriculas.prm_grupo', '=', 'grupo_matriculas.id')
@@ -290,7 +289,7 @@ trait ListadosTrait
 
 
 
-    public function getNnajMatricula(Request $request, IMatricula $padrexxx)
+    public function getNnajInscri(Request $request, IMatricula $padrexxx)
     {
         if ($request->ajax()) {
             $request->routexxx = ['imatriculannaj'];
