@@ -78,7 +78,7 @@ $(document).ready(function() {
             $('#s_documento').val(d.s_documento);
             $('#d_nacimiento').val(d.d_nacimiento);
             $('#s_nombre_identitario').val(d.s_nombre_identitario);
-            f_ajaxresp({nnajxxxx:d.s_documento},'');
+      
             
 
                 

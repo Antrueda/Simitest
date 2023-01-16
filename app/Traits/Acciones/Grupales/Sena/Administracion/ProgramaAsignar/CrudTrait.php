@@ -3,6 +3,7 @@
 namespace App\Traits\Acciones\Grupales\Sena\Administracion\ProgramaAsignar;
 
 use App\Models\Acciones\Grupales\Educacion\GradoAsignar;
+use App\Models\Acciones\Grupales\InscripcionConvenios\ProgramaAsocia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setGradoAsignar($dataxxxx)
+    public function setProgramaAsignar($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -25,7 +26,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = GradoAsignar::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = ProgramaAsocia::create($dataxxxx['requestx']->all());
             }
           return $dataxxxx['modeloxx'];
         }, 5);

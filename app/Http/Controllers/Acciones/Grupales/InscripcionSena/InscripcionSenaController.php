@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Grupales\InscripcionSena;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Grupales\InscripcionFormacion\InscripcionConvenioCrearRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculaCrearRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculaEditarRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
@@ -55,12 +56,11 @@ class InscripcionSenaController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(MatriculaCrearRequest $request)
+    public function store(InscripcionConvenioCrearRequest $request)
     {
-        // en que caso de que no exista una matricula creada entonces se busca en el antiguo sistema para 
         // para saber en que consecutivo se encuentra allá
         $request->request->add(['sis_esta_id'=> 1]);
-        return $this->setMatricula([
+        return $this->setInConvenio([
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
@@ -74,7 +74,7 @@ class InscripcionSenaController extends Controller
     public function show(InscriConve $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO MATRICULA', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR INSCRIPCIÓN PROGRAMA', 'btn btn-sm btn-primary']);
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
@@ -84,9 +84,9 @@ class InscripcionSenaController extends Controller
     public function edit(InscriConve $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A MATRICULAS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A INSCRIPCIÓN PROGRAMA', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR NUEVO MATRICULA', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR INSCRIPCIÓN PROGRAMA', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
@@ -95,7 +95,7 @@ class InscripcionSenaController extends Controller
 
     public function update(MatriculaEditarRequest $request,  InscriConve $modeloxx)
     {
-        return $this->setMatricula([
+        return $this->setInConvenio([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,

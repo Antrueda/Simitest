@@ -7,14 +7,16 @@ use App\Http\Requests\Acciones\Grupales\MatriculannajEditarRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculannajRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Grupales\InscripcionConvenios\ConveNnaj;
+use App\Models\Acciones\Grupales\InscripcionConvenios\InscriConve;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ped\PedMatricula;
-use App\Traits\Acciones\Grupales\Matriculannaj\CrudTrait;
-use App\Traits\Acciones\Grupales\Matriculannaj\ParametrizarTrait;
-use App\Traits\Acciones\Grupales\Matriculannaj\VistasTrait;
-use App\Traits\Acciones\Grupales\ListadosTrait;
-use App\Traits\Acciones\Grupales\Matricula\PestaniasTrait;
+use App\Traits\Acciones\Grupales\Sena\SenaNnaj\CrudTrait;
+use App\Traits\Acciones\Grupales\Sena\SenaNnaj\ParametrizarTrait;
+use App\Traits\Acciones\Grupales\Sena\SenaNnaj\VistasTrait;
+use App\Traits\Acciones\Grupales\Sena\Inscripcion\ListadosTrait;
+use App\Traits\Acciones\Grupales\Sena\Inscripcion\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +36,7 @@ class SenannajController extends Controller
 
     }
 
-    public function create(IMatricula $padrexxx)
+    public function create(InscriConve $padrexxx)
     {
        
         $this->opciones['padrexxx'] =$padrexxx;
@@ -46,7 +48,7 @@ class SenannajController extends Controller
 
     }
 
-    public function store(MatriculannajRequest $request, IMatricula $padrexxx)
+    public function store(MatriculannajRequest $request, InscriConve $padrexxx)
     {
 
         $request->request->add(['imatricula_id' => $padrexxx->id, 'sis_esta_id' => 1,'fecha' => $padrexxx->fecha]);
@@ -59,7 +61,7 @@ class SenannajController extends Controller
         ]);
     }
 
-    public function update(MatriculannajEditarRequest $request,  IMatriculaNnaj $modeloxx)
+    public function update(MatriculannajEditarRequest $request,  ConveNnaj $modeloxx)
     {
         
         $request->request->add(['imatricula_id' => $modeloxx->iMatricula->id]);
@@ -75,7 +77,7 @@ class SenannajController extends Controller
     }
 
 
-    public function inactivate(IMatriculaNnaj $modeloxx)
+    public function inactivate(ConveNnaj $modeloxx)
     {
 
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->imatricula_id];
@@ -90,7 +92,7 @@ class SenannajController extends Controller
     }
 
 
-    public function destroy(IMatriculaNnaj $modeloxx)
+    public function destroy(ConveNnaj $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -99,7 +101,7 @@ class SenannajController extends Controller
             ->with('info', 'NNAJ inactivado correctamente');
     }
 
-    public function edit(IMatriculaNnaj $modeloxx)
+    public function edit(ConveNnaj $modeloxx)
     {
         
         $this->opciones['padrexxx'] =$modeloxx->iMatricula;
@@ -116,7 +118,7 @@ class SenannajController extends Controller
         );
     }
 
-    public function activate(IMatriculaNnaj $modeloxx)
+    public function activate(ConveNnaj $modeloxx)
     {
         $this->opciones['padrexxx'] =$modeloxx->iMatricula;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
@@ -128,7 +130,7 @@ class SenannajController extends Controller
         );
     }
 
-    public function activar(Request $request, IMatriculaNnaj $modeloxx)
+    public function activar(Request $request, ConveNnaj $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

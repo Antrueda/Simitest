@@ -1,7 +1,7 @@
 <?php
 $controll = 'Acciones\Grupales\InscripcionSena\Senannaj';
 $routxxxx = 'inscrnnaj';
-Route::group(['prefix' => '{padrexxx}/inscripcionnnaj'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => '{padrexxx}/Convenionnnaj'], function () use ($controll, $routxxxx) {
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routxxxx . '-crear']
@@ -28,7 +28,7 @@ Route::group(['prefix' => '{padrexxx}/inscripcionnnaj'], function () use ($contr
     ])->name($routxxxx . '.nnajsele');
 
 });
-Route::group(['prefix' => 'matriculannaj'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'Convenionnnajs'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',

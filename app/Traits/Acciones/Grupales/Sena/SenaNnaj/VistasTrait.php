@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Grupales\Sena\SenaNnaj;
 
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;
+use App\Models\sistema\SisEsta;
 use App\Models\Tema;
 use Carbon\Carbon;
 
@@ -15,6 +16,7 @@ trait VistasTrait
     use DataTablesTrait;
     public function getVista($dataxxxx)
     {
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -25,36 +27,12 @@ trait VistasTrait
 
     public function view($opciones,$dataxxxx)
     {
-
+        
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);
-        $this->getTablas($dataxxxx);
-        $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['padrexxx']->id, false, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['grupoxxx'] = Tema::combo(377, true, false);
-        $this->opciones['condixxx'] = Tema::combo(377, true, false);
-        if($dataxxxx['padrexxx']->prm_upi_id==19){
-            $this->opciones['gradoxxx'] = Tema::comboAsc(379, true, false);
-        }else{
-            if($dataxxxx['padrexxx']->prm_upi_id==16){
-                $this->opciones['gradoxxx'] = Tema::comboAsc(381, true, false);
-            }
-            else{
-                if($dataxxxx['padrexxx']->prm_upi_id==26){
-                    $this->opciones['gradoxxx'] = Tema::comboAsc(380, true, false);
-                }else{
-                    $this->opciones['gradoxxx'] = Tema::comboAsc(378, true, false);
-                }
-            }
-        }
-
-        
+        $this->getTablas($dataxxxx);        
         $this->opciones['gradoxxx'] = Tema::comboAsc(378, true, false);
-        $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dataxxxx['padrexxx']->prm_upi_id]);
-        $this->opciones['estrateg'] = Tema::combo(382, true, false);
-        
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-        $this->opciones['proxxxxx'] = Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 
         
         // indica si se esta actualizando o viendo

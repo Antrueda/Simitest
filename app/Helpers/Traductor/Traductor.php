@@ -6,6 +6,7 @@ use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\Educacion\GrupoDias;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Grupales\InscripcionConvenios\ConveNnaj;
 use App\Models\Acciones\Individuales\Educacion\FormatoValoracion\UniComp;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
@@ -322,6 +323,13 @@ class Traductor
     public static function getBeneficiarios($dataxxxx)
     {
         $contador = IMatriculaNnaj::where('imatricula_id', $dataxxxx['padrexxx'])->count('id');
+
+        return $contador;
+    }
+
+    public static function getBeneficiariosConv($dataxxxx)
+    {
+        $contador = ConveNnaj::where('conve_id', $dataxxxx['padrexxx'])->count('id');
 
         return $contador;
     }

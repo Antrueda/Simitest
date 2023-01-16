@@ -2,6 +2,8 @@
 
 namespace App\Models\Acciones\Grupales\InscripcionConvenios;
 
+use App\Models\sistema\SisDepen;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class InscriConve extends Model
@@ -9,17 +11,16 @@ class InscriConve extends Model
     protected $fillable = [
         'id',
         'fecha',
-        'observaciones', 
-        'user_doc1',
-        'user_doc2',
-        'responsable_id',
-        'apoyo_id',
-        'prm_grado',
-        'prm_grupo',
-        'prm_estra',
-        'prm_upi_id',
-        'prm_serv_id',
-        'prm_periodo',
+        'fecha_inicio', 
+        'fecha_final',
+        'conve_id',
+        'progra_id',
+        'tipop_id',
+        'modal_id',
+        'sede_id',
+        'user_id',
+        'numficha',
+        'upi_id',
         'user_crea_id', 
         'user_edita_id', 
         'sis_esta_id',
@@ -29,25 +30,18 @@ class InscriConve extends Model
 
 
     public function upi(){
-        return $this->belongsTo(SisDepen::class, 'prm_upi_id');
+        return $this->belongsTo(SisDepen::class, 'upi_id');
     }
 
-    public function firma1(){
-        return $this->belongsTo(User::class, 'user_doc1');
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function firma2(){
-        return $this->belongsTo(User::class, 'user_doc2');
-    }
 
-    public function responsable(){
-        return $this->belongsTo(User::class, 'responsable_id');
-    }
-
-    public function grado(){
-        return $this->belongsTo(EdaGrado::class, 'prm_grado');
-    }
-    public function grupo(){
-        return $this->belongsTo(GrupoMatricula::class, 'prm_grupo');
-    }
+    // public function grado(){
+    //     return $this->belongsTo(EdaGrado::class, 'prm_grado');
+    // }
+    // public function grupo(){
+    //     return $this->belongsTo(GrupoMatricula::class, 'prm_grupo');
+    // }
 }
