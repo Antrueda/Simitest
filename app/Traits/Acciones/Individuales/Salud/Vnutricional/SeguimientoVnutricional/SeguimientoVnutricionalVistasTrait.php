@@ -5,6 +5,7 @@ namespace App\Traits\Acciones\Individuales\Salud\Vnutricional\SeguimientoVnutric
 use App\Models\User;
 use App\Models\Acciones\Individuales\Salud\Vnutricional\Vnutricion;
 use App\Models\Acciones\Individuales\Salud\ValoracionMedicina\Enfermedad;
+use App\Models\Acciones\Individuales\Salud\Medicina\Compuesto;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -123,7 +124,7 @@ trait SeguimientoVnutricionalVistasTrait
             'campoxxx' => 'id'
         ])['comboxxx'];
 
-        $this->opciones['suplementos'] = Enfermedad::combo(true, false);
+        $this->opciones['suplementos'] = Compuesto::combo(true, false);
 
         $this->opciones['enferdiags'] = Enfermedad::select(['id', 'nombre'])->with('EnfermedadesAsignadas:id,diag_id,enfe_id', 'EnfermedadesAsignadas.diagnostico:id,nombre,codigo')->whereHas('EnfermedadesAsignadas', function ($query) {
             $query->where('sis_esta_id', 1);
