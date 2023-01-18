@@ -116,11 +116,7 @@
                     @if($nnaj->sis_nnaj->iMatriculaNnajs->count()>0||$nnaj->sis_nnaj->fi_formacions)
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('matricurso', $nnaj->sis_nnaj_id) }}">Matrícula Cursos Informales Formación Tecnica Talleres</a>
                     @endif
-<<<<<<< HEAD
-
-=======
                     
->>>>>>> jorge2
                     @if($nnaj->sis_nnaj->MatriculaCursos->count()>0) 
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('formatov', $nnaj->sis_nnaj_id) }}">Formato Valoracion De Competencias </a>
                     @endif
@@ -148,7 +144,7 @@
                     <a class="dropdown-item{{ ($accion == 'vihcocup') ?' active' : '' }}" href="{{ route('vihcocup', $nnaj->sis_nnaj_id) }}">Valoración e identificación de habilidades, competencias e intereses t.o</a>
                     @endif
 
-                    <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('histocon', $nnaj->sis_nnaj_id) }}">Historial Formación Técnica Convenios</a>
+                    {{-- <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('histocon', $nnaj->sis_nnaj_id) }}">Historial Formación Técnica Convenios</a> --}}
                 </div>
             </li>
             <li class="nav-item dropdown">
