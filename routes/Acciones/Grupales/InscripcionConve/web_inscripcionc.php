@@ -7,15 +7,15 @@ Route::group(['prefix' => 'InscripcionCovenio'], function () use ($controll, $ro
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
     Route::get('nnajs', [
-        'uses' => $controll . 'Controller@getNnajMatricula',
+        'uses' => $controll . 'Controller@getNnajInscri',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.imatriculannaj');
 	Route::get('{padrexxx}/nnajs', [
-        'uses' => $controll . 'Controller@getNnajMatricula',
+        'uses' => $controll . 'Controller@getNnajInscri',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.matriculannaj');
 	Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@getMatricula',
+        'uses' => $controll . 'Controller@getInscripcion',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 

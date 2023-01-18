@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Grupales\InscripcionSena\Administracion;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Grupales\InscripcionFormacion\ProgramaAsignaCrearRequest;
 use App\Http\Requests\MatriculaAdmin\GrupoAsignarCrearRequest;
 use App\Http\Requests\MatriculaAdmin\GrupoAsignarEditarRequest;
 use App\Http\Requests\MotivoEgreso\MotivoEgresuEditarRequest;
@@ -55,9 +56,9 @@ class ProgramaAsignarController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx' => $padrexxx]
         );
     }
-    public function store(GrupoAsignarCrearRequest $request)
+    public function store(ProgramaAsignaCrearRequest $request)
     {
-        return $this->setGrupoAsignar([
+        return $this->setProgramaAsignar([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Se realizó la asignación ',
@@ -82,7 +83,7 @@ class ProgramaAsignarController extends Controller
 
     public function edit(ProgramaAsocia $modeloxx)
     {
-        $this->pestanix['grupoasig'] = [true, $modeloxx->id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
@@ -92,9 +93,9 @@ class ProgramaAsignarController extends Controller
     }
 
 
-    public function update(GrupoAsignarEditarRequest $request,  ProgramaAsocia $modeloxx)
+    public function update(ProgramaAsignaCrearRequest $request,  ProgramaAsocia $modeloxx)
     {
-        return $this->setGrupoAsignar([
+        return $this->setProgramaAsignar([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Se actualizó la asignación',
@@ -104,7 +105,7 @@ class ProgramaAsignarController extends Controller
 
     public function inactivate(ProgramaAsocia $modeloxx)
     {
-        $this->pestanix['grupoasig'] = [true, $modeloxx->fos_tse_id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary']),
@@ -124,7 +125,7 @@ class ProgramaAsignarController extends Controller
 
     public function activate(ProgramaAsocia $modeloxx)
     {
-        $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),

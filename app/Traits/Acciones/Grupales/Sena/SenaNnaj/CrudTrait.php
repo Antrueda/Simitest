@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Grupales\Sena\SenaNnaj;
 
 use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Grupales\InscripcionConvenios\ConveNnaj;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -24,13 +25,12 @@ trait CrudTrait
    
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            $dataxxxx['requestx']->request->add(['hora_salida' =>  explode(' ',$dataxxxx['padrexxx']->fecha)[0].' '.$dataxxxx['requestx']->hora_salida]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = IMatriculaNnaj::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = ConveNnaj::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

@@ -221,81 +221,81 @@ class PermisosInscripcionConvSeeder extends Seeder
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
-          //permisos administraccion sedecentro
-          $permisox = 'sedecentro';
-          $compleme = 'Sede Centro';
-          Permission::create([
-              'name' => $permisox . '-leer',
-              'sis_pestania_id' => 1,
-              'descripcion' => $leerxxxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-crear',
-              'sis_pestania_id' => 1,
-              'descripcion' => $crearxxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-editar',
-              'sis_pestania_id' => 1,
-              'descripcion' => $editarxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-borrar',
-              'sis_pestania_id' => 1,
-              'descripcion' => $borrarxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-activarx',
-              'sis_pestania_id' => 1,
-              'descripcion' => $activarx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          //permisos administraccion Convenio
-          $permisox = 'conveniox';
-          $compleme = 'Convenio';
-          Permission::create([
-              'name' => $permisox . '-leer',
-              'sis_pestania_id' => 1,
-              'descripcion' => $leerxxxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-crear',
-              'sis_pestania_id' => 1,
-              'descripcion' => $crearxxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-editar',
-              'sis_pestania_id' => 1,
-              'descripcion' => $editarxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-borrar',
-              'sis_pestania_id' => 1,
-              'descripcion' => $borrarxx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
-  
-          Permission::create([
-              'name' => $permisox . '-activarx',
-              'sis_pestania_id' => 1,
-              'descripcion' => $activarx . $compleme,
-              'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
-          ]);
+        //permisos administraccion sedecentro
+        $permisox = 'sedecentro';
+        $compleme = 'Sede Centro';
+        Permission::create([
+            'name' => $permisox . '-leer',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-crear',
+            'sis_pestania_id' => 1,
+            'descripcion' => $crearxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-editar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $editarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-borrar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $borrarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-activarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $activarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        //permisos administraccion Convenio
+        $permisox = 'conveniox';
+        $compleme = 'Convenio';
+        Permission::create([
+            'name' => $permisox . '-leer',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-crear',
+            'sis_pestania_id' => 1,
+            'descripcion' => $crearxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-editar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $editarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-borrar',
+            'sis_pestania_id' => 1,
+            'descripcion' => $borrarxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
+
+        Permission::create([
+            'name' => $permisox . '-activarx',
+            'sis_pestania_id' => 1,
+            'descripcion' => $activarx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
 
         //permisos administraccion actividades perfil vocacional
         $permisox = 'inscrnnaj';
@@ -335,6 +335,16 @@ class PermisosInscripcionConvSeeder extends Seeder
             'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
         ]);
 
+        //permisos administraccion actividades perfil vocacional
+        $permisox = 'histocon';
+        $compleme = 'Historial de convenios NNAJ';
+        Permission::create([
+            'name' => $permisox . '-leer',
+            'sis_pestania_id' => 1,
+            'descripcion' => $leerxxxx . $compleme,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1
+        ]);
 
+     
     }
 }

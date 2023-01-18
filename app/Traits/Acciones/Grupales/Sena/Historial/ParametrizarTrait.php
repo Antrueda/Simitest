@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Sena\SenaNnaj;
+namespace App\Traits\Acciones\Grupales\Sena\Historial;
 
 
 /**
@@ -33,21 +33,21 @@ trait ParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'AGREGAR NNAJ';
+        $this->opciones['tituhead'] = 'HISTORIAL FORMACIÓN TÉCNICA CONVENIOS';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
-        $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Acciones.Grupales.';
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['rutacarp'] = 'Acciones.Individuales.Educacion.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'InscripNNAJ';
+        $this->opciones['carpetax'] = 'HistorialForma';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = 'AGREGAR NNAJ';
+        $this->opciones['tituloxx'] = 'HISTORIAL FORMACIÓN TÉCNICA CONVENIOS';
     }
 
     public function getBotones($dataxxxx)
