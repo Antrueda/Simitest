@@ -1024,6 +1024,12 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create(['user_id' => '489', 'sis_depen_id' => '26', 'i_prm_responsable_id' => '228', 'user_crea_id' => '201', 'user_edita_id' => '201', 'sis_esta_id' => '1', 'created_at' => '2021-05-14 09:49:34', 'updated_at' => '2021-05-14 09:49:34',]); // 998
         SisDepeUsua::create(['user_id' => '489', 'sis_depen_id' => '22', 'i_prm_responsable_id' => '228', 'user_crea_id' => '201', 'user_edita_id' => '201', 'sis_esta_id' => '1', 'created_at' => '2021-05-14 09:49:34', 'updated_at' => '2021-05-14 09:49:34',]); // 999
         SisDepeUsua::create(['user_id' => '489', 'sis_depen_id' => '3', 'i_prm_responsable_id' => '228', 'user_crea_id' => '201', 'user_edita_id' => '201', 'sis_esta_id' => '1', 'created_at' => '2021-05-14 09:49:34', 'updated_at' => '2021-05-14 09:49:34',]); // 1000
+        SisDepeUsua::create(['user_id' => '739', 'sis_depen_id' => '2', 'i_prm_responsable_id' => '2316', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:07', 'updated_at' => '2021-04-27 12:00:07',]); // 1
+        SisDepeUsua::create(['user_id' => '739', 'sis_depen_id' => '15', 'i_prm_responsable_id' => '2316', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:07', 'updated_at' => '2021-04-27 12:00:07',]); // 2
+        SisDepeUsua::create(['user_id' => '739', 'sis_depen_id' => '23', 'i_prm_responsable_id' => '2316', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:07', 'updated_at' => '2021-04-27 12:00:07',]); // 3
+        SisDepeUsua::create(['user_id' => '739', 'sis_depen_id' => '28', 'i_prm_responsable_id' => '2316', 'user_crea_id' => '2', 'user_edita_id' => '2', 'sis_esta_id' => '1', 'created_at' => '2021-04-27 12:00:07', 'updated_at' => '2021-04-27 12:00:07',]); // 4
+        SisDepeUsua::create(['user_id' => '739', 'sis_depen_id' => '18', 'i_prm_responsable_id' => '228', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-05-04 16:49:05', 'updated_at' => '2021-05-04 16:49:05',]); // 753
+        SisDepeUsua::create(['user_id' => '739', 'sis_depen_id' => '29', 'i_prm_responsable_id' => '228', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2021-05-03 10:11:58', 'updated_at' => '2021-05-03 10:11:58',]); // 690
 
     }
 }

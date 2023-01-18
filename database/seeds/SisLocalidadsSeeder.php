@@ -12,7 +12,7 @@ class SisLocalidadsSeeder extends Seeder
      */
     public function run()
     {
-        SisLocalidad::create(['s_localidad'=>'01 USAQUÉN','simianti_id'=>'1000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 1
+        SisLocalidad::create(['s_localidad'=>'01 USAQUEN','simianti_id'=>'1000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 1
         SisLocalidad::create(['s_localidad'=>'02 CHAPINERO','simianti_id'=>'2000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 2
         SisLocalidad::create(['s_localidad'=>'03 SANTA FE','simianti_id'=>'3000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 3
         SisLocalidad::create(['s_localidad'=>'04 SAN CRISTÓBAL','simianti_id'=>'4000','user_crea_id'=>'1','user_edita_id'=>'1','sis_esta_id'=>'1','created_at'=>'2021-04-27T16:56:10.000000Z','updated_at'=>'2021-04-27T16:56:10.000000Z',]); // 4

@@ -271,5 +271,7 @@ class RolesUsuarioSeeder extends Seeder
     RolUsuario::create(['model_id' => 26, 'role_id' => 3, 'model_type' => 'App\Models\User', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     RolUsuario::create(['model_id' => 1379, 'role_id' => 3, 'model_type' => 'App\Models\User', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     RolUsuario::create(['model_id' => 133, 'role_id' => 3, 'model_type' => 'App\Models\User', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+    RolUsuario::create(['model_id' => 739, 'role_id' => 1, 'model_type' => 'App\Models\User', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
   }
 }
