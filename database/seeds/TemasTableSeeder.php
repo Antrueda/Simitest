@@ -441,6 +441,10 @@ class TemasTableSeeder extends Seeder
         Tema::create(['nombre' => 'EGRESO MOTIVO LLAMADA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 420
         Tema::create(['nombre' => 'FORMULARIO VALORACIÓN NUTRICIONAL COMPLETA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 421
 
+        Tema::create(['nombre' => 'ETAPA FORMACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 422
+        Tema::create(['nombre' => 'MODALIDAD ETAPA PRODUCTIVA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 423
+        Tema::create(['nombre' => 'NOVEDAD INACTIVACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 424
+
 
     }
 }
