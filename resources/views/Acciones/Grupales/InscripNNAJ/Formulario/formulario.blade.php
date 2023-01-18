@@ -54,7 +54,7 @@
 <div class="row">
   <div class="col-md-4">
         {{ Form::label('etapa_id', 'Etapa', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('etapa_id', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('etapa_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
+        {{ Form::select('etapa_id', $todoxxxx['etapaxxx'], null, ['class' => $errors->first('etapa_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
         @if ($errors->has('etapa_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('etapa_id') }}
@@ -65,16 +65,18 @@
   <div class="col-md-4">
         {{ Form::label('sis_esta_id', 'Estado', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ?
-        'form-control is-invalid' : 'form-control','data-placeholder' => 'Seleccione un estado']) }}
+        'form-control is-invalid' : 'form-control','data-placeholder' => 'Seleccione un estado', 'onchange' => 'doc1(this.value)']) }}
         @if($errors->has('sis_esta_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_esta_id') }}
         </div>
         @endif
     </div>
+</div>
+<div class="row" id="modal_div">
       <div class="col-md-4">
         {{ Form::label('modalidad_id', 'Modalidad Etapa Productiva', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('modalidad_id', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('modalidad_id') ?
+        {{ Form::select('modalidad_id', $todoxxxx['modalida'], null, ['class' => $errors->first('modalidad_id') ?
         'form-control is-invalid' : 'form-control','data-placeholder' => 'Seleccione un estado']) }}
         @if($errors->has('modalidad_id'))
         <div class="invalid-feedback d-block">
@@ -84,26 +86,28 @@
     </div>
 
     <div class="col-md-4">
-        {{ Form::label('fecha_inicio', 'Fecha de Inicio de Etapa Productiva  ', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha_inicio', null, ['class' => $errors->first('fecha_inicio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx']]) }}
-        @if ($errors->has('fecha_inicio'))
+        {{ Form::label('fechapro_inicio', 'Fecha de Inicio de Etapa Productiva  ', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::date('fechapro_inicio', null, ['class' => $errors->first('fechapro_inicio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx']]) }}
+        @if ($errors->has('fechapro_inicio'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('fecha_inicio') }}
+                {{ $errors->first('fechapro_inicio') }}
             </div>
         @endif
     </div>
     <div class="col-md-4">
-        {{ Form::label('fecha_final', 'Fecha Final de Etapa Productiva', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha_final', null, ['class' => $errors->first('fecha_final') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => $todoxxxx['hoyxxxxx']]) }}
-        @if ($errors->has('fecha_final'))
+        {{ Form::label('fechapro_final', 'Fecha Final de Etapa Productiva', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::date('fechapro_final', null, ['class' => $errors->first('fechapro_final') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => $todoxxxx['hoyxxxxx']]) }}
+        @if ($errors->has('fechapro_final'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('fecha_final') }}
+                {{ $errors->first('fechapro_final') }}
             </div>
         @endif
     </div>
+</div>
+<div class="row" id="novedad_div">
     <div class="col-md-4"> 
         {{ Form::label('novedad_id', 'Novedad Inactivación', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('novedad_id', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('novedad_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
+        {{ Form::select('novedad_id', $todoxxxx['novedadx'], null, ['class' => $errors->first('novedad_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la Novedad']) }}
         @if ($errors->has('novedad_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('novedad_id') }}
@@ -111,23 +115,24 @@
         @endif
     </div>
         <div class="col-md-4">
-        {{ Form::label('fecha', 'Fecha', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx']]) }}
-        @if ($errors->has('fecha'))
+        {{ Form::label('fechainactivo', 'Fecha', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::date('fechainactivo', null, ['class' => $errors->first('fechainactivo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx']]) }}
+        @if ($errors->has('fechainactivo'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('fecha') }}
+                {{ $errors->first('fechainactivo') }}
             </div>
         @endif
     </div>
 </div>
+
 
 <br>
 <hr>
 <div class="row">
   <div class="col-md-12">
   {{ Form::label('observaciones', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Diligenciar documentación pendiente, cambio requeridos, compromiso para la UPI o cualquier novedad que tenga relevancia y afectación en la matrícula. Ejemplo: (Motivo del traslado o reasignación de taller): Motivo por el cual se realiza el traslado o se reasigna de taller al NNAJ', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-      <p id="contadorobservaciones">0/1000</p>
+  {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Observaciones', 'maxlength' => '500', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+  <span id="chars"></span>
       @if($errors->has('observaciones'))
     <div class="invalid-feedback d-block">
           {{ $errors->first('observaciones') }}

@@ -1043,7 +1043,51 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'NÚMERO EQUIVOCADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:12 PM', 'updated_at' => '22-12-2022 09:10:12 PM',]); // 2988,
     Parametro::create(['nombre' => 'FUERA DE COBERTURA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:18 PM', 'updated_at' => '22-12-2022 09:10:18 PM',]); // 2989,
     Parametro::create(['nombre' => 'SIN SEÑAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:10:26 PM', 'updated_at' => '22-12-2022 09:10:26 PM',]); // 2990,
-    Parametro::create([ 'nombre' => 'SIN RESPUESTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM', ]); // 2991,
+    Parametro::create(['nombre' => 'SIN RESPUESTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2991,
+
+    Parametro::create(['nombre' => '1 DELGADEZ', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2992,
+    Parametro::create(['nombre' => '2 RIESGO A DELGADEZ', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2993,
+    Parametro::create(['nombre' => '3 ADECUADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2994,
+    Parametro::create(['nombre' => '4 SOBREPESO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2995,
+    Parametro::create(['nombre' => '5 OBESIDAD', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2996,
+    Parametro::create(['nombre' => '6 BAJO PESO PARA LA EDAD GESTACIONAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2997,
+    Parametro::create(['nombre' => '7 ADECUADO PARA LA EDAD GESTACIONAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2998,
+    Parametro::create(['nombre' => '8 SOBREPESO PARA LA EDAD GESTACIONAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 2999,
+    Parametro::create(['nombre' => '9 OBESIDAD PARA LA EDAD GESTACIONAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3000,
+
+    Parametro::create(['nombre' => '1 TALLA ADECUADA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3001,
+    Parametro::create(['nombre' => '2 RIESGO A TALLA BAJA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3002,
+    Parametro::create(['nombre' => '3 TALLA BAJA O RETRASO EN TALLA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3003,
+
+    Parametro::create(['nombre' => 'ALIMENTOS PROTEICOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3004,
+    Parametro::create(['nombre' => 'CONSUMO DE FRUTAS Y VERDURAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3005,
+    Parametro::create(['nombre' => 'CONSUMO DE CARBOHIDRATOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3006,
+    Parametro::create(['nombre' => 'DISMINUIR CONSUMO DE AZUCARES', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3007,
+    Parametro::create(['nombre' => 'SUPLEMENTO MULTIVITAMÍNICO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3008,
+
+    Parametro::create(['nombre' => 'DESNUTRICIÓN', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3009,
+    Parametro::create(['nombre' => 'RIESGO A DESNUTRICIÓN', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3010,
+
+    Parametro::create(['nombre' => 'PLAN DE ALIMENTACIÓN', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3011,
+    Parametro::create(['nombre' => 'SUPLEMENTO Y/O COMPLEMENTO NUTRICIONAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3012,
+    Parametro::create(['nombre' => 'G. MÉTODOS ANTICONCEPTIVOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '02-01-2023 12:37:46 PM', 'updated_at' => '02-01-2023 12:37:46 PM',]); // 3013,
+    Parametro::create(['nombre' => 'H. DERECHOS SEXUALES, REPRODUCTIVOS Y USO CONDÓN', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '02-01-2023 12:38:19 PM', 'updated_at' => '02-01-2023 12:38:19 PM',]); // 3014,
+    Parametro::create(['nombre' => 'I. MANEJO DE MASCULINIDADES ALTERNATIVAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '02-01-2023 12:38:55 PM', 'updated_at' => '02-01-2023 12:38:55 PM',]); // 3015,
+    Parametro::create(['nombre' => 'ACUERDO DE CORRESPONSABILIDAD CONVENIO N° 1918/2022 SDA-FDLSC', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '06-01-2023 09:34:46 AM', 'updated_at' => '06-01-2023 09:34:46 AM',]); // 3016,
+    Parametro::create(['nombre' => 'ACUERDO DE CORRESPONSABILIDAD CONVENIO N° 703/2022 FDLCB', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '12-01-2023 04:38:46 PM', 'updated_at' => '12-01-2023 04:38:46 PM',]); // 3017,
+
+    Parametro::create([ 'nombre' => 'RETIRO VOLUNTARIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:13:59 AM', 'updated_at' => '18-01-2023 11:14:14 AM', ]); // 3018,
+    Parametro::create([ 'nombre' => 'NO QUEDA MATRICULADO EN SENA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:16:36 AM', 'updated_at' => '18-01-2023 11:16:36 AM', ]); // 3019,
+    Parametro::create([ 'nombre' => 'EXTRA EDAD', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:16:46 AM', 'updated_at' => '18-01-2023 11:16:46 AM', ]); // 3020,
+    Parametro::create([ 'nombre' => 'CERTIFICADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:16:55 AM', 'updated_at' => '18-01-2023 11:16:55 AM', ]); // 3021,
+    Parametro::create([ 'nombre' => 'CONTRATO DE APRENDIZAJE', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:17:09 AM', 'updated_at' => '18-01-2023 11:17:09 AM', ]); // 3022,
+    Parametro::create([ 'nombre' => 'PROYECTO PRODUCTIVO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:01 AM', 'updated_at' => '18-01-2023 11:18:01 AM', ]); // 3023,
+    Parametro::create([ 'nombre' => 'PASANTIAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:10 AM', 'updated_at' => '18-01-2023 11:18:10 AM', ]); // 3024,
+    Parametro::create([ 'nombre' => 'VINCULO LABORAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:19 AM', 'updated_at' => '18-01-2023 11:18:19 AM', ]); // 3025,
+    Parametro::create([ 'nombre' => 'MONITORIAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:35 AM', 'updated_at' => '18-01-2023 11:18:35 AM', ]); // 3026,
+    Parametro::create([ 'nombre' => 'LECTIVA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:47 AM', 'updated_at' => '18-01-2023 11:18:47 AM', ]); // 3027,
+    Parametro::create([ 'nombre' => 'PRODUCTIVA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:55 AM', 'updated_at' => '18-01-2023 11:18:55 AM', ]); // 3028,
+
 
 
 

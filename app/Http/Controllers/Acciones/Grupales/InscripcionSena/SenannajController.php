@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Grupales\InscripcionSena;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Grupales\InscripcionFormacion\InscripcionnnajRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculannajEditarRequest;
 use App\Http\Requests\Acciones\Grupales\MatriculannajRequest;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
@@ -42,16 +43,16 @@ class SenannajController extends Controller
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['imatricula.editar', [$padrexxx->id]], 2, 'VOLVER A MATRICULA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$padrexxx->id]], 2, 'VOLVER A INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
 
     }
 
-    public function store(MatriculannajRequest $request, InscriConve $padrexxx)
+    public function store(InscripcionnnajRequest $request, InscriConve $padrexxx)
     {
 
-        $request->request->add(['imatricula_id' => $padrexxx->id, 'sis_esta_id' => 1,'fecha' => $padrexxx->fecha]);
+        $request->request->add(['inconve_id' => $padrexxx->id, 'sis_esta_id' => 1,'fecha' => $padrexxx->fecha]);
         return $this->setMatnnaj([
             'requestx' => $request,
             'modeloxx' => '',
@@ -61,16 +62,16 @@ class SenannajController extends Controller
         ]);
     }
 
-    public function update(MatriculannajEditarRequest $request,  ConveNnaj $modeloxx)
+    public function update(InscripcionnnajRequest $request,  ConveNnaj $modeloxx)
     {
         
-        $request->request->add(['imatricula_id' => $modeloxx->iMatricula->id]);
+        $request->request->add(['inconve_id' => $modeloxx->convenio->id]);
         $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
         
         return $this->setMatnnaj([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'padrexxx' => $modeloxx->iMatricula,
+            'padrexxx' => $modeloxx->convenio,
             'infoxxxx' => 'NNAJ editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
@@ -80,11 +81,11 @@ class SenannajController extends Controller
     public function inactivate(ConveNnaj $modeloxx)
     {
 
-        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->imatricula_id];
-        $this->opciones['padrexxx'] =$modeloxx->iMatricula;
-        $padrexxx = $modeloxx->iMatricula;
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->inconve_id];
+        $this->opciones['padrexxx'] =$modeloxx->convenio;
+        $padrexxx = $modeloxx->convenio;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['imatricula.editar', [$modeloxx->imatricula_id]], 2, 'VOLVER MATRICULA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$modeloxx->inconve_id]], 2, 'VOLVER INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR NNAJ', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]
@@ -97,19 +98,19 @@ class SenannajController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('imatricula.editar', [$modeloxx->imatricula_id])
+            ->route('inscricon.editar', [$modeloxx->inconve_id])
             ->with('info', 'NNAJ inactivado correctamente');
     }
 
     public function edit(ConveNnaj $modeloxx)
     {
         
-        $this->opciones['padrexxx'] =$modeloxx->iMatricula;
-        $padrexxx = $modeloxx->iMatricula;
+        $this->opciones['padrexxx'] =$modeloxx->convenio;
+        $padrexxx = $modeloxx->convenio;
        
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['imatricula.editar', [$padrexxx->id]], 2, 'VOLVER A MATRICULA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$padrexxx->id]], 2, 'VOLVER A INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR ', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR NNAJ', 'btn btn-sm btn-primary']);
          return $this->view(
@@ -123,7 +124,7 @@ class SenannajController extends Controller
         $this->opciones['padrexxx'] =$modeloxx->iMatricula;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['imatricula.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A MATRICULA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]
@@ -134,7 +135,7 @@ class SenannajController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('imatricula.editar', [$modeloxx->imatricula_id])
+            ->route('inscricon.editar', [$modeloxx->inconve_id])
             ->with('info', 'NNAJ activado correctamente');
     }
 }

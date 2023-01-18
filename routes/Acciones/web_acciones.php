@@ -38,7 +38,7 @@ Route::group(['prefix' => 'ai'], function () {
     'middleware' => ['permission:aiindex-leer|aiindex-crear|aiindex-editar|aibasico-borrar']
   ])->name('ai.listaxxx');
   //require_once('Individuales/web_salidamayores.php');
-  require_once('Individuales/Educacion/web_matriculas.php');
+  require_once('Individuales/Educacion/web_formación.php');
   //require_once('Individuales/Educacion/web_matriculas.php');
 
   require_once('Individuales/web_evasion.php');

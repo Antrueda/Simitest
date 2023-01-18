@@ -151,7 +151,7 @@ trait ListadosTrait
             /// i_estado_ms => prm_estado_matri = 2773 => aprobado 2774=>continua proceso  2775=>retirado
             //  ->leftJoin('i_estado_ms', 'i_matricula_nnajs.id', '=', 'i_estado_ms.id') 
             $responsa = ConveNnaj::select(['sis_nnaj_id'])
-                ->where('conve_id', $padrexxx->id)
+                ->where('inconve_id', $padrexxx->id)
                 ->where('sis_esta_id', 1)
                 ->get();
             $depende =    InscriConve::select(['upi_id'])
@@ -198,6 +198,39 @@ trait ListadosTrait
 
 
 
+    public function getNnajHistorial(Request $request, SisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = ['histocon'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = ConveNnaj::select([
+                'conve_nnajs.id',
+                'conve_nnajs.sis_nnaj_id',
+                'convenios.nombre as convenio',
+                'programas.nombre as programa',
+                'modalidads.nombre as modalidad',
+                'conve_nnajs.observaciones',
+                'conve_nnajs.sis_esta_id',
+                'sis_estas.s_estado',
+                'etapa.nombre as etapa',
+                      
+            ])
+                ->join('sis_nnajs', 'conve_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('inscri_conves', 'conve_nnajs.inconve_id', '=', 'inscri_conves.id')
+                ->join('convenios', 'inscri_conves.conve_id', '=', 'convenios.id')
+                ->join('programas', 'inscri_conves.conve_id', '=', 'programas.id')
+                ->join('modalidads', 'inscri_conves.modal_id', '=', 'modalidads.id')
+                ->join('sis_estas', 'conve_nnajs.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as etapa', 'conve_nnajs.etapa_id', '=', 'etapa.id')
+                //->where('i_matricula_nnajs.sis_esta_id', 1)
+                ->where('conve_nnajs.sis_nnaj_id', $padrexxx->id);
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
     public function getNnajInscri(Request $request, InscriConve $padrexxx)
     {
         if ($request->ajax()) {
@@ -226,7 +259,7 @@ trait ListadosTrait
             ])
                 ->join('sis_nnajs', 'conve_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-                ->join('inscri_conves', 'conve_nnajs.conve_id', '=', 'inscri_conves.id')
+                ->join('inscri_conves', 'conve_nnajs.inconve_id', '=', 'inscri_conves.id')
                 ->join('sis_estas', 'conve_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
@@ -235,7 +268,7 @@ trait ListadosTrait
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 //->where('i_matricula_nnajs.sis_esta_id', 1)
-                ->where('conve_nnajs.conve_id', $padrexxx->id);
+                ->where('conve_nnajs.inconve_id', $padrexxx->id);
             return $this->getDt($dataxxxx, $request);
         }
     }

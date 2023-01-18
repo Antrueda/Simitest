@@ -329,7 +329,7 @@ class Traductor
 
     public static function getBeneficiariosConv($dataxxxx)
     {
-        $contador = ConveNnaj::where('conve_id', $dataxxxx['padrexxx'])->count('id');
+        $contador = ConveNnaj::where('inconve_id', $dataxxxx['padrexxx'])->count('id');
 
         return $contador;
     }

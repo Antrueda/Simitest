@@ -1,34 +1,28 @@
 <script>
-
+        (function($) {
+            $.fn.extend( {
+                limiter: function(limit, elem) {
+                    $(this).on("keyup focus", function() {
+                        setCount(this, elem);
+                    });
+                    function setCount(src, elem) {
+                        var chars = src.value.length;
+                        if (chars > limit) {
+                            src.value = src.value.substr(0, limit);
+                            chars = limit;
+                        }
+                        elem.html( chars+"/1000" );
+                    }
+                    setCount($(this)[0], elem);
+                }
+            });
+        })(jQuery);
+        var elem = $("#chars");
+        $("#observaciones").limiter(1000, elem);
 
         
 
-init_contadorTa("observaciones", "contadorobservaciones", 500);
-init_contadorTa("asignatura", "contadorasignatura", 1000);
 
-
-
-
-function init_contadorTa(idtextarea, idcontador, max) {
-    $("#" + idtextarea).keyup(function() {
-        updateContadorTa(idtextarea, idcontador, max);
-    });
-    $("#" + idtextarea).change(function() {
-        updateContadorTa(idtextarea, idcontador, max);
-    });
-}
-
-function updateContadorTa(idtextarea, idcontador, max) {
-    var contador = $("#" + idcontador);
-    var ta = $("#" + idtextarea);
-    contador.html("0/" + max);
-    contador.html(ta.val().length + "/" + max);
-    if (parseInt(ta.val().length) > max) {
-        ta.val(ta.val().substring(0, max - 1));
-        contador.html(max + "/" + max);
-    }
-
-}
 
 function soloNumeros(e) {
         var keynum = window.event ? window.event.keyCode : e.which;
@@ -37,6 +31,40 @@ function soloNumeros(e) {
         return /\d/.test(String.fromCharCode(keynum));
     }
 
+ function doc(valor){
+    if(valor == 3028){
+            document.getElementById("modal_div").hidden=false;
+
+            
+            
+    }else{
+        document.getElementById("modal_div").hidden=true;
+
+        
+        } 
+  
+    } 
+    function doc1(valor){
+        if(valor == 2 ){
+            document.getElementById("novedad_div").hidden=false;
+            
+            
+        }else{
+        document.getElementById("novedad_div").hidden=true;
+         }
+      
+        
+        } 
+  
+        
+
+
+    function carga() {
+        doc(document.getElementById('etapa_id').value);
+        doc1(document.getElementById('sis_esta_id').value);
+        
+    }
+    window.onload=carga;
 
   
 </script>

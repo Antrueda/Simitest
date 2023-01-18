@@ -4,6 +4,7 @@ namespace App\Models\sistema;
 
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
+use App\Models\Acciones\Grupales\InscripcionConvenios\ConveNnaj;
 use App\Models\Acciones\Grupales\Traslado\TrasladoNnaj;
 use App\Models\Acciones\Individuales\Educacion\CuestionarioGustos\CgihCuestionario;
 use App\Models\Acciones\Individuales\Educacion\MatriculaCursos\MatriculaCurso;
@@ -375,6 +376,11 @@ class SisNnaj extends Model
     public function Odontologia()
     {
         return $this->hasMany(VOdontologia::class);
+    }
+
+    public function FormacionTecnica()
+    {
+        return $this->hasMany(ConveNnaj::class);
     }
 
     public function getVMedicinaPrimeraAttribute()

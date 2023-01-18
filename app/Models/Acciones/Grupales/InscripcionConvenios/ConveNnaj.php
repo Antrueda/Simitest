@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Grupales\InscripcionConvenios;
 
+use App\Models\sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 
 class ConveNnaj extends Model
@@ -15,5 +16,8 @@ class ConveNnaj extends Model
 
     public function convenio(){
         return $this->belongsTo(InscriConve::class, 'inconve_id');
+    }
+    public function sis_nnaj(){
+        return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 }
