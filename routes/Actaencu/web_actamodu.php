@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 $routexxx = 'actamodu';
 $controll = 'Actaencu\AeModuloController@';
 Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
@@ -17,4 +20,5 @@ Route::group(['prefix' => 'moduloae'], function () use ($routexxx, $controll) {
     require_once('web_asistenc.php');
     require_once('web_aecontac.php');
     require_once('web_asisnnaj.php');
+    
 });

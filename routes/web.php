@@ -35,35 +35,7 @@ route::get('/pruebasjose', function () {
     //     // echo $value->sis_depen_id.' '.$value->sis_localupz_id.' '.$value->sis_upzbarri_id.'<br>';
     // }
 
-    Permissionext::create([
-        'name' => 'nnajdese-listaxxx',
-        'descripcion' => 'Permiso que pemite mostrar la lista de los servicios que tiene asociados la dependencia',
-        'sis_pestania_id' => 1,
-        'user_crea_id' => 1,
-        'user_edita_id' => 1,
-        'sis_esta_id' => 1
-    ]);
     
-    Permissionext::create([
-        'name' => 'nnajdese-activarx',
-        'descripcion' => 'Permiso que permite ativar los servicios que tiene asociados la dependencia',
-        'sis_pestania_id' => 1,
-        'user_crea_id' => 1,
-        'user_edita_id' => 1,
-        'sis_esta_id' => 1
-    ]);
-
-    Permissionext::create([
-        'name' => 'nnajdese-inactiva',
-        'descripcion' => 'Permiso que permite inactivar los servicios que tiene asociados la dependencia',
-        'sis_pestania_id' => 1,
-        'user_crea_id' => 1,
-        'user_edita_id' => 1,
-        'sis_esta_id' => 1
-    ]);
-
-
-
 });
 
 route::get('/clear-cache', function () {
