@@ -43,6 +43,7 @@ class ProgramaAsignarController extends Controller
     
     public function index()
     {
+      
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }

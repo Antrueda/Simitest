@@ -50,7 +50,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "GRUPO";
+        $this->opciones['tituloxx'] = "SEDE/CENTRO";
     }
 
     public function getBotones($dataxxxx)

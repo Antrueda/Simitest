@@ -1,5 +1,5 @@
 
-@if(in_array(Auth::user()->s_documento,$puedexxx))
+
 @can('indimodu-moduloxx')
 <li class="nav-item has-treeview">
      <a href="#" class="nav-link">
@@ -46,4 +46,3 @@
      </ul>
  </li>
  @endcan
- @endif

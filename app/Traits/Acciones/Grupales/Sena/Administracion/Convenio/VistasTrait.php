@@ -28,8 +28,6 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-        $opciones['diaseman'] = Tema::comboAsc(124, true, false);
-        $opciones['jornadax'] = Tema::comboAsc(151, true, false);
         
         $selected=0;
         $estadoid = 0;
@@ -45,7 +43,7 @@ trait VistasTrait
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid ,
-            'formular' => 2338
+            'formular' => 3029
         ]);
         $opciones['tiposegu'] =FosTse::combo($selected, true, false);
         // Se arma el titulo de acuerdo al array opciones

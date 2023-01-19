@@ -31,9 +31,9 @@ trait VistasTrait
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);
         $this->getTablas($dataxxxx);        
-        $this->opciones['etapaxxx'] = Tema::comboAsc(495, true, false);
-        $this->opciones['modalida'] = Tema::comboAsc(496, true, false);
-        $this->opciones['novedadx'] = Tema::comboAsc(497, true, false);
+        $this->opciones['etapaxxx'] = Tema::comboAsc(496, true, false);
+        $this->opciones['modalida'] = Tema::comboAsc(497, true, false);
+        $this->opciones['novedadx'] = Tema::comboAsc(498, true, false);
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
 
         

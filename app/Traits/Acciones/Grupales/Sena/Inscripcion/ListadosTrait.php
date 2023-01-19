@@ -252,7 +252,7 @@ trait ListadosTrait
                 'nnaj_nacimis.d_nacimiento',
                 'nnaj_docus.s_documento',
                 'sis_estas.s_estado',
-                'documento.nombre as documento',
+             //   'documento.nombre as documento',
                 'certifica.nombre as certifica',
                       
             ])
@@ -262,7 +262,7 @@ trait ListadosTrait
                 ->join('sis_estas', 'conve_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
-                ->join('parametros as documento', 'conve_nnajs.modalidad_id', '=', 'documento.id')
+            //    ->join('parametros as documento', 'conve_nnajs.modalidad_id', '=', 'documento.id')
                 ->join('parametros as certifica', 'conve_nnajs.etapa_id', '=', 'certifica.id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')

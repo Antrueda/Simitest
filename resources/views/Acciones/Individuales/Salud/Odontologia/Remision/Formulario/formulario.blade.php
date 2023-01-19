@@ -40,7 +40,7 @@
            @endif
       </div>
       <div class="col-sm-3">
-        {{ Form::label('remiint_id', 'Remisión Interinstitucioanl', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('remiint_id', 'Remisión Interinstitucional', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('remiint_id', $todoxxxx['intersti'],null, ['class' => $errors->first('remiint_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','required']) }}
             @if($errors->has('remiint_id'))
               <div class="invalid-feedback d-block">

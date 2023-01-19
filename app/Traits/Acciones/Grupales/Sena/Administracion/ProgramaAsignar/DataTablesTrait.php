@@ -16,7 +16,7 @@ trait DataTablesTrait
      */
     public function getTablas($dataxxxx)
     {
-
+        
         $dataxxxx['tablasxx'] = [
             [
                 'titunuev' => 'ASIGNAR PROGRAMA',
@@ -29,7 +29,6 @@ trait DataTablesTrait
                     $dataxxxx['permisox'] . '-crear',
                     $dataxxxx['permisox'] . '-editar',
                     $dataxxxx['permisox'] . '-borrar',
-                    $dataxxxx['permisox'] . '-activar',
                 ],
                 'cabecera' => [
                     [
@@ -45,7 +44,7 @@ trait DataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'grado_asignars.id'],
+                    ['data' => 'id', 'name' => 'programa_asocias.id'],
                     ['data' => 'conve', 'name' => 'convenios.nombre as conve'],
                     ['data' => 'sede', 'name' => 'sede_centros.nombre as sede'],
                     ['data' => 'progra', 'name' => 'programas.nombre as progra'],
