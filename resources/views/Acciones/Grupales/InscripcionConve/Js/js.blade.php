@@ -9,52 +9,9 @@
     $('#user_doc2').select2({
       language: "es"
     });
-    var f_repsable = function(dataxxxx) {
-        $.ajax({
-                url: "{{ route('imatricula.responsable')}}",
-                type: 'GET',
-                data: dataxxxx.dataxxxx,
-                dataType: 'json',
-                success: function(json) { 
-                    $(json.campoxxx).empty();
-                    $.each(json.comboxxx, function(id, data) { console.log(data)
-                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
-                    });
-                },
-                error: function(xhr, status) {
-                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
-                }
-            });
-        }
-        $('#prm_upi_id').change(function() {
-        f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
-        });
-        @if(old('prm_upi_id') != null)
-        f_repsable({
-                dataxxxx: {
-                    valuexxx: "{{old('responsable')}}",
-                    campoxxx: 'responsable',
-                    padrexxx: '{{old("prm_upi_id")}}'
-            }});
-        @endif
-        let f_sis_entidad = function(selected) {
-            let dataxxxx = {
-                dataxxxx: {
-                    padrexxx: $('#prm_upi_id').val(),
-                    selected: [selected]
-                },
-                urlxxxxx: '{{ route("imatricula.servicio") }}',
-                campoxxx: 'prm_serv_id',
-                mensajex: 'Exite un error al cargar los los servicios de la upi'
-            }
-            f_comboGeneral(dataxxxx);
-        }
-        $('#prm_upi_id').change(() => {
-            f_sis_entidad(0);
-        });
+ 
 
-
-        var f_grado = function(selected, upixxxxx,padrexxx) {
+        var f_sede = function(selected, upixxxxx,padrexxx) {
             let dataxxxx = {
                 dataxxxx: {
                     padrexxx: padrexxx,
@@ -62,13 +19,13 @@
                     upixxxxx: upixxxxx,
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("imatricula.grado") }}',
-                campoxxx: 'prm_grado',
-                mensajex: 'Exite un error al cargar los grados'
+                urlxxxxx: '{{ route("inscricon.sede") }}',
+                campoxxx: 'sede_id',
+                mensajex: 'Exite un error al cargar las sedes'
             }
             f_comboGeneral(dataxxxx);
         }
-        var f_grupo = function(selected, upixxxxx,padrexxx) {
+        var f_progra = function(selected, upixxxxx,padrexxx) {
            
             let dataxxxx = {
                 dataxxxx: {
@@ -77,33 +34,65 @@
                     cabecera: true,
                     selected: [selected]
                 },
-                urlxxxxx: '{{ route("imatricula.grupo") }}',
-                campoxxx: 'prm_grupo',
-                mensajex: 'Exite un error al cargar los grados'
+                urlxxxxx: '{{ route("inscricon.program") }}',
+                campoxxx: 'progra_id',
+                mensajex: 'Exite un error al cargar los programas'
             }
             f_comboGeneral(dataxxxx);
         }
+        var f_tipopro = function(selected, upixxxxx,padrexxx) {
+           
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("inscricon.tipopro") }}',
+               campoxxx: 'tipop_id',
+               mensajex: 'Exite un error al cargar los tipos de programas'
+           }
+           f_comboGeneral(dataxxxx);
+       }
+       var f_modal = function(selected, upixxxxx,padrexxx) {
+           
+           let dataxxxx = {
+               dataxxxx: {
+                   padrexxx:padrexxx,
+                   upixxxxx: upixxxxx,
+                   cabecera: true,
+                   selected: [selected]
+               },
+               urlxxxxx: '{{ route("inscricon.modalida") }}',
+               campoxxx: 'modal_id',
+               mensajex: 'Exite un error al cargar las modalidades'
+           }
+           f_comboGeneral(dataxxxx);
+       }
 
-        let dependen = '{{old("prm_upi_id")}}';
-        if (dependen !== '') {
-            f_sis_entidad('{{old("prm_serv_id")}}');
-        }
       
-        $('#prm_serv_id').change(() => {
-            let upixxxxx = $('#prm_upi_id').val();
-            let servicio = $('#prm_serv_id').val();
+        $('#conve_id').change(() => {
+            let upixxxxx = $('#upi_id').val();
+            let servicio = $('#conve_id').val();
             let cabecera = true
-            f_grado(0,upixxxxx,servicio);
-            f_grupo(0,upixxxxx,servicio);
+            f_sede(0,upixxxxx,servicio);
+            f_progra(0,upixxxxx,servicio);
+            f_tipopro(0,upixxxxx,servicio);
+            f_modal(0,upixxxxx,servicio);
         });
 
-        let servicio = '{{old("prm_serv_id")}}';
+        let servicio = '{{old("conve_id")}}';
         if (servicio !== '') { 
-            let upixxxxx = $('#prm_upi_id').val();
-            let gradoxxx='{{old("prm_grado")}}';
-            let grupoxxx='{{old("prm_grupo")}}';
-            f_grado(gradoxxx,upixxxxx,servicio);
-            f_grupo(grupoxxx,upixxxxx,servicio);
+            let upixxxxx = $('#upi_id').val();
+            let convenio='{{old("sede_id")}}';
+            let programa='{{old("progra_id")}}';
+            let tipoprox='{{old("tipop_id")}}';
+            let modalxxx='{{old("modal_id")}}';
+            f_sede(convenio,upixxxxx,servicio);
+            f_progra(programa,upixxxxx,servicio);
+            f_tipopro(tipoprox,upixxxxx,servicio);
+            f_modal(modalxxx,upixxxxx,servicio);
             
         }
      
@@ -139,6 +128,12 @@ function updateContadorTa(idtextarea, idcontador, max) {
     }
 
 }
+function soloNumeros(e) {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+            return true;
+        return /\d/.test(String.fromCharCode(keynum));
+    }
 
 window.onload = updateContadorTa();
 </script>

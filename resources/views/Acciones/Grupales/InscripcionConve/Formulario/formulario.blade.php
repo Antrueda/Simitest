@@ -42,7 +42,7 @@
 <div class="row">
     <div class="col-md-4">
         {{ Form::label('numficha', 'No. de ficha', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('numficha', null, ['class' => $errors->first('numficha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'numficha']) }}
+        {{ Form::text('numficha', null, ['class' => $errors->first('numficha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'numficha', "onkeypress" => "return soloNumeros(event);"]) }}
         @if ($errors->has('numficha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('numficha') }}

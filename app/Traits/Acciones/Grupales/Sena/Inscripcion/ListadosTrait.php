@@ -10,8 +10,7 @@ use App\Models\Acciones\Grupales\Educacion\IMatricula;
 use App\Models\Acciones\Grupales\Educacion\IMatriculaNnaj;
 use App\Models\Acciones\Grupales\InscripcionConvenios\ConveNnaj;
 use App\Models\Acciones\Grupales\InscripcionConvenios\InscriConve;
-
-
+use App\Models\Acciones\Grupales\InscripcionConvenios\ProgramaAsocia;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDocu;
 
@@ -278,7 +277,7 @@ trait ListadosTrait
 
    
 
-    public function getGrado(Request $request)
+    public function getSede(Request $request)
     {
         $dataxxxx = [
             'cabecera' => true,
@@ -290,12 +289,12 @@ trait ListadosTrait
         ];
         $dataxxxx['cabecera'] = $request->cabecera;
 
-        $respuest = response()->json($this->getGradoAsignar($dataxxxx));
+        $respuest = response()->json($this->getSedeAsignar($dataxxxx));
         return $respuest;
     }
 
 
-    public function getGrupo(Request $request)
+    public function getProgram(Request $request)
     {
         $dataxxxx = [
             'cabecera' => true,
@@ -307,38 +306,90 @@ trait ListadosTrait
         ];
         $dataxxxx['cabecera'] = $request->cabecera;
 
-        $respuest = response()->json($this->getGrupoAsignar($dataxxxx));
+        $respuest = response()->json($this->getProgramaAsignar($dataxxxx));
         return $respuest;
     }
 
-    public function getGradoAsignar($dataxxxx)
+    public function getTipopro(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getTipoProgramaAsignar($dataxxxx));
+        return $respuest;
+    }
+
+    public function getModal(Request $request)
+    {
+        $dataxxxx = [
+            'cabecera' => true,
+            'ajaxxxxx' => true,
+            'selected' => $request->selected,
+            'orderxxx' => 'ASC',
+            'dependen' => $request->upixxxxx,
+            'servicio' => $request->padrexxx,
+        ];
+        $dataxxxx['cabecera'] = $request->cabecera;
+
+        $respuest = response()->json($this->getModalidadAsignar($dataxxxx));
+        return $respuest;
+    }
+
+    public function getSedeAsignar($dataxxxx)
     {
 
-        $dataxxxx['dataxxxx'] = GradoAsignar::select(['eda_grados.id as valuexxx', 'eda_grados.s_grado as optionxx'])
-            ->join('eda_grados', 'grado_asignars.grado_matricula', '=', 'eda_grados.id')
-            ->join('sis_depens', 'grado_asignars.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_servicios', 'grado_asignars.sis_servicio_id', '=', 'sis_servicios.id')
-            ->where('grado_asignars.sis_depen_id', $dataxxxx['dependen'])
-            ->where('grado_asignars.sis_servicio_id', $dataxxxx['servicio'])
-            ->where('grado_asignars.sis_esta_id', 1)
-            ->orderBy('grado_asignars.id', 'asc')
+        $dataxxxx['dataxxxx'] = ProgramaAsocia::select(['sede_centros.id as valuexxx', 'sede_centros.nombre as optionxx'])
+            ->join('sede_centros', 'programa_asocias.sede_id', '=', 'sede_centros.id')
+            ->where('programa_asocias.conve_id', $dataxxxx['servicio'])
+            ->where('programa_asocias.sis_esta_id', 1)
+            ->orderBy('programa_asocias.id', 'asc')
             ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;
     }
 
-    public function getGrupoAsignar($dataxxxx)
+    public function getProgramaAsignar($dataxxxx)
     {
 
-        $dataxxxx['dataxxxx'] = GrupoAsignar::select(['grupo_matriculas.id as valuexxx', 'grupo_matriculas.s_grupo as optionxx'])
-            ->join('grupo_matriculas', 'grupo_asignars.grupo_matricula_id', '=', 'grupo_matriculas.id')
-            ->join('sis_depens', 'grupo_asignars.sis_depen_id', '=', 'sis_depens.id')
-            ->join('sis_servicios', 'grupo_asignars.sis_servicio_id', '=', 'sis_servicios.id')
-            ->where('grupo_asignars.sis_depen_id', $dataxxxx['dependen'])
-            ->where('grupo_asignars.sis_servicio_id', $dataxxxx['servicio'])
-            ->where('grupo_asignars.sis_esta_id', 1)
-            ->orderBy('grupo_asignars.id', 'asc')
-            ->get();
+        $dataxxxx['dataxxxx'] = ProgramaAsocia::select(['programas.id as valuexxx', 'programas.nombre as optionxx'])
+                ->join('programas', 'programa_asocias.progra_id', '=', 'programas.id')
+                ->where('programa_asocias.conve_id', $dataxxxx['servicio'])
+                ->where('programa_asocias.sis_esta_id', 1)
+                ->orderBy('programa_asocias.id', 'asc')
+                ->get();
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+    public function getTipoProgramaAsignar($dataxxxx)
+    {
+
+        $dataxxxx['dataxxxx'] = ProgramaAsocia::select(['tipoprogramas.id as valuexxx', 'tipoprogramas.nombre as optionxx'])
+                ->join('tipoprogramas', 'programa_asocias.tipop_id', '=', 'tipoprogramas.id')
+                ->where('programa_asocias.conve_id', $dataxxxx['servicio'])
+                ->where('programa_asocias.sis_esta_id', 1)
+                ->orderBy('programa_asocias.id', 'asc')
+                ->get();    
+        $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
+        return    $respuest;
+    }
+
+    public function getModalidadAsignar($dataxxxx)
+    {
+
+        $dataxxxx['dataxxxx'] = ProgramaAsocia::select(['modalidads.id as valuexxx', 'modalidads.nombre as optionxx'])
+                ->join('modalidads', 'programa_asocias.sede_id', '=', 'modalidads.id')
+                ->where('programa_asocias.conve_id', $dataxxxx['servicio'])
+                ->where('programa_asocias.sis_esta_id', 1)
+                ->orderBy('programa_asocias.id', 'asc')
+                ->get();
         $respuest = $this->getCuerpoComboSinValueCT($dataxxxx);
         return    $respuest;
     }

@@ -60,14 +60,23 @@ Route::group(['prefix' => 'InscripcionCovenio'], function () use ($controll, $ro
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
-	Route::get('grado', [
-        'uses' => $controll . 'Controller@getGrado',
+	Route::get('sede', [
+        'uses' => $controll . 'Controller@getSede',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.grado');
-	Route::get('grupo', [
-        'uses' => $controll . 'Controller@getGrupo',
+	])->name($routxxxx . '.sede');
+	Route::get('program', [
+        'uses' => $controll . 'Controller@getProgram',
         'middleware' => ['permission:' . $routxxxx . '-leer']
-	])->name($routxxxx . '.grupo');
+	])->name($routxxxx . '.program');
+
+    Route::get('tipopro', [
+        'uses' => $controll . 'Controller@getTipopro',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.tipopro');
+    Route::get('modalida', [
+        'uses' => $controll . 'Controller@getModal',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.modalida');
 
 	Route::get('getServicios', [
         'uses' => $controll . 'Controller@getServiciosUpiMa',

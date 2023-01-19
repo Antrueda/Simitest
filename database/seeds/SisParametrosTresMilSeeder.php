@@ -1087,6 +1087,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create([ 'nombre' => 'MONITORIAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:35 AM', 'updated_at' => '18-01-2023 11:18:35 AM', ]); // 3026,
     Parametro::create([ 'nombre' => 'LECTIVA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:47 AM', 'updated_at' => '18-01-2023 11:18:47 AM', ]); // 3027,
     Parametro::create([ 'nombre' => 'PRODUCTIVA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:55 AM', 'updated_at' => '18-01-2023 11:18:55 AM', ]); // 3028,
+    Parametro::create([ 'nombre' => 'FORMACION TECNICA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '18-01-2023 11:18:55 AM', 'updated_at' => '18-01-2023 11:18:55 AM', ]); // 3029
 
 
 
