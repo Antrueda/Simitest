@@ -2,6 +2,11 @@
 
 namespace App\Traits\Acciones\Grupales\Sena\Inscripcion;
 
+use App\Models\Acciones\Grupales\InscripcionConvenios\Convenio;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Modalidad;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Programa;
+use App\Models\Acciones\Grupales\InscripcionConvenios\SedeCentro;
+use App\Models\Acciones\Grupales\InscripcionConvenios\Tipoprograma;
 use App\Models\Educacion\Administ\Pruediag\EdaGrado;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
@@ -37,78 +42,44 @@ trait VistasTrait
 
     public function view($opciones, $dataxxxx)
     {
-        $upidxxxx = 0;
-        $servicio = 0;
+
 //
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-       
+        $dependid = 0;
+        $opciones['convenio'] = Convenio::combo(true,false);
+        $opciones['sedecent'] = SedeCentro::combo(true,false);
+        $opciones['programa'] = Programa::combo(true,false);
+        $opciones['tipoprog'] = Tipoprograma::combo(true,false);
+        $opciones['modalida'] = Modalidad::combo(true,false);
+        $opciones['dependen'] = $this->getUpiUsuarioCT(['modeloxx' => $dependid, 'modeloxx' => $dependid]);
         $opciones['usuariox'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-     $user_doc1=0;
-     $user_doc2=0;
-     $apoyo_id=0;
-
+        $opciones['usuarioz'] = User::getUsuario(false, false);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
+        $usuarioz=null;
         if ($dataxxxx['modeloxx'] != '') {
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $opciones['gradoxxx']= EdaGrado::combo(true,false);
+            $dependid = $dataxxxx['modeloxx']->upi_id;
             $dataxxxx['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
+            $dataxxxx['modeloxx']->fecha_inicio = explode(' ', $dataxxxx['modeloxx']->fecha_inicio)[0];
+            $dataxxxx['modeloxx']->fecha_final = explode(' ', $dataxxxx['modeloxx']->fecha_final)[0];
 
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $upidxxxx=$dataxxxx['modeloxx']->prm_upi_id;
-            $servicio=$dataxxxx['modeloxx']->prm_serv_id;
-            //$dataxxxx['modeloxx']->numeromatricula=$dataxxxx['modeloxx']->numeromatricula;
-            $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->responsable_id);
+            $usuarioz=$dataxxxx['modeloxx']->user_id;
 
-            if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
-                $opciones['lugarxxx'] = Tema::combo(336, true, false);
-            }
-            $user_doc1=$dataxxxx['modeloxx']->user_doc1;
-            $user_doc2=$dataxxxx['modeloxx']->user_doc2;
-            $apoyo_id= $dataxxxx['modeloxx']->apoyo_id;
+
         }
-        $opciones['usuarioz'] =$this->getUsuarioUCT(['cabecera' => false,'usersele'=>$user_doc1]);
-        $opciones['educacio']=$this->userComboRolUCT(['rolxxxxx'=>[14,81,82],'usersele'=>$user_doc2]);
-
-        $opciones['apoyoxxx']=$this->userComboRolUCT(['rolxxxxx'=>[14,81],'usersele'=>$apoyo_id]);
-        
-        $opciones['dependen'] =$this-> getUpiUsuarioUCT(['optisele'=>$upidxxxx]);
+  
         // $opciones['dependen'] = User::getUpiUsuario(true, false);
-       
+        $opciones['usuarioz'] = User::getUsuario(false, false, $usuarioz);
       
 
 
-        if (Auth::user()->s_documento=='17496705') {
-            
-            // $this->userComboRolUCT(['notinxxx'=>[],'rolxxxxx'=>[14,81,82,1]]);
-        }
-       $opciones['sis_servicios']  = $this->getServiciosUpiComboCT([
-            'cabecera' => true,
-            'ajaxxxxx' => false,
-            'dependen' => $upidxxxx
-        ]);
-
-        $opciones['grupoxxx'] =$this->getGrupoAsignar([
-            'cabecera' => true,
-            'ajaxxxxx' => false,
-            'selected' => 'selected',
-            'orderxxx' => 'ASC',
-            'dependen' => $upidxxxx,
-            'servicio' => $servicio,
-        ]);
-
-        $opciones['gradoxxx'] =$this->getGradoAsignar([
-            'cabecera' => true,
-            'ajaxxxxx' => false,
-            'selected' => 'selected',
-            'orderxxx' => 'ASC',
-            'dependen' => $upidxxxx,
-            'servicio' => $servicio,
-        ]);
+    
 
 
         $opciones['tablinde']=false;

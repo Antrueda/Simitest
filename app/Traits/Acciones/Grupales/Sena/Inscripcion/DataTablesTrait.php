@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Grupales\Sena\Inscripcion;
 
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\Educacion\IMatricula;
+use App\Models\Acciones\Grupales\InscripcionConvenios\InscriConve;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 
@@ -41,11 +42,8 @@ trait DataTablesTrait
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'SERVICIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'GRADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'GRUPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -53,12 +51,12 @@ trait DataTablesTrait
                     ],
                     'columnsx' => [
                         ['data' => 'botonexx', 'name' => 'botonexx'],
-                        ['data' => 'id', 'name' => 'i_matriculas.id'],
-                        ['data' => 'fecha', 'name' => 'i_matriculas.fecha'],
+                        ['data' => 'id', 'name' => 'inscri_conves.id'],
+                        ['data' => 'fecha', 'name' => 'inscri_conves.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
-                        ['data' => 'servicio', 'name' => 'servicio.s_servicio as servicio'],
-                        ['data' => 'grado', 'name' => 'grado.s_grado as grado'],
-                        ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
+                        // ['data' => 'servicio', 'name' => 'servicio.s_servicio as servicio'],
+                        // ['data' => 'grado', 'name' => 'grado.s_grado as grado'],
+                        // ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
                         ['data' => 'contado', 'name' => 'contado'],
                         ['data' => 'name', 'name' => 'users.name'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
@@ -71,7 +69,7 @@ trait DataTablesTrait
             ];
         }else {
             $vercrear=false;
-            $parametr=IMatricula::count('id')+1;
+            $parametr=InscriConve::count('id')+1;
             $rutaxxxx='imatriculannaj';
 
             if($dataxxxy['dataxxxx']['modeloxx']!=null){
@@ -107,10 +105,8 @@ trait DataTablesTrait
                             ['td' => 'TIPO DE DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'COPIA DEL DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'CERTIFICADOS ACADÉMICOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'FORMATO DE MATRÍCULA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'NÚMERO DE MATRÍCULA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'ETAPA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'MODALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'OBSERVACIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
@@ -128,14 +124,12 @@ trait DataTablesTrait
                         ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
                         ['data' => 'documento', 'name' => 'documento.nombre as documento'],
                         ['data' => 'certifica', 'name' => 'certifica.nombre as certifica'],
-                        ['data' => 'matricula', 'name' => 'matricula.nombre as matricula'],
-                        ['data' => 'numeromatricula', 'name' => 'i_matricula_nnajs.numeromatricula'],
                         ['data' => 'observaciones', 'name' => 'i_matricula_nnajs.observaciones'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablennaj',
                     'permisox' => $dataxxxx['permisox'],
-                    'routxxxx' => 'imatriculannaj',
+                    'routxxxx' => 'inscrnnaj',
                     'parametr' => [$parametr],
                 ];        
          } 

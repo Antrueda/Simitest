@@ -1,19 +1,19 @@
 <div class="row">
     <div class="col-md-4">
         {{ Form::label('conve_id', 'Convenio/Entidad', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('conve_id', $todoxxxx['apoyoxxx'], null, ['class' => $errors->first('conve_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
+        {{ Form::select('conve_id', $todoxxxx['convenio'], null, ['class' => $errors->first('conve_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm']) }}
         @if ($errors->has('conve_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('conve_id') }}
             </div>
         @endif
     </div>
-</div>
 
-<div class="row">
+
+
     <div class="col-md-4"> 
         {{ Form::label('sede_id', 'Sede/Centro', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sede_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sede_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
+        {{ Form::select('sede_id', $todoxxxx['sedecent'], null, ['class' => $errors->first('sede_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
         @if ($errors->has('sede_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('sede_id') }}
@@ -22,7 +22,7 @@
     </div>
     <div class="col-md-4">
         {{ Form::label('progra_id', 'Programa', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('progra_id', $todoxxxx['sis_servicios'], null, ['class' => $errors->first('progra_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id' => 'progra_id']) }}
+        {{ Form::select('progra_id', $todoxxxx['programa'], null, ['class' => $errors->first('progra_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id' => 'progra_id']) }}
         @if ($errors->has('progra_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('progra_id') }}
@@ -31,7 +31,7 @@
     </div>
     <div class="col-md-4">
         {{ Form::label('tipop_id', 'Tipo de Programa', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('tipop_id', $todoxxxx['estrateg'], null, ['class' => $errors->first('tipop_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id' => 'tipop_id']) }}
+        {{ Form::select('tipop_id', $todoxxxx['tipoprog'], null, ['class' => $errors->first('tipop_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la serivcio', 'id' => 'tipop_id']) }}
         @if ($errors->has('tipop_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('tipop_id') }}
@@ -41,17 +41,17 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        {{ Form::label('prm_grado', 'No. de ficha', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_grado', $todoxxxx['gradoxxx'], null, ['class' => $errors->first('prm_grado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_grado']) }}
-        @if ($errors->has('prm_grado'))
+        {{ Form::label('numficha', 'No. de ficha', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('numficha', null, ['class' => $errors->first('numficha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'numficha']) }}
+        @if ($errors->has('numficha'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_grado') }}
+                {{ $errors->first('numficha') }}
             </div>
         @endif
     </div>
     <div class="col-md-4">
         {{ Form::label('modal_id', 'Modalidad', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('modal_id', $todoxxxx['grupoxxx'], null, ['class' => $errors->first('modal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la UPI', 'id' => 'modal_id']) }}
+        {{ Form::select('modal_id', $todoxxxx['modalida'], null, ['class' => $errors->first('modal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione la UPI', 'id' => 'modal_id']) }}
         @if ($errors->has('modal_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('modal_id') }}
@@ -88,7 +88,7 @@
     </div>
     <div class="col-md-4">
         {{ Form::label('fecha_final', 'Fecha final de Formación', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha_final', null, ['class' => $errors->first('fecha_final') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx']]) }}
+        {{ Form::date('fecha_final', null, ['class' => $errors->first('fecha_final') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => $todoxxxx['hoyxxxxx']]) }}
         @if ($errors->has('fecha_final'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha_final') }}

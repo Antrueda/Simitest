@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Sena\SenaNnaj;
+namespace App\Traits\Acciones\Grupales\Sena\Historial;
 
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajDese;

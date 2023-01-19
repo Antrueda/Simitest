@@ -7,10 +7,13 @@ trait PestaniasTrait
 {
     public $pestanix = [
         [
-            'permisox' => 'imatricula', 'routexxx' => '', 'dataxxxx' => [true, []],
+            'permisox' => 'inscricon', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'imatriculannaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+            'permisox' => 'inscrnnaj', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+        ],
+        [
+            'permisox' => 'ai', 'routexxx' => '.ver', 'dataxxxx' => [false, []],
         ],
      
     ];
@@ -18,8 +21,9 @@ trait PestaniasTrait
     private function getCanany($dataxxxx)
     {
         $permisox = [
-        'imatricula' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-        'imatriculannaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'inscricon' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'inscrnnaj' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+        'ai' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -31,22 +35,35 @@ trait PestaniasTrait
     public function setPestanias($dataxxxx)
     {
 
-        $pestania['imatricula'] = [
+        $pestania['inscricon'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'INSCRIPCIÓN Y ENTREGA DE MATRICULA',
+            'tituloxx' => 'INSCRIPCIÓN FORMACIÓN TÉCNICA',
             'tablaxxx' => 'sis_pais',
+            'tooltipx' => 'INSCRIPCIÓN Y ENTREGA DE MATRICULA',
+            
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
 
-        $pestania['imatriculannaj'] = [
+        $pestania['inscrnnaj'] = [
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'INGRESAR NNAJ',
             'tablaxxx' => 'sis_pais',
+            'tooltipx' => 'INSCRIPCIÓN Y ENTREGA DE MATRICULA',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['ai'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            //'dataxxxx' =>true, [$dataxxxx['padrexxx']->id],
+            'tituloxx' => 'INDIVIDUALES',
+            'tooltipx' => 'INDIVIDUALES',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => ['aiindex-leer'],
         ];
 
       
@@ -71,3 +88,4 @@ trait PestaniasTrait
         return $pestania;
     }
 }
+

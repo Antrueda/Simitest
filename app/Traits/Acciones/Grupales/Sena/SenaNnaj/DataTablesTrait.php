@@ -23,9 +23,9 @@ trait DataTablesTrait
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
                 'vercrear' => FALSE,
-                'urlxxxxx' => route('imatriculannaj.listnnaj', $this->opciones['padrexxx']->id),
+                'urlxxxxx' => route('inscrnnaj.listnnaj', $this->opciones['padrexxx']->id),
                 'permtabl' => [
-                    'imatriculannaj-leer',
+                    'inscrnnaj-leer',
                 ],
                 'cabecera' => [
                     [
@@ -54,7 +54,7 @@ trait DataTablesTrait
                 ],
                 'tablaxxx' => 'datatablennaj',
                 'permisox' => $this->opciones['permisox'],
-                'routxxxx' => 'imatriculannaj',
+                'routxxxx' => 'inscrnnaj',
                 'parametr' => [$this->opciones['padrexxx']->id],
             ];
 
