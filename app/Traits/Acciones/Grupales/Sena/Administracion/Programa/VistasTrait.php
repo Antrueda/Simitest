@@ -39,7 +39,7 @@ trait VistasTrait
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid ,
-            'formular' => 2482
+            'formular' => 3029
         ]);
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);

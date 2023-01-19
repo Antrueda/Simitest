@@ -191,7 +191,7 @@ trait ListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'],'fosasignar'];
+            $request->routexxx = [$this->opciones['routxxxx'],'asignaprograma'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -231,7 +231,7 @@ trait ListadosTrait
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2338
+                    'formular' => 3029
                 ])
             );
         }
@@ -244,7 +244,7 @@ trait ListadosTrait
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2338
+                    'formular' => 3029
                 ])
             );
         }

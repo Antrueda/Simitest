@@ -144,7 +144,7 @@
                     <a class="dropdown-item{{ ($accion == 'vihcocup') ?' active' : '' }}" href="{{ route('vihcocup', $nnaj->sis_nnaj_id) }}">Valoración e identificación de habilidades, competencias e intereses t.o</a>
                     @endif
 
-                    {{-- <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('histocon', $nnaj->sis_nnaj_id) }}">Historial Formación Técnica Convenios</a> --}}
+                   <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('histocon', $nnaj->sis_nnaj_id) }}">Historial Formación Técnica Convenios</a> 
                 </div>
             </li>
             <li class="nav-item dropdown">

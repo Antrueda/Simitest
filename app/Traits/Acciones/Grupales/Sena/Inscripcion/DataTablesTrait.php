@@ -106,7 +106,7 @@ trait DataTablesTrait
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ETAPA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'MODALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                           // ['td' => 'MODALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'OBSERVACIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
@@ -122,7 +122,7 @@ trait DataTablesTrait
                         ['data' => 'tipodocu', 'name' => 'tipodocu.nombre as tipodocu'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                         ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
-                        ['data' => 'documento', 'name' => 'documento.nombre as documento'],
+                     //   ['data' => 'documento', 'name' => 'documento.nombre as documento'],
                         ['data' => 'certifica', 'name' => 'certifica.nombre as certifica'],
                         ['data' => 'observaciones', 'name' => 'i_matricula_nnajs.observaciones'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
