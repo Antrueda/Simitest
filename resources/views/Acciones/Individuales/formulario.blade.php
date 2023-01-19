@@ -75,14 +75,19 @@
 
                 </div>
             </li>
+            @canany(['saludxxx-moduloxx'])
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Salud</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('mitigacion.vspa', $dato->id) }}">Valoración del Riesgo por Consumo de SPA</a>
                     <a class="dropdown-item{{ ($accion == 'Vma') ?' active' : '' }}" href="{{ route('mitigacion.vma', $dato->id) }}">Valoración Medicina Alternativa</a>
                     <a class="dropdown-item{{ ($accion == 'vsmedicina') ?' active' : '' }}" href="{{ route('vsmedicina', $nnaj->sis_nnaj_id) }}">Valoración Medicina General</a>
+                    @canany(['vsmedmac-leerxxxx'])
+                    <a class="dropdown-item{{ ($accion == 'vsmedmac') ?' active' : '' }}" href="{{ route('vsmedmac', $nnaj->sis_nnaj_id) }}">Valoración y seguimiento MAC - RRD</a>
+                    @endcanany
                 </div>
             </li>
+            @endcanany
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Socio Legal</a>
             </li>
