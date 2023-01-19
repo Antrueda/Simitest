@@ -9,7 +9,9 @@
         let old_tipoacti = '{{ old("tipoacti_id") }}';
         let old_actividade = '{{ old("asd_actividads_id") }}';
 
-
+        @if(isset($todoxxxx['modeloxx']))
+                fechapuede({{$todoxxxx['modeloxx']->sis_depen_id}});
+        @endif
 
         let f_armarCombo = function(json) {
             $(json.emptyxxx).empty();
@@ -189,6 +191,7 @@
         $('#sis_depen_id').change(() => {
             f_sis_depen(0);
             fechapuede($('#sis_depen_id').val());
+            $("#fechdili").val(""); // se selecciona la fecha minima y maxima 
         });
 
         function fechapuede(dependex) {
@@ -211,7 +214,6 @@
 
         function updateResult(data) {
             fechaPuede = data;
-            $("#fechdili").val(""); // se selecciona la fecha minima y maxima 
             $("#fechdili").attr({
                 "min": fechaPuede['fechlimi']
             });
@@ -254,6 +256,10 @@
                 dependen: old_sis_depen_id,
                 selected: [0]
             });
+
+            fechapuede(old_sis_depen_id);
+            let fechaold = '{{ old("fechdili") }}';
+            $("#fechdili").val(fechaold)
         }
 
         if (old_tipoacti != '') {
