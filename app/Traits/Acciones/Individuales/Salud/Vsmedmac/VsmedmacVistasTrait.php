@@ -53,6 +53,7 @@ trait VsmedmacVistasTrait
     }
     public function view($dataxxxx)
     {
+        $this->opciones['perfilxx'] = 'conperfi';
         $this->pestania[0][2] = [$this->sinnajid->id];
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
@@ -82,7 +83,7 @@ trait VsmedmacVistasTrait
             $this->pestania[1][2] = $this->opciones['parametr'];
             // $this->pestania[2][4] = true;
             $this->pestania[2][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', []], 2, 'NUEVA ACTA DE ENCUENTRO', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['permisox'] . '.nuevoxxx', []], 2, 'CREAR NUEVA VALORACION', 'btn btn-sm btn-primary']);
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->userCrea->name;
