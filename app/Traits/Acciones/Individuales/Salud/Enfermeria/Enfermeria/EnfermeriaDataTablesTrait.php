@@ -30,7 +30,7 @@ trait EnfermeriaDataTablesTrait
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO REGISTRO',
-                'titulist' => 'REGISTRO DIARIO DE ENFERMERIA',
+                'titulist' => 'REGISTRO DIARIO DE ENFERMERÍA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexx]),

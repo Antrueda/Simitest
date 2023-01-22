@@ -33,7 +33,7 @@ trait EnfermeriaParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'REGISTRO DIARIO DE ENFERMERIA';
+        $this->opciones['tituhead'] = 'REGISTRO DIARIO DE ENFERMERÍA';
         // $this->opciones['routxxxx'] = $this->opciones['permisox'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
@@ -47,7 +47,7 @@ trait EnfermeriaParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "REGISTRO DIARIO DE ENFERMERIA";
+        $this->opciones['tituloxx'] = "REGISTRO DIARIO DE ENFERMERÍA";
     }
 
     public function getBotones($dataxxxx)

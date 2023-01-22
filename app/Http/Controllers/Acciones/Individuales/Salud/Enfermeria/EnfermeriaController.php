@@ -74,7 +74,7 @@ class EnfermeriaController extends Controller
         $puedoCrear = $this->verificarPuedoCrear($padrexxx);
         if ($puedoCrear['puedo']) {
             $this->opciones['parametr'] = [$padrexxx->id];
-            $this->getBotones(['crearxxx', [], 1, 'GUARDAR REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary submit-pvf']);
+            $this->getBotones(['crearxxx', [], 1, 'GUARDAR REGISTRO DIARIO DE ENFERMERÍA', 'btn btn-sm btn-primary submit-pvf']);
             return $this->view(['modeloxx' => '', 'accionxx' => ['crearxxx', 'formulario'], 'padrexxx' => $padrexxx]);
         } else {
             return redirect()
@@ -90,7 +90,7 @@ class EnfermeriaController extends Controller
         return $this->setCghiCuestionario([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Registro diario de enfermeria creado con éxito',
+            'infoxxxx' => 'Registro diario de enfermería creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -152,7 +152,7 @@ class EnfermeriaController extends Controller
         return $this->setCghiCuestionario([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Registro diario de enfermeria editado con éxito',
+            'infoxxxx' => 'Registro diario de enfermería editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -171,7 +171,7 @@ class EnfermeriaController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->nnaj])
-            ->with('info', 'Registro diario de enfermeria inactivado correctamente');
+            ->with('info', 'Registro diario de enfermería inactivado correctamente');
     }
 
     public function activate(Enfermeria $modeloxx)
@@ -184,7 +184,7 @@ class EnfermeriaController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->nnaj])
-            ->with('info', 'Registro diario de enfermeria activado correctamente');
+            ->with('info', 'Registro diario de enfermería activado correctamente');
     }
 
 
@@ -222,7 +222,7 @@ class EnfermeriaController extends Controller
                 $cuandoPuedo = 365 - $days;
                 $cuandoPuedo = $hoy->modify('+ ' . $cuandoPuedo . ' day');
 
-                $data['meserror'] = 'Solo podrá diligenciar el Registro diario de enfermeria, PRÓXIMA FECHA QUE SE PUEDE DILIGENCIAR UNO NUEVO ' . $cuandoPuedo->format('Y-m-d');
+                $data['meserror'] = 'Solo podrá diligenciar el Registro diario de enfermería, PRÓXIMA FECHA QUE SE PUEDE DILIGENCIAR UNO NUEVO ' . $cuandoPuedo->format('Y-m-d');
             }
         } else {
             $data['puedo'] = false;

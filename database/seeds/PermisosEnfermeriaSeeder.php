@@ -24,7 +24,7 @@ class PermisosEnfermeriaSeeder extends Seeder
 
          //permisos para el crud del Registro diario  de Enfermeria
          $permisox = 'enfermeria';
-         $compleme = 'formato de registro diario de enfermeria ';
+         $compleme = 'formato de registro diario de enfermería ';
          Permission::create([
              'name' => $permisox . '-leerxxxx',
              'sis_pestania_id' => 1,
