@@ -292,7 +292,7 @@ trait EnfermeriaVistasTrait
         $this->pestania3[0][4] = true;
         $this->pestania3[0][2] = $dataxxxx['padrexxx'];
 
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER REGISTRO DIARIO DE ENFERMERÍA', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -320,7 +320,7 @@ trait EnfermeriaVistasTrait
 
             $this->pestania[0][4] = true;
             $this->pestania[0][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CREGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO CREGISTRO DIARIO DE ENFERMERÍA', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
             $tipoacti = $this->opciones['modeloxx']->tipo_vacunas_id = $dataxxxx['modeloxx']->asdActividad->tipo_vacunas_id;
         }
@@ -406,7 +406,7 @@ trait EnfermeriaVistasTrait
         $this->pestania3[0][4] = true;
         $this->pestania3[0][2] = $dataxxxx['padrexxx'];
 
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A REGISTRO DIARIO DE ENFERMERÍA', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -421,7 +421,7 @@ trait EnfermeriaVistasTrait
 
             $this->pestania[0][4] = true;
             $this->pestania[0][2] = $this->opciones['parametr'];
-            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO REGISTRO DIARIO DE ENFERMERÍA', 'btn btn-sm btn-primary']);
             $this->opciones['modeloxx']->fecha = explode(' ', $dataxxxx['modeloxx']->fecha)[0];
         }
 
@@ -445,14 +445,14 @@ trait EnfermeriaVistasTrait
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->pestania2[0][2] = $dataxxxx['padrexxx'];
 
-        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], [$dataxxxx['padrexxx']->id]], 2, 'VOLVER A REGISTRO DIARIO DE ENFERMERÍA', 'btn btn-sm btn-primary']);
         $this->getVista($dataxxxx);
 
         // indica si se esta actualizando o viendo
         $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         $this->pestania[0][2] = $dataxxxx['padrexxx'];
-        $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO REGISTRO DIARIO DE ENFERMERIA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', [$dataxxxx['padrexxx']->id]], 2, 'NUEVO REGISTRO DIARIO DE ENFERMERÍA', 'btn btn-sm btn-primary']);
 
         $this->getPestanias($this->opciones);
         // Se arma el titulo de acuerdo al array opciones

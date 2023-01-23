@@ -81,7 +81,13 @@
                     <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('mitigacion.vspa', $dato->id) }}">Valoración del Riesgo por Consumo de SPA</a>
                     <a class="dropdown-item{{ ($accion == 'Vma') ?' active' : '' }}" href="{{ route('mitigacion.vma', $dato->id) }}">Valoración Medicina Alternativa</a>
                     <a class="dropdown-item{{ ($accion == 'vsmedicina') ?' active' : '' }}" href="{{ route('vsmedicina', $nnaj->sis_nnaj_id) }}">Valoración Medicina General</a>
-                    <a class="dropdown-item{{ ($accion == 'enfermeria') ?' active' : '' }}" href="{{ route('enfermeria', $nnaj->sis_nnaj_id) }}">Registro Diario de Enfermeria</a>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#" >PROMOCIÓN DEL BIENESTAR</a>
+                        <ul class="dropdown-menu" >
+                        <a class="dropdown-item{{ ($accion == 'enfermeria') ?' active' : '' }}" href="{{ route('enfermeria', $nnaj->sis_nnaj_id) }}">Registro Diario de Enfermería</a>
+                        </ul>
+                    </li>                                        
+                    <a class="dropdown-item{{ ($accion == 'vapsirrd') ?' active' : '' }}" href="{{ route('vapsirrd', $nnaj->sis_nnaj_id) }}">Valoración psicosocial - RRD</a>
                     <a class="dropdown-item{{ ($accion == 'vodontologia') ?' active' : '' }}" href="{{ route('vodontologia', $nnaj->sis_nnaj_id) }}">Valoración Odontología</a>
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#" >REDUCCIÓN DE RIESGO Y DAÑO</a>

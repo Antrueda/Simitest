@@ -278,21 +278,19 @@
     }
 
     /**
-     * contador de caracteres para los textare
-     * @param  id
-     * @param  maximoxx
+     * contador de caracteres para los textarea FIXED
+     * @param  id obtiene el id del textarea
      */
 
-   function countCharts(id) {
-        let text = $('#' + id).val();
-        let count = text.length;
-        if (count >= maximoxx) {
-            $('#' + id).val(text.slice(0, maximoxx - 1));
-            $('#' + id + '_char_counter').text(maximoxx + '/' + maximoxx);
-        } else {
-            $('#' + id + '_char_counter').text(count + '/' + maximoxx);
-        }
-    }
+    function countCharts(id) {    
+        var idInput = $('#' + id).val().length;
+        var idCount = $('#' + id + '_char_counter');
+        var counterText = idCount.text();
+        var counterTextMax = counterText.substr(counterText.indexOf("/") + 1);
+        idCount.text(idInput+ '/' + counterTextMax);        
+    };
+
+
 
       //evitar enviar formulario duplicado
     $('#formulario, input[type="submit"]').on('submit',function(){

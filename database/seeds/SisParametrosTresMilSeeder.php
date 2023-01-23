@@ -901,7 +901,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'SEGUIMIENTO PSICOSOCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2862
     Parametro::create(['nombre' => 'SEGUIMIENTO SDS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2863
 
-    // REGISTRO DIARIO DE ENFERMERIA
+    // REGISTRO DIARIO DE ENFERMERÍA
     Parametro::create(['nombre' => 'NOVEDAD/FALLECIMIENTO', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2864
     Parametro::create(['nombre' => 'PROMOCIÓN Y DETECCIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2865
     Parametro::create(['nombre' => 'CONSULTA EXTERNA FUERA DE LA INSTITUCION PRESENCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2866
@@ -917,7 +917,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'FAVORECER LA ESTRUCTURACION DE SU PROYECTO DE VIDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2874
     Parametro::create(['nombre' => 'AC/ACUERDO CORRESPONSABILIDAD CONVENIO SDCRD N° 467/2022', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2875
 
-    // REGISTRO DIARIO DE ENFERMERIA
+    // REGISTRO DIARIO DE ENFERMERÍA
     Parametro::create(['nombre' => 'APOYO A PROFESIONALES DEL ÁREA DE SALUD DE IDIPRÓN PRESENCIAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2876
     Parametro::create(['nombre' => 'APOYO A PROFESIONALES DEL ÁREA DE SALUD DE IDIPRÓN VIRTUAL', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2877
     Parametro::create(['nombre' => 'ACOMPAÑAMIENTO JORNADA DE VACUNACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '06-01-2022 04:59:57 PM', 'updated_at' => '06-01-2022 04:59:57 PM',]); // 2878

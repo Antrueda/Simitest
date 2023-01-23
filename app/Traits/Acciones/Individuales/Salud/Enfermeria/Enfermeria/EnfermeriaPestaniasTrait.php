@@ -9,7 +9,7 @@ namespace App\Traits\Acciones\Individuales\Salud\Enfermeria\Enfermeria;
             ['ai.ver', '', [], 'INDIVIDUALES', true, '', 'Acciones individuales','aiindex'], // por mínimo debe tener un controllaor
            ];
         public $pestania2 = [
-            ['cgicuest', '', [], 'ENFERMERIA', true, '', 'Cuestionario de gustos e intereses'], // por mínimo debe tener un controlador
+            ['cgicuest', '', [], 'ENFERMERÍA', true, '', 'Registro diario de enfermería'], // por mínimo debe tener un controlador
             ['pvocacif', '', [], 'PERFIL VOCACIONAL ', false, '', 'Gestionar Perfil vocacional NNAJ'], // por mínimo debe tener un controllador
         ];
         public $pestania3 = [
