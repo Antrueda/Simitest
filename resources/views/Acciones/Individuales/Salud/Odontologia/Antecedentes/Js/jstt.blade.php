@@ -7,27 +7,9 @@
     $('#medicamento').select2({
       language: "es"
     });
-    
 
-    
 
-    if('{{$todoxxxx['modeloxx']->alergia_id}}'==227){
-      $("#cual_div").show();
-    }else{
-      $("#cual_div").hide();
-    }
-
-    if('{{$todoxxxx['modeloxx']->enfactu_id}}'==227){
-      $("#diag_div").show();
-    }else{
-      $("#diag_div").hide();
-    }
-
-    if('{{$todoxxxx['modeloxx']->toma_id}}'==227){
-      $("#medic_div").show();
-    }else{
-      $("#medic_div").hide();
-    }
+  
      
         $('input[name="alergia_id"]').click(function(){
         var inputValue = $(this).attr("value");
@@ -64,12 +46,8 @@
         }
         });
      
-        
 
   });
 
   
-
-
-   
 </script>

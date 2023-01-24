@@ -117,7 +117,7 @@ class SeguimientoCasoJuridicoController extends Controller
         $this->padrexxx = $modeloxx->casojur;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $do= $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->casojur]], 2, 'VOLVER A SEGUIMIENTO A CASO JURÍDICO', 'btn btn-sm btn-primary']);
-        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
+        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->casojur]
         );
     }
 
@@ -191,6 +191,7 @@ class SeguimientoCasoJuridicoController extends Controller
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->casojur->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->casojur->nnaj->id];
+        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->casojur->id];
         $this->opciones['valoraci'] = $modeloxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);

@@ -33,7 +33,7 @@ trait ParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'VALORACIÓN ODONTOLOGÍA';
+        $this->opciones['tituhead'] = 'REGISTRO INDICE DE PLACA SINLESS Y LÖE MODIFICADO';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'conperfi';
@@ -47,7 +47,7 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "VALORACIÓN ODONTOLOGÍA";
+        $this->opciones['tituloxx'] = "REGISTRO INDICE DE PLACA SINLESS Y LÖE MODIFICADO";
     }
 
     public function getBotones($dataxxxx)

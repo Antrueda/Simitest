@@ -61,7 +61,7 @@ class VOdongramaController extends Controller
 
     public function create(VOdontologia $padrexxx)
     {
-
+ 
         if($padrexxx->antecedentes){
             $this->pestanix[2]['routexxx'] = '.editar';
             $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->antecedentes->id];
@@ -122,7 +122,7 @@ class VOdongramaController extends Controller
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+    
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(

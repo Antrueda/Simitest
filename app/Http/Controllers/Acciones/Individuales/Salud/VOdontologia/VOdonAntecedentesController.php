@@ -110,7 +110,7 @@ class VOdonAntecedentesController extends Controller
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -136,8 +136,7 @@ class VOdonAntecedentesController extends Controller
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
+;
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
         $this->opciones['valoraci'] = $modeloxx;
@@ -203,8 +202,7 @@ class VOdonAntecedentesController extends Controller
         }
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
+
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;
         $this->opciones['padrexxx'] = $modeloxx->odontologia;
         $this->opciones['valoraci'] = $modeloxx;

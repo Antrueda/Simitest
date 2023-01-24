@@ -27,21 +27,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxy = $dataxxxx['requestx']->all();
-                $arrayxx =
-                    [
-                        "s_cursos" => $dataxxxy['s_cursos'],
-                        "descripcion" =>  $dataxxxy['descripcion'],
-                        "grado_reque_id" =>  $dataxxxy['grado_reque_id'],
-                        "tipo_curso_id" =>  $dataxxxy['tipo_curso_id'],
-                        "sis_esta_id" =>  $dataxxxy['sis_esta_id'],
-                        "estusuario_id" =>  $dataxxxy['estusuario_id'],
-                        "user_edita_id" =>  $dataxxxy['user_edita_id'],
-                        "user_crea_id" =>  $dataxxxy['user_crea_id']
-                    ];
-
-
-                $dataxxxx['modeloxx'] = Diagnostico::create($arrayxx);
+                $dataxxxx['modeloxx'] = Diagnostico::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

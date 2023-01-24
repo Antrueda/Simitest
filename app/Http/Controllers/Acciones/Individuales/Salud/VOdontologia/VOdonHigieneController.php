@@ -49,7 +49,7 @@ class VOdonHigieneController extends Controller
         $this->opciones['usuariox'] = $padrexxx->nnaj->fi_datos_basico;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
        
         
@@ -119,7 +119,7 @@ class VOdonHigieneController extends Controller
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
