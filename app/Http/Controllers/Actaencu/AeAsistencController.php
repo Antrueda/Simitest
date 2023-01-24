@@ -18,6 +18,7 @@ use App\Traits\Actaencu\Asistenc\AsistencParametrizarTrait;
 use App\Traits\Actaencu\Asistenc\AsistencVistasTrait;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\GestionTiempos\ManageTimeTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -71,11 +72,6 @@ class AeAsistencController extends Controller
             ->whereIn('users.id', $funccont)->distinct()
             ->pluck('name', 'id')->toArray();
 
-        // $this->opciones['responsa'] = User::select('users.name', 'users.id')
-        // ->join('sis_depen_user', 'sis_depen_user.user_id', 'users.id')
-        // ->where('sis_depen_user.sis_depen_id', $padrexxx->sis_depen_id)
-        // ->where('sis_depen_user.i_prm_responsable_id', 227)->pluck('name', 'id')->toArray();
-
         if (!$padrexxx->getVerCrearAttribute(9, 'contactos')) {
             return redirect()->route($this->opciones['permisox'], $padrexxx->id)->with(['infoxxxx' => 'Ha llegado al limite de contactos registrados (10)']);
         }
@@ -103,6 +99,16 @@ class AeAsistencController extends Controller
 
     public function show(AeAsistencia $modeloxx)
     {
+        if (Auth::user()->s_documento == '17496705') {
+            $menorxxx = Carbon::now();
+            $mayorxxx = Carbon::now();
+            $menorxxx->subYears(6);
+            $mayorxxx->subYears(29);
+            $mayorxxx->addDay(1);
+            $menorxxx = $menorxxx->format('Y-m-d');
+            $mayorxxx = $mayorxxx->format('Y-m-d');
+           // ddd($mayorxxx, $menorxxx);
+        }
         $this->opciones['parametr'][] = $modeloxx->id;
         $this->opciones['asistenc'] = [$modeloxx->id];
         $this->opciones['aedirreg'] = $modeloxx->aeDirregis;
@@ -371,6 +377,5 @@ class AeAsistencController extends Controller
         return redirect()
             ->route($this->opciones['permisox'] . '.editarxx', [$padrexxx->id])
             ->with('info', 'NNAJ eliminado de la lista.');
-       
     }
 }
