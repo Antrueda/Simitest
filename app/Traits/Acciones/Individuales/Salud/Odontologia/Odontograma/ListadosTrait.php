@@ -54,8 +54,6 @@ trait ListadosTrait
             $dataxxxx =  VOdontologia::select([
                 'v_odontologias.id',
                 'v_odontologias.fecha',
-                
-                
                 'consulta.nombre as consulta',
                 'valoracion.nombre as valoracion',
                 'sis_estas.s_estado',
