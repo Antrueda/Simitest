@@ -49,12 +49,16 @@ $(document).ready(function() {
                 }
 
         $('#agregar').on('click',function() {
+
             $('#diente').prop('required',false);
             console.log($('#diente').val());
             console.log($('#super_id').val());
             console.log($('#diag_id').val());
             console.log($('#tiposup_id').val());
             console.log('{{ $todoxxxx["padrexxx"]->id }}');
+            if($('#diente').val()==''||$('#tiposup_id').val()==''||$('#super_id').val()==''||$('#diag_id').val()==''){
+                toastr.error('Por favor seleccione los datos para ingresar el diagnostico del diente');
+            }else{
             agregar({
                 diente: $('#diente').val(),
                 super_id: $('#super_id').val(),
@@ -68,6 +72,7 @@ $(document).ready(function() {
             $('#super_id').val('');
             $('#tiposup_id').val('');
             $("#diag_id").val(0).select2();
+        }   
         });
                         
 

@@ -106,7 +106,7 @@ class VOdonExamenesController extends Controller
         $this->opciones['valoraci'] = $padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+
 
         //ddd($this->opciones['permisox'] .$this->opciones['diagnost'],  $this->opciones['valoraci']);
 
@@ -148,8 +148,7 @@ class VOdonExamenesController extends Controller
     {
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
-        
+
         
         
         $this->opciones['usuariox'] = $modeloxx->odontologia->nnaj->fi_datos_basico;

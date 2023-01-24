@@ -62,7 +62,7 @@ $('#agregar').on('click',function() {
         codigo: $('#codigo').val(),
         odonto_id:  '{{ $todoxxxx["padrexxx"]->id }}',
         });
-    $('#diente').val('');
+    $('#tipodiag').val('');
     $('#codigo').val('');
     $("#diag_id").val(['']);
 

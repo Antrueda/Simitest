@@ -30,7 +30,7 @@ trait VistasTrait
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
  
         $opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
+            ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.jstt']
         ];
         return $opciones;
     }
@@ -48,18 +48,23 @@ trait VistasTrait
         $opciones['medicame'] = Compuesto::combo(false, false);  
         $opciones['diagnost'] = Diagnostico::comboIn(false,false,[1,2,3,4,5,6]);
         
-//        ddd($opciones['antecede']);
-        if($opciones['antecede']!=null){
-                $dataxxxx['modeloxx']=$opciones['antecede'];
-        
-         }
-        // 
+        if($dataxxxx['modeloxx']==null&&$opciones['antecede']!=null){
+            $dataxxxx['modeloxx']=$opciones['antecede'];
+        }
 
+
+       // ddd($dataxxxx['modeloxx']);
+   
         
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']=$dataxxxx['modeloxx'];
+            $opciones['ruarchjs'] = [
+                ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
+            ];
+
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;

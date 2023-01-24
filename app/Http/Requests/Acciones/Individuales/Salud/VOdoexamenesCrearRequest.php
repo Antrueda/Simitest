@@ -16,11 +16,11 @@ class VOdoexamenesCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'labios_id.required'=>'Seleccione la UPI de atención',
-            'lengua_id.required'=>'Seleccione el tipo de consulta',
-            'pisob_id.required'=>'Ingrese la fecha de diligenciamiento',
-            'paladar_id.required'=>'Seleccione la tipo de valoracion',
-            'mucosa_id.required'=>'Seleccione la tipo de valoracion',
+            'labios_id.required'=>'Presenta alteración en Labios',
+            'lengua_id.required'=>'Presenta alteración en Lengua',
+            'pisob_id.required'=>'Presenta alteración en Piso de Boca',
+            'paladar_id.required'=>'Presenta alteración en Paladar_id',
+            'mucosa_id.required'=>'Presenta alteración en Mucosa Yugal y labial',
            
             ];
         $this->_reglasx = [

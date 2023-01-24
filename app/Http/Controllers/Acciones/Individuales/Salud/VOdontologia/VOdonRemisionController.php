@@ -114,8 +114,7 @@ class VOdonRemisionController extends Controller
         $this->opciones['parametr']=$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
-        $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
 
         return $this->view(
@@ -243,7 +242,7 @@ class VOdonRemisionController extends Controller
         }
         $this->pestanix[0]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->odontologia->nnaj->id];
-        $this->pestanix[2]['dataxxxx'] = [true, $modeloxx->id];
+
         //$modeloxx = VHenfermedad::where('id',1)->first();
      //   ddd($modeloxx);
         $this->pestanix[3]['dataxxxx'] = [true, $modeloxx->odontologia];
