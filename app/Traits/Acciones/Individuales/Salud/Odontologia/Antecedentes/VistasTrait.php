@@ -72,8 +72,8 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
-            $opciones['usercrea'] = $dataxxxx['modeloxx']->created_at;
-            $opciones['useredit'] = $dataxxxx['modeloxx']->updated_at;
+            $opciones['usercrea'] = $opciones['modeloxx']->creador->name;
+            $opciones['useredit'] = $opciones['modeloxx']->modifico->name;
         }
 
         $opciones['tablinde']=false;
