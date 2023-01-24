@@ -42,6 +42,8 @@ trait VistasTrait
         $dependid = 0;
         $opciones['fechcrea'] = '';
         $opciones['fechedit'] = '';
+        $opciones['usercrea'] = '';
+        $opciones['useredit'] = '';
         $opciones['odontolo'] = VOdontologia::where('sis_nnaj_id',$opciones['usuariox']->sis_nnaj_id)->first();
         $opciones['antecede'] = $opciones['odontolo']->antecedentes;
         $opciones['alergiax'] = Tema::comboAsc(476, true, false);  
@@ -70,6 +72,8 @@ trait VistasTrait
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $opciones['usercrea'] = $dataxxxx['modeloxx']->created_at;
+            $opciones['useredit'] = $dataxxxx['modeloxx']->updated_at;
         }
 
         $opciones['tablinde']=false;
