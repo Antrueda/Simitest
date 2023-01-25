@@ -1071,7 +1071,27 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'PLAN DE ALIMENTACIÓN', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3011,
     Parametro::create(['nombre' => 'SUPLEMENTO Y/O COMPLEMENTO NUTRICIONAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3012,
 
-
+    Parametro::create(['nombre' => 'G. MÉTODOS ANTICONCEPTIVOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3013,
+    Parametro::create(['nombre' => 'H. DERECHOS SEXUALES, REPRODUCTIVOS Y USO CONDÓN', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3014,
+    Parametro::create(['nombre' => 'I. MANEJO DE MASCULINIDADES ALTERNATIVAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3015,
+    Parametro::create(['nombre' => 'ACUERDO DE CORRESPONSABILIDAD CONVENIO N° 1918/2022 SDA-FDLSC', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3016,
+    Parametro::create(['nombre' => 'ACUERDO DE CORRESPONSABILIDAD CONVENIO N° 703/2022 FDLCB', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3017,
+    Parametro::create(['nombre' => 'RETIRO VOLUNTARIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3018,
+    Parametro::create(['nombre' => 'NO QUEDA MATRICULADO EN SENA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3019,
+    Parametro::create(['nombre' => 'EXTRA EDAD', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3020,
+    Parametro::create(['nombre' => 'CERTIFICADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3021,
+    Parametro::create(['nombre' => 'CONTRATO DE APRENDIZAJE', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3022,
+    Parametro::create(['nombre' => 'PROYECTO PRODUCTIVO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3023,
+    Parametro::create(['nombre' => 'PASANTIAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3024,
+    Parametro::create(['nombre' => 'VINCULO LABORAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3025,
+    Parametro::create(['nombre' => 'MONITORIAS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3026,
+    Parametro::create(['nombre' => 'LECTIVA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3027,
+    Parametro::create(['nombre' => 'PRODUCTIVA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3028,
+    Parametro::create(['nombre' => 'FORMACION TECNICA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3029,
+    Parametro::create(['nombre' => 'CANCELACIÓN DE MATRICULA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3030,
+    Parametro::create(['nombre' => 'MUERTE NATURAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3031,
+    Parametro::create(['nombre' => 'MUERTE VIOLENTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3032,
+    Parametro::create(['nombre' => 'REGISTRADURÍA NACIONAL DEL ESTADO CIVIL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3033,
 
   }
 }
