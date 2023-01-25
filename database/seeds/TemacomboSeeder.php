@@ -516,5 +516,7 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'ETAPA FORMACIÓN', 'tema_id' => '422', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 496
     Temacombo::create(['nombre' => 'MODALIDAD ETAPA PRODUCTIVA', 'tema_id' => '423', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 497
     Temacombo::create(['nombre' => 'NOVEDAD INACTIVACIÓN', 'tema_id' => '424', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 498
+    Temacombo::create(['nombre' => 'TRAMITE POLIZA DE VIDA MOTIVO DEL DECESO', 'tema_id' => '425', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 499
+    Temacombo::create(['nombre' => 'TRAMITE POLIZA DE VIDA AUTORIDAD QUE EMITIO REGISTRO DEFUNCIÓN', 'tema_id' => '425', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 500
   }
 }
