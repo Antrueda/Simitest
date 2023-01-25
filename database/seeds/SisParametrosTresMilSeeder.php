@@ -1092,6 +1092,7 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'MUERTE NATURAL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3031,
     Parametro::create(['nombre' => 'MUERTE VIOLENTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3032,
     Parametro::create(['nombre' => 'REGISTRADURÍA NACIONAL DEL ESTADO CIVIL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3033,
-
+    Parametro::create(['nombre' => 'CITA EN REGISTRADURÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3034,
+    
   }
 }

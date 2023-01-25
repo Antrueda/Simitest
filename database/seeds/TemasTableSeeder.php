@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 class TemasTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds.  
      *
      * @return void
      */
@@ -445,6 +445,7 @@ class TemasTableSeeder extends Seeder
         Tema::create(['nombre' => 'MODALIDAD ETAPA PRODUCTIVA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 423
         Tema::create(['nombre' => 'NOVEDAD INACTIVACIÓN', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 424
         Tema::create(['nombre' => 'FORMULARIO TRAMITE POLIZA DE VIDA', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 425
+        Tema::create(['nombre' => 'FORMULARIO DOCUMENTACIÓN Y/O TRÁMITES ADMINISTRATIVOS', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:14:53.000000Z', 'updated_at' => '2022-01-27T04:14:53.000000Z',]); // 426
 
     }
 }
