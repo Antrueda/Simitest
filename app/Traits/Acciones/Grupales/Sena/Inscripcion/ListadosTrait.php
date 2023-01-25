@@ -233,7 +233,7 @@ trait ListadosTrait
     public function getNnajInscri(Request $request, InscriConve $padrexxx)
     {
         if ($request->ajax()) {
-            $request->routexxx = ['imatriculannaj'];
+            $request->routexxx = ['inscrnnaj'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.elimasis';
             $request->estadoxx = 'layouts.components.botones.estadosx';

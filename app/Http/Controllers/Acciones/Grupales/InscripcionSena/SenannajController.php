@@ -43,7 +43,7 @@ class SenannajController extends Controller
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['inscricon.editar', [$padrexxx->id]], 2, 'VOLVER A INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$padrexxx->id]], 2, 'VOLVER A INSCRIPCIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
 
@@ -85,7 +85,7 @@ class SenannajController extends Controller
         $this->opciones['padrexxx'] =$modeloxx->convenio;
         $padrexxx = $modeloxx->convenio;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['inscricon.editar', [$modeloxx->inconve_id]], 2, 'VOLVER INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$modeloxx->inconve_id]], 2, 'VOLVER INSCRIPCIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR NNAJ', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]
@@ -110,7 +110,7 @@ class SenannajController extends Controller
        
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['inscricon.editar', [$padrexxx->id]], 2, 'VOLVER A INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$padrexxx->id]], 2, 'VOLVER A INSCRIPCIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'GUARDAR ', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR NNAJ', 'btn btn-sm btn-primary']);
          return $this->view(
@@ -124,7 +124,7 @@ class SenannajController extends Controller
         $this->opciones['padrexxx'] =$modeloxx->iMatricula;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['inscricon.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A INSCRICIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['inscricon.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A INSCRIPCIÓN FORMACIÓN TÉCNICA', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]

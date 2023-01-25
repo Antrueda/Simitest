@@ -65,7 +65,7 @@
   <div class="col-md-4">
         {{ Form::label('sis_esta_id', 'Estado', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ?
-        'form-control is-invalid' : 'form-control','data-placeholder' => 'Seleccione un estado', 'onchange' => 'doc1(this.value)']) }}
+        'form-control form-control-sm is-invalid ' : 'form-control form-control-sm','data-placeholder' => 'Seleccione un estado', 'onchange' => 'doc1(this.value)']) }}
         @if($errors->has('sis_esta_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_esta_id') }}
