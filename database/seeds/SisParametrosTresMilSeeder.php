@@ -1093,6 +1093,20 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'MUERTE VIOLENTA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3032,
     Parametro::create(['nombre' => 'REGISTRADURÍA NACIONAL DEL ESTADO CIVIL', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3033,
     Parametro::create(['nombre' => 'CITA EN REGISTRADURÍA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3034,
+    Parametro::create(['nombre' => 'ACUERDO DE CORRESPONSABILIDAD CULTURA CIUDADANA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3035,
+    Parametro::create(['nombre' => 'APOYO ECONÓMICO PARA LA EXPEDICIÓN DEL DOCUMENTO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3036,
+    Parametro::create(['nombre' => 'PRE-REGISTRO TRAMITE REALIZADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3037,
+    Parametro::create(['nombre' => 'ENTREGA CERTIFICADO DEFINICIÓN SITUACIÓN MILITAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3038,
+    Parametro::create(['nombre' => 'GESTIÓN LIBRETA MILITAR EFECTIVA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3039,
+    Parametro::create(['nombre' => 'REGISTRO PÁGINA WEB', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3040,
+    Parametro::create(['nombre' => 'CONSULTA EN PÁGINA WEB Y ORIENTACIÓN', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3041,
+    Parametro::create(['nombre' => 'ASISTENCIA', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3042,
+    Parametro::create(['nombre' => 'CONSTANCIAS Y/O CERTIFICADOS', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3043,
+    Parametro::create(['nombre' => 'DOCUMENTACIÓN Y/O TRÁMITES', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3044,
+    Parametro::create(['nombre' => 'SOLICITUD DE CERTIFICADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3045,
+    Parametro::create(['nombre' => 'ENTREGA DE CERTIFICADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3046,
+   
+
     
   }
 }
