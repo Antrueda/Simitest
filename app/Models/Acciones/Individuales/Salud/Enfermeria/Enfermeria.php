@@ -26,6 +26,7 @@ class Enfermeria extends Model
 
         'sis_nnaj_id',
         'sis_depen_id',
+        'sis_serv_id',
         'fecha',
         'sintoma',
         'prm_motivoat_id',
@@ -47,6 +48,11 @@ class Enfermeria extends Model
     //     return $this->belongsTo(AsdActividad::class, 'asd_actividad_id');
     // }
 
+
+    public function sisServ()
+    {
+        return $this->belongsTo(SisServicio::class, 'sis_serv_id');
+    }
 
     public function asdActividad()
     {

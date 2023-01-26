@@ -23,6 +23,7 @@ class CreateEnfermeriasTable extends Migration
 
                 $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ');
                 $table->integer('sis_depen_id')->unsigned()->comment('UPI/DEPENDENCIA');
+                $table->integer('sis_serv_id')->unsigned()->comment('SERVICIOS');
                 $table->date('fecha')->comment('FECHA DE APLICACION');
                 $table->text('sintoma')->comment('SINTOMA DE USUARIO');
                 $table->integer('prm_motivoat_id')->unsigned()->comment('MOTIVO ATENCION');
@@ -34,6 +35,7 @@ class CreateEnfermeriasTable extends Migration
 
                 $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
                 $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
+                $table->foreign('sis_serv_id')->references('id')->on('sis_servicios');
                 $table->foreign('prm_motivoat_id')->references('id')->on('parametros');
                 $table->foreign('prm_tipoaten_id')->references('id')->on('parametros');
                 $table->foreign('user_fun_id')->references('id')->on('users');

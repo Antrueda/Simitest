@@ -104,6 +104,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
+/*        
         'oracle' => [
             'driver' => 'oracle',
             'host' => env('DB_HOSTO', 'localhost'),
@@ -116,6 +117,19 @@ return [
             'prefix' => '',
             'tns'            => env('DB_TNS', ''),
         ],
+*/
+        'oracle' => [    
+            'driver' => 'oracle',    
+            'host' => env('DB_HOSTO', 'localhost'),    
+            'port' => env('DB_PORTO', '1521'),    
+            'database' => env('DB_DATABASEO', 'xe'),    
+            'username' => env('DB_USERNAMEO', 'NEIDER'),    
+            'password' => env('DB_PASSWORDO', 'Simi2023'),    
+            'charset' => 'utf8',    
+            'collation' => 'utf8_unicode_ci',    
+            'prefix' => '',    
+            'tns'   => env('DB_TNS', ''),],
+
         'simiantiguo' => [
             'driver' => 'oracle',
             'host' => env('DB_HOSTANTIGUO', 'localhost'),

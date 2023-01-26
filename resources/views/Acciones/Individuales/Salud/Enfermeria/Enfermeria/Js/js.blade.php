@@ -2,7 +2,7 @@
 <script>
     $(() => {
         let dependen = '{{old("sis_depen_id")}}';
-        let servicio = '{{old("sis_servicio_id")}}';
+        let servicio = '{{old("sis_serv_id")}}';
         let grupoxxx = '{{old("prm_grupo_id")}}';
         let gradoxxx = '{{old("eda_grados_id")}}';
         let tipoacti = '{{ old("tipoacti_id") }}';
@@ -17,15 +17,6 @@
         let old_tipoacti = '{{ old("tipoacti_id") }}';
         let old_actividade = '{{ old("vacuna_id") }}';
 
-        var fechaPuede;
-
-
-        @if(isset($todoxxxx['puedeeditar']))
-            @if($todoxxxx['puedeeditar'] == 1)
-                fechapuede($('#sis_depen_id').val());
-                armarfechaFinal( $("#prm_fecha_inicio").val());
-            @endif
-        @endif
 
         var f_repsable = function(dataxxxx) {
         $.ajax({
@@ -52,7 +43,7 @@
                     selected: [selected]
                 },
                 urlxxxxx: '{{ route("asissema.servicio") }}',
-                campoxxx: 'sis_servicio_id',
+                campoxxx: 'sis_serv_id',
                 mensajex: 'Exite un error al cargar los los servicios de la upi'
             }
             f_comboGeneral(dataxxxx);
@@ -475,81 +466,13 @@ function cambioeps(){
 
         if (dependen !== '') {
             f_sis_depen(servicio);
-
-            if (servicio !== '') {
-                if (gradoxxx !== '') {
-                    f_grado(gradoxxx, dependen, servicio);
-                } else {
-                    f_grado(0, dependen, servicio);
-                }
-                if (grupoxxx !== '') {
-                    f_grupo(grupoxxx, dependen, servicio);
-                } else {
-                    f_grupo(0, dependen, servicio);
-                }
-            }
-
-            if (tipoacti !== '') {
-                if (actividade !== '') {
-                    f_actividad(actividade, dependen, tipoacti);
-                } else {
-                    f_actividad(0, dependen, tipoacti);
-                }
-            }
-
-            if (tipocurso !== '') {
-                if (curso !== '') {
-                    f_curso(curso,tipocurso);
-                } else {
-                    f_curso(0,tipocurso);
-                }
-            }
-            fechapuede(dependen);
-
-            let fechaold = '{{ old("prm_fecha_inicio") }}';
-            $("#prm_fecha_inicio").val(fechaold)
-            armarfechaFinal( $("#prm_fecha_inicio").val());
         }
 
 
         $('#sis_depen_id').change(() => {
             let dependen = $('#sis_depen_id').find(":selected").val();
-            let tipoacti = inputTipoacti.find(':selected').val();
-
             f_sis_depen(0);
-            fechapuede($('#sis_depen_id').val());
-            f_repsable({dataxxxx:{padrexxx:$('#sis_depen_id').val(),selected:''}})
-            $("#prm_fecha_inicio").val('');
-            f_actividad(0, dependen, tipoacti);
         });
-
-        $('#sis_servicio_id').change(() => {
-            let dependen = $('#sis_depen_id').find(":selected").val();
-            let servicio = $('#sis_servicio_id').find(":selected").val();
-            f_grado(0, dependen, servicio);
-            f_grupo(0, dependen, servicio);
-        })
-
-     
-        let cambiarEstadoAsisten = function(asistenx,fechaxxx,valorxxx) {
-            $.ajax({
-                url: "{{ route('asissema.estadoasis')}}",
-                type: 'POST',
-                data: {
-                    'asistenx': asistenx,
-                    'fechaxxx': fechaxxx,
-                    'valorxxx': valorxxx,
-                    "_token": "{{ csrf_token() }}",
-                },
-                dataType: 'json',
-                success: function(json) {
-
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existiÃ³ un problema');
-                }
-            });
-        }
 
         // cuando cargue o cambien nombre del programa o actividada
         f_nom_actividad();

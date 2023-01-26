@@ -35,6 +35,17 @@ table, th, td {
         @endif
     </div>
 
+    <div class="form-group col-md-6">
+        {!! Form::label('sis_serv_id', 'TIPO DE SERVICIO:', ['class' => 'control-label col-form-label-sm']) !!}
+        {!! Form::select('sis_serv_id', $todoxxxx['sis_servicios'], null, ['class' => 'form-control form-control-sm select2', 'required']) !!}
+        @if($errors->has('sis_serv_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('sis_serv_id') }}
+        </div>
+        @endif
+    </div>
+
+
         <div class="form-group col-md-6">
         {{ Form::label('fecha', 'Fecha de diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
