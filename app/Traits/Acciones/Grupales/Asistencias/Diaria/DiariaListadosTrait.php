@@ -2,15 +2,16 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Diaria;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\sistema\SisNnaj;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\AdmiActiAsd\AsdActividad;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdDiaria;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdSisNnaj;
 use App\Models\Acciones\Grupales\Asistencias\Diaria\AsdNnajActividades;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 
 /**
@@ -236,6 +237,16 @@ trait DiariaListadosTrait
 
 
                     //->where('asd_sis_nnajs.deleted_at','<>',$padrexxx->id);
+                })
+                ->where(function ($queryxxx) {
+                    $menorxxx = Carbon::now();
+                    $mayorxxx = Carbon::now();
+                    $menorxxx->subYears(6);
+                    $mayorxxx->subYears(29);
+                    $mayorxxx->addDay(1);
+                    $menorxxx = $menorxxx->format('Y-m-d');
+                    $mayorxxx = $mayorxxx->format('Y-m-d');
+                    $queryxxx->whereBetween('nnaj_nacimis.d_nacimiento', [$mayorxxx, $menorxxx]);
                 });
 
             if ($padrexxx->dependencia->prm_recreativa_id != 227 && $padrexxx->sis_servicio_id != 6) {
