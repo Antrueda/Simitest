@@ -1105,6 +1105,8 @@ class SisParametrosTresMilSeeder extends Seeder
     Parametro::create(['nombre' => 'DOCUMENTACIÓN Y/O TRÁMITES', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3044,
     Parametro::create(['nombre' => 'SOLICITUD DE CERTIFICADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3045,
     Parametro::create(['nombre' => 'ENTREGA DE CERTIFICADO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3046,
+    Parametro::create(['nombre' => 'TRÁMITE MIGRATORIO', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3047,
+    Parametro::create(['nombre' => 'LIBRETA MILITAR', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'created_at' => '22-12-2022 09:11:19 PM', 'updated_at' => '22-12-2022 09:11:19 PM',]); // 3048,
    
 
     

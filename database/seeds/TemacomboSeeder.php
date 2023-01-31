@@ -525,6 +525,7 @@ class TemacomboSeeder extends Seeder
     Temacombo::create(['nombre' => 'DOCUMENTACIÓN Y/O TRÁMITES ADMINISTRATIVOS MOTIVO', 'tema_id' => '426', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 505
     Temacombo::create(['nombre' => 'DOCUMENTACIÓN Y/O TRÁMITES ADMINISTRATIVOS TIPO DE ACCIÓN', 'tema_id' => '426', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 506
     Temacombo::create(['nombre' => 'DOCUMENTACIÓN Y/O TRÁMITES ADMINISTRATIVOS TIPO DE TRÁMITE CONSTANCIAS Y/O CERTIFICADOS', 'tema_id' => '426', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 507
+    Temacombo::create(['nombre' => 'DOCUMENTACIÓN Y/O TRÁMITES ADMINISTRATIVOS TIPO DE DOCUMENTO', 'tema_id' => '426', 'user_crea_id' => '1', 'user_edita_id' => '1', 'sis_esta_id' => '1', 'created_at' => '2022-01-27T04:50:36.000000Z', 'updated_at' => '2022-01-27T04:50:36.000000Z',]); // 508
     
   }
 }
