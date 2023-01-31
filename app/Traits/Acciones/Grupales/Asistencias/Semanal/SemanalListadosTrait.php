@@ -2,9 +2,10 @@
 
 namespace App\Traits\Acciones\Grupales\Asistencias\Semanal;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Models\sistema\SisNnaj;
 
+use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\DB;
 use App\Models\AdmiActi\Actividade;
@@ -298,6 +299,16 @@ trait SemanalListadosTrait
                     ->where('i_matriculas.prm_grado', $padrexxx->eda_grados_id)
                     ->where('i_matriculas.prm_grupo', $padrexxx->prm_grupo_id)
                     ->where('i_matricula_nnajs.sis_esta_id', 1)
+                    ->where(function ($queryxxx) {
+                        $menorxxx = Carbon::now();
+                        $mayorxxx = Carbon::now();
+                        $menorxxx->subYears(6);
+                        $mayorxxx->subYears(29);
+                        $mayorxxx->addDay(1);
+                        $menorxxx = $menorxxx->format('Y-m-d');
+                        $mayorxxx = $mayorxxx->format('Y-m-d');
+                        $queryxxx->whereBetween('nnaj_nacimis.d_nacimiento', [$mayorxxx, $menorxxx]);
+                    })
                     ->where('sis_nnajs.prm_escomfam_id', 227);
             }
             //asistencia convenio 
@@ -333,7 +344,18 @@ trait SemanalListadosTrait
                     ->where('sis_nnajs.sis_esta_id', 1)
                     ->where('nnaj_upis.sis_esta_id', 1)
                     ->where('nnaj_upis.sis_depen_id', $padrexxx->sis_depen_id)
-                    ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id);
+                    ->where('nnaj_deses.sis_servicio_id', $padrexxx->sis_servicio_id)
+                    ->where(function ($queryxxx) {
+                        $menorxxx = Carbon::now();
+                        $mayorxxx = Carbon::now();
+                        $menorxxx->subYears(6);
+                        $mayorxxx->subYears(29);
+                        $mayorxxx->addDay(1);
+                        $menorxxx = $menorxxx->format('Y-m-d');
+                        $mayorxxx = $mayorxxx->format('Y-m-d');
+                        $queryxxx->whereBetween('nnaj_nacimis.d_nacimiento', [$mayorxxx, $menorxxx]);
+                    })
+                    ->where('sis_nnajs.prm_escomfam_id', 227);
                 // ->where('asd_sis_nnajs.sis_nnaj_id',null);
             }
             //formacion tecnica-convenios
@@ -374,6 +396,16 @@ trait SemanalListadosTrait
                     ->where('matricula_cursos.prm_grupo', $padrexxx->prm_grupo_id)
                     ->where('matricula_cursos.curso_id', $padrexxx->curso_id)
                     ->where('matricula_cursos.sis_esta_id', 1)
+                    ->where(function ($queryxxx) {
+                        $menorxxx = Carbon::now();
+                        $mayorxxx = Carbon::now();
+                        $menorxxx->subYears(6);
+                        $mayorxxx->subYears(29);
+                        $mayorxxx->addDay(1);
+                        $menorxxx = $menorxxx->format('Y-m-d');
+                        $mayorxxx = $mayorxxx->format('Y-m-d');
+                        $queryxxx->whereBetween('nnaj_nacimis.d_nacimiento', [$mayorxxx, $menorxxx]);
+                    })
                     ->where('sis_nnajs.prm_escomfam_id', 227);
             }
 
