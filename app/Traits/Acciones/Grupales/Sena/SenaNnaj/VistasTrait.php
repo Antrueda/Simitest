@@ -49,6 +49,9 @@ trait VistasTrait
             $dataxxxx['modeloxx']->s_nombre_identitario=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_sexo->s_nombre_identitario;
             $dataxxxx['modeloxx']->prm_serv_id=$dataxxxx['modeloxx']->prm_serv_id;
             $dataxxxx['modeloxx']->aniosxxx=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_nacimi->Edad;
+            $dataxxxx['modeloxx']->fechapro_inicio = explode(' ', $dataxxxx['modeloxx']->fechapro_inicio)[0];
+            $dataxxxx['modeloxx']->fechapro_final = explode(' ', $dataxxxx['modeloxx']->fechapro_final)[0];
+            $dataxxxx['modeloxx']->fechainactivo = explode(' ', $dataxxxx['modeloxx']->fechainactivo)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][] = $dataxxxx['modeloxx']->id;

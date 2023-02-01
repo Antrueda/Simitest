@@ -118,18 +118,26 @@ trait ListadosTrait
             $dataxxxx =  InscriConve::select([
                 'inscri_conves.id',
                 'inscri_conves.fecha',
-                // 'grado.s_grado as grado',
-                // 'grupo_matriculas.s_grupo',
+                'inscri_conves.fecha_inicio',
+                'inscri_conves.fecha_final',
+                'inscri_conves.numficha',
+                'programas.nombre as progra',
+                'tipoprogramas.nombre as tipopro',
+                'modalidads.nombre as modal',
+                'sede_centros.nombre as sede',
+                'convenios.nombre as conve',
                 'upi.nombre as upi',
-          
                 'users.name',
                 'inscri_conves.sis_esta_id',
                 'inscri_conves.created_at',
             ])
                 ->join('sis_depens as upi', 'inscri_conves.upi_id', '=', 'upi.id')
                 ->join('users', 'inscri_conves.user_id', '=', 'users.id')
-                // ->join('eda_grados as grado', 'inscri_conves.prm_grado', '=', 'grado.id')
-                // ->join('grupo_matriculas', 'inscri_conves.prm_grupo', '=', 'grupo_matriculas.id')
+                ->join('programas', 'inscri_conves.progra_id', '=', 'programas.id')
+                ->join('tipoprogramas', 'inscri_conves.tipop_id', '=', 'tipoprogramas.id')
+                ->join('modalidads', 'inscri_conves.modal_id', '=', 'modalidads.id')
+                ->join('sede_centros', 'inscri_conves.sede_id', '=', 'sede_centros.id')
+                ->join('convenios', 'inscri_conves.conve_id', '=', 'convenios.id')
                 ->join('sis_estas', 'inscri_conves.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDtMatri($dataxxxx, $request);
         }
@@ -233,7 +241,7 @@ trait ListadosTrait
     public function getNnajInscri(Request $request, InscriConve $padrexxx)
     {
         if ($request->ajax()) {
-            $request->routexxx = ['imatriculannaj'];
+            $request->routexxx = ['inscrnnaj'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.elimasis';
             $request->estadoxx = 'layouts.components.botones.estadosx';

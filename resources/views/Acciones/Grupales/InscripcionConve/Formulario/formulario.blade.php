@@ -96,7 +96,7 @@
         @endif
     </div>
     <div class="col-md-4"> 
-        {{ Form::label('upi_id', 'UPI/Área/Dependdencia', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('upi_id', 'UPI/Área/Dependencia', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('upi_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
         @if ($errors->has('upi_id'))
             <div class="invalid-feedback d-block">
