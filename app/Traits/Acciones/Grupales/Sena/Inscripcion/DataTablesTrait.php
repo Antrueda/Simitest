@@ -28,7 +28,7 @@ trait DataTablesTrait
                     'titunuev' => 'REGISTRAR NUEVA INSCRIPCIÓN FORMACIÓN TÉCNICA CONVENIOS',
                     'titulist' => 'LISTA DE INSCRIPCIONES FORMACIÓN TÉCNICA CONVENIOS',
                     'titupreg'=> '',
-                    'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                    'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.indexsearch',
                     'vercrear' => true,
                     'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx'),
                     'permtabl' => [
@@ -43,7 +43,13 @@ trait DataTablesTrait
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'CONVENIO/ENTIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'PROGRAMA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TIPO DE PROGRAMA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FICHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'MODALIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DE INICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA FINAL ', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'RESPONSABLE DEL CARGUE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -53,10 +59,13 @@ trait DataTablesTrait
                         ['data' => 'botonexx', 'name' => 'botonexx'],
                         ['data' => 'id', 'name' => 'inscri_conves.id'],
                         ['data' => 'fecha', 'name' => 'inscri_conves.fecha'],
-                        ['data' => 'upi', 'name' => 'upi.nombre as upi'],
-                        // ['data' => 'servicio', 'name' => 'servicio.s_servicio as servicio'],
-                        // ['data' => 'grado', 'name' => 'grado.s_grado as grado'],
-                        // ['data' => 's_grupo', 'name' => 'grupo_matriculas.s_grupo'],
+                        ['data' => 'conve', 'name' => 'convenios.nombre as conve'],
+                        ['data' => 'progra', 'name' => 'programas.nombre as progra'],
+                        ['data' => 'tipopro', 'name' => 'tipoprogramas.nombre as tipopro'],
+                        ['data' => 'numficha', 'name' => 'inscri_conves.numficha'],
+                        ['data' => 'modal', 'name' => 'modalidads.nombre as modal'],
+                        ['data' => 'fecha_inicio', 'name' => 'inscri_conves.fecha_inicio'],
+                        ['data' => 'fecha_final', 'name' => 'inscri_conves.fecha_final'],
                         ['data' => 'contado', 'name' => 'contado'],
                         ['data' => 'name', 'name' => 'users.name'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
@@ -67,6 +76,8 @@ trait DataTablesTrait
                     'parametr' => [],
                 ]
             ];
+            $dataxxxx['searchxx']=[0,0,'FECHA DE DILIGENCIAMIENTO','CONVENIO/ENTIDAD','PROGRAMA','TIPO DE PROGRAMA','FICHA','MODALIDAD','FECHA DE INICIO','FECHA FINAL','BENEFICIARIOS','RESPONSABLE DEL CARGUE',0];
+
         }else {
             $vercrear=false;
             $parametr=InscriConve::count('id')+1;
@@ -138,4 +149,5 @@ trait DataTablesTrait
         return $dataxxxx;
     }
 }
+
 
